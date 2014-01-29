@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'tch_start'
+TchStart.root_dir = TchStart.cache_dir = File.expand_path('../..', __FILE__)
+TchStart::Command.new.call
