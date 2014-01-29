@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = TchStart::VERSION
   spec.authors       = ["Shaun Dern"]
   spec.email         = ["shaun@substantial.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{script for starting a Tch Story}
+  spec.summary       = %q{script for starting a Tch Story}
   spec.homepage      = ""
   spec.license       = "MIT"
 
