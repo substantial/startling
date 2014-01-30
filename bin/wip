@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'tch_start'
-TchStart.root_dir = TchStart.cache_dir = File.expand_path('../..', __FILE__)
+require_relative '../lib/tch_start'
+TchStart.root_dir = TchStart.cache_dir = Dir.pwd
 wip = TchStart::Work.in_progress
 TchStart::WorkPrinter.new.print wip

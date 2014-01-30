@@ -1,9 +1,8 @@
-require 'action_view'
-I18n.enforce_available_locales = false # to silence warning
+require_relative './time_format_helpers'
 
 module TchStart
   class WorkPrinter
-    include ActionView::Helpers::DateHelper
+    include TimeFormatHelpers
 
     def print(works)
       puts works.sort_by(&:started_at).map { |work| format_work(work) }.join("\n\n")
@@ -25,7 +24,7 @@ module TchStart
     end
 
     def ago(time)
-      "#{time_ago_in_words time} ago".yellow
+      "#{format_time(time)} ago".yellow
     end
 
     def count(works)
