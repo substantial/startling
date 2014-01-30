@@ -24,7 +24,7 @@ module TchStart
     end
 
     def ago(time)
-      "#{format_time(time)} ago".yellow
+      time_from_now(time).yellow
     end
 
     def count(works)
