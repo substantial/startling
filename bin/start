@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'tch_start'
-TchStart.root_dir = TchStart.cache_dir = Dir.pwd
-TchStart::Command.new.call
+require 'teaching-channel-start'
+TeachingChannelStart.root_dir = TeachingChannelStart.cache_dir = Dir.pwd
+TeachingChannelStart::Command.new.call

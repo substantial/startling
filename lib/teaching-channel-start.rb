@@ -1,6 +1,6 @@
-require_relative 'tch_start/command'
+require_relative 'teaching-channel-start/command'
 
-module TchStart
+module TeachingChannelStart
   VALID_ESTIMATES = [0, 1, 2, 4, 8, 16, 32, 64, 128]
   WIP_LIMIT = 4
   REPOS = %w[

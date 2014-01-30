@@ -3,7 +3,7 @@ require 'parallel'
 
 require_relative 'github'
 
-module TchStart
+module TeachingChannelStart
   class Work
     attr_reader :pull_requests, :branch
 

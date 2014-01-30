@@ -1,7 +1,7 @@
 require 'parallel'
 require_relative 'pull_request'
 
-module TchStart
+module TeachingChannelStart
   module Github
     class Api
       def initialize
@@ -33,7 +33,7 @@ module TchStart
       end
 
       def access_token
-        TchStart.cache.fetch('.github_access_token') do
+        TeachingChannelStart.cache.fetch('.github_access_token') do
           begin
             Octokit::Client.new(login: prompt_for_login, password: prompt_for_password)
               .create_authorization(scopes: ["repo"])[:token]

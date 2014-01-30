@@ -1,4 +1,4 @@
-module TchStart
+module TeachingChannelStart
   module Github
     class PullRequest
       attr_reader :pull_request

@@ -16,7 +16,7 @@ require_relative 'work_printer'
 # method the script for the step-by-step. It currently depends on hub being
 # installed and uses the Pivotal Tracker API via curl.
 
-module TchStart
+module TeachingChannelStart
   class Command
     def call
       check_for_local_mods
@@ -32,7 +32,7 @@ module TchStart
     end
 
     def cache
-      TchStart.cache
+      TeachingChannelStart.cache
     end
 
     def check_for_hub
@@ -110,7 +110,7 @@ module TchStart
     end
 
     def changelog_path
-      File.join(TchStart.root_dir, changelog_filename)
+      File.join(TeachingChannelStart.root_dir, changelog_filename)
     end
 
     def pull_request_filename
@@ -118,7 +118,7 @@ module TchStart
     end
 
     def pull_request_path
-      File.join(TchStart.root_dir, pull_request_filename)
+      File.join(TeachingChannelStart.root_dir, pull_request_filename)
     end
 
     def read_changelog

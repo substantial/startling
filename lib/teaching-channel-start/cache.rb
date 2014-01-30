@@ -1,4 +1,4 @@
-module TchStart
+module TeachingChannelStart
   class Cache
     attr_reader :cache_dir
 

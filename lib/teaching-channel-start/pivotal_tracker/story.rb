@@ -1,4 +1,4 @@
-module TchStart
+module TeachingChannelStart
   module PivotalTracker
     class Story
       attr_reader :story_id, :token

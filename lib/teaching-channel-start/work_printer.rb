@@ -1,6 +1,6 @@
 require_relative './time_format_helpers'
 
-module TchStart
+module TeachingChannelStart
   class WorkPrinter
     include TimeFormatHelpers
 

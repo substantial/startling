@@ -1,4 +1,4 @@
-# TchStart
+# TeachingChannelStart
 
 TODO: Write a gem description
 
@@ -6,7 +6,7 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'tch_start'
+    gem 'teaching-channel-start'
 
 And then execute:
 
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install tch_start
+    $ gem install teaching-channel-start
 
 ## Usage
 

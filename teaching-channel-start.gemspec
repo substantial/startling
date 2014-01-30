@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'tch_start/version'
+require 'teaching-channel-start/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "tch_start"
-  spec.version       = TchStart::VERSION
+  spec.name          = "teaching-channel-start"
+  spec.version       = TeachingChannelStart::VERSION
   spec.authors       = ["Aaron Jensen", "Shaun Dern"]
   spec.email         = ["shaun@substantial.com"]
   spec.description   = %q{script for starting a Tch Story}

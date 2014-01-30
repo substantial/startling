@@ -1,4 +1,4 @@
-module TchStart
+module TeachingChannelStart
   module Github
     class Repo
       attr_reader :name, :api

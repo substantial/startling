@@ -1,4 +1,4 @@
-module TchStart
+module TeachingChannelStart
   module PivotalTracker
     class Client
       class << self
