@@ -13,11 +13,21 @@ describe TimeFormatHelpers, "#time_from_now" do
 
   it "rounds down to the nearest hour" do
     time = Time.now - (1 * hour)
-    time_from_now(time).should == '1 hours ago'
+    time_from_now(time).should == '1 hour ago'
   end
 
    it "includes days and hours" do
      time = Time.now - ((2 * day) + (4 * hour))
      time_from_now(time).should == '2 days 4 hours ago'
+   end
+
+   it "rounds down to the nearest day" do
+     time = Time.now - ((1 * day) + (2 * minute))
+     time_from_now(time).should == '1 day ago'
+   end
+
+   it "handles future times" do
+     time = Time.now + ((1 * day) + (2 * minute))
+     time_from_now(time).should == '1 day from now'
    end
 end
