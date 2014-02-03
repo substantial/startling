@@ -10,7 +10,7 @@ module TeachingChannelStart
     end
 
     def self.repo(name)
-      Repo.new(name, api)
+      api.repository(name)
     end
   end
 end

@@ -6,6 +6,7 @@ module TeachingChannelStart
     class Api
       def initialize
         @lock = Mutex.new
+        @repositories = {}
       end
 
       def pull_requests(repo)
@@ -13,8 +14,13 @@ module TeachingChannelStart
         Parallel.map(raw, in_threads: raw.count) { |pull| PullRequest.new(pull) }
       end
 
+      def repository(name)
+        repositories[name] ||= Repo.new(name, self)
+
+      end
+
       private
-      attr_reader :lock
+      attr_reader :lock, :repositories
 
       def octokit
         lock.synchronize do
@@ -23,7 +29,7 @@ module TeachingChannelStart
       end
 
       def build_octokit
-        stack = Faraday::Builder.new do |builder|
+        stack = Faraday::RackBuilder.new do |builder|
           #builder.response :logger
           builder.use Octokit::Response::RaiseError
           builder.adapter Faraday.default_adapter
