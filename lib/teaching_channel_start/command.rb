@@ -29,7 +29,7 @@ module TeachingChannelStart
       set_pivotal_api_token
       check_wip
       start_story
-      create_branch if branch_name
+      create_branch if branch_name != current_branch
       update_changelog
       url = open_pull_request
       amend_commit_with_pull_request(url)
@@ -234,7 +234,7 @@ BODY
 
       if branch.empty?
         if current_branch_is_a_feature_branch?
-          return nil
+          return current_branch
         else
           abort "Branch name must be specified when current branch is not feature/."
         end
@@ -245,7 +245,11 @@ BODY
     end
 
     def current_branch_is_a_feature_branch?
-      `git symbolic-ref -q --short HEAD` =~ %r{^feature/}
+       current_branch =~ %r{^feature/}
+    end
+
+    def current_branch
+      `git symbolic-ref -q --short HEAD`.strip
     end
   end
 end

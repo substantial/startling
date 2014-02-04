@@ -28,6 +28,8 @@ module TeachingChannelStart
         response = octokit.create_pull_request(repo_name, destination_branch, branch, title, body)
         response.data
       rescue Octokit::UnprocessableEntity => e
+        puts "Failed to open pull request, it may be open already"
+        p e
         nil
       end
 
