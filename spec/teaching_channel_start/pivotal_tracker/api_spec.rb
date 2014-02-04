@@ -4,7 +4,7 @@ require 'teaching_channel_start/pivotal_tracker/api'
 module TeachingChannelStart
   module PivotalTracker
     describe Api do
-      let(:api_token) { ENV.fetch 'TEST_PIVOTAL_TRACKER_API_TOKEN' }
+      let(:api_token) { Tokens.pivotal_tracker }
       let(:api) { Api.new(api_token: api_token) }
 
       specify "#user_id should return the id of the current user",
