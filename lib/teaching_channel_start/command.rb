@@ -12,8 +12,8 @@ require_relative 'work_printer'
 # script/start
 #
 # This script automates the process of starting a new story. Check the call
-# method the script for the step-by-step. It currently depends on hub being
-# installed and uses the Pivotal Tracker API.
+# method the script for the step-by-step. It uses the Github and
+# Pivotal Tracker APIs.
 
 module TeachingChannelStart
   class Command
@@ -25,7 +25,6 @@ module TeachingChannelStart
 
     def call
       check_for_local_mods
-      check_for_hub
       print_help
       set_pivotal_api_token
       check_wip
@@ -38,15 +37,6 @@ module TeachingChannelStart
 
     def cache
       TeachingChannelStart.cache
-    end
-
-    def check_for_hub
-      unless system "which hub > /dev/null 2>&1"
-        puts "Please install hub with:
-
-      $ brew install hub"
-        exit 1
-      end
     end
 
     def print_help
@@ -145,30 +135,6 @@ MSG
       run "git commit -qm #{commit_msg.shellescape}"
     end
 
-    def pull_request_editor
-      # hub doens't have a way to set the body of the pull request from the command
-      # line, just the title. This uses vim to do it automatically.
-
-      browsers = [
-        "IE8 (minor issues are acceptable)",
-        "IE9",
-        "IE10",
-        "IE11",
-        "Firefox",
-        "Safari",
-        "Chrome",
-      ]
-      browser_checkboxes = browsers.map { |browser| "- [ ] Test in #{browser}" }.join("\\<cr>")
-      commands = [
-        "normal ggcGWIP: #{story.name}",
-        "exe \"normal o\\<cr>#{story.url}\\<cr>\\<cr>#{browser_checkboxes}\"",
-        "wq"
-      ].map { |command| "+#{command.shellescape}" }
-      vim = "#{`command which vim`.chomp} #{commands.join(" ")}".shellescape
-
-      "GIT_EDITOR=#{vim}"
-    end
-
     def check_for_local_mods
       return if `git status --porcelain`.empty?
 
@@ -183,13 +149,38 @@ MSG
       run "git checkout -q #{branch_name} 2>/dev/null || git checkout -q -b #{branch_name} origin/develop"
     end
 
+    def pull_request_title
+      "WIP: #{story.name}"
+    end
+
+    def pull_request_body
+      browsers = [
+        "IE8 (minor issues are acceptable)",
+        "IE9",
+        "IE10",
+        "IE11",
+        "Firefox",
+        "Safari",
+        "Chrome",
+      ]
+      browser_checkboxes = browsers.map { |browser| "- [ ] Test in #{browser}" }.join("\n")
+      <<BODY
+#{story.url}
+
+#{browser_checkboxes}
+BODY
+    end
+
     def open_pull_request
       puts "Opening pull request..."
       run "git push -qu origin HEAD > /dev/null"
-      url = run "env #{pull_request_editor} NOEXEC_DISABLE=1 ruby #{`command which hub`.chomp} pull-request -b develop -f"
-      url = url[/https:\/\/github\.com.*$/]
-      puts "Opened pull request: #{url}"
-      url
+      repo_name =  `git config --get remote.origin.url`[/:(.*)\.git/, 1]
+
+      repo = Github.repo(repo_name)
+      pull_request = repo.open_pull_request title: pull_request_title,
+        body: pull_request_body, branch: branch_name
+
+      pull_request.url
     end
 
     def amend_commit_with_pull_request(url)

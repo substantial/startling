@@ -15,7 +15,23 @@ module TeachingChannelStart
       end
 
       def repository(name)
-        repositories[name] ||= Repo.new(name, self)
+        Repo.new name, self
+      end
+
+      def repository_attributes(name)
+        octokit.repository(name)
+      end
+
+      def open_pull_request(title: nil, body: nil, branch: nil,
+        destination_branch: nil, repo_name: nil)
+        response = octokit.create_pull_request(repo_name, destination_branch, branch, title, body)
+        response.data
+      rescue Octokit::UnprocessableEntity => e
+        nil
+      end
+
+      def pull_request(repo_name, branch)
+        repository(repo_name).pull_request(branch)
       end
 
       private
