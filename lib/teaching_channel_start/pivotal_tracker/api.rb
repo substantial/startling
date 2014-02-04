@@ -2,7 +2,7 @@ require 'faraday'
 require 'json'
 
 module TeachingChannelStart
-  module PivotalTracker
+  class PivotalTracker
     class Api
       def initialize(api_token: nil)
         @api_token = api_token

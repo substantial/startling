@@ -1,5 +1,5 @@
 module TeachingChannelStart
-  module PivotalTracker
+  class PivotalTracker
     class Story
       attr_reader :story_id, :token, :api
 
@@ -28,15 +28,16 @@ module TeachingChannelStart
         @attrs ||= api.story story_id
       end
 
-      def request &block
-        raw_response = block.call
-        response = JSON.parse(raw_response)
+      def start(starter_id: nil, estimate: nil)
+        attrs = {
+          current_state: "started",
+          # owned_by_id is depricated, but I couldn't find an alternative
+          owned_by_id: starter_id,
+        }
 
-        unless response.has_key?("name")
-          raise raw_response
-        end
+        attrs[:estimate] = estimate if estimate
 
-        response
+        update(attrs)
       end
 
       # Sometimes stories have a note in front of their title like

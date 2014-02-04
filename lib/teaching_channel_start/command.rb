@@ -5,8 +5,7 @@ require 'shellwords'
 require 'colored'
 
 require_relative 'cache'
-require_relative 'pivotal_tracker/story'
-require_relative 'pivotal_tracker/api'
+require_relative 'pivotal_tracker'
 require_relative 'work'
 require_relative 'work_printer'
 
@@ -18,9 +17,10 @@ require_relative 'work_printer'
 
 module TeachingChannelStart
   class Command
-    attr_reader :args
+    attr_reader :args, :pivotal_tracker
     def initialize(args = ARGV)
       @args = args
+      @pivotal_tracker = PivotalTracker.new(pivotal_api_token)
     end
 
     def call
@@ -84,13 +84,6 @@ module TeachingChannelStart
       end
     end
     alias_method :set_pivotal_api_token, :pivotal_api_token
-
-    def pivotal_id(api_token=set_pivotal_api_token)
-      @pivotal_id ||= begin
-        api = PivotalTracker::Api.new(api_token: api_token)
-        api.user_id
-      end
-    end
 
     def run(command)
       result = `#{command}`
@@ -210,26 +203,13 @@ MSG
     end
 
     def story
-      @story ||= PivotalTracker::Story.new(story_id, pivotal_api)
-    end
-
-    def pivotal_api
-      @pivotal_api ||= PivotalTracker::Api.new(api_token: pivotal_api_token)
+      @story ||= pivotal_tracker.story(story_id)
     end
 
     def start_story
       puts "Starting story..."
-      update = {
-        current_state: "started",
-        # owned_by_id is depricated, but I couldn't find an alternative
-        owned_by_id: pivotal_id,
-      }
-
-      unless story.estimated?
-        update[:estimate] = ask_for_estimate
-      end
-
-      story.update(update)
+      estimate = ask_for_estimate unless story.estimated?
+      story.start(starter_id: pivotal_tracker.user_id, estimate: estimate)
     end
 
     def ask_for_estimate

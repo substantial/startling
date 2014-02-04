@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'teaching_channel_start/pivotal_tracker/api'
 
 module TeachingChannelStart
-  module PivotalTracker
+  class PivotalTracker
     describe Api do
       let(:api_token) { Tokens.pivotal_tracker }
       let(:api) { Api.new(api_token: api_token) }
