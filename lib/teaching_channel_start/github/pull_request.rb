@@ -1,19 +1,19 @@
 module TeachingChannelStart
   module Github
     class PullRequest
-      attr_reader :pull_request
+      attr_reader :attributes
 
-      def initialize(pull_request)
-        @pull_request = pull_request
-        prefetch_data
+      def initialize(attributes, prefetch_data: true)
+        @attributes = attributes
+        prefetch_data if prefetch_data
       end
 
       def title
-        pull_request.title
+        attributes.title
       end
 
       def branch
-        pull_request.head.ref
+        attributes.head.ref
       end
 
       def in_progress?
@@ -21,19 +21,19 @@ module TeachingChannelStart
       end
 
       def url
-        pull_request.rels[:html].href
+        attributes.rels[:html].href
       end
 
       def created_at
-        pull_request.created_at
+        attributes.created_at
       end
 
       def updated_at
-        pull_request.updated_at
+        attributes.updated_at
       end
 
       def author
-        @author ||= pull_request.user.rels[:self].get.data.name
+        @author ||= attributes.user.rels[:self].get.data.name
       end
 
       private
