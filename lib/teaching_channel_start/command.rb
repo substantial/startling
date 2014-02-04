@@ -5,7 +5,6 @@ require 'shellwords'
 require 'colored'
 
 require_relative 'cache'
-require_relative 'pivotal_tracker/client'
 require_relative 'pivotal_tracker/story'
 require_relative 'pivotal_tracker/api'
 require_relative 'work'
@@ -19,6 +18,11 @@ require_relative 'work_printer'
 
 module TeachingChannelStart
   class Command
+    attr_reader :args
+    def initialize(args = ARGV)
+      @args = args
+    end
+
     def call
       check_for_local_mods
       check_for_hub
@@ -46,7 +50,7 @@ module TeachingChannelStart
     end
 
     def print_help
-      if ARGV[0] == '--help' || ARGV[0] == '-h'
+      if args[0] == '--help' || args[0] == '-h'
         puts "Usage:
 
       $ script/start <story id> <branch name>
@@ -127,7 +131,7 @@ module TeachingChannelStart
     end
 
     def update_changelog
-      changelog_contents = read_changelog
+      changelog_contents = read_changelog || ''
       return if changelog_contents.include? story.name
 
       puts "Updating #{changelog_filename}..."
@@ -210,7 +214,7 @@ MSG
     end
 
     def pivotal_api
-      @pivotal_api ||= PivotalTracker::Api.new(pivotal_api_token)
+      @pivotal_api ||= PivotalTracker::Api.new(api_token: pivotal_api_token)
     end
 
     def start_story
@@ -242,7 +246,7 @@ MSG
     end
 
     def story_id
-      @story_id ||= ARGV.fetch(0) { ask("Enter story id to start: ") }
+      @story_id ||= args.fetch(0) { ask("Enter story id to start: ") }
     end
 
     def branch_name
@@ -251,8 +255,8 @@ MSG
     end
 
     def get_branch_name
-      branch = if ARGV.length > 1
-                 ARGV[1..-1].map(&:downcase).join('-')
+      branch = if args.length > 1
+                 args[1..-1].map(&:downcase).join('-')
                else
                  ask("Enter branch name (enter for current branch): ")
                end

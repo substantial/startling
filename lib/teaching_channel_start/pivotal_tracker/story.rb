@@ -1,7 +1,7 @@
 module TeachingChannelStart
   module PivotalTracker
     class Story
-      attr_reader :story_id, :token
+      attr_reader :story_id, :token, :api
 
       def initialize(story_id, api)
         @story_id = story_id

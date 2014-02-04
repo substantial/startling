@@ -4,10 +4,8 @@ require 'json'
 module TeachingChannelStart
   module PivotalTracker
     class Api
-      def initialize(options = {})
-        @api_token = options[:api_token]
-        @username = options[:username]
-        @password = options[:password]
+      def initialize(api_token: nil)
+        @api_token = api_token
       end
 
       def user_id

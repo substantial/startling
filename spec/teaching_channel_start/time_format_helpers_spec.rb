@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'teaching_channel_start/time_format_helpers'
 
 module TeachingChannelStart
   describe TimeFormatHelpers, "#time_from_now" do
