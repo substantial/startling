@@ -1,4 +1,5 @@
 require 'parallel'
+require 'faraday'
 require_relative 'pull_request'
 
 module TeachingChannelStart
@@ -44,7 +45,7 @@ module TeachingChannelStart
       end
 
       def build_octokit
-        stack = Faraday::RackBuilder.new do |builder|
+        stack = Faraday::Builder.new do |builder|
           #builder.response :logger
           builder.use Octokit::Response::RaiseError
           builder.adapter Faraday.default_adapter

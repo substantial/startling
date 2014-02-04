@@ -31,4 +31,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "highline", "~> 1.6"
   spec.add_dependency "colored", "~> 1.2"
   spec.add_dependency "parallel", "~> 0.9"
+  spec.add_dependency "faraday", "~> 0.8.0"
 end
