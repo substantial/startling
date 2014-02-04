@@ -17,3 +17,4 @@ test/version_tmp
 tmp
 .github_access_token
 .pivotal_api_token
+.env

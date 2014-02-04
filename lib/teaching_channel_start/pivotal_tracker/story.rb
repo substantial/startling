@@ -3,9 +3,9 @@ module TeachingChannelStart
     class Story
       attr_reader :story_id, :token
 
-      def initialize(story_id, token=PivotalTracker::Client.token)
+      def initialize(story_id, api)
         @story_id = story_id
-        @token = token
+        @api = api
       end
 
       def name ;        remove_prefix(attrs["name"]) ; end
@@ -20,24 +20,12 @@ module TeachingChannelStart
         Integer(estimate) > 0
       end
 
-      def get_url
-        "https://www.pivotaltracker.com/services/v5/stories/#{story_id}"
-      end
-
-      def update_url
-        "https://www.pivotaltracker.com/services/v5/projects/#{project_id}/stories/#{story_id}"
-      end
-
       def update(new_attrs)
-        body = new_attrs.to_json
-
-        request do
-          `curl -s -H "X-TrackerToken: #{token}" -H "Content-type: application/json" -d '#{body}' -X PUT "#{update_url}"`
-        end
+        api.update_story story_id, new_attrs
       end
 
       def attrs
-        @attrs ||= request { `curl -s -H "X-TrackerToken: #{token}" -X GET #{get_url}` }
+        @attrs ||= api.story story_id
       end
 
       def request &block

@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://aaron%2Btchtesting%40substantial.com:asdfasdf@www.pivotaltracker.com/services/v5/me
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.14
+      X-Runtime:
+      - '119'
+      Cache-Control:
+      - private, max-age=0, must-revalidate
+      Etag:
+      - '"59cd41b497afbfa35d4ed3816a698382"'
+      Server:
+      - nginx/1.2.2 + Phusion Passenger 3.0.14 (mod_rails/mod_rack)
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Credentials:
+      - 'false'
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - X-TrackerToken,DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,X-Tracker-Warn-Unless-Project-Version-Is
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "name": "Tch Testing",
+          "has_google_identity": false,
+          "username": "tcht",
+          "kind": "me",
+          "id": 1240260,
+          "api_token": "<PIVOTAL_API_TOKEN>",
+          "email": "aaron+tchtesting@substantial.com",
+          "time_zone": {
+            "olson_name": "America/Los_Angeles",
+            "kind": "time_zone",
+            "offset": "-08:00"
+          },
+          "initials": "TT",
+          "projects": [
+            {
+              "project_color": "e46642",
+              "kind": "membership_summary",
+              "id": 3907566,
+              "project_id": 1007746,
+              "project_name": "Tch Start Testing",
+              "last_viewed_at": "2014-02-04T02:03:17Z",
+              "role": "owner"
+            }
+          ]
+        }
+    http_version: 
+  recorded_at: Tue, 04 Feb 2014 02:40:42 GMT
+recorded_with: VCR 2.8.0

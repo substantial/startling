@@ -7,6 +7,7 @@ require 'colored'
 require_relative 'cache'
 require_relative 'pivotal_tracker/client'
 require_relative 'pivotal_tracker/story'
+require_relative 'pivotal_tracker/api'
 require_relative 'work'
 require_relative 'work_printer'
 
@@ -14,7 +15,7 @@ require_relative 'work_printer'
 #
 # This script automates the process of starting a new story. Check the call
 # method the script for the step-by-step. It currently depends on hub being
-# installed and uses the Pivotal Tracker API via curl.
+# installed and uses the Pivotal Tracker API.
 
 module TeachingChannelStart
   class Command
@@ -71,21 +72,19 @@ module TeachingChannelStart
       end
     end
 
-    def set_pivotal_api_token
-      PivotalTracker::Client.token = cache.fetch('.pivotal_api_token') do
+    def pivotal_api_token
+      @pivotal_api_token ||= cache.fetch('.pivotal_api_token') do
         username = ask("Enter your Pivotal Tracker username:  ")
         password = ask("Enter your Pivotal Tracker password:  ") { |q| q.echo = false }
-        PivotalTracker::Client.token(username, password)
+        PivotalTracker::Api.api_token_for_user(username, password)
       end
     end
+    alias_method :set_pivotal_api_token, :pivotal_api_token
 
     def pivotal_id(api_token=set_pivotal_api_token)
       @pivotal_id ||= begin
-        url = "https://www.pivotaltracker.com/services/v5/me"
-
-        response = `curl -s -H "X-TrackerToken: #{api_token}" -X GET #{url}`
-
-        JSON.parse(response)["id"]
+        api = PivotalTracker::Api.new(api_token: api_token)
+        api.user_id
       end
     end
 
@@ -207,7 +206,11 @@ MSG
     end
 
     def story
-      @story ||= PivotalTracker::Story.new(story_id)
+      @story ||= PivotalTracker::Story.new(story_id, pivotal_api)
+    end
+
+    def pivotal_api
+      @pivotal_api ||= PivotalTracker::Api.new(pivotal_api_token)
     end
 
     def start_story

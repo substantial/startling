@@ -16,7 +16,6 @@ module TeachingChannelStart
 
       def repository(name)
         repositories[name] ||= Repo.new(name, self)
-
       end
 
       private
