@@ -1,0 +1,217 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.pivotaltracker.com/services/v5/stories/65072638
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      X-Trackertoken:
+      - <PIVOTAL_API_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.14
+      Cache-Control:
+      - private, max-age=0, must-revalidate
+      Etag:
+      - '"e26222221696092da81b1f56f0ea8629"'
+      X-Tracker-Project-Version:
+      - '14'
+      X-Runtime:
+      - '39'
+      Server:
+      - nginx/1.2.2 + Phusion Passenger 3.0.14 (mod_rails/mod_rack)
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Credentials:
+      - 'false'
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - X-TrackerToken,DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,X-Tracker-Warn-Unless-Project-Version-Is
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "created_at": "2014-02-04T01:55:49Z",
+          "labels": [
+
+          ],
+          "updated_at": "2014-02-04T02:25:48Z",
+          "url": "http://www.pivotaltracker.com/story/show/65072638",
+          "project_id": 1007746,
+          "description": "This story should have no estimate in it to properly test the update.",
+          "story_type": "feature",
+          "owner_ids": [
+
+          ],
+          "id": 65072638,
+          "current_state": "unscheduled",
+          "name": "TEST: pivotal_tracker_api_update_story *(estimate should not be set)*",
+          "requested_by_id": 1240260,
+          "kind": "story"
+        }
+    http_version: 
+  recorded_at: Tue, 04 Feb 2014 02:40:42 GMT
+- request:
+    method: put
+    uri: https://www.pivotaltracker.com/services/v5/stories/65072638
+    body:
+      encoding: UTF-8
+      string: '{"estimate":8}'
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      X-Trackertoken:
+      - <PIVOTAL_API_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '530'
+      Status:
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.14
+      Cache-Control:
+      - private, max-age=0, must-revalidate
+      Etag:
+      - '"21ab6cc21055133e5e222b4f62db483c"'
+      X-Tracker-Project-Version:
+      - '15'
+      X-Runtime:
+      - '151'
+      Server:
+      - nginx/1.2.2 + Phusion Passenger 3.0.14 (mod_rails/mod_rack)
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Credentials:
+      - 'false'
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - X-TrackerToken,DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,X-Tracker-Warn-Unless-Project-Version-Is
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "created_at": "2014-02-04T01:55:49Z",
+          "labels": [
+
+          ],
+          "updated_at": "2014-02-04T02:40:43Z",
+          "url": "http://www.pivotaltracker.com/story/show/65072638",
+          "project_id": 1007746,
+          "description": "This story should have no estimate in it to properly test the update.",
+          "story_type": "feature",
+          "owner_ids": [
+
+          ],
+          "id": 65072638,
+          "current_state": "unscheduled",
+          "estimate": 8,
+          "name": "TEST: pivotal_tracker_api_update_story *(estimate should not be set)*",
+          "requested_by_id": 1240260,
+          "kind": "story"
+        }
+    http_version: 
+  recorded_at: Tue, 04 Feb 2014 02:40:42 GMT
+- request:
+    method: get
+    uri: https://www.pivotaltracker.com/services/v5/stories/65072638
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      X-Trackertoken:
+      - <PIVOTAL_API_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.14
+      X-Tracker-Project-Version:
+      - '15'
+      Etag:
+      - '"5d5be8a6c060aa7225434327427b86a8"'
+      X-Runtime:
+      - '37'
+      Cache-Control:
+      - private, max-age=0, must-revalidate
+      Server:
+      - nginx/1.2.2 + Phusion Passenger 3.0.14 (mod_rails/mod_rack)
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Credentials:
+      - 'false'
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - X-TrackerToken,DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,X-Tracker-Warn-Unless-Project-Version-Is
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "name": "TEST: pivotal_tracker_api_update_story *(estimate should not be set)*",
+          "created_at": "2014-02-04T01:55:49Z",
+          "estimate": 8,
+          "requested_by_id": 1240260,
+          "id": 65072638,
+          "updated_at": "2014-02-04T02:40:43Z",
+          "kind": "story",
+          "description": "This story should have no estimate in it to properly test the update.",
+          "current_state": "unscheduled",
+          "url": "http://www.pivotaltracker.com/story/show/65072638",
+          "project_id": 1007746,
+          "labels": [
+
+          ],
+          "story_type": "feature",
+          "owner_ids": [
+
+          ]
+        }
+    http_version: 
+  recorded_at: Tue, 04 Feb 2014 02:40:43 GMT
+recorded_with: VCR 2.8.0

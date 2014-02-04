@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'teaching-channel-start/version'
+require 'teaching_channel_start/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "teaching-channel-start"
@@ -21,6 +21,11 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
+  spec.add_development_dependency "pry"
+  spec.add_development_dependency "vcr"
+  spec.add_development_dependency "webmock", "~>1.15.0"
+  spec.add_development_dependency "excon", ">=0.27.5"
+  spec.add_development_dependency "dotenv"
 
   spec.add_dependency "octokit", "~> 2.0"
   spec.add_dependency "highline", "~> 1.6"

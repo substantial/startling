@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'teaching-channel-start'
+require_relative '../lib/teaching-channel-start'
 TeachingChannelStart.root_dir = TeachingChannelStart.cache_dir = Dir.pwd
 wip = TeachingChannelStart::Work.in_progress
 TeachingChannelStart::WorkPrinter.new.print wip

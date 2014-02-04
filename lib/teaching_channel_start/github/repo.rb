@@ -13,11 +13,7 @@ module TeachingChannelStart
       end
 
       def self.all
-        @all ||= [
-          new('TeachingChannel/teaching-channel'),
-          new('TeachingChannel/teaching-channel-blog'),
-          new('TeachingChannel/teaching-channel-chef'),
-        ]
+        @all ||= TeachingChannelStart::REPOS.map { |name| new(name) }
       end
     end
   end

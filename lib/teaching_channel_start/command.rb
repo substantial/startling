@@ -5,8 +5,7 @@ require 'shellwords'
 require 'colored'
 
 require_relative 'cache'
-require_relative 'pivotal_tracker/client'
-require_relative 'pivotal_tracker/story'
+require_relative 'pivotal_tracker'
 require_relative 'work'
 require_relative 'work_printer'
 
@@ -14,10 +13,16 @@ require_relative 'work_printer'
 #
 # This script automates the process of starting a new story. Check the call
 # method the script for the step-by-step. It currently depends on hub being
-# installed and uses the Pivotal Tracker API via curl.
+# installed and uses the Pivotal Tracker API.
 
 module TeachingChannelStart
   class Command
+    attr_reader :args, :pivotal_tracker
+    def initialize(args = ARGV)
+      @args = args
+      @pivotal_tracker = PivotalTracker.new(pivotal_api_token)
+    end
+
     def call
       check_for_local_mods
       check_for_hub
@@ -45,7 +50,7 @@ module TeachingChannelStart
     end
 
     def print_help
-      if ARGV[0] == '--help' || ARGV[0] == '-h'
+      if args[0] == '--help' || args[0] == '-h'
         puts "Usage:
 
       $ script/start <story id> <branch name>
@@ -71,23 +76,14 @@ module TeachingChannelStart
       end
     end
 
-    def set_pivotal_api_token
-      PivotalTracker::Client.token = cache.fetch('.pivotal_api_token') do
+    def pivotal_api_token
+      @pivotal_api_token ||= cache.fetch('.pivotal_api_token') do
         username = ask("Enter your Pivotal Tracker username:  ")
         password = ask("Enter your Pivotal Tracker password:  ") { |q| q.echo = false }
-        PivotalTracker::Client.token(username, password)
+        PivotalTracker::Api.api_token_for_user(username, password)
       end
     end
-
-    def pivotal_id(api_token=set_pivotal_api_token)
-      @pivotal_id ||= begin
-        url = "https://www.pivotaltracker.com/services/v5/me"
-
-        response = `curl -s -H "X-TrackerToken: #{api_token}" -X GET #{url}`
-
-        JSON.parse(response)["id"]
-      end
-    end
+    alias_method :set_pivotal_api_token, :pivotal_api_token
 
     def run(command)
       result = `#{command}`
@@ -128,7 +124,7 @@ module TeachingChannelStart
     end
 
     def update_changelog
-      changelog_contents = read_changelog
+      changelog_contents = read_changelog || ''
       return if changelog_contents.include? story.name
 
       puts "Updating #{changelog_filename}..."
@@ -207,22 +203,13 @@ MSG
     end
 
     def story
-      @story ||= PivotalTracker::Story.new(story_id)
+      @story ||= pivotal_tracker.story(story_id)
     end
 
     def start_story
       puts "Starting story..."
-      update = {
-        current_state: "started",
-        # owned_by_id is depricated, but I couldn't find an alternative
-        owned_by_id: pivotal_id,
-      }
-
-      unless story.estimated?
-        update[:estimate] = ask_for_estimate
-      end
-
-      story.update(update)
+      estimate = ask_for_estimate unless story.estimated?
+      story.start(starter_id: pivotal_tracker.user_id, estimate: estimate)
     end
 
     def ask_for_estimate
@@ -239,7 +226,7 @@ MSG
     end
 
     def story_id
-      @story_id ||= ARGV.fetch(0) { ask("Enter story id to start: ") }
+      @story_id ||= args.fetch(0) { ask("Enter story id to start: ") }
     end
 
     def branch_name
@@ -248,8 +235,8 @@ MSG
     end
 
     def get_branch_name
-      branch = if ARGV.length > 1
-                 ARGV[1..-1].map(&:downcase).join('-')
+      branch = if args.length > 1
+                 args[1..-1].map(&:downcase).join('-')
                else
                  ask("Enter branch name (enter for current branch): ")
                end
