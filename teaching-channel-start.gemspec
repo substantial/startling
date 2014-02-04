@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry"
   spec.add_development_dependency "vcr"
   spec.add_development_dependency "webmock", "~>1.15.0"
+  spec.add_development_dependency "excon", ">=0.27.5"
   spec.add_development_dependency "dotenv"
 
   spec.add_dependency "octokit", "~> 2.0"
