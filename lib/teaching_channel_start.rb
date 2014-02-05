@@ -7,6 +7,7 @@ module TeachingChannelStart
     TeachingChannel/teaching-channel
     TeachingChannel/teaching-channel-blog
     TeachingChannel/teaching-channel-chef
+    TeachingChannel/teaching-channel-start
   ]
 
   class << self
