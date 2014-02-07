@@ -24,6 +24,8 @@ module TeachingChannelStart
     end
 
     def call
+      check_wip
+      exit
       check_for_local_mods
       print_help
       set_pivotal_api_token
@@ -62,9 +64,9 @@ module TeachingChannelStart
         WorkPrinter.new.print wip
         puts
         question = [
-          "Would you like to continue to add to that (anything but ",
-          "yes".underline,
-          " will abort)? "
+          "Would you like to continue to add to that (",
+          "anything but \"yes\" will abort".underline,
+          ")? "
         ].map(&:yellow).join
         confirm = ask(question)
 
