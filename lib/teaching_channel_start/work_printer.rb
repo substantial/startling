@@ -25,7 +25,7 @@ module TeachingChannelStart
     end
 
     def ago(time)
-      time_from_now(time).yellow
+      business_time_ago(time).yellow
     end
 
     def count(works)

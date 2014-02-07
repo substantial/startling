@@ -2,35 +2,40 @@ require 'spec_helper'
 require 'teaching_channel_start/time_format_helpers'
 
 module TeachingChannelStart
-  describe TimeFormatHelpers, "#time_from_now" do
+  describe TimeFormatHelpers, "#business_time_ago" do
     include TimeFormatHelpers
     let(:minute) { 60 }
     let(:hour) { 60 * minute }
     let(:day) { 24 * hour }
 
-    it "rounds down to hour" do
-      time = Time.now - (30 * minute)
-      time_from_now(time).should == 'less than an hour ago'
+    before do
+      now =  Time.parse("February 7th, 2014, 1:00 pm")
+      Time.stub(:now) { now }
     end
 
-    it "rounds down to the nearest hour" do
-      time = Time.now - (1 * hour)
-      time_from_now(time).should == '1 hour ago'
+    it "says 1 day ago if it was yesterday" do
+      time = Time.now - 1 * day
+      business_time_ago(time).should == "1 day ago"
     end
 
-     it "includes days and hours" do
-       time = Time.now - ((2 * day) + (4 * hour))
-       time_from_now(time).should == '2 days 4 hours ago'
-     end
+    it "says number of days if it was more than a day ago" do
+      time = Time.now - 3 * day
+      business_time_ago(time).should == "3 days ago"
+    end
 
-     it "rounds down to the nearest day" do
-       time = Time.now - ((1 * day) + (2 * minute))
-       time_from_now(time).should == '1 day ago'
-     end
+    it "says number of hours if it is more than 1 hour" do
+      time = Time.now - 2 * hour - 20 * minute
+      business_time_ago(time).should == "2 hours ago"
+    end
 
-     it "handles future times" do
-       time = Time.now + ((1 * day) + (2 * minute))
-       time_from_now(time).should == '1 day from now'
-     end
+    it "says number of hours if it is 1 hour" do
+      time = Time.now - 1 * hour - 20 * minute
+      business_time_ago(time).should == "1 hour ago"
+    end
+
+    it "says less than an hour if it was" do
+      time = Time.now - 40 * minute
+      business_time_ago(time).should == "less than an hour ago"
+    end
   end
 end

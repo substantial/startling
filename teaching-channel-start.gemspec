@@ -32,4 +32,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "colored", "~> 1.2"
   spec.add_dependency "parallel", "~> 0.9"
   spec.add_dependency "faraday", "~> 0.8.0"
+  spec.add_dependency "business_time", "~> 0.7.0"
 end
