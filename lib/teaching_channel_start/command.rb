@@ -60,8 +60,14 @@ module TeachingChannelStart
       wip = Work.in_progress
       if wip.count >= WIP_LIMIT
         WorkPrinter.new.print wip
+        puts
+        question = [
+          "Would you like to continue to add to that (anything but ",
+          "yes".underline,
+          " will abort)? "
+        ].map(&:yellow).join
+        confirm = ask(question)
 
-        confirm = ask("Would you like to continue to add to that? (anything but yes will exit)")
         exit unless confirm == "yes"
       end
     end
