@@ -47,13 +47,17 @@ module TeachingChannelStart
       end
 
       def build_octokit
-        stack = Faraday::Builder.new do |builder|
+        stack = faraday_builder_class.new do |builder|
           #builder.response :logger
           builder.use Octokit::Response::RaiseError
           builder.adapter Faraday.default_adapter
         end
         Octokit.middleware = stack
         Octokit::Client.new access_token: access_token
+      end
+
+      def faraday_builder_class
+        defined?(Faraday::RackBuilder) ? Faraday::RackBuilder : Faraday::Builder
       end
 
       def access_token
