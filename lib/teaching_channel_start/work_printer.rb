@@ -10,8 +10,9 @@ module TeachingChannelStart
     end
 
     def format_pull_request(pull_request)
-      "#{pull_request.title.sub(/^.*?:/) { |m| m.red }} (#{pull_request.url.cyan.underline})\n" +
-        "  Started #{ago pull_request.created_at}, last updated #{ago pull_request.updated_at}"
+      "#{pull_request.title.sub(/^.*?:/) { |m| m.magenta.reversed }}\n" +
+        "  Started #{ago pull_request.created_at}, last updated #{ago pull_request.updated_at}\n" +
+        "  #{pull_request.url.cyan.underline}"
     end
 
     def format_work(work)
@@ -24,7 +25,7 @@ module TeachingChannelStart
     end
 
     def ago(time)
-      time_from_now(time).yellow
+      business_time_ago(time).yellow
     end
 
     def count(works)

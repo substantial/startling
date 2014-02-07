@@ -24,6 +24,8 @@ module TeachingChannelStart
     end
 
     def call
+      check_wip
+      exit
       check_for_local_mods
       print_help
       set_pivotal_api_token
@@ -60,8 +62,14 @@ module TeachingChannelStart
       wip = Work.in_progress
       if wip.count >= WIP_LIMIT
         WorkPrinter.new.print wip
+        puts
+        question = [
+          "Would you like to continue to add to that (",
+          "anything but \"yes\" will abort".underline,
+          ")? "
+        ].map(&:yellow).join
+        confirm = ask(question)
 
-        confirm = ask("Would you like to continue to add to that? (anything but yes will exit)")
         exit unless confirm == "yes"
       end
     end
