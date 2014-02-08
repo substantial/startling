@@ -24,8 +24,6 @@ module TeachingChannelStart
     end
 
     def call
-      check_wip
-      exit
       check_for_local_mods
       print_help
       set_pivotal_api_token
