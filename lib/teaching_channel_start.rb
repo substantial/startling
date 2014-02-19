@@ -8,6 +8,8 @@ module TeachingChannelStart
     TeachingChannel/teaching-channel-blog
     TeachingChannel/teaching-channel-chef
     TeachingChannel/teaching-channel-start
+    TeachingChannel/teaching-channel-smoke
+    TeachingChannel/flowdock_notify
   ]
 
   class << self
