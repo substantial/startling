@@ -1,6 +1,5 @@
 require 'spec_helper'
 require 'fileutils'
-require 'teaching-channel-start'
 
 describe "bin/start" do
   after do
