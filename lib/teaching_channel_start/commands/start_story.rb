@@ -1,15 +1,9 @@
+require_relative "base"
 
 module TeachingChannelStart
   module Commands
-    class StartStory
-      attr_reader :story, :pivotal_tracker
-
-      def initialize(options={})
-        @story = options.fetch(:story)
-        @pivotal_tracker = options.fetch(:pivotal_tracker)
-      end
-
-      def call
+    class StartStory < Base
+      def execute
         puts "Starting story..."
         estimate = ask_for_estimate unless story.estimated?
         story.start(starter_id: pivotal_tracker.user_id, estimate: estimate)

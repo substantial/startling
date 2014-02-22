@@ -1,26 +1,16 @@
-require_relative '../misc_helpers'
+require_relative "base"
 
 module TeachingChannelStart
   module Commands
-    class CreatePullRequest
-      include MiscHelpers
-
-      attr_reader :repo, :story, :branch_name
-
-      def initialize(options={})
-        @repo = options.fetch(:repo)
-        @story = options.fetch(:story)
-        @branch_name = options.fetch(:branch_name)
-      end
-
-      def call
+    class CreatePullRequest < Base
+      def execute
         url = open_pull_request
         amend_commit_with_pull_request(url)
       end
 
       def open_pull_request
         puts "Opening pull request..."
-        run "git push -qu origin HEAD > /dev/null"
+        Shell.run "git push -qu origin HEAD > /dev/null"
 
         pull_request = repo.open_pull_request title: pull_request_title,
           body: pull_request_body, branch: branch_name
@@ -45,9 +35,9 @@ module TeachingChannelStart
           file.puts url
         end
 
-        run "git add #{pull_request_path}"
-        run "git commit -q --amend --reuse-message=HEAD"
-        run "git push -qf origin HEAD"
+        Shell.run "git add #{pull_request_path}"
+        Shell.run "git commit -q --amend --reuse-message=HEAD"
+        Shell.run "git push -qf origin HEAD"
       end
 
       def pull_request_body

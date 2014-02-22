@@ -1,13 +1,9 @@
+require_relative "base"
+
 module TeachingChannelStart
   module Commands
-    class PrintUsage
-      attr_reader :args
-
-      def initialize(options)
-        @args = options.fetch(:args)
-      end
-
-      def call
+    class PrintUsage < Base
+      def execute
         if args[0] == '--help' || args[0] == '-h'
           print
           exit 0

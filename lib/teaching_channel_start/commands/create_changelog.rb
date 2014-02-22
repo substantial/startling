@@ -1,22 +1,16 @@
-require_relative '../misc_helpers'
+require_relative '../markdown'
+require_relative '../shell'
+require_relative "base"
 
 module TeachingChannelStart
   module Commands
-    class CreateChangelog
-      include MiscHelpers
-
-      attr_reader :story
-
-      def initialize(options={})
-        @story = options.fetch(:story)
-      end
-
-      def call
+    class CreateChangelog < Base
+      def execute
         update_changelog
       end
 
       def changelog_message
-        "* **#{story.story_type.upcase}:** [#{escape_markdown(story.name)}](#{story.url})"
+        "* **#{story.story_type.upcase}:** [#{Markdown.escape(story.name)}](#{story.url})"
       end
 
       def changelog_filename
@@ -45,14 +39,14 @@ module TeachingChannelStart
 
         File.write(changelog_path, "#{new_contents}\n")
 
-        run "git add #{changelog_filename}"
+        Shell.run "git add #{changelog_filename}"
         commit_msg = <<-MSG
 Update BRANCH_CHANGES
 
         #{story.name}
         #{story.url}
         MSG
-        run "git commit -qm #{commit_msg.shellescape}"
+        Shell.run "git commit -qm #{commit_msg.shellescape}"
       end
     end
   end

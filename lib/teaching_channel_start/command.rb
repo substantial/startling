@@ -6,13 +6,12 @@ require 'colored'
 
 require_relative 'cache'
 require_relative 'pivotal_tracker'
-require_relative 'git_helpers'
-require_relative 'misc_helpers'
 require_relative 'commands/create_pull_request'
 require_relative 'commands/create_changelog'
 require_relative 'commands/print_usage'
 require_relative 'commands/check_wip'
 require_relative 'commands/start_story'
+require_relative "commands/base"
 
 # script/start
 #
@@ -21,25 +20,20 @@ require_relative 'commands/start_story'
 # Pivotal Tracker APIs.
 
 module TeachingChannelStart
-  class Command
-    include GitHelpers
-    include MiscHelpers
-
-    attr_reader :args, :pivotal_tracker
+  class Command < Commands::Base
     def initialize(args = ARGV)
-      @args = args
-      @pivotal_tracker = PivotalTracker.new(pivotal_api_token)
+      super(args: args, pivotal_tracker: PivotalTracker.new(pivotal_api_token))
     end
 
-    def call
+    def execute
       check_for_local_mods
-      Commands::PrintUsage.new(args: args).call
+      Commands::PrintUsage.run(args: args)
       set_pivotal_api_token
-      Commands::CheckWip.new.call
-      Commands::StartStory.new(story: story, pivotal_tracker: pivotal_tracker).call
-      create_branch if branch_name != current_branch
-      Commands::CreateChangelog.new(story: story).call
-      Commands::CreatePullRequest.new(repo: repo, story: story, branch_name: branch_name).call
+      Commands::CheckWip.run
+      Commands::StartStory.run(story: story, pivotal_tracker: pivotal_tracker)
+      create_branch if branch_name != GitLocal.current_branch
+      Commands::CreateChangelog.run(story: story)
+      Commands::CreatePullRequest.run(repo: repo, story: story, branch_name: branch_name)
     end
 
     def cache
@@ -65,7 +59,7 @@ module TeachingChannelStart
 
     def create_branch
       puts "Creating branch #{branch_name}..."
-      create_remote_branch(branch_name, base_branch: "origin/#{default_branch}")
+      GitLocal.create_remote_branch(branch_name, base_branch: "origin/#{default_branch}")
     end
 
     def default_branch
@@ -73,7 +67,7 @@ module TeachingChannelStart
     end
 
     def repo
-      @repo ||= Github.repo(repo_name)
+      @repo ||= Github.repo(GitLocal.repo_name)
     end
 
     def story
@@ -97,8 +91,8 @@ module TeachingChannelStart
                end
 
       if branch.empty?
-        if current_branch_is_a_feature_branch?
-          return current_branch
+        if GitLocal.current_branch_is_a_feature_branch?
+          return GitLocal.current_branch
         else
           abort "Branch name must be specified when current branch is not feature/."
         end

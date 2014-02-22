@@ -1,10 +1,12 @@
 require_relative '../work'
 require_relative '../work_printer'
 
+require_relative "base"
+
 module TeachingChannelStart
   module Commands
-    class CheckWip
-      def call
+    class CheckWip < Base
+      def execute
         puts "Checking WIP..."
         wip = Work.in_progress
         if wip.count >= WIP_LIMIT
