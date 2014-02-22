@@ -1,9 +1,10 @@
 require 'spec_helper'
 require 'fileutils'
 require 'teaching-channel-start'
+require 'teaching_channel_start/git_helpers'
 
 describe "bin/start" do
-  include GitHelpers
+  include TeachingChannelStart::GitHelpers
 
   let(:feature_name) { 'bin_start_starts_stories' }
   let(:feature_branch) { "feature/#{feature_name}" }

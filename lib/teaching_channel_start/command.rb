@@ -8,6 +8,8 @@ require_relative 'cache'
 require_relative 'pivotal_tracker'
 require_relative 'work'
 require_relative 'work_printer'
+require_relative 'git_helpers'
+require_relative 'system_helpers'
 
 # script/start
 #
@@ -17,6 +19,9 @@ require_relative 'work_printer'
 
 module TeachingChannelStart
   class Command
+    include GitHelpers
+    include SystemHelpers
+
     attr_reader :args, :pivotal_tracker
     def initialize(args = ARGV)
       @args = args
@@ -81,14 +86,6 @@ module TeachingChannelStart
     end
     alias_method :set_pivotal_api_token, :pivotal_api_token
 
-    def run(command)
-      result = `#{command}`
-      unless $?.success?
-        exit 1
-      end
-      result
-    end
-
     def changelog_message
       "* **#{story.story_type.upcase}:** [#{escape_markdown(story.name)}](#{story.url})"
     end
@@ -151,8 +148,7 @@ MSG
 
     def create_branch
       puts "Creating branch #{branch_name}..."
-      run "git fetch -q"
-      run "git checkout -q #{branch_name} 2>/dev/null || git checkout -q -b #{branch_name} #{default_branch}"
+      create_remote_branch(branch_name, base_branch: "origin/#{default_branch}")
     end
 
     def default_branch
@@ -179,10 +175,6 @@ MSG
 
 #{browser_checkboxes}
 BODY
-    end
-
-    def repo_name
-      `git config --get remote.origin.url`[/:(.*)\.git/, 1]
     end
 
     def open_pull_request
@@ -261,8 +253,5 @@ BODY
        current_branch =~ %r{^feature/}
     end
 
-    def current_branch
-      `git symbolic-ref -q --short HEAD`.strip
-    end
   end
 end
