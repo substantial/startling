@@ -10,8 +10,9 @@ require_relative 'work'
 require_relative 'work_printer'
 require_relative 'git_helpers'
 require_relative 'misc_helpers'
-require_relative 'pull_request_creator'
-require_relative 'changelog_creator'
+require_relative 'commands/create_pull_request'
+require_relative 'commands/create_changelog'
+require_relative 'usage_help'
 
 # script/start
 #
@@ -37,8 +38,8 @@ module TeachingChannelStart
       check_wip
       start_story
       create_branch if branch_name != current_branch
-      ChangelogCreator.create(story: story)
-      PullRequestCreator.create(repo: repo, story: story, branch_name: branch_name)
+      Commands::CreateChangelog.new(story: story).call
+      Commands::CreatePullRequest.new(repo: repo, story: story, branch_name: branch_name).call
     end
 
     def cache
@@ -47,16 +48,7 @@ module TeachingChannelStart
 
     def print_help
       if args[0] == '--help' || args[0] == '-h'
-        puts "Usage:
-
-      $ script/start <story id> <branch name>
-
-      <story id>: Pivotal story id
-      <branch name>: Branch name without feature/. Can be separated by spaces or dashes.
-
-      Example:
-
-      $ script/start 12345 my favorite feature"
+        UsageHelp.print
         exit 0
       end
     end
@@ -86,8 +78,6 @@ module TeachingChannelStart
       end
     end
     alias_method :set_pivotal_api_token, :pivotal_api_token
-
-
 
     def check_for_local_mods
       return if `git status --porcelain`.empty?
@@ -160,10 +150,5 @@ module TeachingChannelStart
       branch.gsub!(/feature\//, '')
       "feature/#{branch}".gsub(/\s+/, '-')
     end
-
-    def current_branch_is_a_feature_branch?
-       current_branch =~ %r{^feature/}
-    end
-
   end
 end
