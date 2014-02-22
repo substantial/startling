@@ -20,9 +20,9 @@ module TeachingChannelStart
       run "git branch"
     end
 
-    def create_remote_branch(branch, base_branch: 'origin/master')
+    def create_remote_branch(branch_name, base_branch: 'origin/master')
       run "git fetch -q"
-      run "git checkout -q #{branch_name} 2>/dev/null || git checkout -q -b #{branch_name} #{default_branch}"
+      run "git checkout -q #{branch_name} 2>/dev/null || git checkout -q -b #{branch_name} #{base_branch}"
     end
 
     def destroy_branch(branch)
