@@ -1,11 +1,13 @@
 require 'spec_helper'
 require 'fileutils'
+require 'teaching-channel-start'
 
 describe "bin/start" do
   include GitHelpers
 
   let(:feature_name) { 'bin_start_starts_stories' }
   let(:feature_branch) { "feature/#{feature_name}" }
+  let(:repo_default_branch) { 'develop' }
 
   before do
     test_repo_path = "tmp/test_repo"
@@ -20,10 +22,10 @@ describe "bin/start" do
     stub_const("TeachingChannelStart::REPOS", ["TeachingChannel/teaching-channel-start-testing"])
     FileUtils.cd test_repo_path
 
-    checkout_branch 'master'
-    destroy_branch feature_branch
-
     TeachingChannelStart.root_dir = TeachingChannelStart.cache_dir = "."
+
+    checkout_branch 'develop'
+    destroy_branch feature_branch
   end
 
   after do
@@ -36,27 +38,14 @@ describe "bin/start" do
   # * The story should be estimated and unstarted:
   #   https://www.pivotaltracker.com/story/show/65074482
   #
-  subject { TeachingChannelStart::Command.new(["65074482", feature_name]).call }
 
-  context 'with origin/develop ' do
-    it "starts stories from origin/develop",
-      vcr: { cassette_name: "bin_start_starts_stories" } do
-      create_remote_branch 'develop'
+  it "starts stories from origin/develop",
+    vcr: { cassette_name: "bin_start_starts_stories" } do
 
-      subject
-      remote_branches.should include feature_branch
-      current_branch.should eq feature_branch
-    end
-  end
-
-  context 'without origin/develop' do
-    it "starts stories from origin/master",
-      vcr: { cassette_name: "bin_start_starts_stories" } do
-      destroy_branch 'develop'
-
-      subject
-      remote_branches.should include feature_branch
-      current_branch.should eq feature_branch
-    end
+    command = TeachingChannelStart::Command.new(["65074482", feature_name])
+    command.call
+    remote_branches.should include feature_branch
+    current_branch.should eq feature_branch
+    command.default_branch.should == repo_default_branch
   end
 end
