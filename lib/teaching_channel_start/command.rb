@@ -160,7 +160,8 @@ MSG
     end
 
     def remote_branches
-      `git branch -r`
+      run 'git fetch -q'
+      run 'git branch -r'
     end
 
     def pull_request_title
