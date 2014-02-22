@@ -1,8 +1,8 @@
-require_relative 'system_helpers'
+require_relative 'misc_helpers'
 
 module TeachingChannelStart
   class PullRequestCreator
-    include SystemHelpers
+    include MiscHelpers
 
     def self.create(options)
       new(options).create

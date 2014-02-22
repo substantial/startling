@@ -9,8 +9,9 @@ require_relative 'pivotal_tracker'
 require_relative 'work'
 require_relative 'work_printer'
 require_relative 'git_helpers'
-require_relative 'system_helpers'
+require_relative 'misc_helpers'
 require_relative 'pull_request_creator'
+require_relative 'changelog_creator'
 
 # script/start
 #
@@ -21,7 +22,7 @@ require_relative 'pull_request_creator'
 module TeachingChannelStart
   class Command
     include GitHelpers
-    include SystemHelpers
+    include MiscHelpers
 
     attr_reader :args, :pivotal_tracker
     def initialize(args = ARGV)
@@ -36,7 +37,7 @@ module TeachingChannelStart
       check_wip
       start_story
       create_branch if branch_name != current_branch
-      update_changelog
+      ChangelogCreator.create(story: story)
       PullRequestCreator.create(repo: repo, story: story, branch_name: branch_name)
     end
 
@@ -86,49 +87,7 @@ module TeachingChannelStart
     end
     alias_method :set_pivotal_api_token, :pivotal_api_token
 
-    def changelog_message
-      "* **#{story.story_type.upcase}:** [#{escape_markdown(story.name)}](#{story.url})"
-    end
 
-    def escape_markdown(text)
-      text.gsub('[', '\[').gsub(']', '\]')
-    end
-
-    def changelog_filename
-      'BRANCH_CHANGES.md'
-    end
-
-    def changelog_path
-      File.join(TeachingChannelStart.root_dir, changelog_filename)
-    end
-
-    def read_changelog
-      if File.exists? changelog_path
-        changelog_contents = File.read(changelog_path)
-      end
-    end
-
-    def update_changelog
-      changelog_contents = read_changelog || ''
-      return if changelog_contents.include? story.name
-
-      puts "Updating #{changelog_filename}..."
-
-      entries = changelog_contents.lines.to_a
-      entries << changelog_message
-      new_contents = entries.uniq.sort {|a,b| a <=> b}.join("\n")
-
-      File.write(changelog_path, "#{new_contents}\n")
-
-      run "git add #{changelog_filename}"
-      commit_msg = <<-MSG
-Update BRANCH_CHANGES
-
-#{story.name}
-#{story.url}
-MSG
-      run "git commit -qm #{commit_msg.shellescape}"
-    end
 
     def check_for_local_mods
       return if `git status --porcelain`.empty?

@@ -1,8 +1,8 @@
-require_relative 'system_helpers'
+require_relative 'misc_helpers'
 
 module TeachingChannelStart
   module GitHelpers
-    include SystemHelpers
+    include MiscHelpers
 
     def current_branch
       `git symbolic-ref -q --short HEAD`.strip
