@@ -152,16 +152,11 @@ MSG
     def create_branch
       puts "Creating branch #{branch_name}..."
       run "git fetch -q"
-      run "git checkout -q #{branch_name} 2>/dev/null || git checkout -q -b #{branch_name} #{base_branch}"
+      run "git checkout -q #{branch_name} 2>/dev/null || git checkout -q -b #{branch_name} #{default_branch}"
     end
 
-    def base_branch
-      remote_branches.include?("origin/develop") ? "origin/develop" : "origin/master"
-    end
-
-    def remote_branches
-      run 'git fetch -q'
-      run 'git branch -r'
+    def default_branch
+      @default_branch ||= Github.repo(repo_name).default_branch
     end
 
     def pull_request_title
@@ -186,10 +181,13 @@ MSG
 BODY
     end
 
+    def repo_name
+      `git config --get remote.origin.url`[/:(.*)\.git/, 1]
+    end
+
     def open_pull_request
       puts "Opening pull request..."
       run "git push -qu origin HEAD > /dev/null"
-      repo_name =  `git config --get remote.origin.url`[/:(.*)\.git/, 1]
 
       repo = Github.repo(repo_name)
       pull_request = repo.open_pull_request title: pull_request_title,
