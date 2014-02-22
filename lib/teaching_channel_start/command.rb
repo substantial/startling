@@ -6,13 +6,13 @@ require 'colored'
 
 require_relative 'cache'
 require_relative 'pivotal_tracker'
-require_relative 'work'
-require_relative 'work_printer'
 require_relative 'git_helpers'
 require_relative 'misc_helpers'
 require_relative 'commands/create_pull_request'
 require_relative 'commands/create_changelog'
-require_relative 'usage_help'
+require_relative 'commands/print_usage'
+require_relative 'commands/check_wip'
+require_relative 'commands/start_story'
 
 # script/start
 #
@@ -33,10 +33,10 @@ module TeachingChannelStart
 
     def call
       check_for_local_mods
-      print_help
+      Commands::PrintUsage.new(args: args).call
       set_pivotal_api_token
-      check_wip
-      start_story
+      Commands::CheckWip.new.call
+      Commands::StartStory.new(story: story, pivotal_tracker: pivotal_tracker).call
       create_branch if branch_name != current_branch
       Commands::CreateChangelog.new(story: story).call
       Commands::CreatePullRequest.new(repo: repo, story: story, branch_name: branch_name).call
@@ -44,30 +44,6 @@ module TeachingChannelStart
 
     def cache
       TeachingChannelStart.cache
-    end
-
-    def print_help
-      if args[0] == '--help' || args[0] == '-h'
-        UsageHelp.print
-        exit 0
-      end
-    end
-
-    def check_wip
-      puts "Checking WIP..."
-      wip = Work.in_progress
-      if wip.count >= WIP_LIMIT
-        WorkPrinter.new.print wip
-        puts
-        question = [
-          "Would you like to continue to add to that (",
-          "anything but \"yes\" will abort".underline,
-          ")? "
-        ].map(&:yellow).join
-        confirm = ask(question)
-
-        exit unless confirm == "yes"
-      end
     end
 
     def pivotal_api_token
@@ -102,25 +78,6 @@ module TeachingChannelStart
 
     def story
       @story ||= pivotal_tracker.story(story_id)
-    end
-
-    def start_story
-      puts "Starting story..."
-      estimate = ask_for_estimate unless story.estimated?
-      story.start(starter_id: pivotal_tracker.user_id, estimate: estimate)
-    end
-
-    def ask_for_estimate
-      puts "'#{story.name}' is not estimated."
-      begin
-        estimate = ask("Enter estimate (#{VALID_ESTIMATES.join(", ")}): ")
-        estimate = Integer(estimate)
-        raise 'Invalid estimate' unless VALID_ESTIMATES.include? estimate
-        return  estimate.to_i
-      rescue => e
-        puts e.message
-        retry
-      end
     end
 
     def story_id
