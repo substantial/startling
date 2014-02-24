@@ -7,6 +7,7 @@ describe "bin/start" do
   let(:feature_name) { 'bin_start_starts_stories' }
   let(:feature_branch) { "feature/#{feature_name}" }
   let(:repo_default_branch) { 'develop' }
+  let(:git) { TeachingChannelStart::GitLocal.new }
 
   before do
     test_repo_path = "tmp/test_repo"
@@ -23,8 +24,8 @@ describe "bin/start" do
 
     TeachingChannelStart.root_dir = TeachingChannelStart.cache_dir = "."
 
-    TeachingChannelStart::GitLocal.checkout_branch 'develop'
-    TeachingChannelStart::GitLocal.destroy_branch feature_branch
+    git.checkout_branch 'develop'
+    git.destroy_branch feature_branch
   end
 
   after do
@@ -41,10 +42,10 @@ describe "bin/start" do
   it "starts stories from origin/develop",
     vcr: { cassette_name: "bin_start_starts_stories" } do
 
-    command = TeachingChannelStart::Command.new(["65074482", feature_name])
+    command = TeachingChannelStart::Command.new(args: ["65074482", feature_name])
     command.execute
-    TeachingChannelStart::GitLocal.remote_branches.should include feature_branch
-    TeachingChannelStart::GitLocal.current_branch.should eq feature_branch
+    git.remote_branches.should include feature_branch
+    git.current_branch.should eq feature_branch
     command.default_branch.should == repo_default_branch
   end
 end
