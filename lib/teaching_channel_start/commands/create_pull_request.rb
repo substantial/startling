@@ -52,9 +52,9 @@ module TeachingChannelStart
         ]
         browser_checkboxes = browsers.map { |browser| "- [ ] Test in #{browser}" }.join("\n")
         <<BODY
-        #{story.url}
+#{story.url}
 
-        #{browser_checkboxes}
+#{browser_checkboxes}
 BODY
       end
     end
