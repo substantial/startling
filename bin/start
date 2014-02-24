@@ -2,4 +2,4 @@
 
 require_relative '../lib/teaching-channel-start'
 TeachingChannelStart.root_dir = TeachingChannelStart.cache_dir = Dir.pwd
-TeachingChannelStart::Command.new.call
+TeachingChannelStart::Command.run
