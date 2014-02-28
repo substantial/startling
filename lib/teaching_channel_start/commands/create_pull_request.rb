@@ -54,7 +54,11 @@ module TeachingChannelStart
         <<BODY
 #{story.url}
 
+### Browser Testing
+
 #{browser_checkboxes}
+
+### Migrations
 
 - [ ] [Migrations are safe to run in zero downtime deploy.](https://github.com/TeachingChannel/teaching-channel/wiki/Migrations)
 - [ ] LHM is used for large tables like users, activities, probably others.
