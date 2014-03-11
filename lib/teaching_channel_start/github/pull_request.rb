@@ -17,7 +17,7 @@ module TeachingChannelStart
       end
 
       def in_progress?
-        title !~ /^(HOLD|TESTING):/
+        title !~ /^(HOLD|TESTING|SPIKE):/
       end
 
       def url
