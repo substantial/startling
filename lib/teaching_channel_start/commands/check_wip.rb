@@ -12,8 +12,11 @@ module TeachingChannelStart
         if wip.count >= WIP_LIMIT
           WorkPrinter.new.print wip
           puts
+          wiki_link = "https://github.com/TeachingChannel/teaching-channel/wiki/wip".underline.blue
+          puts "What to do when WIP'd: #{wiki_link}"
+          puts
           question = [
-            "Would you like to continue to add to that (",
+            "Would you like to start anyway (",
             "anything but \"yes\" will abort".underline,
             ")? "
           ].map(&:yellow).join
