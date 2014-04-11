@@ -27,10 +27,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "excon", ">=0.27.5"
   spec.add_development_dependency "dotenv"
 
-  spec.add_dependency "octokit", "~> 2.0"
+  spec.add_dependency "octokit", "~> 3.0"
   spec.add_dependency "highline", "~> 1.6"
   spec.add_dependency "colored", "~> 1.2"
-  spec.add_dependency "parallel", "~> 0.9"
-  spec.add_dependency "faraday", "~> 0.8.0"
-  spec.add_dependency "business_time", "~> 0.6.0"
+  spec.add_dependency "parallel", "~> 1.0"
+  spec.add_dependency "faraday", "~> 0.9.0"
+  spec.add_dependency 'business_time', '~> 0.7.2'
 end
