@@ -27,11 +27,11 @@ http_interactions:
       X-Powered-By:
       - Phusion Passenger (mod_rails/mod_rack) 3.0.14
       X-Runtime:
-      - '119'
+      - '124'
       Cache-Control:
       - private, max-age=0, must-revalidate
       Etag:
-      - '"59cd41b497afbfa35d4ed3816a698382"'
+      - '"6fe95f24a6cf270b0dba00df7f0cf5ea"'
       Server:
       - nginx/1.2.2 + Phusion Passenger 3.0.14 (mod_rails/mod_rack)
       Access-Control-Allow-Origin:
@@ -46,31 +46,32 @@ http_interactions:
       encoding: UTF-8
       string: |-
         {
-          "name": "Tch Testing",
-          "has_google_identity": false,
-          "username": "tcht",
-          "kind": "me",
-          "id": 1240260,
-          "api_token": "<PIVOTAL_API_TOKEN>",
-          "email": "aaron+tchtesting@substantial.com",
-          "time_zone": {
-            "olson_name": "America/Los_Angeles",
-            "kind": "time_zone",
-            "offset": "-08:00"
-          },
-          "initials": "TT",
           "projects": [
             {
+              "role": "owner",
+              "project_name": "Tch Start Testing",
               "project_color": "e46642",
-              "kind": "membership_summary",
+              "last_viewed_at": "2014-02-04T16:39:33Z",
               "id": 3907566,
               "project_id": 1007746,
-              "project_name": "Tch Start Testing",
-              "last_viewed_at": "2014-02-04T02:03:17Z",
-              "role": "owner"
+              "kind": "membership_summary"
             }
-          ]
+          ],
+          "has_google_identity": false,
+          "email": "aaron+tchtesting@substantial.com",
+          "initials": "TT",
+          "name": "Tch Testing",
+          "time_zone": {
+            "offset": "-07:00",
+            "olson_name": "America/Los_Angeles",
+            "kind": "time_zone"
+          },
+          "id": 1240260,
+          "kind": "me",
+          "username": "tcht",
+          "api_token": "<PIVOTAL_API_TOKEN>",
+          "receives_in_app_notifications": true
         }
     http_version: 
-  recorded_at: Tue, 04 Feb 2014 02:40:42 GMT
+  recorded_at: Fri, 11 Apr 2014 17:17:43 GMT
 recorded_with: VCR 2.8.0

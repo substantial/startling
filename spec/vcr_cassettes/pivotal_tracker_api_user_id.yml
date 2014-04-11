@@ -28,12 +28,12 @@ http_interactions:
       - '200'
       X-Powered-By:
       - Phusion Passenger (mod_rails/mod_rack) 3.0.14
+      Etag:
+      - '"99739549742ff0cda850a10841def930"'
       X-Runtime:
-      - '29'
+      - '26'
       Cache-Control:
       - private, max-age=0, must-revalidate
-      Etag:
-      - '"59cd41b497afbfa35d4ed3816a698382"'
       Server:
       - nginx/1.2.2 + Phusion Passenger 3.0.14 (mod_rails/mod_rack)
       Access-Control-Allow-Origin:
@@ -48,31 +48,32 @@ http_interactions:
       encoding: UTF-8
       string: |-
         {
-          "name": "Tch Testing",
-          "has_google_identity": false,
-          "username": "tcht",
-          "kind": "me",
-          "id": 1240260,
           "api_token": "<PIVOTAL_API_TOKEN>",
+          "kind": "me",
+          "has_google_identity": false,
           "email": "aaron+tchtesting@substantial.com",
-          "time_zone": {
-            "olson_name": "America/Los_Angeles",
-            "kind": "time_zone",
-            "offset": "-08:00"
-          },
+          "username": "tcht",
+          "receives_in_app_notifications": true,
           "initials": "TT",
+          "time_zone": {
+            "kind": "time_zone",
+            "olson_name": "America/Los_Angeles",
+            "offset": "-07:00"
+          },
+          "id": 1240260,
+          "name": "Tch Testing",
           "projects": [
             {
-              "project_color": "e46642",
-              "kind": "membership_summary",
-              "id": 3907566,
-              "project_id": 1007746,
               "project_name": "Tch Start Testing",
-              "last_viewed_at": "2014-02-04T02:03:17Z",
-              "role": "owner"
+              "kind": "membership_summary",
+              "role": "owner",
+              "id": 3907566,
+              "last_viewed_at": "2014-02-04T16:39:33Z",
+              "project_color": "e46642",
+              "project_id": 1007746
             }
           ]
         }
     http_version: 
-  recorded_at: Tue, 04 Feb 2014 02:40:41 GMT
+  recorded_at: Fri, 11 Apr 2014 17:17:44 GMT
 recorded_with: VCR 2.8.0
