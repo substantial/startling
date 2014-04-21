@@ -60,7 +60,7 @@ module TeachingChannelStart
 
       def self.verify_response(response)
         return if response.status == 200
-        puts "Request to #{url} failed"
+        puts "Request to #{response.env.url.to_s} failed"
         puts response.body
         raise "Request failed"
       end
