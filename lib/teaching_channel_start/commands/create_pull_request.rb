@@ -62,6 +62,15 @@ module TeachingChannelStart
 
 - [ ] [Migrations are safe to run in zero downtime deploy.](https://github.com/TeachingChannel/teaching-channel/wiki/Migrations)
 - [ ] LHM is used for large tables like users, activities, probably others.
+
+### Security
+
+- [ ] Locked down new features
+- [ ] Add authorization checks
+
+### Analytics
+
+- [ ] Add 'a-' classes to things worth tracking
 BODY
       end
     end
