@@ -65,12 +65,11 @@ module TeachingChannelStart
 
 ### Security
 
-- [ ] Locked down new features
-- [ ] Add authorization checks
+- [ ] Features have appropriate authorization checks.
 
 ### Analytics
 
-- [ ] Add 'a-' classes to things worth tracking
+- [ ] Analytic classes ('a-') have been added.
 BODY
       end
     end
