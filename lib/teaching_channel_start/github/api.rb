@@ -68,6 +68,8 @@ module TeachingChannelStart
           rescue Octokit::Unauthorized
             puts "Invalid username or password, try again."
             retry
+          rescue => e
+            p e
           end
         end
       end
