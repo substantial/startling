@@ -37,6 +37,9 @@ describe "bin/start" do
   #   https://github.com/TeachingChannel/teaching-channel-start-testing
   # * The story should be estimated and unstarted:
   #   https://www.pivotaltracker.com/story/show/65074482
+  #   Credentials for this project:
+  #     email: aaron+tchtesting@substantial.com
+  #     password: asdfasdf
   #
 
   it "starts stories from origin/develop",
