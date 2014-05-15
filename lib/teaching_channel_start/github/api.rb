@@ -64,12 +64,16 @@ module TeachingChannelStart
         TeachingChannelStart.cache.fetch('.github_access_token') do
           begin
             Octokit::Client.new(login: prompt_for_login, password: prompt_for_password)
-              .create_authorization(scopes: ["repo"])[:token]
+              .create_authorization(scopes: ["repo"], note: token_description)[:token]
           rescue Octokit::Unauthorized
             puts "Invalid username or password, try again."
             retry
           end
         end
+      end
+
+      def token_description
+        Shell.run "echo $HOSTNAME"
       end
 
       def prompt_for_login
