@@ -62,7 +62,7 @@ module TeachingChannelStart
 
 - [ ] New CSS is added to style engine and follows [guidelines](https://github.com/TeachingChannel/teaching-channel/blob/master/GUIDELINES.md#cssstyle).
 - [ ] New patterns contain no outside margin or padding.
-- [ ] New patterns do not reference any other patterns.
+- [ ] New patterns styles do not reference any other pattern classes.
 
 ### Migrations
 
