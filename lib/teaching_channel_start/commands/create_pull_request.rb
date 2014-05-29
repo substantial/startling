@@ -58,6 +58,12 @@ module TeachingChannelStart
 
 #{browser_checkboxes}
 
+### CSS
+
+- [ ] New CSS is added to style engine and follows [guidelines](https://github.com/TeachingChannel/teaching-channel/blob/master/GUIDELINES.md#cssstyle).
+- [ ] New patterns contain no outside margin or padding.
+- [ ] New patterns do not reference any other patterns.
+
 ### Migrations
 
 - [ ] [Migrations are safe to run in zero downtime deploy.](https://github.com/TeachingChannel/teaching-channel/wiki/Migrations)
