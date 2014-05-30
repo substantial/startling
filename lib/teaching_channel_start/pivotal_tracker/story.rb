@@ -41,9 +41,9 @@ module TeachingChannelStart
       end
 
       # Sometimes stories have a note in front of their title like
-      # *[BLOCKED]*, this removes it.
+      # *[BLOCKED]* or **[BLOCKED]**, this removes it.
       def remove_prefix(name)
-        name.sub(/^(\*.*?\* *)+/, "").strip
+        name.sub(/^(\*\*?.*?\*\*? *)+/, "").strip
       end
     end
   end
