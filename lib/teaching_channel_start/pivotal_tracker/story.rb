@@ -28,11 +28,10 @@ module TeachingChannelStart
         @attrs ||= api.story story_id
       end
 
-      def start(starter_id: nil, estimate: nil)
+      def start(starter_ids: nil, estimate: nil)
         attrs = {
           current_state: "started",
-          # owned_by_id is depricated, but I couldn't find an alternative
-          owned_by_id: starter_id,
+          owner_ids: starter_ids,
         }
 
         attrs[:estimate] = estimate if estimate
