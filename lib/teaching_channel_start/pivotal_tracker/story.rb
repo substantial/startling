@@ -31,8 +31,7 @@ module TeachingChannelStart
       def start(starter_id: nil, estimate: nil)
         attrs = {
           current_state: "started",
-          # owned_by_id is depricated, but I couldn't find an alternative
-          owned_by_id: starter_id,
+          owner_ids: [starter_id],
         }
 
         attrs[:estimate] = estimate if estimate
