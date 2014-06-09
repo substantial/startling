@@ -28,10 +28,10 @@ module TeachingChannelStart
         @attrs ||= api.story story_id
       end
 
-      def start(starter_id: nil, estimate: nil)
+      def start(starter_ids: nil, estimate: nil)
         attrs = {
           current_state: "started",
-          owner_ids: [starter_id],
+          owner_ids: starter_ids,
         }
 
         attrs[:estimate] = estimate if estimate

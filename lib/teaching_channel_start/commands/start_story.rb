@@ -6,7 +6,8 @@ module TeachingChannelStart
       def execute
         puts "Starting story..."
         estimate = ask_for_estimate unless story.estimated?
-        story.start(starter_id: pivotal_tracker.user_id, estimate: estimate)
+        story_owners = [pivotal_tracker.user_id]
+        story.start(starter_ids: story_owners, estimate: estimate)
       end
 
       def ask_for_estimate
