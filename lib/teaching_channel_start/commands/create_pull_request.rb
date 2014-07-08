@@ -42,7 +42,6 @@ module TeachingChannelStart
 
       def pull_request_body
         browsers = [
-          "IE8 (minor issues are acceptable)",
           "IE9",
           "IE10",
           "IE11",
