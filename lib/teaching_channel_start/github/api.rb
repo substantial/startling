@@ -33,6 +33,10 @@ module TeachingChannelStart
         nil
       end
 
+      def set_labels_for_issue(repo_name: nil, issue_id: nil, labels: nil)
+        octokit.replace_all_labels(repo_name, issue_id, labels)
+      end
+
       def pull_request(repo_name, branch)
         repository(repo_name).pull_request(branch)
       end

@@ -37,7 +37,8 @@ module TeachingChannelStart
       Commands::StartStory.run(story: story, pivotal_tracker: pivotal_tracker)
       create_branch if branch_name != git.current_branch
       Commands::CreateChangelog.run(story: story)
-      Commands::CreatePullRequest.run(repo: repo, story: story, branch_name: branch_name)
+      pull_request = Commands::CreatePullRequest.run(repo: repo, story: story, branch_name: branch_name)
+      Commands::LabelPullRequest.run(pull_request: pull_request, repo: repo, labels: ['WIP'])
     end
 
     def cache
