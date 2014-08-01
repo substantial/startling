@@ -48,6 +48,7 @@ describe "bin/start" do
 
     command = TeachingChannelStart::Command.new(args: [pivotal_story_id, feature_name])
     command.execute
+
     expect(git.remote_branches).to include feature_branch
     expect(git.current_branch).to eq feature_branch
     expect(command.default_branch).to eq(repo_default_branch)

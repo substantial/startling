@@ -12,7 +12,11 @@ module TeachingChannelStart
 
       def pull_requests(repo)
         raw = octokit.pull_requests(repo, state: 'open')
-        Parallel.map(raw, in_threads: raw.count) { |pull| PullRequest.new(pull) }
+        Parallel.map(raw, in_threads: raw.count) do |pull|
+          PullRequest.new(pull).tap do |pull_request|
+            pull_request.labels = labels_for_issue(repo_name: repo, issue_id: pull_request.id)
+          end
+        end
       end
 
       def repository(name)
@@ -31,6 +35,10 @@ module TeachingChannelStart
         puts "Failed to open pull request, it may be open already"
         p e
         nil
+      end
+
+      def labels_for_issue(repo_name: nil, issue_id: nil)
+        octokit.labels_for_issue(repo_name, issue_id)
       end
 
       def set_labels_for_issue(repo_name: nil, issue_id: nil, labels: nil)
