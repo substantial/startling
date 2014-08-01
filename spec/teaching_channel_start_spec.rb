@@ -47,8 +47,8 @@ describe "bin/start" do
 
     command = TeachingChannelStart::Command.new(args: ["65074482", feature_name])
     command.execute
-    git.remote_branches.should include feature_branch
-    git.current_branch.should eq feature_branch
-    command.default_branch.should == repo_default_branch
+    expect(git.remote_branches).to include feature_branch
+    expect(git.current_branch).to eq feature_branch
+    expect(command.default_branch).to eq(repo_default_branch)
   end
 end

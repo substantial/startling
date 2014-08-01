@@ -10,32 +10,32 @@ module TeachingChannelStart
 
     before do
       now =  Time.parse("February 7th, 2014, 1:00 pm")
-      Time.stub(:now) { now }
+      allow(Time).to receive(:now) { now }
     end
 
     it "says 1 day ago if it was yesterday" do
       time = Time.now - 1 * day
-      business_time_ago(time).should == "1 day ago"
+      expect(business_time_ago(time)).to eq("1 day ago")
     end
 
     it "says number of days if it was more than a day ago" do
       time = Time.now - 3 * day
-      business_time_ago(time).should == "3 days ago"
+      expect(business_time_ago(time)).to eq("3 days ago")
     end
 
     it "says number of hours if it is more than 1 hour" do
       time = Time.now - 2 * hour - 20 * minute
-      business_time_ago(time).should == "2 hours ago"
+      expect(business_time_ago(time)).to eq("2 hours ago")
     end
 
     it "says number of hours if it is 1 hour" do
       time = Time.now - 1 * hour - 20 * minute
-      business_time_ago(time).should == "1 hour ago"
+      expect(business_time_ago(time)).to eq("1 hour ago")
     end
 
     it "says less than an hour if it was" do
       time = Time.now - 40 * minute
-      business_time_ago(time).should == "less than an hour ago"
+      expect(business_time_ago(time)).to eq("less than an hour ago")
     end
   end
 end
