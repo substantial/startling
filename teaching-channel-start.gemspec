@@ -20,17 +20,17 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
-  spec.add_development_dependency "rspec", "~> 2.14.1"
+  spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "pry"
   spec.add_development_dependency "vcr"
-  spec.add_development_dependency "webmock", "~>1.15.0"
+  spec.add_development_dependency "webmock", "~>1.18.0"
   spec.add_development_dependency "excon", ">=0.27.5"
   spec.add_development_dependency "dotenv"
 
-  spec.add_dependency "octokit", "~> 3.0"
+  spec.add_dependency "octokit", "~> 3.2"
   spec.add_dependency "highline", "~> 1.6"
   spec.add_dependency "colored", "~> 1.2"
-  spec.add_dependency "parallel", "~> 1.0"
+  spec.add_dependency "parallel", "~> 1.1"
   spec.add_dependency "faraday", "~> 0.9.0"
-  spec.add_dependency 'business_time', '~> 0.7.2'
+  spec.add_dependency 'business_time', '~> 0.7.3'
 end
