@@ -22,7 +22,7 @@ module TeachingChannelStart
       end
 
       def in_progress?
-        label_names.any? { |label| label == 'WIP' || label == 'REVIEW' }
+        label_names.any? { |label| !!label.match(/(WIP|REVIEW)/) }
       end
 
       def label_names
