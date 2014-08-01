@@ -8,6 +8,7 @@ describe "bin/start" do
   let(:feature_branch) { "feature/#{feature_name}" }
   let(:repo_default_branch) { 'develop' }
   let(:git) { TeachingChannelStart::GitLocal.new }
+  let(:pivotal_story_id) { "65074482" }
 
   before do
     test_repo_path = "tmp/test_repo"
@@ -45,7 +46,7 @@ describe "bin/start" do
   it "starts stories from origin/develop",
     vcr: { cassette_name: "bin_start_starts_stories" } do
 
-    command = TeachingChannelStart::Command.new(args: ["65074482", feature_name])
+    command = TeachingChannelStart::Command.new(args: [pivotal_story_id, feature_name])
     command.execute
     expect(git.remote_branches).to include feature_branch
     expect(git.current_branch).to eq feature_branch

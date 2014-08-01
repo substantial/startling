@@ -10,6 +10,7 @@ require_relative 'pivotal_tracker'
 require_relative "commands/base"
 require_relative 'commands/create_pull_request'
 require_relative 'commands/create_changelog'
+require_relative 'commands/label_pull_request'
 require_relative 'commands/print_usage'
 require_relative 'commands/check_wip'
 require_relative 'commands/start_story'

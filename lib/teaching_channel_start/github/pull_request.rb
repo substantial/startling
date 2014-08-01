@@ -8,6 +8,10 @@ module TeachingChannelStart
         prefetch_data if prefetch_data
       end
 
+      def id
+        attributes.number
+      end
+
       def title
         attributes.title
       end
