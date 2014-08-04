@@ -29,6 +29,10 @@ module TeachingChannelStart
         labels.map(&:name)
       end
 
+      def label_names_with_color
+
+      end
+
       def url
         attributes.rels[:html].href
       end

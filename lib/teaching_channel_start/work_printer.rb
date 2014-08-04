@@ -1,3 +1,4 @@
+require 'colored'
 require_relative './time_format_helpers'
 
 module TeachingChannelStart
@@ -10,7 +11,7 @@ module TeachingChannelStart
     end
 
     def format_pull_request(pull_request)
-      "#{pull_request.title.sub(/^.*?:/) { |m| m.magenta.reversed }}\n" +
+      "#{format_pull_request_labels(pull_request)}:  #{pull_request.title}\n" +
         "  Started #{ago pull_request.created_at}, last updated #{ago pull_request.updated_at}\n" +
         "  #{pull_request.url.cyan.underline}"
     end
@@ -37,6 +38,22 @@ module TeachingChannelStart
         count.to_s.yellow
       else
         count.to_s.blue
+      end
+    end
+    private
+
+    def format_pull_request_labels(pull_request)
+      pull_request.labels.map do |label|
+        label[:name].send(color_for_label(label)).reversed
+      end.join(" ,")
+    end
+
+    def color_for_label(label)
+      case label[:name]
+      when "WIP"
+        :yellow
+      else
+        :magenta
       end
     end
   end
