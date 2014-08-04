@@ -11,13 +11,13 @@ module TeachingChannelStart
     end
 
     def format_pull_request(pull_request)
-      "#{format_pull_request_labels(pull_request)}:  #{pull_request.title}\n" +
+      "#{format_pull_request_labels(pull_request)}: #{pull_request.title}\n" +
         "  Started #{ago pull_request.created_at}, last updated #{ago pull_request.updated_at}\n" +
         "  #{pull_request.url.cyan.underline}"
     end
 
     def format_work(work)
-      "#{work.authors.join(", ").blue} - #{work.branch.to_s.yellow}\n".yellow +
+      "#{work.authors.join(", ").green} - #{work.branch.to_s.yellow}\n".yellow +
         indent(work.pull_requests.sort_by(&:created_at).map { |p| format_pull_request(p) }.join("\n"))
     end
 
@@ -45,15 +45,24 @@ module TeachingChannelStart
     def format_pull_request_labels(pull_request)
       pull_request.labels.map do |label|
         label[:name].send(color_for_label(label)).reversed
-      end.join(" ,")
+      end.join(", ")
     end
 
+    # Using the standard color codes from github for labels
     def color_for_label(label)
-      case label[:name]
-      when "WIP"
+      case label[:color]
+      when "fbca04"
         :yellow
-      else
+      when "207de5"
+        :blue
+      when "84b6eb"
+        :cyan
+      when "fc2929"
+        :red
+      when "cc317c"
         :magenta
+      else
+        :white
       end
     end
   end
