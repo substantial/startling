@@ -1,4 +1,5 @@
 require 'colored'
+require 'paint'
 require_relative './time_format_helpers'
 
 module TeachingChannelStart
@@ -44,26 +45,8 @@ module TeachingChannelStart
 
     def format_pull_request_labels(pull_request)
       pull_request.labels.map do |label|
-        label[:name].send(color_for_label(label)).reversed
+        Paint[label[:name], :black, label[:color]]
       end.join(", ")
-    end
-
-    # Using the standard color codes from github for labels
-    def color_for_label(label)
-      case label[:color]
-      when "fbca04"
-        :yellow
-      when "207de5"
-        :blue
-      when "84b6eb"
-        :cyan
-      when "fc2929"
-        :red
-      when "cc317c"
-        :magenta
-      else
-        :white
-      end
     end
   end
 end
