@@ -2,7 +2,6 @@ require 'cgi'
 require 'json'
 require 'highline/import'
 require 'shellwords'
-require 'colored'
 
 require_relative 'cache'
 require_relative 'pivotal_tracker'

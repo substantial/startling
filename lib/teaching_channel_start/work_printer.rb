@@ -1,7 +1,10 @@
+require 'paint'
 require_relative './time_format_helpers'
+require_relative "./colorize_string"
 
 module TeachingChannelStart
   class WorkPrinter
+    using ColorizeString
     include TimeFormatHelpers
 
     def print(works)
@@ -10,13 +13,13 @@ module TeachingChannelStart
     end
 
     def format_pull_request(pull_request)
-      "#{pull_request.title.sub(/^.*?:/) { |m| m.magenta.reversed }}\n" +
+      "#{format_pull_request_labels(pull_request)}: #{pull_request.title}\n" +
         "  Started #{ago pull_request.created_at}, last updated #{ago pull_request.updated_at}\n" +
         "  #{pull_request.url.cyan.underline}"
     end
 
     def format_work(work)
-      "#{work.authors.join(", ").blue} - #{work.branch.to_s.yellow}\n".yellow +
+      "#{work.authors.join(", ").green} - #{work.branch.to_s.yellow}\n".yellow +
         indent(work.pull_requests.sort_by(&:created_at).map { |p| format_pull_request(p) }.join("\n"))
     end
 
@@ -38,6 +41,13 @@ module TeachingChannelStart
       else
         count.to_s.blue
       end
+    end
+
+    private
+    def format_pull_request_labels(pull_request)
+      pull_request.labels.map do |label|
+        Paint[label[:name], :black, label[:color]]
+      end.join(", ")
     end
   end
 end

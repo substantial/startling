@@ -1,11 +1,14 @@
 require_relative '../work'
 require_relative '../work_printer'
+require_relative "../colorize_string"
 
 require_relative "base"
 
 module TeachingChannelStart
   module Commands
     class CheckWip < Base
+      using ColorizeString
+
       def execute
         puts "Checking WIP..."
         wip = Work.in_progress
@@ -17,9 +20,9 @@ module TeachingChannelStart
           puts
           question = [
             "Would you like to start anyway (",
-            "anything but \"yes\" will abort".underline,
+            'anything but "yes" will abort'.underline,
             ")? "
-          ].map(&:yellow).join
+          ].map { |string| string.yellow }.join
           confirm = ask(question)
 
           exit unless confirm == "yes"

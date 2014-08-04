@@ -1,10 +1,12 @@
-require 'colored'
 require 'parallel'
+require_relative "./colorize_string"
 
 require_relative 'github'
 
 module TeachingChannelStart
   class Work
+    using ColorizeString
+
     attr_reader :pull_requests, :branch
 
     def initialize(branch, pull_requests)
@@ -17,7 +19,8 @@ module TeachingChannelStart
     end
 
     def to_s
-      "#{authors.join(", ").blue} - #{branch.to_s.yellow}\n".yellow + pull_requests.map { |p| "    #{p}"}.join("\n")
+      "#{authors.join(", ").blue} - #{branch.to_s.yellow}\n" +
+        pull_requests.map { |p| "    #{p}"}.join("\n")
     end
 
     def authors
