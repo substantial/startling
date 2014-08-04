@@ -1,9 +1,10 @@
-require 'colored'
 require 'paint'
 require_relative './time_format_helpers'
+require_relative "./colorize_string"
 
 module TeachingChannelStart
   class WorkPrinter
+    using ColorizeString
     include TimeFormatHelpers
 
     def print(works)
@@ -41,8 +42,8 @@ module TeachingChannelStart
         count.to_s.blue
       end
     end
-    private
 
+    private
     def format_pull_request_labels(pull_request)
       pull_request.labels.map do |label|
         Paint[label[:name], :black, label[:color]]
