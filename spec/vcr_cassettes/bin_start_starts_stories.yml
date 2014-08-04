@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - application/vnd.github.v3+json
       User-Agent:
-      - Octokit Ruby Gem 3.1.0
+      - Octokit Ruby Gem 3.2.0
       Authorization:
       - token <GITHUB_ACCESS_TOKEN>
       Accept-Encoding:
@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Mon, 09 Jun 2014 23:18:39 GMT
+      - Fri, 01 Aug 2014 19:56:33 GMT
       Content-Type:
       - application/json; charset=utf-8
       Status:
@@ -31,9 +31,9 @@ http_interactions:
       X-Ratelimit-Limit:
       - '5000'
       X-Ratelimit-Remaining:
-      - '4999'
+      - '4957'
       X-Ratelimit-Reset:
-      - '1402359519'
+      - '1406924256'
       Cache-Control:
       - private, max-age=60, s-maxage=60
       Etag:
@@ -65,9 +65,9 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Github-Request-Id:
-      - D8BE7522:475B:31F148:539640CE
+      - 458F5566:0445:57E0196:53DBF0F1
       Strict-Transport-Security:
-      - max-age=31536000
+      - max-age=31536000; includeSubdomains
       X-Content-Type-Options:
       - nosniff
       X-Served-By:
@@ -76,7 +76,7 @@ http_interactions:
       encoding: UTF-8
       string: "[]"
     http_version: 
-  recorded_at: Mon, 09 Jun 2014 23:18:39 GMT
+  recorded_at: Fri, 01 Aug 2014 19:56:33 GMT
 - request:
     method: get
     uri: https://www.pivotaltracker.com/services/v5/stories/65074482
@@ -110,11 +110,11 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a71520c171a168cfccab114ecd84e38e
+      - c4f577e32f82e69080fa4dcff3f7354d
       X-Runtime:
-      - '0.056882'
+      - '0.043222'
       Date:
-      - Mon, 09 Jun 2014 23:18:39 GMT
+      - Fri, 01 Aug 2014 19:56:33 GMT
       X-Rack-Cache:
       - miss
       X-Powered-By:
@@ -153,7 +153,7 @@ http_interactions:
           "url": "https://www.pivotaltracker.com/story/show/65074482"
         }
     http_version: 
-  recorded_at: Mon, 09 Jun 2014 23:18:39 GMT
+  recorded_at: Fri, 01 Aug 2014 19:56:34 GMT
 - request:
     method: get
     uri: https://www.pivotaltracker.com/services/v5/me
@@ -185,11 +185,11 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - b3d05d5946719286214653341c2734fc
+      - 4b1a2d3673d01c52e985101733a40a6f
       X-Runtime:
-      - '0.032065'
+      - '0.033727'
       Date:
-      - Mon, 09 Jun 2014 23:18:39 GMT
+      - Fri, 01 Aug 2014 19:56:34 GMT
       X-Rack-Cache:
       - miss
       X-Powered-By:
@@ -232,10 +232,12 @@ http_interactions:
             }
           ],
           "email": "aaron+tchtesting@substantial.com",
-          "receives_in_app_notifications": true
+          "receives_in_app_notifications": true,
+          "created_at": "2014-02-04T01:02:10Z",
+          "updated_at": "2014-08-01T19:56:34Z"
         }
     http_version: 
-  recorded_at: Mon, 09 Jun 2014 23:18:39 GMT
+  recorded_at: Fri, 01 Aug 2014 19:56:34 GMT
 - request:
     method: put
     uri: https://www.pivotaltracker.com/services/v5/stories/65074482
@@ -273,11 +275,11 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - ca3c11c86197c1628353a0f3e6e01b6c
+      - ca589b64ab24df08659b730969d4fe72
       X-Runtime:
-      - '0.130413'
+      - '0.139119'
       Date:
-      - Mon, 09 Jun 2014 23:18:40 GMT
+      - Fri, 01 Aug 2014 19:56:35 GMT
       X-Rack-Cache:
       - invalidate, pass
       X-Powered-By:
@@ -316,7 +318,7 @@ http_interactions:
           "url": "https://www.pivotaltracker.com/story/show/65074482"
         }
     http_version: 
-  recorded_at: Mon, 09 Jun 2014 23:18:40 GMT
+  recorded_at: Fri, 01 Aug 2014 19:56:35 GMT
 - request:
     method: get
     uri: https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing
@@ -327,7 +329,7 @@ http_interactions:
       Accept:
       - application/vnd.github.v3+json
       User-Agent:
-      - Octokit Ruby Gem 3.1.0
+      - Octokit Ruby Gem 3.2.0
       Authorization:
       - token <GITHUB_ACCESS_TOKEN>
       Accept-Encoding:
@@ -340,7 +342,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Mon, 09 Jun 2014 23:18:40 GMT
+      - Fri, 01 Aug 2014 19:56:35 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -350,15 +352,15 @@ http_interactions:
       X-Ratelimit-Limit:
       - '5000'
       X-Ratelimit-Remaining:
-      - '4998'
+      - '4956'
       X-Ratelimit-Reset:
-      - '1402359519'
+      - '1406924256'
       Cache-Control:
       - private, max-age=60, s-maxage=60
       Last-Modified:
-      - Mon, 09 Jun 2014 23:18:39 GMT
+      - Mon, 16 Jun 2014 18:19:39 GMT
       Etag:
-      - '"f88735c2f1bc31e04a83ca063d61cd3d"'
+      - '"9f4456786f33cd04d37f1a51f1004803"'
       X-Oauth-Scopes:
       - gist, repo, user
       X-Accepted-Oauth-Scopes:
@@ -382,30 +384,29 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Github-Request-Id:
-      - D8BE7522:4763:23F2E10:539640D0
+      - 458F5566:0445:57E0589:53DBF0F3
       Strict-Transport-Security:
-      - max-age=31536000
+      - max-age=31536000; includeSubdomains
       X-Content-Type-Options:
       - nosniff
       X-Served-By:
-      - 6d7de9e645814cac34ea2a8d72ba3141
+      - c436b2b44345c72ff906059f604991e7
     body:
       encoding: UTF-8
-      string: '{"id":16495552,"name":"teaching-channel-start-testing","full_name":"TeachingChannel/teaching-channel-start-testing","owner":{"login":"TeachingChannel","id":5589837,"avatar_url":"https://avatars.githubusercontent.com/u/5589837?","gravatar_id":"130a12e645e4e5bf49469dd15bd64618","url":"https://api.github.com/users/TeachingChannel","html_url":"https://github.com/TeachingChannel","followers_url":"https://api.github.com/users/TeachingChannel/followers","following_url":"https://api.github.com/users/TeachingChannel/following{/other_user}","gists_url":"https://api.github.com/users/TeachingChannel/gists{/gist_id}","starred_url":"https://api.github.com/users/TeachingChannel/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TeachingChannel/subscriptions","organizations_url":"https://api.github.com/users/TeachingChannel/orgs","repos_url":"https://api.github.com/users/TeachingChannel/repos","events_url":"https://api.github.com/users/TeachingChannel/events{/privacy}","received_events_url":"https://api.github.com/users/TeachingChannel/received_events","type":"Organization","site_admin":false},"private":true,"html_url":"https://github.com/TeachingChannel/teaching-channel-start-testing","description":"","fork":false,"url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing","forks_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/forks","keys_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/keys{/key_id}","collaborators_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/teams","hooks_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/hooks","issue_events_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/events{/number}","events_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/events","assignees_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/assignees{/user}","branches_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/branches{/branch}","tags_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/tags","blobs_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/refs{/sha}","trees_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/trees{/sha}","statuses_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/statuses/{sha}","languages_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/languages","stargazers_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/stargazers","contributors_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/contributors","subscribers_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/subscribers","subscription_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/subscription","commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/commits{/sha}","git_commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/commits{/sha}","comments_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/comments{/number}","issue_comment_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/comments/{number}","contents_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/contents/{+path}","compare_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/compare/{base}...{head}","merges_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/merges","archive_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/downloads","issues_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues{/number}","pulls_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls{/number}","milestones_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/milestones{/number}","notifications_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/labels{/name}","releases_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/releases{/id}","created_at":"2014-02-03T22:40:49Z","updated_at":"2014-06-09T23:18:39Z","pushed_at":"2014-06-09T23:18:39Z","git_url":"git://github.com/TeachingChannel/teaching-channel-start-testing.git","ssh_url":"git@github.com:TeachingChannel/teaching-channel-start-testing.git","clone_url":"https://github.com/TeachingChannel/teaching-channel-start-testing.git","svn_url":"https://github.com/TeachingChannel/teaching-channel-start-testing","homepage":null,"size":804,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"forks_count":0,"mirror_url":null,"open_issues_count":0,"forks":0,"open_issues":0,"watchers":0,"default_branch":"develop","permissions":{"admin":false,"push":true,"pull":true},"organization":{"login":"TeachingChannel","id":5589837,"avatar_url":"https://avatars.githubusercontent.com/u/5589837?","gravatar_id":"130a12e645e4e5bf49469dd15bd64618","url":"https://api.github.com/users/TeachingChannel","html_url":"https://github.com/TeachingChannel","followers_url":"https://api.github.com/users/TeachingChannel/followers","following_url":"https://api.github.com/users/TeachingChannel/following{/other_user}","gists_url":"https://api.github.com/users/TeachingChannel/gists{/gist_id}","starred_url":"https://api.github.com/users/TeachingChannel/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TeachingChannel/subscriptions","organizations_url":"https://api.github.com/users/TeachingChannel/orgs","repos_url":"https://api.github.com/users/TeachingChannel/repos","events_url":"https://api.github.com/users/TeachingChannel/events{/privacy}","received_events_url":"https://api.github.com/users/TeachingChannel/received_events","type":"Organization","site_admin":false},"network_count":0,"subscribers_count":7}'
+      string: '{"id":16495552,"name":"teaching-channel-start-testing","full_name":"TeachingChannel/teaching-channel-start-testing","owner":{"login":"TeachingChannel","id":5589837,"avatar_url":"https://avatars.githubusercontent.com/u/5589837?v=1","gravatar_id":"130a12e645e4e5bf49469dd15bd64618","url":"https://api.github.com/users/TeachingChannel","html_url":"https://github.com/TeachingChannel","followers_url":"https://api.github.com/users/TeachingChannel/followers","following_url":"https://api.github.com/users/TeachingChannel/following{/other_user}","gists_url":"https://api.github.com/users/TeachingChannel/gists{/gist_id}","starred_url":"https://api.github.com/users/TeachingChannel/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TeachingChannel/subscriptions","organizations_url":"https://api.github.com/users/TeachingChannel/orgs","repos_url":"https://api.github.com/users/TeachingChannel/repos","events_url":"https://api.github.com/users/TeachingChannel/events{/privacy}","received_events_url":"https://api.github.com/users/TeachingChannel/received_events","type":"Organization","site_admin":false},"private":true,"html_url":"https://github.com/TeachingChannel/teaching-channel-start-testing","description":"","fork":false,"url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing","forks_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/forks","keys_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/keys{/key_id}","collaborators_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/teams","hooks_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/hooks","issue_events_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/events{/number}","events_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/events","assignees_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/assignees{/user}","branches_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/branches{/branch}","tags_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/tags","blobs_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/refs{/sha}","trees_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/trees{/sha}","statuses_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/statuses/{sha}","languages_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/languages","stargazers_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/stargazers","contributors_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/contributors","subscribers_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/subscribers","subscription_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/subscription","commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/commits{/sha}","git_commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/commits{/sha}","comments_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/comments{/number}","issue_comment_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/comments/{number}","contents_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/contents/{+path}","compare_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/compare/{base}...{head}","merges_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/merges","archive_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/downloads","issues_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues{/number}","pulls_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls{/number}","milestones_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/milestones{/number}","notifications_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/labels{/name}","releases_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/releases{/id}","created_at":"2014-02-03T22:40:49Z","updated_at":"2014-06-16T18:19:39Z","pushed_at":"2014-08-01T19:56:33Z","git_url":"git://github.com/TeachingChannel/teaching-channel-start-testing.git","ssh_url":"git@github.com:TeachingChannel/teaching-channel-start-testing.git","clone_url":"https://github.com/TeachingChannel/teaching-channel-start-testing.git","svn_url":"https://github.com/TeachingChannel/teaching-channel-start-testing","homepage":null,"size":892,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"forks_count":0,"mirror_url":null,"open_issues_count":0,"forks":0,"open_issues":0,"watchers":0,"default_branch":"develop","permissions":{"admin":false,"push":true,"pull":true},"organization":{"login":"TeachingChannel","id":5589837,"avatar_url":"https://avatars.githubusercontent.com/u/5589837?v=1","gravatar_id":"130a12e645e4e5bf49469dd15bd64618","url":"https://api.github.com/users/TeachingChannel","html_url":"https://github.com/TeachingChannel","followers_url":"https://api.github.com/users/TeachingChannel/followers","following_url":"https://api.github.com/users/TeachingChannel/following{/other_user}","gists_url":"https://api.github.com/users/TeachingChannel/gists{/gist_id}","starred_url":"https://api.github.com/users/TeachingChannel/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TeachingChannel/subscriptions","organizations_url":"https://api.github.com/users/TeachingChannel/orgs","repos_url":"https://api.github.com/users/TeachingChannel/repos","events_url":"https://api.github.com/users/TeachingChannel/events{/privacy}","received_events_url":"https://api.github.com/users/TeachingChannel/received_events","type":"Organization","site_admin":false},"network_count":0,"subscribers_count":5}'
     http_version: 
-  recorded_at: Mon, 09 Jun 2014 23:18:40 GMT
+  recorded_at: Fri, 01 Aug 2014 19:56:35 GMT
 - request:
     method: post
     uri: https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls
     body:
       encoding: UTF-8
-      string: '{"base":"develop","head":"feature/bin_start_starts_stories","title":"WIP:
-        TEST: bin_start_starts_stories *(estimate should be set, but this story should
-        not be started)*","body":"https://www.pivotaltracker.com/story/show/65074482\n\n###
-        Browser Testing\n\n- [ ] Test in IE8 (minor issues are acceptable)\n- [ ]
-        Test in IE9\n- [ ] Test in IE10\n- [ ] Test in IE11\n- [ ] Test in Firefox\n-
-        [ ] Test in Safari\n- [ ] Test in Chrome\n\n### CSS\n\n- [ ] New CSS is added
-        to style engine and follows [guidelines](https://github.com/TeachingChannel/teaching-channel/blob/master/GUIDELINES.md#cssstyle).\n-
+      string: '{"base":"develop","head":"feature/bin_start_starts_stories","title":"TEST:
+        bin_start_starts_stories *(estimate should be set, but this story should not
+        be started)*","body":"https://www.pivotaltracker.com/story/show/65074482\n\n###
+        Browser Testing\n\n- [ ] Test in IE9\n- [ ] Test in IE10\n- [ ] Test in IE11\n-
+        [ ] Test in Firefox\n- [ ] Test in Safari\n- [ ] Test in Chrome\n\n### CSS\n\n-
+        [ ] New CSS is added to style engine and follows [guidelines](https://github.com/TeachingChannel/teaching-channel/blob/master/GUIDELINES.md#cssstyle).\n-
         [ ] New patterns contain no outside margin or padding.\n- [ ] New patterns
         styles do not reference any other pattern classes.\n\n### Migrations\n\n-
         [ ] [Migrations are safe to run in zero downtime deploy.](https://github.com/TeachingChannel/teaching-channel/wiki/Migrations)\n-
@@ -416,7 +417,7 @@ http_interactions:
       Accept:
       - application/vnd.github.v3+json
       User-Agent:
-      - Octokit Ruby Gem 3.1.0
+      - Octokit Ruby Gem 3.2.0
       Authorization:
       - token <GITHUB_ACCESS_TOKEN>
       Accept-Encoding:
@@ -429,7 +430,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Mon, 09 Jun 2014 23:18:43 GMT
+      - Fri, 01 Aug 2014 19:56:36 GMT
       Content-Type:
       - application/json; charset=utf-8
       Status:
@@ -437,19 +438,19 @@ http_interactions:
       X-Ratelimit-Limit:
       - '5000'
       X-Ratelimit-Remaining:
-      - '4997'
+      - '4955'
       X-Ratelimit-Reset:
-      - '1402359519'
+      - '1406924256'
       Cache-Control:
       - private, max-age=60, s-maxage=60
       Etag:
-      - '"c5e41755071ddd18d67b75e45548114e"'
+      - '"09e5e0479ab758112cabd1caf25c6208"'
       X-Oauth-Scopes:
       - gist, repo, user
       X-Accepted-Oauth-Scopes:
       - ''
       Location:
-      - https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/17
+      - https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/21
       Vary:
       - Accept, Authorization, Cookie, X-GitHub-OTP
       X-Github-Media-Type:
@@ -461,7 +462,7 @@ http_interactions:
       Content-Security-Policy:
       - default-src 'none'
       Content-Length:
-      - '18264'
+      - '18225'
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Expose-Headers:
@@ -470,28 +471,27 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Github-Request-Id:
-      - D8BE7522:4763:23F3093:539640D3
+      - 458F5566:0441:1B17846:53DBF0F4
       Strict-Transport-Security:
-      - max-age=31536000
+      - max-age=31536000; includeSubdomains
       X-Content-Type-Options:
       - nosniff
     body:
       encoding: UTF-8
-      string: '{"url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/17","id":16914403,"html_url":"https://github.com/TeachingChannel/teaching-channel-start-testing/pull/17","diff_url":"https://github.com/TeachingChannel/teaching-channel-start-testing/pull/17.diff","patch_url":"https://github.com/TeachingChannel/teaching-channel-start-testing/pull/17.patch","issue_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/17","number":17,"state":"open","title":"WIP:
-        TEST: bin_start_starts_stories *(estimate should be set, but this story should
-        not be started)*","user":{"login":"tchtesting","id":6580749,"avatar_url":"https://avatars.githubusercontent.com/u/6580749?","gravatar_id":"e35694435b1ff6965d87ba35b7a70e83","url":"https://api.github.com/users/tchtesting","html_url":"https://github.com/tchtesting","followers_url":"https://api.github.com/users/tchtesting/followers","following_url":"https://api.github.com/users/tchtesting/following{/other_user}","gists_url":"https://api.github.com/users/tchtesting/gists{/gist_id}","starred_url":"https://api.github.com/users/tchtesting/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/tchtesting/subscriptions","organizations_url":"https://api.github.com/users/tchtesting/orgs","repos_url":"https://api.github.com/users/tchtesting/repos","events_url":"https://api.github.com/users/tchtesting/events{/privacy}","received_events_url":"https://api.github.com/users/tchtesting/received_events","type":"User","site_admin":false},"body":"https://www.pivotaltracker.com/story/show/65074482\n\n###
-        Browser Testing\n\n- [ ] Test in IE8 (minor issues are acceptable)\n- [ ]
-        Test in IE9\n- [ ] Test in IE10\n- [ ] Test in IE11\n- [ ] Test in Firefox\n-
-        [ ] Test in Safari\n- [ ] Test in Chrome\n\n### CSS\n\n- [ ] New CSS is added
-        to style engine and follows [guidelines](https://github.com/TeachingChannel/teaching-channel/blob/master/GUIDELINES.md#cssstyle).\n-
+      string: '{"url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/21","id":19230507,"html_url":"https://github.com/TeachingChannel/teaching-channel-start-testing/pull/21","diff_url":"https://github.com/TeachingChannel/teaching-channel-start-testing/pull/21.diff","patch_url":"https://github.com/TeachingChannel/teaching-channel-start-testing/pull/21.patch","issue_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/21","number":21,"state":"open","title":"TEST:
+        bin_start_starts_stories *(estimate should be set, but this story should not
+        be started)*","user":{"login":"tchtesting","id":6580749,"avatar_url":"https://avatars.githubusercontent.com/u/6580749?v=1","gravatar_id":"e35694435b1ff6965d87ba35b7a70e83","url":"https://api.github.com/users/tchtesting","html_url":"https://github.com/tchtesting","followers_url":"https://api.github.com/users/tchtesting/followers","following_url":"https://api.github.com/users/tchtesting/following{/other_user}","gists_url":"https://api.github.com/users/tchtesting/gists{/gist_id}","starred_url":"https://api.github.com/users/tchtesting/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/tchtesting/subscriptions","organizations_url":"https://api.github.com/users/tchtesting/orgs","repos_url":"https://api.github.com/users/tchtesting/repos","events_url":"https://api.github.com/users/tchtesting/events{/privacy}","received_events_url":"https://api.github.com/users/tchtesting/received_events","type":"User","site_admin":false},"body":"https://www.pivotaltracker.com/story/show/65074482\n\n###
+        Browser Testing\n\n- [ ] Test in IE9\n- [ ] Test in IE10\n- [ ] Test in IE11\n-
+        [ ] Test in Firefox\n- [ ] Test in Safari\n- [ ] Test in Chrome\n\n### CSS\n\n-
+        [ ] New CSS is added to style engine and follows [guidelines](https://github.com/TeachingChannel/teaching-channel/blob/master/GUIDELINES.md#cssstyle).\n-
         [ ] New patterns contain no outside margin or padding.\n- [ ] New patterns
         styles do not reference any other pattern classes.\n\n### Migrations\n\n-
         [ ] [Migrations are safe to run in zero downtime deploy.](https://github.com/TeachingChannel/teaching-channel/wiki/Migrations)\n-
         [ ] LHM is used for large tables like users, activities, probably others.\n\n###
         Security\n\n- [ ] Features have appropriate authorization checks.\n\n### Analytics\n\n-
-        [ ] Analytic classes (''a-'') have been added.\n","created_at":"2014-06-09T23:18:43Z","updated_at":"2014-06-09T23:18:43Z","closed_at":null,"merged_at":null,"merge_commit_sha":null,"assignee":null,"milestone":null,"commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/17/commits","review_comments_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/17/comments","review_comment_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/comments/{number}","comments_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/17/comments","statuses_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/statuses/d94822f7eb3a3bbb0285c5348b3ec84acd4bd065","head":{"label":"TeachingChannel:feature/bin_start_starts_stories","ref":"feature/bin_start_starts_stories","sha":"d94822f7eb3a3bbb0285c5348b3ec84acd4bd065","user":{"login":"TeachingChannel","id":5589837,"avatar_url":"https://avatars.githubusercontent.com/u/5589837?","gravatar_id":"130a12e645e4e5bf49469dd15bd64618","url":"https://api.github.com/users/TeachingChannel","html_url":"https://github.com/TeachingChannel","followers_url":"https://api.github.com/users/TeachingChannel/followers","following_url":"https://api.github.com/users/TeachingChannel/following{/other_user}","gists_url":"https://api.github.com/users/TeachingChannel/gists{/gist_id}","starred_url":"https://api.github.com/users/TeachingChannel/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TeachingChannel/subscriptions","organizations_url":"https://api.github.com/users/TeachingChannel/orgs","repos_url":"https://api.github.com/users/TeachingChannel/repos","events_url":"https://api.github.com/users/TeachingChannel/events{/privacy}","received_events_url":"https://api.github.com/users/TeachingChannel/received_events","type":"Organization","site_admin":false},"repo":{"id":16495552,"name":"teaching-channel-start-testing","full_name":"TeachingChannel/teaching-channel-start-testing","owner":{"login":"TeachingChannel","id":5589837,"avatar_url":"https://avatars.githubusercontent.com/u/5589837?","gravatar_id":"130a12e645e4e5bf49469dd15bd64618","url":"https://api.github.com/users/TeachingChannel","html_url":"https://github.com/TeachingChannel","followers_url":"https://api.github.com/users/TeachingChannel/followers","following_url":"https://api.github.com/users/TeachingChannel/following{/other_user}","gists_url":"https://api.github.com/users/TeachingChannel/gists{/gist_id}","starred_url":"https://api.github.com/users/TeachingChannel/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TeachingChannel/subscriptions","organizations_url":"https://api.github.com/users/TeachingChannel/orgs","repos_url":"https://api.github.com/users/TeachingChannel/repos","events_url":"https://api.github.com/users/TeachingChannel/events{/privacy}","received_events_url":"https://api.github.com/users/TeachingChannel/received_events","type":"Organization","site_admin":false},"private":true,"html_url":"https://github.com/TeachingChannel/teaching-channel-start-testing","description":"","fork":false,"url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing","forks_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/forks","keys_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/keys{/key_id}","collaborators_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/teams","hooks_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/hooks","issue_events_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/events{/number}","events_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/events","assignees_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/assignees{/user}","branches_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/branches{/branch}","tags_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/tags","blobs_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/refs{/sha}","trees_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/trees{/sha}","statuses_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/statuses/{sha}","languages_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/languages","stargazers_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/stargazers","contributors_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/contributors","subscribers_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/subscribers","subscription_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/subscription","commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/commits{/sha}","git_commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/commits{/sha}","comments_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/comments{/number}","issue_comment_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/comments/{number}","contents_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/contents/{+path}","compare_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/compare/{base}...{head}","merges_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/merges","archive_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/downloads","issues_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues{/number}","pulls_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls{/number}","milestones_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/milestones{/number}","notifications_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/labels{/name}","releases_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/releases{/id}","created_at":"2014-02-03T22:40:49Z","updated_at":"2014-06-09T23:18:43Z","pushed_at":"2014-06-09T23:18:42Z","git_url":"git://github.com/TeachingChannel/teaching-channel-start-testing.git","ssh_url":"git@github.com:TeachingChannel/teaching-channel-start-testing.git","clone_url":"https://github.com/TeachingChannel/teaching-channel-start-testing.git","svn_url":"https://github.com/TeachingChannel/teaching-channel-start-testing","homepage":null,"size":804,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"forks_count":0,"mirror_url":null,"open_issues_count":1,"forks":0,"open_issues":1,"watchers":0,"default_branch":"develop"}},"base":{"label":"TeachingChannel:develop","ref":"develop","sha":"c7bc37484bead7635a7ca3202addfc5c4babec9c","user":{"login":"TeachingChannel","id":5589837,"avatar_url":"https://avatars.githubusercontent.com/u/5589837?","gravatar_id":"130a12e645e4e5bf49469dd15bd64618","url":"https://api.github.com/users/TeachingChannel","html_url":"https://github.com/TeachingChannel","followers_url":"https://api.github.com/users/TeachingChannel/followers","following_url":"https://api.github.com/users/TeachingChannel/following{/other_user}","gists_url":"https://api.github.com/users/TeachingChannel/gists{/gist_id}","starred_url":"https://api.github.com/users/TeachingChannel/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TeachingChannel/subscriptions","organizations_url":"https://api.github.com/users/TeachingChannel/orgs","repos_url":"https://api.github.com/users/TeachingChannel/repos","events_url":"https://api.github.com/users/TeachingChannel/events{/privacy}","received_events_url":"https://api.github.com/users/TeachingChannel/received_events","type":"Organization","site_admin":false},"repo":{"id":16495552,"name":"teaching-channel-start-testing","full_name":"TeachingChannel/teaching-channel-start-testing","owner":{"login":"TeachingChannel","id":5589837,"avatar_url":"https://avatars.githubusercontent.com/u/5589837?","gravatar_id":"130a12e645e4e5bf49469dd15bd64618","url":"https://api.github.com/users/TeachingChannel","html_url":"https://github.com/TeachingChannel","followers_url":"https://api.github.com/users/TeachingChannel/followers","following_url":"https://api.github.com/users/TeachingChannel/following{/other_user}","gists_url":"https://api.github.com/users/TeachingChannel/gists{/gist_id}","starred_url":"https://api.github.com/users/TeachingChannel/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TeachingChannel/subscriptions","organizations_url":"https://api.github.com/users/TeachingChannel/orgs","repos_url":"https://api.github.com/users/TeachingChannel/repos","events_url":"https://api.github.com/users/TeachingChannel/events{/privacy}","received_events_url":"https://api.github.com/users/TeachingChannel/received_events","type":"Organization","site_admin":false},"private":true,"html_url":"https://github.com/TeachingChannel/teaching-channel-start-testing","description":"","fork":false,"url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing","forks_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/forks","keys_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/keys{/key_id}","collaborators_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/teams","hooks_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/hooks","issue_events_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/events{/number}","events_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/events","assignees_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/assignees{/user}","branches_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/branches{/branch}","tags_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/tags","blobs_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/refs{/sha}","trees_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/trees{/sha}","statuses_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/statuses/{sha}","languages_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/languages","stargazers_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/stargazers","contributors_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/contributors","subscribers_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/subscribers","subscription_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/subscription","commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/commits{/sha}","git_commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/commits{/sha}","comments_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/comments{/number}","issue_comment_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/comments/{number}","contents_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/contents/{+path}","compare_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/compare/{base}...{head}","merges_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/merges","archive_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/downloads","issues_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues{/number}","pulls_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls{/number}","milestones_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/milestones{/number}","notifications_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/labels{/name}","releases_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/releases{/id}","created_at":"2014-02-03T22:40:49Z","updated_at":"2014-06-09T23:18:43Z","pushed_at":"2014-06-09T23:18:42Z","git_url":"git://github.com/TeachingChannel/teaching-channel-start-testing.git","ssh_url":"git@github.com:TeachingChannel/teaching-channel-start-testing.git","clone_url":"https://github.com/TeachingChannel/teaching-channel-start-testing.git","svn_url":"https://github.com/TeachingChannel/teaching-channel-start-testing","homepage":null,"size":804,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"forks_count":0,"mirror_url":null,"open_issues_count":1,"forks":0,"open_issues":1,"watchers":0,"default_branch":"develop"}},"_links":{"self":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/17"},"html":{"href":"https://github.com/TeachingChannel/teaching-channel-start-testing/pull/17"},"issue":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/17"},"comments":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/17/comments"},"review_comments":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/17/comments"},"review_comment":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/comments/{number}"},"commits":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/17/commits"},"statuses":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/statuses/d94822f7eb3a3bbb0285c5348b3ec84acd4bd065"}},"merged":false,"mergeable":null,"mergeable_state":"unknown","merged_by":null,"comments":0,"review_comments":0,"commits":1,"additions":1,"deletions":0,"changed_files":1}'
+        [ ] Analytic classes (''a-'') have been added.\n","created_at":"2014-08-01T19:56:36Z","updated_at":"2014-08-01T19:56:36Z","closed_at":null,"merged_at":null,"merge_commit_sha":null,"assignee":null,"milestone":null,"commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/21/commits","review_comments_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/21/comments","review_comment_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/comments/{number}","comments_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/21/comments","statuses_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/statuses/51e69b548bee59af6778d8ee5365b391ed4b12aa","head":{"label":"TeachingChannel:feature/bin_start_starts_stories","ref":"feature/bin_start_starts_stories","sha":"51e69b548bee59af6778d8ee5365b391ed4b12aa","user":{"login":"TeachingChannel","id":5589837,"avatar_url":"https://avatars.githubusercontent.com/u/5589837?v=1","gravatar_id":"130a12e645e4e5bf49469dd15bd64618","url":"https://api.github.com/users/TeachingChannel","html_url":"https://github.com/TeachingChannel","followers_url":"https://api.github.com/users/TeachingChannel/followers","following_url":"https://api.github.com/users/TeachingChannel/following{/other_user}","gists_url":"https://api.github.com/users/TeachingChannel/gists{/gist_id}","starred_url":"https://api.github.com/users/TeachingChannel/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TeachingChannel/subscriptions","organizations_url":"https://api.github.com/users/TeachingChannel/orgs","repos_url":"https://api.github.com/users/TeachingChannel/repos","events_url":"https://api.github.com/users/TeachingChannel/events{/privacy}","received_events_url":"https://api.github.com/users/TeachingChannel/received_events","type":"Organization","site_admin":false},"repo":{"id":16495552,"name":"teaching-channel-start-testing","full_name":"TeachingChannel/teaching-channel-start-testing","owner":{"login":"TeachingChannel","id":5589837,"avatar_url":"https://avatars.githubusercontent.com/u/5589837?v=1","gravatar_id":"130a12e645e4e5bf49469dd15bd64618","url":"https://api.github.com/users/TeachingChannel","html_url":"https://github.com/TeachingChannel","followers_url":"https://api.github.com/users/TeachingChannel/followers","following_url":"https://api.github.com/users/TeachingChannel/following{/other_user}","gists_url":"https://api.github.com/users/TeachingChannel/gists{/gist_id}","starred_url":"https://api.github.com/users/TeachingChannel/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TeachingChannel/subscriptions","organizations_url":"https://api.github.com/users/TeachingChannel/orgs","repos_url":"https://api.github.com/users/TeachingChannel/repos","events_url":"https://api.github.com/users/TeachingChannel/events{/privacy}","received_events_url":"https://api.github.com/users/TeachingChannel/received_events","type":"Organization","site_admin":false},"private":true,"html_url":"https://github.com/TeachingChannel/teaching-channel-start-testing","description":"","fork":false,"url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing","forks_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/forks","keys_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/keys{/key_id}","collaborators_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/teams","hooks_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/hooks","issue_events_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/events{/number}","events_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/events","assignees_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/assignees{/user}","branches_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/branches{/branch}","tags_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/tags","blobs_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/refs{/sha}","trees_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/trees{/sha}","statuses_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/statuses/{sha}","languages_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/languages","stargazers_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/stargazers","contributors_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/contributors","subscribers_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/subscribers","subscription_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/subscription","commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/commits{/sha}","git_commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/commits{/sha}","comments_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/comments{/number}","issue_comment_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/comments/{number}","contents_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/contents/{+path}","compare_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/compare/{base}...{head}","merges_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/merges","archive_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/downloads","issues_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues{/number}","pulls_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls{/number}","milestones_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/milestones{/number}","notifications_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/labels{/name}","releases_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/releases{/id}","created_at":"2014-02-03T22:40:49Z","updated_at":"2014-06-16T18:19:39Z","pushed_at":"2014-08-01T19:56:33Z","git_url":"git://github.com/TeachingChannel/teaching-channel-start-testing.git","ssh_url":"git@github.com:TeachingChannel/teaching-channel-start-testing.git","clone_url":"https://github.com/TeachingChannel/teaching-channel-start-testing.git","svn_url":"https://github.com/TeachingChannel/teaching-channel-start-testing","homepage":null,"size":892,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"forks_count":0,"mirror_url":null,"open_issues_count":1,"forks":0,"open_issues":1,"watchers":0,"default_branch":"develop"}},"base":{"label":"TeachingChannel:develop","ref":"develop","sha":"c7bc37484bead7635a7ca3202addfc5c4babec9c","user":{"login":"TeachingChannel","id":5589837,"avatar_url":"https://avatars.githubusercontent.com/u/5589837?v=1","gravatar_id":"130a12e645e4e5bf49469dd15bd64618","url":"https://api.github.com/users/TeachingChannel","html_url":"https://github.com/TeachingChannel","followers_url":"https://api.github.com/users/TeachingChannel/followers","following_url":"https://api.github.com/users/TeachingChannel/following{/other_user}","gists_url":"https://api.github.com/users/TeachingChannel/gists{/gist_id}","starred_url":"https://api.github.com/users/TeachingChannel/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TeachingChannel/subscriptions","organizations_url":"https://api.github.com/users/TeachingChannel/orgs","repos_url":"https://api.github.com/users/TeachingChannel/repos","events_url":"https://api.github.com/users/TeachingChannel/events{/privacy}","received_events_url":"https://api.github.com/users/TeachingChannel/received_events","type":"Organization","site_admin":false},"repo":{"id":16495552,"name":"teaching-channel-start-testing","full_name":"TeachingChannel/teaching-channel-start-testing","owner":{"login":"TeachingChannel","id":5589837,"avatar_url":"https://avatars.githubusercontent.com/u/5589837?v=1","gravatar_id":"130a12e645e4e5bf49469dd15bd64618","url":"https://api.github.com/users/TeachingChannel","html_url":"https://github.com/TeachingChannel","followers_url":"https://api.github.com/users/TeachingChannel/followers","following_url":"https://api.github.com/users/TeachingChannel/following{/other_user}","gists_url":"https://api.github.com/users/TeachingChannel/gists{/gist_id}","starred_url":"https://api.github.com/users/TeachingChannel/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TeachingChannel/subscriptions","organizations_url":"https://api.github.com/users/TeachingChannel/orgs","repos_url":"https://api.github.com/users/TeachingChannel/repos","events_url":"https://api.github.com/users/TeachingChannel/events{/privacy}","received_events_url":"https://api.github.com/users/TeachingChannel/received_events","type":"Organization","site_admin":false},"private":true,"html_url":"https://github.com/TeachingChannel/teaching-channel-start-testing","description":"","fork":false,"url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing","forks_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/forks","keys_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/keys{/key_id}","collaborators_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/teams","hooks_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/hooks","issue_events_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/events{/number}","events_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/events","assignees_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/assignees{/user}","branches_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/branches{/branch}","tags_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/tags","blobs_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/refs{/sha}","trees_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/trees{/sha}","statuses_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/statuses/{sha}","languages_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/languages","stargazers_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/stargazers","contributors_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/contributors","subscribers_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/subscribers","subscription_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/subscription","commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/commits{/sha}","git_commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/commits{/sha}","comments_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/comments{/number}","issue_comment_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/comments/{number}","contents_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/contents/{+path}","compare_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/compare/{base}...{head}","merges_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/merges","archive_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/downloads","issues_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues{/number}","pulls_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls{/number}","milestones_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/milestones{/number}","notifications_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/labels{/name}","releases_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/releases{/id}","created_at":"2014-02-03T22:40:49Z","updated_at":"2014-06-16T18:19:39Z","pushed_at":"2014-08-01T19:56:33Z","git_url":"git://github.com/TeachingChannel/teaching-channel-start-testing.git","ssh_url":"git@github.com:TeachingChannel/teaching-channel-start-testing.git","clone_url":"https://github.com/TeachingChannel/teaching-channel-start-testing.git","svn_url":"https://github.com/TeachingChannel/teaching-channel-start-testing","homepage":null,"size":892,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"forks_count":0,"mirror_url":null,"open_issues_count":1,"forks":0,"open_issues":1,"watchers":0,"default_branch":"develop"}},"_links":{"self":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/21"},"html":{"href":"https://github.com/TeachingChannel/teaching-channel-start-testing/pull/21"},"issue":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/21"},"comments":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/21/comments"},"review_comments":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/21/comments"},"review_comment":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/comments/{number}"},"commits":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/21/commits"},"statuses":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/statuses/51e69b548bee59af6778d8ee5365b391ed4b12aa"}},"merged":false,"mergeable":null,"mergeable_state":"unknown","merged_by":null,"comments":0,"review_comments":0,"commits":1,"additions":1,"deletions":0,"changed_files":1}'
     http_version: 
-  recorded_at: Mon, 09 Jun 2014 23:18:43 GMT
+  recorded_at: Fri, 01 Aug 2014 19:56:36 GMT
 - request:
     method: get
     uri: https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls?state=open
@@ -502,7 +502,7 @@ http_interactions:
       Accept:
       - application/vnd.github.v3+json
       User-Agent:
-      - Octokit Ruby Gem 3.1.0
+      - Octokit Ruby Gem 3.2.0
       Authorization:
       - token <GITHUB_ACCESS_TOKEN>
       Accept-Encoding:
@@ -515,7 +515,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Mon, 09 Jun 2014 23:18:43 GMT
+      - Fri, 01 Aug 2014 19:56:36 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -525,13 +525,13 @@ http_interactions:
       X-Ratelimit-Limit:
       - '5000'
       X-Ratelimit-Remaining:
-      - '4996'
+      - '4954'
       X-Ratelimit-Reset:
-      - '1402359519'
+      - '1406924256'
       Cache-Control:
       - private, max-age=60, s-maxage=60
       Etag:
-      - '"61f62a2b052c7dc4fa26862d997969cb"'
+      - '"2d4c952e3f2bd044432145cfe4cc6572"'
       X-Oauth-Scopes:
       - gist, repo, user
       X-Accepted-Oauth-Scopes:
@@ -555,28 +555,181 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Github-Request-Id:
-      - D8BE7522:4763:23F3132:539640D3
+      - 458F5566:0444:4C6AC1D:53DBF0F4
       Strict-Transport-Security:
-      - max-age=31536000
+      - max-age=31536000; includeSubdomains
       X-Content-Type-Options:
       - nosniff
       X-Served-By:
-      - 03d91026ad8428f4d9966d7434f9d82e
+      - d818ddef80f4c7d10683dd483558952a
     body:
       encoding: UTF-8
-      string: '[{"url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/17","id":16914403,"html_url":"https://github.com/TeachingChannel/teaching-channel-start-testing/pull/17","diff_url":"https://github.com/TeachingChannel/teaching-channel-start-testing/pull/17.diff","patch_url":"https://github.com/TeachingChannel/teaching-channel-start-testing/pull/17.patch","issue_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/17","number":17,"state":"open","title":"WIP:
-        TEST: bin_start_starts_stories *(estimate should be set, but this story should
-        not be started)*","user":{"login":"tchtesting","id":6580749,"avatar_url":"https://avatars.githubusercontent.com/u/6580749?","gravatar_id":"e35694435b1ff6965d87ba35b7a70e83","url":"https://api.github.com/users/tchtesting","html_url":"https://github.com/tchtesting","followers_url":"https://api.github.com/users/tchtesting/followers","following_url":"https://api.github.com/users/tchtesting/following{/other_user}","gists_url":"https://api.github.com/users/tchtesting/gists{/gist_id}","starred_url":"https://api.github.com/users/tchtesting/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/tchtesting/subscriptions","organizations_url":"https://api.github.com/users/tchtesting/orgs","repos_url":"https://api.github.com/users/tchtesting/repos","events_url":"https://api.github.com/users/tchtesting/events{/privacy}","received_events_url":"https://api.github.com/users/tchtesting/received_events","type":"User","site_admin":false},"body":"https://www.pivotaltracker.com/story/show/65074482\n\n###
-        Browser Testing\n\n- [ ] Test in IE8 (minor issues are acceptable)\n- [ ]
-        Test in IE9\n- [ ] Test in IE10\n- [ ] Test in IE11\n- [ ] Test in Firefox\n-
-        [ ] Test in Safari\n- [ ] Test in Chrome\n\n### CSS\n\n- [ ] New CSS is added
-        to style engine and follows [guidelines](https://github.com/TeachingChannel/teaching-channel/blob/master/GUIDELINES.md#cssstyle).\n-
+      string: '[{"url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/21","id":19230507,"html_url":"https://github.com/TeachingChannel/teaching-channel-start-testing/pull/21","diff_url":"https://github.com/TeachingChannel/teaching-channel-start-testing/pull/21.diff","patch_url":"https://github.com/TeachingChannel/teaching-channel-start-testing/pull/21.patch","issue_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/21","number":21,"state":"open","title":"TEST:
+        bin_start_starts_stories *(estimate should be set, but this story should not
+        be started)*","user":{"login":"tchtesting","id":6580749,"avatar_url":"https://avatars.githubusercontent.com/u/6580749?v=1","gravatar_id":"e35694435b1ff6965d87ba35b7a70e83","url":"https://api.github.com/users/tchtesting","html_url":"https://github.com/tchtesting","followers_url":"https://api.github.com/users/tchtesting/followers","following_url":"https://api.github.com/users/tchtesting/following{/other_user}","gists_url":"https://api.github.com/users/tchtesting/gists{/gist_id}","starred_url":"https://api.github.com/users/tchtesting/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/tchtesting/subscriptions","organizations_url":"https://api.github.com/users/tchtesting/orgs","repos_url":"https://api.github.com/users/tchtesting/repos","events_url":"https://api.github.com/users/tchtesting/events{/privacy}","received_events_url":"https://api.github.com/users/tchtesting/received_events","type":"User","site_admin":false},"body":"https://www.pivotaltracker.com/story/show/65074482\n\n###
+        Browser Testing\n\n- [ ] Test in IE9\n- [ ] Test in IE10\n- [ ] Test in IE11\n-
+        [ ] Test in Firefox\n- [ ] Test in Safari\n- [ ] Test in Chrome\n\n### CSS\n\n-
+        [ ] New CSS is added to style engine and follows [guidelines](https://github.com/TeachingChannel/teaching-channel/blob/master/GUIDELINES.md#cssstyle).\n-
         [ ] New patterns contain no outside margin or padding.\n- [ ] New patterns
         styles do not reference any other pattern classes.\n\n### Migrations\n\n-
         [ ] [Migrations are safe to run in zero downtime deploy.](https://github.com/TeachingChannel/teaching-channel/wiki/Migrations)\n-
         [ ] LHM is used for large tables like users, activities, probably others.\n\n###
         Security\n\n- [ ] Features have appropriate authorization checks.\n\n### Analytics\n\n-
-        [ ] Analytic classes (''a-'') have been added.\n","created_at":"2014-06-09T23:18:43Z","updated_at":"2014-06-09T23:18:43Z","closed_at":null,"merged_at":null,"merge_commit_sha":"cf8edbf4638277ee5707ca40ece1d3e97409bcbc","assignee":null,"milestone":null,"commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/17/commits","review_comments_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/17/comments","review_comment_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/comments/{number}","comments_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/17/comments","statuses_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/statuses/d94822f7eb3a3bbb0285c5348b3ec84acd4bd065","head":{"label":"TeachingChannel:feature/bin_start_starts_stories","ref":"feature/bin_start_starts_stories","sha":"d94822f7eb3a3bbb0285c5348b3ec84acd4bd065","user":{"login":"TeachingChannel","id":5589837,"avatar_url":"https://avatars.githubusercontent.com/u/5589837?","gravatar_id":"130a12e645e4e5bf49469dd15bd64618","url":"https://api.github.com/users/TeachingChannel","html_url":"https://github.com/TeachingChannel","followers_url":"https://api.github.com/users/TeachingChannel/followers","following_url":"https://api.github.com/users/TeachingChannel/following{/other_user}","gists_url":"https://api.github.com/users/TeachingChannel/gists{/gist_id}","starred_url":"https://api.github.com/users/TeachingChannel/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TeachingChannel/subscriptions","organizations_url":"https://api.github.com/users/TeachingChannel/orgs","repos_url":"https://api.github.com/users/TeachingChannel/repos","events_url":"https://api.github.com/users/TeachingChannel/events{/privacy}","received_events_url":"https://api.github.com/users/TeachingChannel/received_events","type":"Organization","site_admin":false},"repo":{"id":16495552,"name":"teaching-channel-start-testing","full_name":"TeachingChannel/teaching-channel-start-testing","owner":{"login":"TeachingChannel","id":5589837,"avatar_url":"https://avatars.githubusercontent.com/u/5589837?","gravatar_id":"130a12e645e4e5bf49469dd15bd64618","url":"https://api.github.com/users/TeachingChannel","html_url":"https://github.com/TeachingChannel","followers_url":"https://api.github.com/users/TeachingChannel/followers","following_url":"https://api.github.com/users/TeachingChannel/following{/other_user}","gists_url":"https://api.github.com/users/TeachingChannel/gists{/gist_id}","starred_url":"https://api.github.com/users/TeachingChannel/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TeachingChannel/subscriptions","organizations_url":"https://api.github.com/users/TeachingChannel/orgs","repos_url":"https://api.github.com/users/TeachingChannel/repos","events_url":"https://api.github.com/users/TeachingChannel/events{/privacy}","received_events_url":"https://api.github.com/users/TeachingChannel/received_events","type":"Organization","site_admin":false},"private":true,"html_url":"https://github.com/TeachingChannel/teaching-channel-start-testing","description":"","fork":false,"url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing","forks_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/forks","keys_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/keys{/key_id}","collaborators_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/teams","hooks_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/hooks","issue_events_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/events{/number}","events_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/events","assignees_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/assignees{/user}","branches_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/branches{/branch}","tags_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/tags","blobs_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/refs{/sha}","trees_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/trees{/sha}","statuses_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/statuses/{sha}","languages_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/languages","stargazers_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/stargazers","contributors_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/contributors","subscribers_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/subscribers","subscription_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/subscription","commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/commits{/sha}","git_commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/commits{/sha}","comments_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/comments{/number}","issue_comment_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/comments/{number}","contents_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/contents/{+path}","compare_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/compare/{base}...{head}","merges_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/merges","archive_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/downloads","issues_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues{/number}","pulls_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls{/number}","milestones_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/milestones{/number}","notifications_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/labels{/name}","releases_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/releases{/id}","created_at":"2014-02-03T22:40:49Z","updated_at":"2014-06-09T23:18:43Z","pushed_at":"2014-06-09T23:18:42Z","git_url":"git://github.com/TeachingChannel/teaching-channel-start-testing.git","ssh_url":"git@github.com:TeachingChannel/teaching-channel-start-testing.git","clone_url":"https://github.com/TeachingChannel/teaching-channel-start-testing.git","svn_url":"https://github.com/TeachingChannel/teaching-channel-start-testing","homepage":null,"size":804,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"forks_count":0,"mirror_url":null,"open_issues_count":1,"forks":0,"open_issues":1,"watchers":0,"default_branch":"develop"}},"base":{"label":"TeachingChannel:develop","ref":"develop","sha":"c7bc37484bead7635a7ca3202addfc5c4babec9c","user":{"login":"TeachingChannel","id":5589837,"avatar_url":"https://avatars.githubusercontent.com/u/5589837?","gravatar_id":"130a12e645e4e5bf49469dd15bd64618","url":"https://api.github.com/users/TeachingChannel","html_url":"https://github.com/TeachingChannel","followers_url":"https://api.github.com/users/TeachingChannel/followers","following_url":"https://api.github.com/users/TeachingChannel/following{/other_user}","gists_url":"https://api.github.com/users/TeachingChannel/gists{/gist_id}","starred_url":"https://api.github.com/users/TeachingChannel/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TeachingChannel/subscriptions","organizations_url":"https://api.github.com/users/TeachingChannel/orgs","repos_url":"https://api.github.com/users/TeachingChannel/repos","events_url":"https://api.github.com/users/TeachingChannel/events{/privacy}","received_events_url":"https://api.github.com/users/TeachingChannel/received_events","type":"Organization","site_admin":false},"repo":{"id":16495552,"name":"teaching-channel-start-testing","full_name":"TeachingChannel/teaching-channel-start-testing","owner":{"login":"TeachingChannel","id":5589837,"avatar_url":"https://avatars.githubusercontent.com/u/5589837?","gravatar_id":"130a12e645e4e5bf49469dd15bd64618","url":"https://api.github.com/users/TeachingChannel","html_url":"https://github.com/TeachingChannel","followers_url":"https://api.github.com/users/TeachingChannel/followers","following_url":"https://api.github.com/users/TeachingChannel/following{/other_user}","gists_url":"https://api.github.com/users/TeachingChannel/gists{/gist_id}","starred_url":"https://api.github.com/users/TeachingChannel/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TeachingChannel/subscriptions","organizations_url":"https://api.github.com/users/TeachingChannel/orgs","repos_url":"https://api.github.com/users/TeachingChannel/repos","events_url":"https://api.github.com/users/TeachingChannel/events{/privacy}","received_events_url":"https://api.github.com/users/TeachingChannel/received_events","type":"Organization","site_admin":false},"private":true,"html_url":"https://github.com/TeachingChannel/teaching-channel-start-testing","description":"","fork":false,"url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing","forks_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/forks","keys_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/keys{/key_id}","collaborators_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/teams","hooks_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/hooks","issue_events_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/events{/number}","events_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/events","assignees_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/assignees{/user}","branches_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/branches{/branch}","tags_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/tags","blobs_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/refs{/sha}","trees_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/trees{/sha}","statuses_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/statuses/{sha}","languages_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/languages","stargazers_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/stargazers","contributors_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/contributors","subscribers_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/subscribers","subscription_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/subscription","commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/commits{/sha}","git_commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/commits{/sha}","comments_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/comments{/number}","issue_comment_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/comments/{number}","contents_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/contents/{+path}","compare_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/compare/{base}...{head}","merges_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/merges","archive_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/downloads","issues_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues{/number}","pulls_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls{/number}","milestones_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/milestones{/number}","notifications_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/labels{/name}","releases_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/releases{/id}","created_at":"2014-02-03T22:40:49Z","updated_at":"2014-06-09T23:18:43Z","pushed_at":"2014-06-09T23:18:42Z","git_url":"git://github.com/TeachingChannel/teaching-channel-start-testing.git","ssh_url":"git@github.com:TeachingChannel/teaching-channel-start-testing.git","clone_url":"https://github.com/TeachingChannel/teaching-channel-start-testing.git","svn_url":"https://github.com/TeachingChannel/teaching-channel-start-testing","homepage":null,"size":804,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"forks_count":0,"mirror_url":null,"open_issues_count":1,"forks":0,"open_issues":1,"watchers":0,"default_branch":"develop"}},"_links":{"self":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/17"},"html":{"href":"https://github.com/TeachingChannel/teaching-channel-start-testing/pull/17"},"issue":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/17"},"comments":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/17/comments"},"review_comments":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/17/comments"},"review_comment":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/comments/{number}"},"commits":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/17/commits"},"statuses":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/statuses/d94822f7eb3a3bbb0285c5348b3ec84acd4bd065"}}}]'
+        [ ] Analytic classes (''a-'') have been added.\n","created_at":"2014-08-01T19:56:36Z","updated_at":"2014-08-01T19:56:36Z","closed_at":null,"merged_at":null,"merge_commit_sha":null,"assignee":null,"milestone":null,"commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/21/commits","review_comments_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/21/comments","review_comment_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/comments/{number}","comments_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/21/comments","statuses_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/statuses/51e69b548bee59af6778d8ee5365b391ed4b12aa","head":{"label":"TeachingChannel:feature/bin_start_starts_stories","ref":"feature/bin_start_starts_stories","sha":"51e69b548bee59af6778d8ee5365b391ed4b12aa","user":{"login":"TeachingChannel","id":5589837,"avatar_url":"https://avatars.githubusercontent.com/u/5589837?v=1","gravatar_id":"130a12e645e4e5bf49469dd15bd64618","url":"https://api.github.com/users/TeachingChannel","html_url":"https://github.com/TeachingChannel","followers_url":"https://api.github.com/users/TeachingChannel/followers","following_url":"https://api.github.com/users/TeachingChannel/following{/other_user}","gists_url":"https://api.github.com/users/TeachingChannel/gists{/gist_id}","starred_url":"https://api.github.com/users/TeachingChannel/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TeachingChannel/subscriptions","organizations_url":"https://api.github.com/users/TeachingChannel/orgs","repos_url":"https://api.github.com/users/TeachingChannel/repos","events_url":"https://api.github.com/users/TeachingChannel/events{/privacy}","received_events_url":"https://api.github.com/users/TeachingChannel/received_events","type":"Organization","site_admin":false},"repo":{"id":16495552,"name":"teaching-channel-start-testing","full_name":"TeachingChannel/teaching-channel-start-testing","owner":{"login":"TeachingChannel","id":5589837,"avatar_url":"https://avatars.githubusercontent.com/u/5589837?v=1","gravatar_id":"130a12e645e4e5bf49469dd15bd64618","url":"https://api.github.com/users/TeachingChannel","html_url":"https://github.com/TeachingChannel","followers_url":"https://api.github.com/users/TeachingChannel/followers","following_url":"https://api.github.com/users/TeachingChannel/following{/other_user}","gists_url":"https://api.github.com/users/TeachingChannel/gists{/gist_id}","starred_url":"https://api.github.com/users/TeachingChannel/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TeachingChannel/subscriptions","organizations_url":"https://api.github.com/users/TeachingChannel/orgs","repos_url":"https://api.github.com/users/TeachingChannel/repos","events_url":"https://api.github.com/users/TeachingChannel/events{/privacy}","received_events_url":"https://api.github.com/users/TeachingChannel/received_events","type":"Organization","site_admin":false},"private":true,"html_url":"https://github.com/TeachingChannel/teaching-channel-start-testing","description":"","fork":false,"url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing","forks_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/forks","keys_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/keys{/key_id}","collaborators_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/teams","hooks_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/hooks","issue_events_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/events{/number}","events_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/events","assignees_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/assignees{/user}","branches_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/branches{/branch}","tags_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/tags","blobs_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/refs{/sha}","trees_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/trees{/sha}","statuses_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/statuses/{sha}","languages_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/languages","stargazers_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/stargazers","contributors_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/contributors","subscribers_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/subscribers","subscription_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/subscription","commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/commits{/sha}","git_commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/commits{/sha}","comments_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/comments{/number}","issue_comment_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/comments/{number}","contents_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/contents/{+path}","compare_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/compare/{base}...{head}","merges_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/merges","archive_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/downloads","issues_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues{/number}","pulls_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls{/number}","milestones_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/milestones{/number}","notifications_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/labels{/name}","releases_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/releases{/id}","created_at":"2014-02-03T22:40:49Z","updated_at":"2014-06-16T18:19:39Z","pushed_at":"2014-08-01T19:56:36Z","git_url":"git://github.com/TeachingChannel/teaching-channel-start-testing.git","ssh_url":"git@github.com:TeachingChannel/teaching-channel-start-testing.git","clone_url":"https://github.com/TeachingChannel/teaching-channel-start-testing.git","svn_url":"https://github.com/TeachingChannel/teaching-channel-start-testing","homepage":null,"size":892,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"forks_count":0,"mirror_url":null,"open_issues_count":1,"forks":0,"open_issues":1,"watchers":0,"default_branch":"develop"}},"base":{"label":"TeachingChannel:develop","ref":"develop","sha":"c7bc37484bead7635a7ca3202addfc5c4babec9c","user":{"login":"TeachingChannel","id":5589837,"avatar_url":"https://avatars.githubusercontent.com/u/5589837?v=1","gravatar_id":"130a12e645e4e5bf49469dd15bd64618","url":"https://api.github.com/users/TeachingChannel","html_url":"https://github.com/TeachingChannel","followers_url":"https://api.github.com/users/TeachingChannel/followers","following_url":"https://api.github.com/users/TeachingChannel/following{/other_user}","gists_url":"https://api.github.com/users/TeachingChannel/gists{/gist_id}","starred_url":"https://api.github.com/users/TeachingChannel/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TeachingChannel/subscriptions","organizations_url":"https://api.github.com/users/TeachingChannel/orgs","repos_url":"https://api.github.com/users/TeachingChannel/repos","events_url":"https://api.github.com/users/TeachingChannel/events{/privacy}","received_events_url":"https://api.github.com/users/TeachingChannel/received_events","type":"Organization","site_admin":false},"repo":{"id":16495552,"name":"teaching-channel-start-testing","full_name":"TeachingChannel/teaching-channel-start-testing","owner":{"login":"TeachingChannel","id":5589837,"avatar_url":"https://avatars.githubusercontent.com/u/5589837?v=1","gravatar_id":"130a12e645e4e5bf49469dd15bd64618","url":"https://api.github.com/users/TeachingChannel","html_url":"https://github.com/TeachingChannel","followers_url":"https://api.github.com/users/TeachingChannel/followers","following_url":"https://api.github.com/users/TeachingChannel/following{/other_user}","gists_url":"https://api.github.com/users/TeachingChannel/gists{/gist_id}","starred_url":"https://api.github.com/users/TeachingChannel/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/TeachingChannel/subscriptions","organizations_url":"https://api.github.com/users/TeachingChannel/orgs","repos_url":"https://api.github.com/users/TeachingChannel/repos","events_url":"https://api.github.com/users/TeachingChannel/events{/privacy}","received_events_url":"https://api.github.com/users/TeachingChannel/received_events","type":"Organization","site_admin":false},"private":true,"html_url":"https://github.com/TeachingChannel/teaching-channel-start-testing","description":"","fork":false,"url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing","forks_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/forks","keys_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/keys{/key_id}","collaborators_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/teams","hooks_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/hooks","issue_events_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/events{/number}","events_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/events","assignees_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/assignees{/user}","branches_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/branches{/branch}","tags_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/tags","blobs_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/refs{/sha}","trees_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/trees{/sha}","statuses_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/statuses/{sha}","languages_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/languages","stargazers_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/stargazers","contributors_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/contributors","subscribers_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/subscribers","subscription_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/subscription","commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/commits{/sha}","git_commits_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/git/commits{/sha}","comments_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/comments{/number}","issue_comment_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/comments/{number}","contents_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/contents/{+path}","compare_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/compare/{base}...{head}","merges_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/merges","archive_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/downloads","issues_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues{/number}","pulls_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls{/number}","milestones_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/milestones{/number}","notifications_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/labels{/name}","releases_url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/releases{/id}","created_at":"2014-02-03T22:40:49Z","updated_at":"2014-06-16T18:19:39Z","pushed_at":"2014-08-01T19:56:36Z","git_url":"git://github.com/TeachingChannel/teaching-channel-start-testing.git","ssh_url":"git@github.com:TeachingChannel/teaching-channel-start-testing.git","clone_url":"https://github.com/TeachingChannel/teaching-channel-start-testing.git","svn_url":"https://github.com/TeachingChannel/teaching-channel-start-testing","homepage":null,"size":892,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"forks_count":0,"mirror_url":null,"open_issues_count":1,"forks":0,"open_issues":1,"watchers":0,"default_branch":"develop"}},"_links":{"self":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/21"},"html":{"href":"https://github.com/TeachingChannel/teaching-channel-start-testing/pull/21"},"issue":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/21"},"comments":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/21/comments"},"review_comments":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/21/comments"},"review_comment":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/comments/{number}"},"commits":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/pulls/21/commits"},"statuses":{"href":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/statuses/51e69b548bee59af6778d8ee5365b391ed4b12aa"}}}]'
     http_version: 
-  recorded_at: Mon, 09 Jun 2014 23:18:43 GMT
-recorded_with: VCR 2.9.2
+  recorded_at: Fri, 01 Aug 2014 19:56:37 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/21/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 3.2.0
+      Authorization:
+      - token <GITHUB_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Fri, 01 Aug 2014 19:56:37 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4953'
+      X-Ratelimit-Reset:
+      - '1406924256'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Last-Modified:
+      - Fri, 01 Aug 2014 19:56:36 GMT
+      Etag:
+      - '"53335d21849e17d9dee01cf66ae54da4"'
+      X-Oauth-Scopes:
+      - gist, repo, user
+      X-Accepted-Oauth-Scopes:
+      - ''
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Link:
+      - <https://api.github.com/repositories/16495552/issues/21/labels?page=0>; rel="last"
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Content-Length:
+      - '2'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Github-Request-Id:
+      - 458F5566:0445:57E092E:53DBF0F4
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Served-By:
+      - 971af40390ac4398fcdd45c8dab0fbe7
+    body:
+      encoding: UTF-8
+      string: "[]"
+    http_version: 
+  recorded_at: Fri, 01 Aug 2014 19:56:37 GMT
+- request:
+    method: put
+    uri: https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/issues/21/labels
+    body:
+      encoding: UTF-8
+      string: '["WIP"]'
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 3.2.0
+      Authorization:
+      - token <GITHUB_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Fri, 01 Aug 2014 19:56:37 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4952'
+      X-Ratelimit-Reset:
+      - '1406924256'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Etag:
+      - '"45c4de1ee23d5ec4c9f7f4a92a07e636"'
+      X-Oauth-Scopes:
+      - gist, repo, user
+      X-Accepted-Oauth-Scopes:
+      - ''
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Github-Request-Id:
+      - 458F5566:0444:4C6AE17:53DBF0F5
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Served-By:
+      - a8d8e492d6966f0c23dee2eed64c678a
+    body:
+      encoding: UTF-8
+      string: '[{"url":"https://api.github.com/repos/TeachingChannel/teaching-channel-start-testing/labels/WIP","name":"WIP","color":"fbca04"}]'
+    http_version: 
+  recorded_at: Fri, 01 Aug 2014 19:56:38 GMT
+recorded_with: VCR 2.8.0

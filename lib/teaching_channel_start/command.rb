@@ -10,6 +10,7 @@ require_relative 'pivotal_tracker'
 require_relative "commands/base"
 require_relative 'commands/create_pull_request'
 require_relative 'commands/create_changelog'
+require_relative 'commands/label_pull_request'
 require_relative 'commands/print_usage'
 require_relative 'commands/check_wip'
 require_relative 'commands/start_story'
@@ -37,7 +38,8 @@ module TeachingChannelStart
       Commands::StartStory.run(story: story, pivotal_tracker: pivotal_tracker)
       create_branch if branch_name != git.current_branch
       Commands::CreateChangelog.run(story: story)
-      Commands::CreatePullRequest.run(repo: repo, story: story, branch_name: branch_name)
+      pull_request = Commands::CreatePullRequest.run(repo: repo, story: story, branch_name: branch_name)
+      Commands::LabelPullRequest.run(pull_request: pull_request, repo: repo, labels: ['WIP'])
     end
 
     def cache

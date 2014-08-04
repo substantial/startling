@@ -24,6 +24,11 @@ module TeachingChannelStart
         pull_requests.find { |pr| pr.branch == branch }
       end
 
+      def set_labels_for_issue(issue_id:, labels:)
+        labels = Array(labels)
+        api.set_labels_for_issue(repo_name: name, issue_id: issue_id, labels: labels)
+      end
+
       def open_pull_request(title: nil, body: nil, branch: nil)
         pull_request = api.open_pull_request(repo_name: name, destination_branch: default_branch,
           branch: branch, title: title, body: body)

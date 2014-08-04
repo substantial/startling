@@ -2,10 +2,15 @@ module TeachingChannelStart
   module Github
     class PullRequest
       attr_reader :attributes
+      attr_accessor :labels
 
       def initialize(attributes, prefetch_data: true)
         @attributes = attributes
         prefetch_data if prefetch_data
+      end
+
+      def id
+        attributes.number
       end
 
       def title
@@ -17,7 +22,11 @@ module TeachingChannelStart
       end
 
       def in_progress?
-        title !~ /^(HOLD|TESTING|SPIKE):/
+        label_names.any? { |label| label.match(/(WIP|REVIEW)/) }
+      end
+
+      def label_names
+        labels.map(&:name)
       end
 
       def url

@@ -5,8 +5,8 @@ require 'teaching_channel_start/commands/base'
 describe TeachingChannelStart::Commands::Base do
   it "should assigns key/values passed in as attributes" do
     base = TeachingChannelStart::Commands::Base.new(foo: 'bar', baz: 'qux')
-    base.foo.should eq 'bar'
-    base.baz.should eq 'qux'
+    expect(base.foo).to eq 'bar'
+    expect(base.baz).to eq 'qux'
   end
 
   describe '#execute' do
@@ -21,10 +21,10 @@ describe TeachingChannelStart::Commands::Base do
 
     it 'should assign attributes and call execute' do
       base =  double :base_command
-      TeachingChannelStart::Commands::Base.stub(:new).and_return(base)
+      allow(TeachingChannelStart::Commands::Base).to receive(:new).and_return(base)
 
-      TeachingChannelStart::Commands::Base.should_receive(:new).with(foo: 'bar')
-      base.should_receive(:execute)
+      expect(TeachingChannelStart::Commands::Base).to receive(:new).with(foo: 'bar')
+      expect(base).to receive(:execute)
 
       subject
     end

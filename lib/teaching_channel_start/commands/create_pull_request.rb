@@ -4,18 +4,17 @@ module TeachingChannelStart
   module Commands
     class CreatePullRequest < Base
       def execute
-        url = open_pull_request
-        amend_commit_with_pull_request(url)
+        pull_request = open_pull_request
+        amend_commit_with_pull_request(pull_request.url)
+        pull_request
       end
 
       def open_pull_request
         puts "Opening pull request..."
         Shell.run "git push -qu origin HEAD > /dev/null"
 
-        pull_request = repo.open_pull_request title: pull_request_title,
+        repo.open_pull_request title: pull_request_title,
           body: pull_request_body, branch: branch_name
-
-        pull_request.url
       end
 
       def pull_request_path
@@ -27,7 +26,7 @@ module TeachingChannelStart
       end
 
       def pull_request_title
-        "WIP: #{story.name}"
+        story.name
       end
 
       def amend_commit_with_pull_request(url)
