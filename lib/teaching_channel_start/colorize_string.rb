@@ -9,13 +9,13 @@ module TeachingChannelStart
   module ColorizeString
     refine String do
       COLORS = %i[
-      black
-      blue
-      cyan
-      green
-      red
-      white
-      yellow
+        black
+        blue
+        cyan
+        green
+        red
+        white
+        yellow
       ]
 
       EXTRAS = %i[
