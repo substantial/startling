@@ -8,11 +8,12 @@ module TeachingChannelStart
         @api = api
       end
 
-      def name ;        remove_prefix(attrs["name"]) ; end
-      def story_type ;  attrs["story_type"] ; end
-      def url ;         attrs["url"] ; end
-      def estimate ;    attrs["estimate"] ; end
-      def project_id ;  attrs["project_id"] ; end
+      def name ;          remove_prefix(attrs["name"]) ; end
+      def story_type ;    attrs["story_type"] ; end
+      def url ;           attrs["url"] ; end
+      def estimate ;      attrs["estimate"] ; end
+      def project_id ;    attrs["project_id"] ; end
+      def current_state ; attrs["current_state"] ; end
 
       def estimated?
         return true if story_type != "feature"
