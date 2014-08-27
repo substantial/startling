@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+class BranchChanges
+  def initialize(filepath)
+    @filepath = filepath
+  end
+
+  def story_id
+    line[%r(story/show/(\d+)), 1]
+  end
+
+  private
+
+  attr_reader :filepath
+
+  def line
+    @line ||= File.open(full_path) { |f| f.readline }
+  end
+
+  def full_path
+    File.join(root_path, filepath)
+  end
+
+  def root_path
+    @root_path ||= %x[git rev-parse --show-toplevel].chomp
+  end
+end
+
+changes = BranchChanges.new('BRANCH_CHANGES.md')
+puts changes.story_id
