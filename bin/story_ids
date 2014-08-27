@@ -1,19 +1,19 @@
 #!/usr/bin/env ruby
 
-class BranchChanges
+class ChangeLogParser
   def initialize(filepath)
     @filepath = filepath
   end
 
-  def story_ids
-    @story_ids ||= parse_story_ids
+  def entries
+    @entries ||= read_entries
   end
 
   private
 
   attr_reader :filepath
 
-  def changes
+  def file_content
     File.readlines(full_path)
   end
 
@@ -25,15 +25,24 @@ class BranchChanges
     @root_path ||= %x[git rev-parse --show-toplevel].chomp
   end
 
-  def parse_story_ids
-    ids = changes.map { |change| parse_story_id(change)  }
-    ids.compact.reject(&:empty?)
+  def read_entries
+    file_content.map do |line|
+      line.chomp!
+      next if line.empty?
+      ChangeLogEntry.new(line)
+    end.compact
   end
 
-  def parse_story_id(change_line)
-    change_line[%r(story/show/(\d+)), 1]
+  ChangeLogEntry = Struct.new(:log_entry) do
+    def to_s
+      log_entry
+    end
+
+    def story_id
+      log_entry[%r(story/show/(\d+)), 1]
+    end
   end
 end
 
-changes = BranchChanges.new('BRANCH_CHANGES.md')
-changes.story_ids.each { |id| puts id }
+change_log = ChangeLogParser.new('BRANCH_CHANGES.md')
+change_log.entries.each { |entry| puts entry.story_id }
