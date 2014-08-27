@@ -5,16 +5,16 @@ class BranchChanges
     @filepath = filepath
   end
 
-  def story_id
-    change_text[%r(story/show/(\d+)), 1]
+  def story_ids
+    @story_ids ||= parse_story_ids
   end
 
   private
 
   attr_reader :filepath
 
-  def change_text
-    @change_text ||= File.open(full_path, &:readline)
+  def changes
+    File.readlines(full_path)
   end
 
   def full_path
@@ -24,7 +24,16 @@ class BranchChanges
   def root_path
     @root_path ||= %x[git rev-parse --show-toplevel].chomp
   end
+
+  def parse_story_ids
+    ids = changes.map { |change| parse_story_id(change)  }
+    ids.compact.reject(&:empty?)
+  end
+
+  def parse_story_id(change_line)
+    change_line[%r(story/show/(\d+)), 1]
+  end
 end
 
 changes = BranchChanges.new('BRANCH_CHANGES.md')
-puts changes.story_id
+changes.story_ids.each { |id| puts id }
