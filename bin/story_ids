@@ -26,11 +26,8 @@ class ChangeLogParser
   end
 
   def read_entries
-    file_content.map do |line|
-      line.chomp!
-      next if line.empty?
-      ChangeLogEntry.new(line)
-    end.compact
+    entries = file_content.map { |line| ChangeLogEntry.new(line) }
+    entries.select(&:valid?)
   end
 
   ChangeLogEntry = Struct.new(:log_entry) do
@@ -40,6 +37,10 @@ class ChangeLogParser
 
     def story_id
       log_entry[%r(story/show/(\d+)), 1]
+    end
+
+    def valid?
+      !log_entry.chomp.empty?
     end
   end
 end
