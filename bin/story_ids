@@ -31,10 +31,6 @@ class ChangeLogParser
   end
 
   ChangeLogEntry = Struct.new(:log_entry) do
-    def to_s
-      log_entry
-    end
-
     def story_id
       log_entry[%r(story/show/(\d+)), 1]
     end
