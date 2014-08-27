@@ -6,15 +6,15 @@ class BranchChanges
   end
 
   def story_id
-    line[%r(story/show/(\d+)), 1]
+    change_text[%r(story/show/(\d+)), 1]
   end
 
   private
 
   attr_reader :filepath
 
-  def line
-    @line ||= File.open(full_path) { |f| f.readline }
+  def change_text
+    @change_text ||= File.open(full_path, &:readline)
   end
 
   def full_path
