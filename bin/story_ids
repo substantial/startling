@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+
+class ChangeLogParser
+  def initialize(filepath)
+    @filepath = filepath
+  end
+
+  def entries
+    @entries ||= read_entries
+  end
+
+  private
+
+  attr_reader :filepath
+
+  def file_content
+    File.readlines(full_path)
+  end
+
+  def full_path
+    File.join(root_path, filepath)
+  end
+
+  def root_path
+    @root_path ||= %x[git rev-parse --show-toplevel].chomp
+  end
+
+  def read_entries
+    entries = file_content.map { |line| ChangeLogEntry.new(line) }
+    entries.select(&:valid?)
+  end
+
+  ChangeLogEntry = Struct.new(:log_entry) do
+    def story_id
+      log_entry[%r(story/show/(\d+)), 1]
+    end
+
+    def valid?
+      !log_entry.chomp.empty?
+    end
+  end
+end
+
+change_log = ChangeLogParser.new('BRANCH_CHANGES.md')
+change_log.entries.each { |entry| puts entry.story_id }
