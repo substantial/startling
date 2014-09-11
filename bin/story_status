@@ -28,10 +28,6 @@ ARGV.each do |story_id|
   story_states << story_details(story_id).current_state
 end
 
-if story_states.length == 1
-  puts story_states.first
-else
-  puts ( story_states.all? { |s| s == "accepted" } ) ?
-    "accepted" :
-    "unaccepted"
-end
+puts ( story_states.all? { |s| s == "accepted" } ) ?
+  "accepted" :
+  "unaccepted"
