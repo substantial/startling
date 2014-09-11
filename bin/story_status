@@ -5,15 +5,27 @@ exit 1 if ARGV.empty?
 require_relative '../lib/teaching-channel-start'
 TeachingChannelStart.root_dir = TeachingChannelStart.cache_dir = Dir.pwd
 
-token = TeachingChannelStart::Command.new.pivotal_api_token
-api = TeachingChannelStart::PivotalTracker::Api.new(api_token: token)
+module StoryStatusHelper
+  def self.token
+    @token ||= TeachingChannelStart::Command.new.pivotal_api_token
+  end
 
-story_ids = ARGV
+  def self.api
+    @api ||= TeachingChannelStart::PivotalTracker::Api.new(api_token: token)
+  end
+
+  def self.story_details(id)
+    TeachingChannelStart::PivotalTracker::Story.new(id, api)
+  end
+end
+
+def story_details(id)
+  StoryStatusHelper.story_details(id)
+end
+
 story_states = []
-
-story_ids.each do |story_id|
-  story = TeachingChannelStart::PivotalTracker::Story.new(story_id, api)
-  story_states << story.current_state
+ARGV.each do |story_id|
+  story_states << story_details(story_id).current_state
 end
 
 if story_states.length == 1
