@@ -1,11 +1,25 @@
 #!/usr/bin/env ruby
 
+exit 1 if ARGV.empty?
+
 require_relative '../lib/teaching-channel-start'
 TeachingChannelStart.root_dir = TeachingChannelStart.cache_dir = Dir.pwd
 
-story_id = ARGV[0]
 token = TeachingChannelStart::Command.new.pivotal_api_token
 api = TeachingChannelStart::PivotalTracker::Api.new(api_token: token)
-story = TeachingChannelStart::PivotalTracker::Story.new(story_id, api)
 
-puts story.current_state
+story_ids = ARGV
+story_states = []
+
+story_ids.each do |story_id|
+  story = TeachingChannelStart::PivotalTracker::Story.new(story_id, api)
+  story_states << story.current_state
+end
+
+if story_states.length == 1
+  puts story_states.first
+else
+  puts ( story_states.all? { |s| s == "accepted" } ) ?
+    "accepted" :
+    "unaccepted"
+end
