@@ -74,20 +74,20 @@ module TeachingChannelStart
 
       def access_token
         TeachingChannelStart.cache.fetch('.github_access_token') do
+          client = Octokit::Client.new(login: prompt_for_login, password: prompt_for_password)
+          authorization_opts = {}
+          authorization_opts[:scopes] = ["repo"]
+          authorization_opts[:note] = "teaching-channel-start on #{`echo $HOSTNAME`}"
           begin
-            Octokit::Client.new(login: prompt_for_login, password: prompt_for_password)
-              .create_authorization(scopes: ["repo"], note: token_description)[:token]
+            client.create_authorization(authorization_opts)[:token]
+          rescue Octokit::OneTimePasswordRequired
+            authorization_opts[:headers] = { "X-GitHub-OTP" => prompt_for_otp }
+            retry
           rescue Octokit::Unauthorized
             puts "Invalid username or password, try again."
             retry
-          rescue => e
-            p e
           end
         end
-      end
-
-      def token_description
-        Shell.run "echo $HOSTNAME"
       end
 
       def prompt_for_login
@@ -96,6 +96,10 @@ module TeachingChannelStart
 
       def prompt_for_password
         ask("Enter your Github password:  ") { |q| q.echo = false }
+      end
+
+      def prompt_for_otp
+        ask("Enter your one time password:  ")
       end
     end
   end
