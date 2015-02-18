@@ -33,11 +33,17 @@ module TeachingChannelStart
     end
 
     def repo_name
-      `git config --get remote.origin.url`[/:(.*)\.git/, 1]
+      remote_url[%r{([^/:]+/[^/]+)\.git}, 1]
     end
 
     def current_branch_is_a_feature_branch?
        current_branch =~ %r{^feature/}
+    end
+
+    private
+
+    def remote_url
+      `git config --get remote.origin.url`.strip
     end
   end
 end
