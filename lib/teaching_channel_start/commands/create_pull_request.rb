@@ -52,6 +52,11 @@ module TeachingChannelStart
         <<BODY
 #{story.url}
 
+### Manual Testing
+
+- [ ] Feature tested and verified by me.
+- [ ] Feature tested and verified by reviewer.
+
 ### Browser Testing
 
 #{browser_checkboxes}
