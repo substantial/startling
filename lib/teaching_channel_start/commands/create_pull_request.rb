@@ -52,14 +52,14 @@ module TeachingChannelStart
         <<BODY
 #{story.url}
 
-### Browser Testing
-
-#{browser_checkboxes}
-
 ### Manual Testing
 
 - [ ] Feature tested and verified by me.
 - [ ] Feature tested and verified by reviewer.
+
+### Browser Testing
+
+#{browser_checkboxes}
 
 ### CSS
 
