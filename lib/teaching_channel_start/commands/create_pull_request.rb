@@ -56,6 +56,11 @@ module TeachingChannelStart
 
 #{browser_checkboxes}
 
+### Manual Testing
+
+- [ ] Feature tested and verified by me.
+- [ ] Feature tested and verified by reviewer.
+
 ### CSS
 
 - [ ] New CSS is added to style engine and follows [guidelines](https://github.com/TeachingChannel/teaching-channel/blob/master/GUIDELINES.md#cssstyle).
