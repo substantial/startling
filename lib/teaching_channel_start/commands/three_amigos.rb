@@ -6,19 +6,15 @@ module TeachingChannelStart
       using ColorizeString
 
       def execute
-        puts
-        puts "Time for 3 Amigos!!!"
-
         wiki_link =
           "https://github.com/TeachingChannel/teaching-channel/wiki/3-Amigos".underline
-        puts "If you need more info, checkout: #{wiki_link}"
-        puts
-        puts "Three Amigo Guidelines".blue
-        puts
-        puts "1. What is the story and why are we doing it?".white
-        puts "2. When is the story complete?".white
-        puts "3. Can the story be broken down further?".white
-        puts "4. Do we need to track anything for the epic's goals?".white
+
+        guidelines = [
+          "1. What is the story and why are we doing it?",
+          "2. When is the story complete?",
+          "3. Can the story be broken down further?",
+          "4. Do we need to track anything for the epic's goals?",
+        ].map { |string| string.white }.join("\n")
 
         question = [
           "Have these questions been answered (",
@@ -26,9 +22,16 @@ module TeachingChannelStart
           ")? "
         ].map { |string| string.yellow }.join
 
-        puts
         confirm = ask(question)
 
+        puts
+        puts "Time for 3 Amigos!!!"
+        puts "If you need more info, checkout: #{wiki_link}"
+        puts
+        puts "Three Amigo Guidelines".blue
+        puts
+        puts guidelines
+        puts
         exit unless confirm == "ole"
       end
     end
