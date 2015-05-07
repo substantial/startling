@@ -45,6 +45,8 @@ describe "bin/start" do
 
   it "starts stories from origin/develop",
     vcr: { cassette_name: "bin_start_starts_stories" } do
+    allow_any_instance_of(TeachingChannelStart::Commands::ThreeAmigos)
+      .to receive(:ask) { "ole" }
 
     command = TeachingChannelStart::Command.new(args: [pivotal_story_id, feature_name])
     command.execute

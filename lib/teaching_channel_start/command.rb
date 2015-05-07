@@ -14,6 +14,7 @@ require_relative 'commands/print_usage'
 require_relative 'commands/check_wip'
 require_relative 'commands/start_story'
 require_relative 'commands/check_for_local_mods'
+require_relative 'commands/three_amigos'
 
 # script/start
 #
@@ -34,6 +35,7 @@ module TeachingChannelStart
       Commands::CheckForLocalMods.run(git: git)
       set_pivotal_api_token
       Commands::CheckWip.run
+      Commands::ThreeAmigos.run
       Commands::StartStory.run(story: story, pivotal_tracker: pivotal_tracker)
       create_branch if branch_name != git.current_branch
       Commands::CreateChangelog.run(story: story)
