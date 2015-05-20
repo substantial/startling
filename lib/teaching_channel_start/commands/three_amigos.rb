@@ -7,7 +7,7 @@ module TeachingChannelStart
 
       def execute
         wiki_link =
-          "https://github.com/TeachingChannel/teaching-channel/wiki/3-Amigos".underline
+          "https://github.com/TeachingChannel/teaching-channel/wiki/3-Amigos".underline.blue
 
         guidelines = [
           "1. What is the story and why are we doing it?",
@@ -17,9 +17,9 @@ module TeachingChannelStart
         ].join("\n")
 
         question = [
-          "Have these questions been answered (",
-          'anything but "ole" will abort'.underline,
-          ")? "
+          "Have these questions been answered (".yellow,
+          'anything but "ole" will abort'.underline.yellow,
+          ")? ".yellow
         ].join
 
         puts
@@ -31,7 +31,7 @@ module TeachingChannelStart
         puts guidelines.blue
         puts
 
-        confirm = ask(question.yellow)
+        confirm = ask(question)
         exit unless confirm == "ole"
       end
     end
