@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in teaching-channel-start.gemspec
+# Specify your gem's dependencies in startling.gemspec
 gemspec

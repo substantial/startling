@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/teaching-channel-start'
-TeachingChannelStart.root_dir = TeachingChannelStart.cache_dir = Dir.pwd
-TeachingChannelStart::Command.run
+require_relative '../lib/startling'
+Startling.root_dir = Startling.cache_dir = Dir.pwd
+Startling::Command.run

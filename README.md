@@ -1,10 +1,10 @@
-# TeachingChannelStart
+# Startling
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'teaching-channel-start'
+    gem 'startling'
 
 And then execute:
 
@@ -12,7 +12,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install teaching-channel-start
+    $ gem install startling
 
 ## Usage
 
@@ -20,5 +20,5 @@ TODO: Write usage instructions here
 
 ## Contributing
 
-1. Create `.env` from the Secure Note `teaching-channel-start .env` in
+1. Create `.env` from the Secure Note `startling .env` in
    LastPass.

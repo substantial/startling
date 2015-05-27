@@ -2,20 +2,20 @@
 
 exit 1 if ARGV.empty?
 
-require_relative '../lib/teaching-channel-start'
-TeachingChannelStart.root_dir = TeachingChannelStart.cache_dir = Dir.pwd
+require_relative '../lib/startling'
+Startling.root_dir = Startling.cache_dir = Dir.pwd
 
 module StoryStatusHelper
   def self.token
-    @token ||= TeachingChannelStart::Command.new.pivotal_api_token
+    @token ||= Startling::Command.new.pivotal_api_token
   end
 
   def self.api
-    @api ||= TeachingChannelStart::PivotalTracker::Api.new(api_token: token)
+    @api ||= Startling::PivotalTracker::Api.new(api_token: token)
   end
 
   def self.story_details(id)
-    TeachingChannelStart::PivotalTracker::Story.new(id, api)
+    Startling::PivotalTracker::Story.new(id, api)
   end
 end
 

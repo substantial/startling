@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/teaching-channel-start'
-TeachingChannelStart.root_dir = TeachingChannelStart.cache_dir = Dir.pwd
-wip = TeachingChannelStart::Work.in_progress
-TeachingChannelStart::WorkPrinter.new.print wip
+require_relative '../lib/startling'
+Startling.root_dir = Startling.cache_dir = Dir.pwd
+wip = Startling::Work.in_progress
+Startling::WorkPrinter.new.print wip

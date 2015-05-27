@@ -1,1 +1,0 @@
-require_relative 'teaching_channel_start'
