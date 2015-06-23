@@ -14,6 +14,7 @@ module Startling
           "2. When is the story complete?",
           "3. Can the story be broken down further?",
           "4. Do we need to track anything for the epic's goals?",
+          "5. Should this story be paired on?",
         ].join("\n")
 
         question = [
