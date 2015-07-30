@@ -1,7 +1,7 @@
 require_relative 'startling/command'
 
 module Startling
-  VALID_ESTIMATES = [0, 1, 2, 4, 8, 16, 32, 64, 128]
+  VALID_ESTIMATES = [1, 2, 4, 8, 16, 32, 64, 128]
   WIP_LIMIT = 4
   REPOS = %w[
     TeachingChannel/teaching-channel
