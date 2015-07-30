@@ -86,7 +86,10 @@ module Startling
     end
 
     def extract_story_id_from_url(raw_story_id)
-      raw_story_id.split("/").last
+      raw_story_id
+        .split("/")
+        .last
+        .gsub(/\D/, '')
     end
 
     def branch_name
