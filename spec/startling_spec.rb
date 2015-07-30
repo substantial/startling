@@ -8,7 +8,7 @@ describe "bin/start" do
   let(:feature_branch) { "feature/#{feature_name}" }
   let(:repo_default_branch) { 'develop' }
   let(:git) { Startling::GitLocal.new }
-  let(:pivotal_story_id) { "65074482" }
+  let(:pivotal_story_id) { "#65074482" }
 
   before do
     test_repo_path = "tmp/test_repo"
