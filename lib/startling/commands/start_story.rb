@@ -4,7 +4,7 @@ module Startling
   module Commands
     class StartStory < Base
       def execute
-        puts "Startling story..."
+        puts "Starting story..."
         estimate = ask_for_estimate unless story.estimated?
         story_owners = [pivotal_tracker.user_id]
         story.start(starter_ids: story_owners, estimate: estimate)
