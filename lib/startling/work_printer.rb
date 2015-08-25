@@ -9,7 +9,7 @@ module Startling
 
     def print(works)
       puts works.sort_by(&:started_at).map { |work| format_work(work) }.join("\n\n")
-      puts "\nThere is currently #{count(works)} out of #{WIP_LIMIT.to_s.yellow} WIP."
+      puts "\nThere is currently #{count(works)} out of #{Startling.configuration.wip_limit.to_s.yellow} WIP."
     end
 
     def format_pull_request(pull_request)
