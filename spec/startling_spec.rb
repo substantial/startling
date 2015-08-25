@@ -23,7 +23,7 @@ describe "bin/start" do
     stub_const("Startling::REPOS", ["TeachingChannel/teaching-channel-start-testing"])
     FileUtils.cd test_repo_path
 
-    Startling.root_dir = Startling.cache_dir = "."
+    Startling.configuration.root_dir = Startling.cache_dir = "."
 
     git.checkout_branch 'develop'
     git.destroy_branch feature_branch

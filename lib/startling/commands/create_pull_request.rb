@@ -18,7 +18,7 @@ module Startling
       end
 
       def pull_request_path
-        File.join(Startling.root_dir, pull_request_filename)
+        File.join(Startling.configuration.root_dir, pull_request_filename)
       end
 
       def pull_request_filename
