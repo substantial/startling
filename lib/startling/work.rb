@@ -32,7 +32,7 @@ module Startling
     end
 
     def self.all
-      repos = configuration.repos.map { |name| Github.repo(name) }
+      repos = Startling.configuration.repos.map { |name| Github.repo(name) }
       pull_requests = Parallel.map(repos, in_threads: repos.count, &:pull_requests).flatten
       from_pull_requests(pull_requests)
     end
