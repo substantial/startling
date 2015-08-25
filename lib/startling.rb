@@ -3,7 +3,7 @@ require 'startling/configuration'
 
 module Startling
   class << self
-    attr_writer :cache_dir, :root_dir, :configuration
+    attr_writer :configuration
   end
 
   def self.configuration
@@ -27,6 +27,6 @@ module Startling
 #  end
 #
   def self.cache
-    @cache ||= Cache.new(cache_dir)
+    @cache ||= Cache.new(configuration.cache_dir)
   end
 end
