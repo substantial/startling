@@ -18,14 +18,6 @@ module Startling
     @configuration =  Configuration.new
   end
 
-#  def self.cache_dir
-#    @cache_dir or raise "set cache_dir="
-#  end
-#
-#  def self.root_dir
-#    @root_dir or raise "set root_dir="
-#  end
-#
   def self.cache
     @cache ||= Cache.new(configuration.cache_dir)
   end
