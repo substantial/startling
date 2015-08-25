@@ -1,29 +1,31 @@
 require_relative 'startling/command'
+require 'startling/configuration'
 
 module Startling
-  VALID_ESTIMATES = [1, 2, 4, 8, 16, 32, 64, 128]
-  WIP_LIMIT = 4
-  REPOS = %w[
-    TeachingChannel/teaching-channel
-    TeachingChannel/teaching-channel-blog
-    TeachingChannel/teaching-channel-chef
-    TeachingChannel/teaching-channel-start
-    TeachingChannel/teaching-channel-smoke
-    TeachingChannel/flowdock_notify
-  ]
-
   class << self
-    attr_writer :cache_dir, :root_dir
+    attr_writer :cache_dir, :root_dir, :configuration
   end
 
-  def self.cache_dir
-    @cache_dir or raise "set cache_dir="
+  def self.configuration
+    @configuration ||= Configuration.new
   end
 
-  def self.root_dir
-    @root_dir or raise "set root_dir="
+  def self.configure
+    yield(configuration)
   end
 
+  def self.reset
+    @configuration =  Configuration.new
+  end
+
+#  def self.cache_dir
+#    @cache_dir or raise "set cache_dir="
+#  end
+#
+#  def self.root_dir
+#    @root_dir or raise "set root_dir="
+#  end
+#
   def self.cache
     @cache ||= Cache.new(cache_dir)
   end
