@@ -40,6 +40,10 @@ module Startling
        current_branch =~ %r{^feature/}
     end
 
+    def project_root
+       Shell.run "git rev-parse --show-toplevel"
+    end
+
     private
 
     def remote_url

@@ -1,4 +1,4 @@
-require 'config/startling_config'
+require 'startling/git_local'
 
 module Startling
   class Configuration
