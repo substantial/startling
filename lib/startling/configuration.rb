@@ -1,3 +1,5 @@
+require 'config/startling_config'
+
 module Startling
   class Configuration
     VALID_ESTIMATES = [1, 2, 4, 8, 16, 32, 64, 128]
