@@ -1,6 +1,5 @@
 require_relative 'startling/command'
 require 'startling/configuration'
-require "#{Startling::GitLocal.new.project_root}/startling"
 
 module Startling
   class << self
