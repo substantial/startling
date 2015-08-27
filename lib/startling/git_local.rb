@@ -41,7 +41,7 @@ module Startling
     end
 
     def project_root
-       Shell.run "git rev-parse --show-toplevel"
+     `git rev-parse --show-toplevel`.strip
     end
 
     private
