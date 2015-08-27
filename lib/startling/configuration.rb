@@ -1,5 +1,5 @@
 require 'startling/git_local'
-require "#{Startling::GitLocal.project_root}/startling"
+require "#{Startling::GitLocal.new.project_root}/startling"
 
 module Startling
   class Configuration
