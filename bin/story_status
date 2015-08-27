@@ -3,6 +3,7 @@
 exit 1 if ARGV.empty?
 
 require_relative '../lib/startling'
+require "#{Startling::GitLocal.new.project_root}/startling"
 
 module StoryStatusHelper
   def self.token

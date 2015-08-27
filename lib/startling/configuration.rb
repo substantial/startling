@@ -4,14 +4,6 @@ module Startling
   class Configuration
     VALID_ESTIMATES = [1, 2, 4, 8, 16, 32, 64, 128]
     WIP_LIMIT = 4
-#    REPOS = %w[
-#      TeachingChannel/teaching-channel
-#      TeachingChannel/teaching-channel-blog
-#      TeachingChannel/teaching-channel-chef
-#      TeachingChannel/teaching-channel-start
-#      TeachingChannel/teaching-channel-smoke
-#      TeachingChannel/flowdock_notify
-#    ]
 
     attr_accessor :cache_dir, :root_dir, :valid_estimates, :wip_limit, :repos
 
