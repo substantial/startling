@@ -28,11 +28,7 @@ module Startling
     def self.run(attrs={})
       attrs[:args] ||= ARGV
       super(attrs)
-      load_startling_file
-    end
-
-    def load_startling_file
-      load "#{Startling::GitLocal.new.project_root}/startling"
+      Startling::Configuration.load_configuration
     end
 
     def execute

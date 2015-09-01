@@ -20,10 +20,9 @@ describe "bin/start" do
     File.write File.join(test_repo_path, ".github_access_token"), Tokens.github
     File.write File.join(test_repo_path, ".pivotal_api_token"), Tokens.pivotal_tracker
 
-    stub_const("Startling::REPOS", ["TeachingChannel/teaching-channel-start-testing"])
     FileUtils.cd test_repo_path
 
-    Startling.configuration.root_dir = Startling.cache_dir = "."
+    Startling.configuration.root_dir = Startling.configuration.cache_dir = "."
 
     git.checkout_branch 'develop'
     git.destroy_branch feature_branch

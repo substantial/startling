@@ -14,5 +14,9 @@ module Startling
       @wip_limit = WIP_LIMIT
       @repos = []
     end
+
+    def self.load_configuration
+      load "#{Startling::GitLocal.new.project_root}/startling.rb"
+    end
   end
 end
