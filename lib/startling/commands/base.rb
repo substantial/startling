@@ -10,11 +10,22 @@ module Startling
           self.class.__send__(:attr_reader, attr)
           instance_variable_set("@#{attr}", value)
         end
+        load_configuration
       end
 
       def execute
         raise NotImplementedError
       end
+
+      def load_configuration
+        loaded_configuration_path = Startling::Configuration.load_configuration
+        if loaded_configuration_path
+          puts "Loading configuration #{loaded_configuration_path}"
+        else
+          puts "Using default configuration"
+        end
+      end
+
     end
   end
 end

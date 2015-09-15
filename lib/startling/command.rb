@@ -31,15 +31,6 @@ module Startling
       #load_configuration
     end
 
-    def load_configuration
-      loaded_configuration_path = Startling::Configuration.load_configuration
-      if loaded_configuration_path
-        puts "Loading configuration #{loaded_configuration_path}"
-      else
-        puts "Using default configuration"
-      end
-    end
-
     def execute
       Commands::PrintUsage.run(args: args)
       Commands::CheckForLocalMods.run(git: git)

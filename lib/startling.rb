@@ -21,6 +21,4 @@ module Startling
   def self.cache
     @cache ||= Cache.new(configuration.cache_dir)
   end
-
-  load_configuration
 end
