@@ -10,7 +10,7 @@ module Startling
       'Startlingfile.rb'
     ].freeze
 
-    attr_accessor :cache_dir, :root_dir, :valid_estimates, :wip_limit, :repos
+    attr_accessor :cache_dir, :root_dir, :valid_estimates, :wip_limit, :repos, :pull_request_filename, :pull_request_body
 
     def initialize
       @cache_dir = Dir.pwd
