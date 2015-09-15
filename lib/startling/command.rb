@@ -61,11 +61,6 @@ module Startling
     end
     alias_method :set_pivotal_api_token, :pivotal_api_token
 
-    def set_repositories
-      return unless configuration.repos.any?
-      ask("Enter repos (comma sep list)  ", lambda { |str| str.split(/,\s*/) })
-    end
-
     def create_branch
       puts "Creating branch #{branch_name}..."
       git.create_remote_branch(branch_name, base_branch: "origin/#{default_branch}")
