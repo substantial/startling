@@ -10,7 +10,6 @@ module Startling
           self.class.__send__(:attr_reader, attr)
           instance_variable_set("@#{attr}", value)
         end
-        load_configuration
       end
 
       def execute
@@ -25,7 +24,6 @@ module Startling
           puts "Using default configuration"
         end
       end
-
     end
   end
 end

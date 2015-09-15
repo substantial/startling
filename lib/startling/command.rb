@@ -28,7 +28,7 @@ module Startling
     def self.run(attrs={})
       attrs[:args] ||= ARGV
       super(attrs)
-      #load_configuration
+      load_configuration
     end
 
     def execute
