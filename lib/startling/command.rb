@@ -26,9 +26,9 @@ module Startling
   class Command < Commands::Base
 
     def self.run(attrs={})
+      load_configuration
       attrs[:args] ||= ARGV
       super(attrs)
-      load_configuration
     end
 
     def execute
