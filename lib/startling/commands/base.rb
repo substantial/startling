@@ -16,7 +16,7 @@ module Startling
         raise NotImplementedError
       end
 
-      def load_configuration
+      def self.load_configuration
         loaded_configuration_path = Startling::Configuration.load_configuration
         if loaded_configuration_path
           puts "Loading configuration #{loaded_configuration_path}"
