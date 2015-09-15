@@ -18,11 +18,7 @@ module Startling
       end
 
       def pull_request_path
-        File.join(Startling.configuration.root_dir, pull_request_filename)
-      end
-
-      def pull_request_filename
-        'BRANCH_PULL_REQUEST'
+        File.join(Startling.configuration.root_dir, Startling.configuration.pull_request_filename)
       end
 
       def pull_request_title
@@ -40,6 +36,7 @@ module Startling
       end
 
       def pull_request_body
+        #Startling.configuration.pull_request_body
         browsers = [
           "IE9",
           "IE10",

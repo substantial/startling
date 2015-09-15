@@ -28,7 +28,16 @@ module Startling
     def self.run(attrs={})
       attrs[:args] ||= ARGV
       super(attrs)
-      Startling::Configuration.load_configuration
+      load_configuration
+    end
+
+    def load_configuration
+      loaded_configuration_path = Startling::Configuration.load_configuration
+      if loaded_configuration_path
+        puts "Loading configuration #{loaded_configuration_path}"
+      else
+        puts "Using default configuration"
+      end
     end
 
     def execute
