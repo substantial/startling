@@ -58,8 +58,24 @@ module Startling
     describe "#repos" do
       it "can set the value" do
         config = Configuration.new
-        config.repos = "repo path"
-        expect(config.repos).to eql("repo path")
+        config.repos << "repo path"
+        expect(config.repos).to eql(["repo path"])
+      end
+    end
+
+    describe "#pull_request_filename" do
+      it "can set the value" do
+        config = Configuration.new
+        config.pull_request_filename = "filename"
+        expect(config.pull_request_filename).to eql("filename")
+      end
+    end
+
+    describe "#pull_request_body" do
+      it "can set the value" do
+        config = Configuration.new
+        config.pull_request_body = "body"
+        expect(config.pull_request_body).to eql("body")
       end
     end
 
