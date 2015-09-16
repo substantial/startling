@@ -16,7 +16,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Startlingfile.rb or startlingfile.rb should be defined in the root of the project. It can contain a block for configuration:
+
+```ruby
+Startling.configure do |config|
+  config.wip_limit = 10
+  config.repos = <<  "TeachingChannel/teaching-channel-start"
+  config.valid_estimates = [1, 2, 3, 5, 8]
+  config.pull_request_filename = "BRANCH_PULL_REQUEST"
+end
+```
 
 ## Contributing
 
