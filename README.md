@@ -14,7 +14,7 @@ Or install it yourself as:
 
     $ gem install startling
 
-## Usage
+## Configuration
 
 Startlingfile.rb or startlingfile.rb should be defined in the root of the project. It can contain a block for configuration:
 
@@ -24,8 +24,13 @@ Startling.configure do |config|
   config.repos = <<  "TeachingChannel/teaching-channel-start"
   config.valid_estimates = [1, 2, 3, 5, 8]
   config.pull_request_filename = "BRANCH_PULL_REQUEST"
+  config.pull_request_body = "- [ ] Test pull request"
 end
 ```
+
+## Usage
+
+TODO: Write usage instructions here
 
 ## Contributing
 
