@@ -4,6 +4,10 @@ require 'startling/configuration'
 module Startling
   class << self
     attr_writer :configuration
+
+    def method_missing(method, *args, &block)
+      configuration.send(method, &args, &block)
+    end
   end
 
   def self.configuration

@@ -10,7 +10,7 @@ module Startling
     end
 
     it "sets the configuration attributes" do
-      expect(Startling.configuration.cache_dir).to eql("value")
+      expect(Startling.cache_dir).to eql("value")
     end
   end
 end

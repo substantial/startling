@@ -12,7 +12,7 @@ module Startling
       def execute
         puts "Checking WIP..."
         wip = Work.in_progress
-        if wip.count >= Startling.configuration.wip_limit
+        if wip.count >= Startling.wip_limit
           WorkPrinter.new.print wip
           puts
           wiki_link = "https://github.com/TeachingChannel/teaching-channel/wiki/wip".underline.blue

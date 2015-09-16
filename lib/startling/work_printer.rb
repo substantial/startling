@@ -9,7 +9,7 @@ module Startling
 
     def print(works)
       puts works.sort_by(&:started_at).map { |work| format_work(work) }.join("\n\n")
-      puts "\nThere is currently #{count(works)} out of #{Startling.configuration.wip_limit.to_s.yellow} WIP."
+      puts "\nThere is currently #{count(works)} out of #{Startling.wip_limit.to_s.yellow} WIP."
     end
 
     def format_pull_request(pull_request)
@@ -34,9 +34,9 @@ module Startling
     def count(works)
       count = works.count
       case count
-      when ->(c) { c > Startling.configuration.wip_limit }
+      when ->(c) { c > Startling.wip_limit }
         count.to_s.red
-      when ->(c) { c == Startling.configuration.wip_limit }
+      when ->(c) { c == Startling.wip_limit }
         count.to_s.yellow
       else
         count.to_s.blue

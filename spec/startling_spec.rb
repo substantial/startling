@@ -22,7 +22,7 @@ describe "bin/start" do
 
     FileUtils.cd test_repo_path
 
-    Startling.configuration.root_dir = Startling.configuration.cache_dir = "."
+    Startling.root_dir = Startling.cache_dir = "."
 
     git.checkout_branch 'develop'
     git.destroy_branch feature_branch

@@ -18,7 +18,7 @@ module Startling
       end
 
       def changelog_path
-        File.join(Startling.configuration.root_dir, changelog_filename)
+        File.join(Startling.root_dir, changelog_filename)
       end
 
       def read_changelog
