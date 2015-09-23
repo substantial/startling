@@ -54,8 +54,11 @@ module Startling
         command.send(RUN, command_args)
       end
 
+      set_pivotal_api_token #Project / before scripts
+
       Commands::StartStory.run(story: story, pivotal_tracker: pivotal_tracker) #Project / Start
       create_branch if branch_name != git.current_branch #Github
+      Commands::CreateChangelog.run(story: story) #After start
       pull_request = Commands::CreatePullRequest.run(
         repo: repo,
         story: story,
