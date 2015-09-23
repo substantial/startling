@@ -40,11 +40,7 @@ module Startling
       command_dir = File.join(Startling::GitLocal.new.project_root, path "*")
       return unless command_dir
       Dir.glob(command_dir).each do |command|
-        begin
-          load "#{command_dir}/#{command}"
-        rescue
-          next
-        end
+        load "#{command_dir}/#{command}"
       end
       command_dir
     end
