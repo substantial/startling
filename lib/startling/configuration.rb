@@ -12,12 +12,11 @@ module Startling
       'Startlingfile.rb'
     ].freeze
 
-    attr_accessor :cache_dir, :root_dir, :command_dir, :valid_estimates, :wip_limit, :repos,
+    attr_accessor :cache_dir, :root_dir, :valid_estimates, :wip_limit, :repos,
       :pull_request_labels, :pull_request_filename, :pull_request_body
 
     def initialize
       @cache_dir = Dir.pwd
-      @command_dir = File.join(Startling::GitLocal.new.project_root, DEFAULT_COMMAND_PATH)
       @root_dir = Dir.pwd
       @repos = []
       @valid_estimates = DEFAULT_VALID_ESTIMATES
@@ -37,13 +36,14 @@ module Startling
       nil
     end
 
-    def self.load_hooks
-      hooks = nil
+    def self.load_hooks(path=DEFAULT_COMMAND_PATH)
+      command_dir = File.join(Startling::GitLocal.new.project_root, path)
+      return unless command_dir
       Dir.entires(command_dir).each do |command|
         hooks = command_dir
         load "#{command_dir}/#{command}"
       end
-      hooks
+      command_dir
     end
 
     def hooks
