@@ -37,11 +37,6 @@ module Startling
         expect(configuration.pull_request_filename)
           .to eql(Configuration::DEFAULT_PULL_REQUEST_FILENAME)
       end
-
-      it "sets the default start story commands" do
-        expect(configuration.story_start)
-          .to eql([::Startling::Commands::StartStory])
-      end
     end
 
     describe "#cache_dir" do
@@ -97,13 +92,6 @@ module Startling
       it "can set the value" do
         configuration.pull_request_labels = ["WIP", "REVIEW"]
         expect(configuration.pull_request_labels).to eql(["WIP", "REVIEW"])
-      end
-    end
-
-    describe "story_start" do
-      it "can set the value" do
-        configuration.story_start = "Commands"
-        expect(configuration.story_start).to eql("Commands")
       end
     end
 

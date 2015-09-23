@@ -13,25 +13,18 @@ module Startling
     ].freeze
 
     attr_accessor :cache_dir, :root_dir, :command_dir, :valid_estimates, :wip_limit, :repos,
-      :pull_request_labels, :pull_request_filename, :pull_request_body,
-      :before_story_start, :story_start, :after_story_start,
-      :before_pull_request, :after_pull_request
+      :pull_request_labels, :pull_request_filename, :pull_request_body
 
     def initialize
       @cache_dir = Dir.pwd
-      @root_dir = Dir.pwd
       @command_dir = File.join(Startling::GitLocal.new.project_root, DEFAULT_COMMAND_PATH)
+      @root_dir = Dir.pwd
+      @repos = []
       @valid_estimates = DEFAULT_VALID_ESTIMATES
       @wip_limit = DEFAULT_WIP_LIMIT
-      @repos = []
       @pull_request_labels = []
       @pull_request_filename = DEFAULT_PULL_REQUEST_FILENAME
       @pull_request_body = ""
-      @before_story_start = []
-      @story_start = [::Startling::Commands::StartStory]
-      @after_story_start = []
-      @before_pull_request = []
-      @after_pull_request = []
     end
 
     def self.load_configuration
@@ -42,6 +35,23 @@ module Startling
         end
       end
       nil
+    end
+
+    def hooks
+      @hooks ||= Hooks.new
+    end
+
+    class Hooks
+      attr_accessor :before_story_start, :story_start, :after_story_start,
+      :before_pull_request, :after_pull_request
+
+      def initialize
+        @before_story_start = []
+        @story_start = [::Startling::Commands::StartStory]
+        @after_story_start = []
+        @before_pull_request = []
+        @after_pull_request = []
+      end
     end
   end
 end
