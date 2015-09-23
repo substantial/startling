@@ -39,7 +39,7 @@ module Startling
     def self.load_hooks(path=DEFAULT_COMMAND_PATH)
       command_dir = File.join(Startling::GitLocal.new.project_root, path)
       return unless command_dir
-      Dir.entires(command_dir).each do |command|
+      Dir.entries(command_dir).each do |command|
         hooks = command_dir
         load "#{command_dir}/#{command}"
       end
