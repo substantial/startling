@@ -54,6 +54,8 @@ module Startling
         command.send(RUN, command_args)
       end
 
+      Commands::StartStory.run(story: story, pivotal_tracker: pivotal_tracker) #Project / Start
+      create_branch if branch_name != git.current_branch #Github
       pull_request = Commands::CreatePullRequest.run(
         repo: repo,
         story: story,

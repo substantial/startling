@@ -27,7 +27,7 @@ module Startling
 
       def self.load_hooks
         loaded_hooks_path = Startling::Configuration.load_hooks
-        if loaded_configuration_path
+        if loaded_hooks_path
           puts "Loading hooks #{loaded_hooks_path}"
         end
       end

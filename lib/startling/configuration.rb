@@ -37,9 +37,9 @@ module Startling
     end
 
     def self.load_hooks(path=DEFAULT_COMMAND_PATH)
-      command_dir = File.join(Startling::GitLocal.new.project_root, path)
+      command_dir = File.join(Startling::GitLocal.new.project_root, path "*")
       return unless command_dir
-      Dir.entries(command_dir).each do |command|
+      Dir.glob(command_dir).each do |command|
         begin
           load "#{command_dir}/#{command}"
         rescue
