@@ -28,7 +28,7 @@ module Startling
 
     def self.run(attrs={})
       load_configuration
-      load_hooks
+      load_hook_commands
       attrs[:args] ||= ARGV
       super(attrs)
     end
@@ -38,19 +38,19 @@ module Startling
       Commands::PrintUsage.run(args: args)
       Commands::CheckForLocalMods.run(git: git)
 
-      Startling.hooks.before_story_start.map do |command|
+      Startling.hook_commands.before_story_start.map do |command|
         command.send(RUN, command_args)
       end
 
-      Startling.hooks.story_start.map do |command|
+      Startling.hook_commands.story_start.map do |command|
         command.send(RUN, command_args)
       end
 
-      Startling.hooks.after_story_start.map do |command|
+      Startling.hook_commands.after_story_start.map do |command|
         command.send(RUN, command_args)
       end
 
-      Startling.hooks.before_pull_request.map do |command|
+      Startling.hook_commands.before_pull_request.map do |command|
         command.send(RUN, command_args)
       end
 

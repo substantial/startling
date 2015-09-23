@@ -36,7 +36,7 @@ module Startling
       nil
     end
 
-    def self.load_hooks(path=DEFAULT_COMMAND_PATH)
+    def self.load_hook_commands(path=DEFAULT_COMMAND_PATH)
       command_dir = File.join(Startling::GitLocal.new.project_root, path, "*")
       return unless command_dir
       Dir.glob(command_dir).each do |command|
@@ -45,11 +45,11 @@ module Startling
       command_dir
     end
 
-    def hooks
-      @hooks ||= Hooks.new
+    def hook_commands
+      @hooks ||= HookCommands.new
     end
 
-    class Hooks
+    class HookCommands
       attr_accessor :before_story_start, :story_start, :after_story_start,
       :before_pull_request, :after_pull_request
 
