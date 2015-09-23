@@ -3,79 +3,107 @@ require 'startling'
 
 module Startling
   describe Configuration do
+    let(:configuration) { Configuration.new }
+
     describe "Default settings" do
       it "sets the default cache_dir to pwd" do
-        expect(Configuration.new.cache_dir).to eql(Dir.pwd)
+        expect(configuration.cache_dir).to eql(Dir.pwd)
       end
+
       it "sets the default root_dir to pwd" do
-        expect(Configuration.new.root_dir).to eql(Dir.pwd)
+        expect(configuration.root_dir).to eql(Dir.pwd)
       end
       it "sets the default valid estimates to VALID_ESTIMATES" do
-        expect(Configuration.new.valid_estimates)
-          .to eql(Configuration::VALID_ESTIMATES)
+        expect(configuration.valid_estimates)
+          .to eql(Configuration::DEFAULT_VALID_ESTIMATES)
       end
       it "sets the default wip limit to WIP_LIMIT" do
-        expect(Configuration.new.wip_limit)
-          .to eql(Configuration::WIP_LIMIT)
+        expect(configuration.wip_limit)
+          .to eql(Configuration::DEFAULT_WIP_LIMIT)
       end
       it "sets the default repos to empty" do
-        expect(Configuration.new.repos).to eql([])
+        expect(configuration.repos).to eql([])
+      end
+
+      it "sets the default pull request labels" do
+        expect(configuration.pull_request_labels).to eql([])
+      end
+
+      it "sets the default pull request body" do
+        expect(configuration.pull_request_body).to eql("")
+      end
+
+      it "sets the default pull request filename" do
+        expect(configuration.pull_request_filename)
+          .to eql(Configuration::DEFAULT_PULL_REQUEST_FILENAME)
+      end
+
+      it "sets the default start story commands" do
+        expect(configuration.story_start)
+          .to eql([::Startling::Commands::StartStory])
       end
     end
 
     describe "#cache_dir" do
       it "can set the value" do
-        config = Configuration.new
-        config.cache_dir = "new dir"
-        expect(config.cache_dir).to eql("new dir")
+        configuration.cache_dir = "new dir"
+        expect(configuration.cache_dir).to eql("new dir")
       end
     end
 
     describe "#root_dir" do
       it "can set the value" do
-        config = Configuration.new
-        config.root_dir = "new dir"
-        expect(config.root_dir).to eql("new dir")
+        configuration.root_dir = "new dir"
+        expect(configuration.root_dir).to eql("new dir")
       end
     end
 
     describe "#valid_estimates" do
       it "can set the value" do
-        config = Configuration.new
-        config.valid_estimates = [1]
-        expect(config.valid_estimates).to eql([1])
+        configuration.valid_estimates = [1]
+        expect(configuration.valid_estimates).to eql([1])
       end
     end
 
     describe "#wip_limit" do
       it "can set the value" do
-        config = Configuration.new
-        config.wip_limit = 6
-        expect(config.wip_limit).to eql(6)
+        configuration.wip_limit = 6
+        expect(configuration.wip_limit).to eql(6)
       end
     end
 
     describe "#repos" do
       it "can set the value" do
-        config = Configuration.new
-        config.repos << "repo path"
-        expect(config.repos).to eql(["repo path"])
+        configuration.repos << "repo path"
+        expect(configuration.repos).to eql(["repo path"])
       end
     end
 
     describe "#pull_request_filename" do
       it "can set the value" do
-        config = Configuration.new
-        config.pull_request_filename = "filename"
-        expect(config.pull_request_filename).to eql("filename")
+        configuration.pull_request_filename = "filename"
+        expect(configuration.pull_request_filename).to eql("filename")
       end
     end
 
     describe "#pull_request_body" do
       it "can set the value" do
-        config = Configuration.new
-        config.pull_request_body = "body"
-        expect(config.pull_request_body).to eql("body")
+        configuration.pull_request_body = "body"
+        expect(configuration.pull_request_body).to eql("body")
+      end
+    end
+
+    describe "#pull_request_labels" do
+      it "can set the value" do
+        configuration.pull_request_labels = ["WIP", "REVIEW"]
+        expect(configuration.pull_request_labels).to eql(["WIP", "REVIEW"])
+      end
+    end
+
+    describe "story_start" do
+      it "can set the value" do
+        configuration.story_start = "Commands"
+        expect(configuration.story_start).to eql("Commands")
       end
     end
 

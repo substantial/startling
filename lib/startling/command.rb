@@ -24,6 +24,7 @@ require_relative 'commands/three_amigos'
 
 module Startling
   class Command < Commands::Base
+    RUN = "run"
 
     def self.run(attrs={})
       load_configuration
@@ -33,15 +34,69 @@ module Startling
 
     def execute
       Commands::PrintUsage.run(args: args)
-      Commands::CheckForLocalMods.run(git: git)
-      set_pivotal_api_token
-      Commands::CheckWip.run
-      Commands::ThreeAmigos.run
-      Commands::StartStory.run(story: story, pivotal_tracker: pivotal_tracker)
-      create_branch if branch_name != git.current_branch
-      Commands::CreateChangelog.run(story: story)
-      pull_request = Commands::CreatePullRequest.run(repo: repo, story: story, branch_name: branch_name)
-      Commands::LabelPullRequest.run(pull_request: pull_request, repo: repo, labels: ['WIP'])
+      Commands::CheckForLocalMods.run(git: git) #Github
+
+      Startling.before_story_start.map do |command|
+        command.send(RUN, { args: args, git: git })
+      end
+
+      Startling.story_start.map do |command|
+        command.send(RUN, { args: args, git: git })
+      end
+
+      Startling.after_story_start.map do |command|
+        command.send(RUN, { args: args, git: git })
+      end
+
+      Startling.before_pull_request.map do |command|
+        command.send(RUN, { args: args, git: git })
+      end
+
+      pull_request = Commands::CreatePullRequest.run(
+        repo: repo,
+        story: story,
+        branch_name: branch_name
+      )
+
+      Commands::LabelPullRequest.run(
+        pull_request: pull_request,
+        repo: repo,
+        labels: Startling.pull_request_labels
+      )
+
+      Startling.after_pull_request.map do |command|
+        command.send(RUN, { pull_request: pull_request, repo: repo, branch_name: branch_name })
+      end
+
+      #Commands::BeforeStart.run(args: args, git: git)
+      #Commands::StartStory.run(args: args, git: git)
+      #Commands::AfterStory.run(args: args, git: git)
+      #Commands::BeforePullRequest.run(args: args, git: git)
+      #Commands::CreatePullRequest.run(repo: repo, story: story, branch_name: branch_name)
+    end
+
+    def execute_old
+      # core
+      Commands::PrintUsage.run(args: args)
+      Commands::CheckForLocalMods.run(git: git) #Github
+
+      set_pivotal_api_token #Project / before scripts
+      Commands::CheckWip.run #Before start
+      Commands::ThreeAmigos.run #Before start
+
+      Commands::StartStory.run(story: story, pivotal_tracker: pivotal_tracker) #Project / Start
+      create_branch if branch_name != git.current_branch #Github
+      Commands::CreateChangelog.run(story: story) #After start
+      pull_request = Commands::CreatePullRequest.run(
+        repo: repo,
+        story: story,
+        branch_name: branch_name
+      ) #Github / Pull request
+      Commands::LabelPullRequest.run(
+        pull_request: pull_request,
+        repo: repo,
+        labels: ['WIP']
+      ) #Github / After pull request
     end
 
     def cache
