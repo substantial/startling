@@ -36,19 +36,19 @@ module Startling
       Commands::PrintUsage.run(args: args)
       Commands::CheckForLocalMods.run(git: git) #Github
 
-      Startling.before_story_start.map do |command|
+      Startling.hooks.before_story_start.map do |command|
         command.send(RUN, { args: args, git: git })
       end
 
-      Startling.story_start.map do |command|
+      Startling.hooks.story_start.map do |command|
         command.send(RUN, { args: args, git: git })
       end
 
-      Startling.after_story_start.map do |command|
+      Startling.hooks.after_story_start.map do |command|
         command.send(RUN, { args: args, git: git })
       end
 
-      Startling.before_pull_request.map do |command|
+      Startling.hooks.before_pull_request.map do |command|
         command.send(RUN, { args: args, git: git })
       end
 
@@ -64,7 +64,7 @@ module Startling
         labels: Startling.pull_request_labels
       )
 
-      Startling.after_pull_request.map do |command|
+      Startling.hooks.after_pull_request.map do |command|
         command.send(RUN, { pull_request: pull_request, repo: repo, branch_name: branch_name })
       end
 
