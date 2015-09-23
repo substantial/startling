@@ -40,8 +40,11 @@ module Startling
       command_dir = File.join(Startling::GitLocal.new.project_root, path)
       return unless command_dir
       Dir.entries(command_dir).each do |command|
-        hooks = command_dir
-        load "#{command_dir}/#{command}"
+        begin
+          load "#{command_dir}/#{command}"
+        rescue
+          next
+        end
       end
       command_dir
     end
