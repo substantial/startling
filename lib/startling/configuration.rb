@@ -37,6 +37,15 @@ module Startling
       nil
     end
 
+    def self.load_hooks
+      hooks = nil
+      Dir.entires(command_dir).each do |command|
+        hooks = command_dir
+        load "#{command_dir}/#{command}"
+      end
+      hooks
+    end
+
     def hooks
       @hooks ||= Hooks.new
     end

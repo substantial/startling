@@ -24,6 +24,13 @@ module Startling
           puts "Using default configuration"
         end
       end
+
+      def self.load_hooks
+        loaded_hooks_path = Startling::Configuration.load_hooks
+        if loaded_configuration_path
+          puts "Loading hooks #{loaded_hooks_path}"
+        end
+      end
     end
   end
 end

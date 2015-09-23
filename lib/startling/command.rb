@@ -28,28 +28,30 @@ module Startling
 
     def self.run(attrs={})
       load_configuration
+      load_hooks
       attrs[:args] ||= ARGV
       super(attrs)
     end
 
     def execute
+      command_args = { args: args, git: git }
       Commands::PrintUsage.run(args: args)
-      Commands::CheckForLocalMods.run(git: git) #Github
+      Commands::CheckForLocalMods.run(git: git)
 
       Startling.hooks.before_story_start.map do |command|
-        command.send(RUN, { args: args, git: git })
+        command.send(RUN, command_args)
       end
 
       Startling.hooks.story_start.map do |command|
-        command.send(RUN, { args: args, git: git })
+        command.send(RUN, command_args)
       end
 
       Startling.hooks.after_story_start.map do |command|
-        command.send(RUN, { args: args, git: git })
+        command.send(RUN, command_args)
       end
 
       Startling.hooks.before_pull_request.map do |command|
-        command.send(RUN, { args: args, git: git })
+        command.send(RUN, command_args)
       end
 
       pull_request = Commands::CreatePullRequest.run(
@@ -65,14 +67,8 @@ module Startling
       )
 
       Startling.hooks.after_pull_request.map do |command|
-        command.send(RUN, { pull_request: pull_request, repo: repo, branch_name: branch_name })
+        command.send(RUN, { args: args, git: git, pull_request: pull_request, repo: repo, branch_name: branch_name })
       end
-
-      #Commands::BeforeStart.run(args: args, git: git)
-      #Commands::StartStory.run(args: args, git: git)
-      #Commands::AfterStory.run(args: args, git: git)
-      #Commands::BeforePullRequest.run(args: args, git: git)
-      #Commands::CreatePullRequest.run(repo: repo, story: story, branch_name: branch_name)
     end
 
     def execute_old
