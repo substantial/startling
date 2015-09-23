@@ -71,7 +71,7 @@ module Startling
         labels: Startling.pull_request_labels
       )
 
-      Startling.hooks.after_pull_request.map do |command|
+      Startling.hook_commands.after_pull_request.map do |command|
         command.send(RUN, { args: args, git: git, pull_request: pull_request, repo: repo, branch_name: branch_name })
       end
     end
