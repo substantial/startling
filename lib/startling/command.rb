@@ -34,45 +34,35 @@ module Startling
     end
 
     def execute
-      command_args = { args: args, git: git }
       Commands::PrintUsage.run(args: args)
       Commands::CheckForLocalMods.run(git: git)
+      command_args = { args: args, git: git }
 
+      PivotalTracker::Helper.new.set_pivotal_api_token
       Startling.hook_commands.before_story_start.map do |command|
         command.send(RUN, command_args)
       end
 
       Startling.hook_commands.story_start.map do |command|
-        command.send(RUN, command_args)
+        command.send(RUN, command_args.merge({story: story, pivotal_tracker: pivotal_tracker}))
       end
+
+      create_branch if branch_name != git.current_branch #Github
 
       Startling.hook_commands.after_story_start.map do |command|
         command.send(RUN, command_args)
       end
 
       Startling.hook_commands.before_pull_request.map do |command|
-        command.send(RUN, command_args)
+        command.send(RUN, command_args.merge({story: story}))
       end
 
-      set_pivotal_api_token #Project / before scripts
-
-      Commands::StartStory.run(story: story, pivotal_tracker: pivotal_tracker) #Project / Start
-      create_branch if branch_name != git.current_branch #Github
-      Commands::CreateChangelog.run(story: story) #After start
-      pull_request = Commands::CreatePullRequest.run(
-        repo: repo,
-        story: story,
-        branch_name: branch_name
-      )
-
-      Commands::LabelPullRequest.run(
-        pull_request: pull_request,
-        repo: repo,
-        labels: Startling.pull_request_labels
-      )
+      Startling.hook_commands.create_pull_request.map do |command|
+        @pull_request = command.send(RUN, command_args.merge({story: story, repo: repo, branch_name: branch_name}))
+      end
 
       Startling.hook_commands.after_pull_request.map do |command|
-        command.send(RUN, { args: args, git: git, pull_request: pull_request, repo: repo, branch_name: branch_name })
+        command.send(RUN, command_args.merge({pull_request: @pull_request, repo: repo, labels: Startling.pull_request_labels}))
       end
     end
 

@@ -51,14 +51,15 @@ module Startling
 
     class HookCommands
       attr_accessor :before_story_start, :story_start, :after_story_start,
-      :before_pull_request, :after_pull_request
+      :before_pull_request, :create_pull_request, :after_pull_request
 
       def initialize
         @before_story_start = []
-        @story_start = [::Startling::Commands::StartStory]
+        @story_start = [Startling::Commands::StartStory]
         @after_story_start = []
-        @before_pull_request = []
-        @after_pull_request = []
+        @before_pull_request = [Startling::Commands::CreateChangelog]
+        @create_pull_request = [Startling::Commands::CreatePullRequest]
+        @after_pull_request = [Startling::Commands::LabelPullRequest]
       end
     end
   end

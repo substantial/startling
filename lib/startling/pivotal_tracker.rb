@@ -1,4 +1,5 @@
 require_relative 'pivotal_tracker/story'
+require_relative 'pivotal_tracker/helper'
 require_relative 'pivotal_tracker/api'
 
 module Startling
