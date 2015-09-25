@@ -55,7 +55,7 @@ module Startling
 
       def initialize
         @before_story_start = []
-        @story_start = [Startling::Commands::StartStory]
+        @story_start = [Startling::Commands::StartPivotalStory]
         @after_story_start = []
         @before_pull_request = [Startling::Commands::CreateChangelog]
         @create_pull_request = [Startling::Commands::CreatePullRequest]

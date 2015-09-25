@@ -7,14 +7,14 @@ require_relative 'cache'
 require_relative 'pivotal_tracker'
 
 require_relative "commands/base"
-require_relative 'commands/create_pull_request'
-require_relative 'commands/create_changelog'
-require_relative 'commands/label_pull_request'
 require_relative 'commands/print_usage'
-require_relative 'commands/check_wip'
-require_relative 'commands/start_story'
 require_relative 'commands/check_for_local_mods'
-require_relative 'commands/three_amigos'
+#require_relative 'commands/create_pull_request'
+#require_relative 'commands/create_changelog'
+#require_relative 'commands/label_pull_request'
+#require_relative 'commands/check_wip'
+#require_relative 'commands/start_story'
+#require_relative 'commands/three_amigos'
 
 # script/start
 #
@@ -45,6 +45,7 @@ module Startling
 
       Startling.hook_commands.story_start.map do |command|
         command.send(RUN, command_args.merge({story: story, pivotal_tracker: pivotal_tracker}))
+        #command.send(RUN, command_args)
       end
 
       create_branch if branch_name != git.current_branch #Github
@@ -64,30 +65,6 @@ module Startling
       Startling.hook_commands.after_pull_request.map do |command|
         command.send(RUN, command_args.merge({pull_request: @pull_request, repo: repo, labels: Startling.pull_request_labels}))
       end
-    end
-
-    def execute_old
-      # core
-      Commands::PrintUsage.run(args: args)
-      Commands::CheckForLocalMods.run(git: git) #Github
-
-      set_pivotal_api_token #Project / before scripts
-      Commands::CheckWip.run #Before start
-      Commands::ThreeAmigos.run #Before start
-
-      Commands::StartStory.run(story: story, pivotal_tracker: pivotal_tracker) #Project / Start
-      create_branch if branch_name != git.current_branch #Github
-      Commands::CreateChangelog.run(story: story) #After start
-      pull_request = Commands::CreatePullRequest.run(
-        repo: repo,
-        story: story,
-        branch_name: branch_name
-      ) #Github / Pull request
-      Commands::LabelPullRequest.run(
-        pull_request: pull_request,
-        repo: repo,
-        labels: ['WIP']
-      ) #Github / After pull request
     end
 
     def cache
