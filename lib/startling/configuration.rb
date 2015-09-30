@@ -1,4 +1,10 @@
 require 'startling/git_local'
+require 'startling/github'
+require 'startling/commands/create_pull_request'
+require 'startling/commands/create_changelog'
+require 'startling/commands/label_pull_request'
+require 'startling/commands/start_pivotal_story'
+require 'startling/colorize_string'
 
 module Startling
   class Configuration
@@ -40,7 +46,7 @@ module Startling
       command_dir = File.join(Startling::GitLocal.new.project_root, path, "*")
       return unless command_dir
       Dir.glob(command_dir).each do |command|
-        load "#{command_dir}/#{command}"
+        load "#{command}"
       end
       command_dir
     end
@@ -55,11 +61,11 @@ module Startling
 
       def initialize
         @before_story_start = []
-        @story_start = [Startling::Commands::StartPivotalStory]
+        @story_start = [:start_pivotal_story]
         @after_story_start = []
-        @before_pull_request = [Startling::Commands::CreateChangelog]
-        @create_pull_request = [Startling::Commands::CreatePullRequest]
-        @after_pull_request = [Startling::Commands::LabelPullRequest]
+        @before_pull_request = [:create_changelog]
+        @create_pull_request = [:create_pull_request]
+        @after_pull_request = [:label_pull_request]
       end
     end
   end

@@ -9,12 +9,6 @@ require_relative 'pivotal_tracker'
 require_relative "commands/base"
 require_relative 'commands/print_usage'
 require_relative 'commands/check_for_local_mods'
-#require_relative 'commands/create_pull_request'
-#require_relative 'commands/create_changelog'
-#require_relative 'commands/label_pull_request'
-#require_relative 'commands/check_wip'
-#require_relative 'commands/start_story'
-#require_relative 'commands/three_amigos'
 
 # script/start
 #
@@ -40,31 +34,35 @@ module Startling
 
       PivotalTracker::Helper.new.set_pivotal_api_token
       Startling.hook_commands.before_story_start.map do |command|
-        command.send(RUN, command_args)
+        command_class(command).send(RUN, command_args)
       end
 
       Startling.hook_commands.story_start.map do |command|
-        command.send(RUN, command_args.merge({story: story, pivotal_tracker: pivotal_tracker}))
-        #command.send(RUN, command_args)
+        command_class(command).send(RUN, command_args.merge({story: story, pivotal_tracker: pivotal_tracker}))
+        #command_class(command).send(RUN, command_args.merge({story_id})
       end
 
       create_branch if branch_name != git.current_branch #Github
 
       Startling.hook_commands.after_story_start.map do |command|
-        command.send(RUN, command_args)
+        command_class(command).send(RUN, command_args)
       end
 
       Startling.hook_commands.before_pull_request.map do |command|
-        command.send(RUN, command_args.merge({story: story}))
+        command_class(command).send(RUN, command_args.merge({story: story}))
       end
 
       Startling.hook_commands.create_pull_request.map do |command|
-        @pull_request = command.send(RUN, command_args.merge({story: story, repo: repo, branch_name: branch_name}))
+        @pull_request = command_class(command).send(RUN, command_args.merge({story: story, repo: repo, branch_name: branch_name}))
       end
 
       Startling.hook_commands.after_pull_request.map do |command|
-        command.send(RUN, command_args.merge({pull_request: @pull_request, repo: repo, labels: Startling.pull_request_labels}))
+        command_class(command).send(RUN, command_args.merge({pull_request: @pull_request}))
       end
+    end
+
+    def command_class(command)
+      Startling::Commands.const_get(command.to_s.camelize)
     end
 
     def cache

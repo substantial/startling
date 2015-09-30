@@ -1,6 +1,5 @@
 require_relative '../work'
 require_relative '../work_printer'
-require_relative "../colorize_string"
 
 require_relative "base"
 

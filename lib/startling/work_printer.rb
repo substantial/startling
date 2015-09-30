@@ -1,6 +1,5 @@
 require 'paint'
 require_relative './time_format_helpers'
-require_relative "./colorize_string"
 
 module Startling
   class WorkPrinter

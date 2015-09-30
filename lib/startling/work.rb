@@ -1,5 +1,4 @@
 require 'parallel'
-require_relative "./colorize_string"
 
 require_relative 'github'
 
