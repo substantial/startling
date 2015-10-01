@@ -1,4 +1,5 @@
 require_relative 'startling/command'
+require 'startling/cache'
 require 'startling/configuration'
 
 module Startling

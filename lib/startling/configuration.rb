@@ -18,8 +18,9 @@ module Startling
       'Startlingfile.rb'
     ].freeze
 
-    attr_accessor :cache_dir, :root_dir, :valid_estimates, :wip_limit, :repos,
-      :pull_request_labels, :pull_request_filename, :pull_request_body
+    attr_accessor :cache_dir, :root_dir, :valid_estimates, :wip_limit,
+      :repos, :pull_request_labels, :pull_request_filename,
+      :pull_request_body, :pull_request_title
 
     def initialize
       @cache_dir = Dir.pwd
@@ -30,6 +31,7 @@ module Startling
       @pull_request_labels = []
       @pull_request_filename = DEFAULT_PULL_REQUEST_FILENAME
       @pull_request_body = ""
+      @pull_request_title = ""
     end
 
     def self.load_configuration

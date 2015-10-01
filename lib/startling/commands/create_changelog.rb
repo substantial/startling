@@ -48,6 +48,25 @@ Update BRANCH_CHANGES
         MSG
         Shell.run "git commit -qm #{commit_msg.shellescape}"
       end
+
+      def pivotal_tracker
+        @pivotal_tracker ||= PivotalTracker.new(PivotalTracker::Helper.new.api_token)
+      end
+
+      def story
+        @story ||= pivotal_tracker.story(story_id)
+      end
+
+      def story_id
+        @story_id ||= extract_story_id_from_url(args.fetch(0) { ask("Enter story id to start: ") })
+      end
+
+      def extract_story_id_from_url(raw_story_id)
+        raw_story_id
+          .split("/")
+          .last
+          .gsub(/\D/, '')
+      end
     end
   end
 end

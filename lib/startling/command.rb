@@ -3,7 +3,6 @@ require 'json'
 require 'highline/import'
 require 'shellwords'
 
-require_relative 'cache'
 require_relative 'pivotal_tracker'
 
 require_relative "commands/base"
@@ -32,28 +31,26 @@ module Startling
       Commands::CheckForLocalMods.run(git: git)
       command_args = { args: args, git: git }
 
-      PivotalTracker::Helper.new.set_pivotal_api_token
       Startling.hook_commands.before_story_start.map do |command|
         command_class(command).send(RUN, command_args)
       end
 
       Startling.hook_commands.story_start.map do |command|
-        command_class(command).send(RUN, command_args.merge({story: story, pivotal_tracker: pivotal_tracker}))
-        #command_class(command).send(RUN, command_args.merge({story_id})
+        command_class(command).send(RUN, command_args)
       end
 
-      create_branch if branch_name != git.current_branch #Github
+      create_branch if branch_name != git.current_branch
 
       Startling.hook_commands.after_story_start.map do |command|
         command_class(command).send(RUN, command_args)
       end
 
       Startling.hook_commands.before_pull_request.map do |command|
-        command_class(command).send(RUN, command_args.merge({story: story}))
+        command_class(command).send(RUN, command_args)
       end
 
       Startling.hook_commands.create_pull_request.map do |command|
-        @pull_request = command_class(command).send(RUN, command_args.merge({story: story, repo: repo, branch_name: branch_name}))
+        @pull_request = command_class(command).send(RUN, command_args.merge({repo: repo, branch_name: branch_name}))
       end
 
       Startling.hook_commands.after_pull_request.map do |command|
@@ -64,23 +61,6 @@ module Startling
     def command_class(command)
       Startling::Commands.const_get(command.to_s.camelize)
     end
-
-    def cache
-      Startling.cache
-    end
-
-    def pivotal_tracker
-      @pivotal_tracker ||= PivotalTracker.new(pivotal_api_token)
-    end
-
-    def pivotal_api_token
-      @pivotal_api_token ||= cache.fetch('.pivotal_api_token') do
-        username = ask("Enter your Pivotal Tracker username:  ")
-        password = ask("Enter your Pivotal Tracker password:  ") { |q| q.echo = false }
-        PivotalTracker::Api.api_token_for_user(username, password)
-      end
-    end
-    alias_method :set_pivotal_api_token, :pivotal_api_token
 
     def create_branch
       puts "Creating branch #{branch_name}..."
@@ -97,21 +77,6 @@ module Startling
 
     def repo
       @repo ||= Github.repo(git.repo_name)
-    end
-
-    def story
-      @story ||= pivotal_tracker.story(story_id)
-    end
-
-    def story_id
-      @story_id ||= extract_story_id_from_url(args.fetch(0) { ask("Enter story id to start: ") })
-    end
-
-    def extract_story_id_from_url(raw_story_id)
-      raw_story_id
-        .split("/")
-        .last
-        .gsub(/\D/, '')
     end
 
     def branch_name
