@@ -9,7 +9,6 @@ require 'startling/colorize_string'
 module Startling
   class Configuration
     DEFAULT_COMMAND_PATH = "startling/commands"
-    DEFAULT_PULL_REQUEST_FILENAME = "BRANCH_PULL_REQUEST"
     DEFAULT_VALID_ESTIMATES = [1, 2, 4, 8, 16, 32, 64, 128]
     DEFAULT_WIP_LIMIT = 4
 
@@ -18,9 +17,8 @@ module Startling
       'Startlingfile.rb'
     ].freeze
 
-    attr_accessor :cache_dir, :root_dir, :valid_estimates, :wip_limit,
-      :repos, :pull_request_labels, :pull_request_filename,
-      :pull_request_body, :pull_request_title
+    attr_accessor :cache_dir, :root_dir, :valid_estimates, :wip_limit, :repos,
+      :pull_request_labels, :pull_request_body, :pull_request_title, :start_commit_message
 
     def initialize
       @cache_dir = Dir.pwd
@@ -29,9 +27,9 @@ module Startling
       @valid_estimates = DEFAULT_VALID_ESTIMATES
       @wip_limit = DEFAULT_WIP_LIMIT
       @pull_request_labels = []
-      @pull_request_filename = DEFAULT_PULL_REQUEST_FILENAME
       @pull_request_body = ""
       @pull_request_title = ""
+      @start_commit_message = "Startling"
     end
 
     def self.load_configuration
@@ -65,7 +63,7 @@ module Startling
         @before_story_start = []
         @story_start = [:start_pivotal_story]
         @after_story_start = []
-        @before_pull_request = [:create_changelog]
+        @before_pull_request = []
         @create_pull_request = [:create_pull_request]
         @after_pull_request = [:label_pull_request]
       end
