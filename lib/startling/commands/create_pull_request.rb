@@ -19,6 +19,10 @@ module Startling
       def pull_request_title
         "story.name"
       end
+
+      def repo
+        @repo ||= Github.repo(git.repo_name)
+      end
     end
   end
 end

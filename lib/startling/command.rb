@@ -50,7 +50,7 @@ module Startling
       end
 
       Startling.hook_commands.create_pull_request.map do |command|
-        @pull_request = command_class(command).send(RUN, command_args.merge({repo: repo, branch_name: branch_name}))
+        @pull_request = command_class(command).send(RUN, command_args.merge({branch_name: branch_name}))
       end
 
       Startling.hook_commands.after_pull_request.map do |command|
@@ -80,8 +80,7 @@ module Startling
     end
 
     def branch_name
-      return @branch_name if defined? @branch_name
-      @branch_name = get_branch_name
+      @branch_name ||= get_branch_name
     end
 
     def get_branch_name
