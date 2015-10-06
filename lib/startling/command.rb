@@ -9,12 +9,6 @@ require_relative "commands/base"
 require_relative 'commands/print_usage'
 require_relative 'commands/check_for_local_mods'
 
-# script/start
-#
-# This script automates the process of startling a new story. Check the call
-# method the script for the step-by-step. It uses the Github and
-# Pivotal Tracker APIs.
-
 module Startling
   class Command < Commands::Base
     RUN = "run"
