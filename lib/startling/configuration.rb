@@ -1,7 +1,6 @@
 require 'startling/git_local'
 require 'startling/github'
 require 'startling/commands/create_pull_request'
-require 'startling/commands/create_changelog'
 require 'startling/commands/label_pull_request'
 require 'startling/commands/start_pivotal_story'
 require 'startling/colorize_string'
