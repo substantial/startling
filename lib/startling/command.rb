@@ -2,9 +2,7 @@ require 'cgi'
 require 'json'
 require 'highline/import'
 require 'shellwords'
-
 require_relative 'pivotal_tracker'
-
 require_relative "commands/base"
 require_relative 'commands/print_usage'
 require_relative 'commands/check_for_local_mods'
@@ -25,32 +23,39 @@ module Startling
       Commands::CheckForLocalMods.run(git: git)
       command_args = { args: args, git: git }
 
+      # Before Start Story
       Startling.hook_commands.before_story_start.map do |command|
         command_class(command).send(RUN, command_args)
       end
 
       # Start story
-      puts "Class: #{command_class(Startling.story_handler)}"
-      command_class(Startling.story_handler)
+      story_result = command_class(Startling.story_handler)
         .send(RUN, command_args) if Startling.story_handler
+      command_args.merge!({story_result: story_result}) if story_result
 
       # Create or get branch name
       create_branch if branch_name != git.current_branch
 
+      # After Story Start
       Startling.hook_commands.after_story_start.map do |command|
-        command_class(command).send(RUN, command_args)
+        command_class(command)
+          .send(RUN, command_args)
       end
 
+      #Before Pull Request Creation
       Startling.hook_commands.before_pull_request.map do |command|
-        command_class(command).send(RUN, command_args)
+        command_class(command)
+          .send(RUN, command_args)
       end
 
-      Startling.hook_commands.create_pull_request.map do |command|
-        @pull_request = command_class(command).send(RUN, command_args.merge({branch_name: branch_name}))
-      end
+      # Create pull request
+      pull_request = command_class(:create_pull_request)
+        .send(RUN, command_args.merge({branch_name: branch_name}))
 
+      # After Pull Request Creation
       Startling.hook_commands.after_pull_request.map do |command|
-        command_class(command).send(RUN, command_args.merge({pull_request: @pull_request}))
+        command_class(command)
+          .send(RUN, command_args.merge({pull_request: pull_request}))
       end
     end
 
