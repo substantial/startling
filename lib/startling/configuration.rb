@@ -23,14 +23,15 @@ module Startling
     def initialize
       @cache_dir = Dir.pwd
       @root_dir = Dir.pwd
-      @repos = []
       @valid_estimates = DEFAULT_VALID_ESTIMATES
       @wip_limit = DEFAULT_WIP_LIMIT
+      @repos = []
+
       @story_handler = nil
+      @start_commit_message = DEFAULT_COMMIT_MESSAGE
       @pull_request_labels = []
       @pull_request_body = ""
       @pull_request_title = ""
-      @start_commit_message = DEFAULT_COMMIT_MESSAGE
     end
 
     def self.load_configuration
