@@ -10,13 +10,14 @@ module Startling
     DEFAULT_COMMAND_PATH = "startling/commands"
     DEFAULT_VALID_ESTIMATES = [1, 2, 4, 8, 16, 32, 64, 128]
     DEFAULT_WIP_LIMIT = 4
+    DEFAULT_COMMIT_MESSAGE = "Startling"
 
     DEFAULT_STARTLINGFILES = [
       'startlingfile.rb',
       'Startlingfile.rb'
     ].freeze
 
-    attr_accessor :cache_dir, :root_dir, :valid_estimates, :wip_limit, :repos,
+    attr_accessor :cache_dir, :root_dir, :valid_estimates, :wip_limit, :repos, :story_handler,
       :pull_request_labels, :pull_request_body, :pull_request_title, :start_commit_message
 
     def initialize
@@ -25,10 +26,11 @@ module Startling
       @repos = []
       @valid_estimates = DEFAULT_VALID_ESTIMATES
       @wip_limit = DEFAULT_WIP_LIMIT
+      @story_handler = nil
       @pull_request_labels = []
       @pull_request_body = ""
       @pull_request_title = ""
-      @start_commit_message = "Startling"
+      @start_commit_message = DEFAULT_COMMIT_MESSAGE
     end
 
     def self.load_configuration
@@ -55,12 +57,11 @@ module Startling
     end
 
     class HookCommands
-      attr_accessor :before_story_start, :story_start, :after_story_start,
+      attr_accessor :before_story_start, :after_story_start,
       :before_pull_request, :create_pull_request, :after_pull_request
 
       def initialize
         @before_story_start = []
-        @story_start = [:start_pivotal_story]
         @after_story_start = []
         @before_pull_request = []
         @create_pull_request = [:create_pull_request]

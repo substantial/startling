@@ -29,10 +29,12 @@ module Startling
         command_class(command).send(RUN, command_args)
       end
 
-      Startling.hook_commands.story_start.map do |command|
-        command_class(command).send(RUN, command_args)
-      end
+      # Start story
+      puts "Class: #{command_class(Startling.story_handler)}"
+      command_class(Startling.story_handler)
+        .send(RUN, command_args) if Startling.story_handler
 
+      # Create or get branch name
       create_branch if branch_name != git.current_branch
 
       Startling.hook_commands.after_story_start.map do |command|
@@ -53,6 +55,7 @@ module Startling
     end
 
     def command_class(command)
+      puts "Command: #{command}"
       Startling::Commands.const_get(command.to_s.camelize)
     end
 
