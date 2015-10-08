@@ -14,6 +14,12 @@ Or install it yourself as:
 
     $ gem install startling
 
+Generate configuration file in rails. 
+Use -H to generate a handler folder and -C to generate a commands folder
+
+    $ rails g startling:configuration 
+
+
 ## Configuration
 
 Startlingfile.rb or startlingfile.rb should be defined in the root of the project. It can contain a block for configuration:

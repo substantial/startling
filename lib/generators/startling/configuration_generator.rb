@@ -4,6 +4,19 @@ require 'rails/generators/base'
 module Startling
   module Generators
     class ConfigurationGenerator < Rails::Generators::Base
+      class_option :handlers,
+        {
+          type: :boolean,
+          aliases: "-H",
+          desc: "Generate handlers folder"
+        }
+      class_option :commands,
+        {
+          type: :boolean,
+          aliases: "-C",
+          desc: "Generate commands folder"
+        }
+
       def create_startling_folders
         pull_request_handler_file = "#{destination_root.split('/').last.underscore}_pull_request_handler"
         create_file "startlingfile.rb" do
@@ -46,13 +59,15 @@ CONFIG
         end
 
         empty_directory "startling"
-        empty_directory "startling/commands"
-        empty_directory "startling/handlers"
-        create_file "startling/handlers/#{pull_request_handler_file}.rb" do
+        empty_directory "startling/commands" if options.commands?
+        if options.handlers?
+          empty_directory "startling/handlers"
+          create_file "startling/handlers/#{pull_request_handler_file}.rb" do
 <<HANDLER_CLASS
 class #{pull_request_handler_file.camelize} < Startling::Handlers::PullRequestHandlerBase
 end
 HANDLER_CLASS
+          end
         end
       end
     end
