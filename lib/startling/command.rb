@@ -14,7 +14,8 @@ module Startling
 
     def self.run(attrs={})
       load_configuration
-      load_hook_commands
+      load_commands
+      load_handlers
       attrs[:args] ||= ARGV
       super(attrs)
     end

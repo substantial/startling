@@ -8,6 +8,7 @@ require 'startling/handlers/default_pull_request_handler'
 module Startling
   class Configuration
     DEFAULT_COMMAND_PATH = "startling/commands"
+    DEFAULT_HANDLER_PATH = "startling/handlers"
     DEFAULT_VALID_ESTIMATES = [1, 2, 4, 8, 16, 32, 64, 128]
     DEFAULT_WIP_LIMIT = 4
     DEFAULT_COMMIT_MESSAGE = "Startling"
@@ -42,13 +43,21 @@ module Startling
       nil
     end
 
-    def self.load_hook_commands(path=DEFAULT_COMMAND_PATH)
-      command_dir = File.join(Startling::GitLocal.new.project_root, path, "*")
-      return unless command_dir
-      Dir.glob(command_dir).each do |command|
-        load "#{command}"
+    def self.load_commands(path=DEFAULT_COMMAND_PATH)
+      load_path(path)
+    end
+
+    def self.load_handlers(path=DEFAULT_HANDLER_PATH)
+      load_path(path)
+    end
+
+    def self.load_path(path)
+      directory = File.join(Startling::GitLocal.new.project_root, path, "*")
+      return unless directory
+      Dir.glob(directory).each do |file|
+        load "#{file}"
       end
-      command_dir
+      directory
     end
 
     def hook_commands

@@ -29,7 +29,7 @@ module Startling
         name
       end
 
-      def pull_request_body
+      def pull_request_body_text
         url
       end
 

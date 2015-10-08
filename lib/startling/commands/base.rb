@@ -28,10 +28,17 @@ module Startling
         end
       end
 
-      def self.load_hook_commands
-        loaded_commands_path = Startling::Configuration.load_hook_commands
+      def self.load_commands
+        loaded_commands_path = Startling::Configuration.load_commands
         if loaded_commands_path
           puts "Loading commands #{loaded_commands_path}"
+        end
+      end
+
+      def self.load_handlers
+        loaded_handlers_path = Startling::Configuration.load_handlers
+        if loaded_handlers_path
+          puts "Loading handlers #{loaded_handlers_path}"
         end
       end
 

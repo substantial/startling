@@ -8,7 +8,7 @@ module Startling
       end
 
       def body
-        story.pull_request_body
+        story.pull_request_body_text
       end
 
       def commit_message
