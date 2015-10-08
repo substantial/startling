@@ -25,21 +25,13 @@ module Startling
         expect(configuration.repos).to eql([])
       end
 
-      it "sets the default start commit message" do
-        expect(configuration.start_commit_message)
+      it "sets the default pull request commit message" do
+        expect(configuration.pull_request_commit_message)
           .to eql(Configuration::DEFAULT_COMMIT_MESSAGE)
       end
 
       it "sets the default pull request labels" do
         expect(configuration.pull_request_labels).to eql([])
-      end
-
-      it "sets the default pull request body" do
-        expect(configuration.pull_request_body).to eql("")
-      end
-
-      it "sets the default pull request title" do
-        expect(configuration.pull_request_title).to eql("")
       end
     end
 
@@ -78,10 +70,10 @@ module Startling
       end
     end
 
-    describe "#start_commit_message" do
+    describe "#pull_request_commit_message" do
       it "can set the value" do
-        configuration.start_commit_message = "The Commit"
-        expect(configuration.start_commit_message).to eql("The Commit")
+        configuration.pull_request_commit_message = "The Commit"
+        expect(configuration.pull_request_commit_message).to eql("The Commit")
       end
     end
 
@@ -89,20 +81,6 @@ module Startling
       it "can set the value" do
         configuration.pull_request_labels = ["WIP", "REVIEW"]
         expect(configuration.pull_request_labels).to eql(["WIP", "REVIEW"])
-      end
-    end
-
-    describe "#pull_request_body" do
-      it "can set the value" do
-        configuration.pull_request_body = "body"
-        expect(configuration.pull_request_body).to eql("body")
-      end
-    end
-
-    describe "#pull_request_title" do
-      it "can set the value" do
-        configuration.pull_request_title = "title"
-        expect(configuration.pull_request_title).to eql("title")
       end
     end
 

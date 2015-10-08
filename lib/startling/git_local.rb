@@ -22,9 +22,17 @@ module Startling
       Shell.run "git branch"
     end
 
+    def create_empty_commit(message)
+      Shell.run "git commit --allow-empty -m #{message}"
+    end
+
     def create_remote_branch(branch_name, base_branch: 'origin/master')
       Shell.run "git fetch -q"
       Shell.run "git checkout -q #{branch_name} 2>/dev/null || git checkout -q -b #{branch_name} #{base_branch}"
+    end
+
+    def push_origin_head
+      Shell.run "git push -qu origin HEAD"
     end
 
     def destroy_branch(branch)

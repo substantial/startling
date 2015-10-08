@@ -1,6 +1,5 @@
 require 'startling/git_local'
 require 'startling/github'
-require 'startling/commands/create_pull_request'
 require 'startling/commands/label_pull_request'
 require 'startling/commands/start_pivotal_story'
 require 'startling/colorize_string'
@@ -18,7 +17,7 @@ module Startling
     ].freeze
 
     attr_accessor :cache_dir, :root_dir, :valid_estimates, :wip_limit, :repos, :story_handler,
-      :pull_request_labels, :pull_request_body, :pull_request_title, :start_commit_message
+      :pull_request_handler, :pull_request_labels, :pull_request_commit_message
 
     def initialize
       @cache_dir = Dir.pwd
@@ -26,12 +25,10 @@ module Startling
       @valid_estimates = DEFAULT_VALID_ESTIMATES
       @wip_limit = DEFAULT_WIP_LIMIT
       @repos = []
-
       @story_handler = nil
-      @start_commit_message = DEFAULT_COMMIT_MESSAGE
+      @pull_request_handler = nil
+      @pull_request_commit_message = DEFAULT_COMMIT_MESSAGE
       @pull_request_labels = []
-      @pull_request_body = ""
-      @pull_request_title = ""
     end
 
     def self.load_configuration
@@ -65,7 +62,6 @@ module Startling
         @before_story_start = []
         @after_story_start = []
         @before_pull_request = []
-        @create_pull_request = [:create_pull_request]
         @after_pull_request = [:label_pull_request]
       end
     end
