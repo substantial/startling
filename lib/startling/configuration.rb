@@ -3,6 +3,7 @@ require 'startling/github'
 require 'startling/commands/label_pull_request'
 require 'startling/commands/start_pivotal_story'
 require 'startling/colorize_string'
+require 'startling/handlers/default_pull_request_handler'
 
 module Startling
   class Configuration

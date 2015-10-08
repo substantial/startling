@@ -8,6 +8,7 @@ module Startling
         estimate = ask_for_estimate unless story.estimated?
         story_owners = [pivotal_tracker.user_id]
         story.start(starter_ids: story_owners, estimate: estimate)
+        story
       end
 
       def ask_for_estimate

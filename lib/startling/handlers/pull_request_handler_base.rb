@@ -1,20 +1,20 @@
 module Startling
   module Handlers
     class PullRequestHandlerBase
-      def pull_request_labels
+      def initialize(args)
+        @args = args
+      end
+
+      def title
         raise NotImplementedError
       end
 
-      def pull_request_title
+      def body
         raise NotImplementedError
       end
 
-      def pull_request_body
+      def commit_message
         raise NotImplementedError
-      end
-
-      def pull_request_commit_message
-        rails NotImplementedError
       end
     end
   end

@@ -25,6 +25,14 @@ module Startling
         api.update_story story_id, new_attrs
       end
 
+      def pull_request_title
+        name
+      end
+
+      def pull_request_body
+        url
+      end
+
       def attrs
         @attrs ||= api.story story_id
       end

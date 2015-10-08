@@ -30,9 +30,9 @@ module Startling
       end
 
       # Start story
-      story_result = command_class(Startling.story_handler)
+      story = command_class(Startling.story_handler)
         .send(RUN, command_args) if Startling.story_handler
-      command_args.merge!({story_result: story_result}) if story_result
+      command_args.merge!(story: story)
 
       # After Story Start
       Startling.hook_commands.after_story_start.map do |command|
@@ -48,17 +48,14 @@ module Startling
 
       # Create pull request
       pull_request = command_class(:create_pull_request)
-        .send(RUN, command_args.merge({pull_request_handler: Startling.pull_request_handler}))
+        .send(RUN, command_args)
+      command_args.merge!(pull_request: pull_request)
 
       # After Pull Request Creation
       Startling.hook_commands.after_pull_request.map do |command|
         command_class(command)
-          .send(RUN, command_args.merge({pull_request: pull_request}))
+          .send(RUN, command_args)
       end
-    end
-
-    def command_class(command)
-      Startling::Commands.const_get(command.to_s.camelize)
     end
 
     def git

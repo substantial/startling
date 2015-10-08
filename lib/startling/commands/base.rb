@@ -1,11 +1,14 @@
 module Startling
   module Commands
     class Base
+      attr_reader :run_args
+
       def self.run(attrs={})
         new(attrs).execute
       end
 
       def initialize(attrs={})
+        @run_args = attrs
         attrs.each do |attr, value|
           self.class.__send__(:attr_reader, attr)
           instance_variable_set("@#{attr}", value)
@@ -30,6 +33,14 @@ module Startling
         if loaded_commands_path
           puts "Loading commands #{loaded_commands_path}"
         end
+      end
+
+      def handler_class(handler)
+        Startling::Handlers.const_get(handler.to_s.camelize)
+      end
+
+      def command_class(command)
+        Startling::Commands.const_get(command.to_s.camelize)
       end
     end
   end
