@@ -19,7 +19,6 @@ Use -H to generate a handler folder and -C to generate a commands folder
 
     $ rails g startling:configuration 
 
-
 ## Configuration
 
 Startlingfile.rb or startlingfile.rb should be defined in the root of the project. It can contain a block for configuration:
@@ -62,6 +61,14 @@ end
 ```
 
 ## Usage
+
+Start a new story with a given story id
+    
+    $ start 12345
+
+Start a new story with a given story id and branch name
+    
+    $ start 12345 foo
 
 TODO: Write usage instructions here
 
