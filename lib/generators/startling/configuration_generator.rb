@@ -9,14 +9,14 @@ module Startling
         create_file "startlingfile.rb" do
 <<CONFIG
 Startling.configure do |config|
-  # WIP Limit - Defaults to 4
-  # config.wip_limit = 8
+  # WIP Limit
+  # config.wip_limit = 4
 
   # Repos to check against for WIP limit
   # config.repos << 'substantial/startling-dev'
 
-  # Valid story estimations - Defaults to [1, 2, 4, 8, 16, 32, 64, 128]
-  # config.valid_estimates = [1, 2, 3, 4]
+  # Valid story estimations
+  # config.valid_estimates = [1, 2, 4, 8, 16, 32, 64, 128]
 
   # Commands to be run before a story is stared
   # config.hook_commands.before_story_start = [:check_wip]
@@ -33,8 +33,8 @@ Startling.configure do |config|
   # Handler used to start a provider specific story related to the pull request
   config.story_handler = :start_pivotal_story
 
-  # Message for pull request commit - Defaults to "Startling"
-  # config.pull_request_commit_message = "Commit message"
+  # Message for pull request commit
+  # config.pull_request_commit_message = "Startling"
 
   # Labels for a pull request
   # config.pull_request_labels = [WIP, REVIEW, HOLD]
