@@ -63,11 +63,11 @@ end
 ## Usage
 
 Start a new story with a given story id
-    
+
     $ start 12345
 
 Start a new story with a given story id and branch name
-    
+
     $ start 12345 foo
 
 TODO: Write usage instructions here
