@@ -2,4 +2,6 @@
 
 require_relative '../lib/startling'
 
+#options = Startling::Commmands::ParseOptions.run
+#Startling::Command.run(options)
 Startling::Command.run

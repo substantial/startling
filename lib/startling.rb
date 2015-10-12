@@ -1,4 +1,5 @@
-require_relative 'startling/command'
+require 'startling/command'
+require 'startling/cli_options'
 require 'startling/cache'
 require 'startling/configuration'
 
