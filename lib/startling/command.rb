@@ -14,16 +14,20 @@ module Startling
 
     def self.run(attrs={})
       load_configuration
+
+      options = Startling::CliOptions.parse
+      options.merge!(attrs)
+      options.merge({argv: ARGV, args: ARGV})
+
       load_commands
       load_handlers
-      attrs[:args] ||= ARGV
-      super(attrs)
+      super(options)
     end
 
     def execute
       Commands::PrintUsage.run(args: args)
       Commands::CheckForLocalMods.run(git: git)
-      command_args = { args: args, git: git }
+      command_args = cli_options.merge(git: git)
 
       # Before Start Story
       Startling.hook_commands.before_story_start.map do |command|

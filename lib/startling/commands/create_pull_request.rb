@@ -28,7 +28,7 @@ module Startling
 
       def pull_request_handler
         handler_name = Startling.pull_request_handler || :default_pull_request_handler
-        handler_class(handler_name).new(run_args)
+        handler_class(handler_name).new(cli_options)
       end
     end
   end

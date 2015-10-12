@@ -14,8 +14,8 @@ U
       parser = OptionParser.new do |opts|
         opts.banner = USAGE
 
-        opts.on('-s', '--story story', 'Story id') do |story|
-          options[:story_id] = story
+        opts.on('-s', '--story_id story_id', 'Story id') do |story_id|
+          options[:story_id] = story_id
         end
 
         opts.on('-b', '--branch branch', 'Branch name (Can be separated by spaces or dashes.)') do |branch|

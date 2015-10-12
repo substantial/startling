@@ -1,14 +1,14 @@
 module Startling
   module Commands
     class Base
-      attr_reader :run_args
+      attr_reader :cli_options
 
       def self.run(attrs={})
         new(attrs).execute
       end
 
       def initialize(attrs={})
-        @run_args = attrs
+        @cli_options = attrs
         attrs.each do |attr, value|
           self.class.__send__(:attr_reader, attr)
           instance_variable_set("@#{attr}", value)
@@ -48,6 +48,13 @@ module Startling
 
       def command_class(command)
         Startling::Commands.const_get(command.to_s.camelize)
+      end
+
+      def print_args(context)
+        puts "== Instance vars from #{context} ==>"
+        instance_variables.each do |var|
+          puts "#{var}: #{instance_variable_get(var)}"
+        end
       end
     end
   end

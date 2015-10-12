@@ -29,18 +29,17 @@ module Startling
       end
 
       def story
-        @story ||= pivotal_tracker.story(story_id)
+        @story ||= pivotal_tracker.story(get_story_id)
       end
 
-      def story_id
-        @story_id ||= extract_story_id_from_url(args.fetch(0) { ask("Enter story id to start: ") })
+      def get_story_id
+        @story_id ||= prompt_for_story_id
       end
 
-      def extract_story_id_from_url(raw_story_id)
-        raw_story_id
-          .split("/")
-          .last
-          .gsub(/\D/, '')
+      def prompt_for_story_id
+        result = ask("Enter story id to start: ")
+        abort "Pivotal id must be specified." if result.empty?
+        result
       end
     end
   end
