@@ -43,17 +43,25 @@ module Startling
       end
 
       def handler_class(handler)
-        Startling::Handlers.const_get(handler.to_s.camelize)
+        Startling::Handlers.const_get(to_camel_case(handler.to_s))
       end
 
       def command_class(command)
-        Startling::Commands.const_get(command.to_s.camelize)
+        Startling::Commands.const_get(to_camel_case(command.to_s))
       end
 
       def print_args(context)
         puts "== Instance vars from #{context} ==>"
         instance_variables.each do |var|
           puts "#{var}: #{instance_variable_get(var)}"
+        end
+      end
+
+      def to_camel_case(lower_case_and_underscored_word, first_letter_in_uppercase = true)
+        if first_letter_in_uppercase
+          lower_case_and_underscored_word.to_s.gsub(/\/(.?)/) { "::" + $1.upcase }.gsub(/(^|_)(.)/) { $2.upcase }
+        else
+          lower_case_and_underscored_word.first + camelize(lower_case_and_underscored_word)[1..-1]
         end
       end
     end
