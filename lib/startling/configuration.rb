@@ -19,7 +19,7 @@ module Startling
     ].freeze
 
     attr_accessor :cache_dir, :root_dir, :valid_estimates, :wip_limit, :repos, :story_handler,
-      :pull_request_handler, :pull_request_labels, :pull_request_commit_message
+      :pull_request_handler, :pull_request_labels, :pull_request_commit_message, :cli_options
 
     def initialize
       @cache_dir = Dir.pwd
@@ -31,6 +31,7 @@ module Startling
       @pull_request_handler = nil
       @pull_request_commit_message = DEFAULT_COMMIT_MESSAGE
       @pull_request_labels = []
+      @cli_options = []
     end
 
     def self.load_configuration
@@ -64,6 +65,14 @@ module Startling
       @hooks ||= HookCommands.new
     end
 
+    def add_cli_option(abbr_switch, full_switch, description, required=false)
+      @cli_options << CliOption.new(abbr_switch, full_switch, description, required)
+    end
+
+    def cli_options
+      @cli_options ||= []
+    end
+
     class HookCommands
       attr_accessor :before_story_start, :after_story_start,
       :before_pull_request, :create_pull_request, :after_pull_request
@@ -73,6 +82,21 @@ module Startling
         @after_story_start = []
         @before_pull_request = []
         @after_pull_request = [:label_pull_request]
+      end
+    end
+
+    class CliOption
+      attr_reader :abbr_switch, :description
+
+      def initialize(abbr_switch, full_switch, description, required)
+        @abbr_switch = abbr_switch
+        @full_switch = full_switch
+        @description = description
+        @required = required
+      end
+
+      def long_switch
+        @required ? "--#{@full_switch} #{@full_switch}" : "--#{@full_switch}"
       end
     end
   end

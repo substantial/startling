@@ -21,6 +21,13 @@ U
         opts.on('-b', '--branch branch', 'Branch name (Can be separated by spaces or dashes.)') do |branch|
           options[:branch_name] = branch
         end
+
+        Startling.cli_options.each do |option|
+          opts.on(option.abbr_switch, option.long_switch, option.description) do |value|
+            options[option.full_switch.to_sym] = value
+          end
+        end
+
         opts.on('-h', '--help', 'Displays Help') do
           puts opts
           exit
