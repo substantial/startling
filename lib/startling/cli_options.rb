@@ -2,13 +2,13 @@ require "optparse"
 
 module Startling
   class CliOptions
-    USAGE = <<U
+    USAGE = <<USE
 Usage: start [options]
 
 Example:
 
 $ start 12345 my branch name
-U
+USE
     def self.parse
       options = {story_id: nil, branch_name: nil}
       parser = OptionParser.new do |opts|
@@ -22,9 +22,10 @@ U
           options[:branch_name] = branch
         end
 
-        Startling.cli_options.each do |option|
-          opts.on(option.abbr_switch, option.long_switch, option.description) do |value|
-            options[option.full_switch.to_sym] = value
+        Startling.cli_options.each do |user_opt|
+          options.merge!(user_opt.sym => nil)
+          opts.on(user_opt.abbr_switch, user_opt.long_switch, user_opt.description) do |value|
+            options[user_opt.sym] = value
           end
         end
 

@@ -1,8 +1,8 @@
 require 'startling/git_local'
 require 'startling/github'
+require 'startling/colorize_string'
 require 'startling/commands/label_pull_request'
 require 'startling/commands/start_pivotal_story'
-require 'startling/colorize_string'
 require 'startling/handlers/default_pull_request_handler'
 
 module Startling
@@ -86,7 +86,7 @@ module Startling
     end
 
     class CliOption
-      attr_reader :abbr_switch, :description
+      attr_reader :abbr_switch, :description, :full_switch
 
       def initialize(abbr_switch, full_switch, description, required)
         @abbr_switch = abbr_switch
@@ -97,6 +97,10 @@ module Startling
 
       def long_switch
         @required ? "--#{@full_switch} #{@full_switch}" : "--#{@full_switch}"
+      end
+
+      def sym
+        full_switch.to_s
       end
     end
   end

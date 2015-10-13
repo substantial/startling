@@ -4,7 +4,6 @@ require 'highline/import'
 require 'shellwords'
 require_relative 'pivotal_tracker'
 require_relative "commands/base"
-require_relative 'commands/print_usage'
 require_relative 'commands/check_for_local_mods'
 require_relative 'commands/create_pull_request'
 
@@ -25,7 +24,6 @@ module Startling
     end
 
     def execute
-      Commands::PrintUsage.run(args: args)
       Commands::CheckForLocalMods.run(git: git)
       command_args = cli_options.merge(git: git)
 
