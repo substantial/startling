@@ -2,7 +2,7 @@ require_relative "base"
 
 module Startling
   module Commands
-    class StartPivotalStory < Base
+    class PivotalStart < Base
       def execute
         puts "Starting story..."
         estimate = ask_for_estimate unless story.estimated?

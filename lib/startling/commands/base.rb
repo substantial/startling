@@ -43,11 +43,25 @@ module Startling
       end
 
       def handler_class(handler)
-        Startling::Handlers.const_get(to_camel_case(handler.to_s))
+        begin
+          Startling::Handlers.const_get(to_camel_case(handler.to_s))
+        rescue NameError
+          print_name_error_message(handler, Startling::Configuration::DEFAULT_HANDLER_PATH)
+          exit
+        end
       end
 
       def command_class(command)
-        Startling::Commands.const_get(to_camel_case(command.to_s))
+        begin
+          Startling::Commands.const_get(to_camel_case(command.to_s))
+        rescue NameError
+          print_name_error_message(command, Startling::Configuration::DEFAULT_COMMAND_PATH)
+          exit
+        end
+      end
+
+      def print_name_error_message(name, path)
+        puts "Error loading #{to_camel_case(name.to_s)}. Is it defined in #{path}?"
       end
 
       def print_args(context)

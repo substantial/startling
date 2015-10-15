@@ -2,7 +2,7 @@ require 'startling/git_local'
 require 'startling/github'
 require 'startling/colorize_string'
 require 'startling/commands/label_pull_request'
-require 'startling/commands/start_pivotal_story'
+require 'startling/commands/pivotal_start'
 require 'startling/handlers/default_pull_request_handler'
 
 module Startling
