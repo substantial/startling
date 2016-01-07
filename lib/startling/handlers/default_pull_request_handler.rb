@@ -4,19 +4,19 @@ module Startling
   module Handlers
     class DefaultPullRequestHandler < PullRequestHandlerBase
       def title
-        story.pull_request_title
+        title = ask("Please input a pull request title: ")
+        abort "Title must be specified." if title.empty?
+        title
       end
 
       def body
-        story.pull_request_body_text
+        body = ask("Please input a pull request body: (default is empty)")
+        body = "" if body.empty?
+        body
       end
 
       def commit_message
         Startling.pull_request_commit_message
-      end
-
-      def story
-        @args.fetch(:story)
       end
     end
   end
