@@ -18,7 +18,6 @@ describe "bin/start" do
     end
 
     File.write File.join(test_repo_path, ".github_access_token"), Tokens.github
-    File.write File.join(test_repo_path, ".pivotal_api_token"), Tokens.pivotal_tracker
 
     FileUtils.cd test_repo_path
 
