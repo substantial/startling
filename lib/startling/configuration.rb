@@ -2,33 +2,32 @@ require 'startling/git_local'
 require 'startling/github'
 require 'startling/colorize_string'
 require 'startling/commands/label_pull_request'
-require 'startling/commands/pivotal_start'
 require 'startling/handlers/default_pull_request_handler'
 
 module Startling
   class Configuration
     DEFAULT_COMMAND_PATH = "startling/commands"
     DEFAULT_HANDLER_PATH = "startling/handlers"
-    DEFAULT_VALID_ESTIMATES = [1, 2, 4, 8, 16, 32, 64, 128]
     DEFAULT_WIP_LIMIT = 4
     DEFAULT_COMMIT_MESSAGE = "Startling"
+    DEFAULT_BODY = "Startling"
 
     DEFAULT_STARTLINGFILES = [
       'startlingfile.rb',
       'Startlingfile.rb'
     ].freeze
 
-    attr_accessor :cache_dir, :root_dir, :valid_estimates, :wip_limit, :repos, :story_handler,
+    attr_accessor :cache_dir, :root_dir, :wip_limit, :repos, :story_handler, :pull_request_body,
       :pull_request_handler, :pull_request_labels, :pull_request_commit_message, :cli_options
 
     def initialize
       @cache_dir = Dir.pwd
       @root_dir = Dir.pwd
-      @valid_estimates = DEFAULT_VALID_ESTIMATES
       @wip_limit = DEFAULT_WIP_LIMIT
       @repos = []
       @story_handler = nil
       @pull_request_handler = nil
+      @pull_request_body = DEFAULT_BODY
       @pull_request_commit_message = DEFAULT_COMMIT_MESSAGE
       @pull_request_labels = []
       @cli_options = []

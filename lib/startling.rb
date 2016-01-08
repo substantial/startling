@@ -8,7 +8,7 @@ module Startling
     attr_writer :configuration
 
     def method_missing(method, *args, &block)
-      configuration.send(method)
+      configuration.send(method, *args, &block)
     end
   end
 

@@ -44,10 +44,13 @@ Startling.configure do |config|
   # config.hook_commands.after_pull_request = []
 
   # Handler used to start a provider specific story related to the pull request
-  config.story_handler = :pivotal_start
+  # config.story_handler = :pivotal_start
 
   # Message for pull request commit
   # config.pull_request_commit_message = "Startling"
+
+  # Message for pull request body
+  # config.pull_request_body = "Startling Body"
 
   # Labels for a pull request
   # config.pull_request_labels = [WIP, REVIEW, HOLD]

@@ -2,7 +2,6 @@ require 'cgi'
 require 'json'
 require 'highline/import'
 require 'shellwords'
-require_relative 'pivotal_tracker'
 require_relative "commands/base"
 require_relative 'commands/check_for_local_mods'
 require_relative 'commands/create_pull_request'

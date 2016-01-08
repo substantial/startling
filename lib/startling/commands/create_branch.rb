@@ -26,12 +26,6 @@ module Startling
       end
 
       def get_branch_name
-        branch = if args.length > 1
-                   args[1..-1].map(&:downcase).join('-')
-                 else
-                   ask("Enter branch name (enter for current branch): ")
-                 end
-
         if branch.empty?
           if git.current_branch_is_a_feature_branch?
             return git.current_branch
@@ -42,6 +36,17 @@ module Startling
 
         branch.gsub!(/feature\//, '')
         "feature/#{branch}".gsub(/\s+/, '-')
+      end
+
+      private
+
+      def branch
+        @branch ||=
+          if args.length > 1
+            args[1..-1].map(&:downcase).join('-')
+          else
+            ask("Enter branch name (enter for current branch): ")
+          end
       end
     end
   end

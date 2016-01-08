@@ -1,0 +1,644 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/repos/substantial/startling-testing
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 3.8.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - token <GITHUB_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Fri, 08 Jan 2016 01:37:28 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4892'
+      X-Ratelimit-Reset:
+      - '1452217337'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Last-Modified:
+      - Wed, 06 Jan 2016 23:54:40 GMT
+      Etag:
+      - W/"3a88b5d6eafac8d6c77295d101bad2d9"
+      X-Oauth-Scopes:
+      - gist, repo, user
+      X-Accepted-Oauth-Scopes:
+      - repo
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Security-Policy:
+      - default-src 'none'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Served-By:
+      - 065b43cd9674091fec48a221b420fbb3
+      X-Github-Request-Id:
+      - C84A5D97:A39C:20E7C0C8:568F12D8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":49169099,"name":"startling-testing","full_name":"substantial/startling-testing","owner":{"login":"substantial","id":79686,"avatar_url":"https://avatars.githubusercontent.com/u/79686?v=3","gravatar_id":"","url":"https://api.github.com/users/substantial","html_url":"https://github.com/substantial","followers_url":"https://api.github.com/users/substantial/followers","following_url":"https://api.github.com/users/substantial/following{/other_user}","gists_url":"https://api.github.com/users/substantial/gists{/gist_id}","starred_url":"https://api.github.com/users/substantial/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/substantial/subscriptions","organizations_url":"https://api.github.com/users/substantial/orgs","repos_url":"https://api.github.com/users/substantial/repos","events_url":"https://api.github.com/users/substantial/events{/privacy}","received_events_url":"https://api.github.com/users/substantial/received_events","type":"Organization","site_admin":false},"private":true,"html_url":"https://github.com/substantial/startling-testing","description":"Testing
+        repo for startling","fork":false,"url":"https://api.github.com/repos/substantial/startling-testing","forks_url":"https://api.github.com/repos/substantial/startling-testing/forks","keys_url":"https://api.github.com/repos/substantial/startling-testing/keys{/key_id}","collaborators_url":"https://api.github.com/repos/substantial/startling-testing/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/substantial/startling-testing/teams","hooks_url":"https://api.github.com/repos/substantial/startling-testing/hooks","issue_events_url":"https://api.github.com/repos/substantial/startling-testing/issues/events{/number}","events_url":"https://api.github.com/repos/substantial/startling-testing/events","assignees_url":"https://api.github.com/repos/substantial/startling-testing/assignees{/user}","branches_url":"https://api.github.com/repos/substantial/startling-testing/branches{/branch}","tags_url":"https://api.github.com/repos/substantial/startling-testing/tags","blobs_url":"https://api.github.com/repos/substantial/startling-testing/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/substantial/startling-testing/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/substantial/startling-testing/git/refs{/sha}","trees_url":"https://api.github.com/repos/substantial/startling-testing/git/trees{/sha}","statuses_url":"https://api.github.com/repos/substantial/startling-testing/statuses/{sha}","languages_url":"https://api.github.com/repos/substantial/startling-testing/languages","stargazers_url":"https://api.github.com/repos/substantial/startling-testing/stargazers","contributors_url":"https://api.github.com/repos/substantial/startling-testing/contributors","subscribers_url":"https://api.github.com/repos/substantial/startling-testing/subscribers","subscription_url":"https://api.github.com/repos/substantial/startling-testing/subscription","commits_url":"https://api.github.com/repos/substantial/startling-testing/commits{/sha}","git_commits_url":"https://api.github.com/repos/substantial/startling-testing/git/commits{/sha}","comments_url":"https://api.github.com/repos/substantial/startling-testing/comments{/number}","issue_comment_url":"https://api.github.com/repos/substantial/startling-testing/issues/comments{/number}","contents_url":"https://api.github.com/repos/substantial/startling-testing/contents/{+path}","compare_url":"https://api.github.com/repos/substantial/startling-testing/compare/{base}...{head}","merges_url":"https://api.github.com/repos/substantial/startling-testing/merges","archive_url":"https://api.github.com/repos/substantial/startling-testing/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/substantial/startling-testing/downloads","issues_url":"https://api.github.com/repos/substantial/startling-testing/issues{/number}","pulls_url":"https://api.github.com/repos/substantial/startling-testing/pulls{/number}","milestones_url":"https://api.github.com/repos/substantial/startling-testing/milestones{/number}","notifications_url":"https://api.github.com/repos/substantial/startling-testing/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/substantial/startling-testing/labels{/name}","releases_url":"https://api.github.com/repos/substantial/startling-testing/releases{/id}","created_at":"2016-01-06T23:54:40Z","updated_at":"2016-01-06T23:54:40Z","pushed_at":"2016-01-08T01:37:27Z","git_url":"git://github.com/substantial/startling-testing.git","ssh_url":"git@github.com:substantial/startling-testing.git","clone_url":"https://github.com/substantial/startling-testing.git","svn_url":"https://github.com/substantial/startling-testing","homepage":null,"size":2,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"open_issues_count":0,"forks":0,"open_issues":0,"watchers":0,"default_branch":"master","permissions":{"admin":true,"push":true,"pull":true},"organization":{"login":"substantial","id":79686,"avatar_url":"https://avatars.githubusercontent.com/u/79686?v=3","gravatar_id":"","url":"https://api.github.com/users/substantial","html_url":"https://github.com/substantial","followers_url":"https://api.github.com/users/substantial/followers","following_url":"https://api.github.com/users/substantial/following{/other_user}","gists_url":"https://api.github.com/users/substantial/gists{/gist_id}","starred_url":"https://api.github.com/users/substantial/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/substantial/subscriptions","organizations_url":"https://api.github.com/users/substantial/orgs","repos_url":"https://api.github.com/users/substantial/repos","events_url":"https://api.github.com/users/substantial/events{/privacy}","received_events_url":"https://api.github.com/users/substantial/received_events","type":"Organization","site_admin":false},"network_count":0,"subscribers_count":2}'
+    http_version: 
+  recorded_at: Fri, 08 Jan 2016 01:37:28 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/substantial/startling-testing
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 3.8.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - token <GITHUB_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Fri, 08 Jan 2016 01:37:35 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4891'
+      X-Ratelimit-Reset:
+      - '1452217337'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Last-Modified:
+      - Wed, 06 Jan 2016 23:54:40 GMT
+      Etag:
+      - W/"a7d26b9c05a3a1e5a310bce2c06696b4"
+      X-Oauth-Scopes:
+      - gist, repo, user
+      X-Accepted-Oauth-Scopes:
+      - repo
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Security-Policy:
+      - default-src 'none'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Served-By:
+      - e183f7c661b1bbc2c987b3c4dc7b04e0
+      X-Github-Request-Id:
+      - C84A5D97:A398:17174515:568F12DF
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":49169099,"name":"startling-testing","full_name":"substantial/startling-testing","owner":{"login":"substantial","id":79686,"avatar_url":"https://avatars.githubusercontent.com/u/79686?v=3","gravatar_id":"","url":"https://api.github.com/users/substantial","html_url":"https://github.com/substantial","followers_url":"https://api.github.com/users/substantial/followers","following_url":"https://api.github.com/users/substantial/following{/other_user}","gists_url":"https://api.github.com/users/substantial/gists{/gist_id}","starred_url":"https://api.github.com/users/substantial/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/substantial/subscriptions","organizations_url":"https://api.github.com/users/substantial/orgs","repos_url":"https://api.github.com/users/substantial/repos","events_url":"https://api.github.com/users/substantial/events{/privacy}","received_events_url":"https://api.github.com/users/substantial/received_events","type":"Organization","site_admin":false},"private":true,"html_url":"https://github.com/substantial/startling-testing","description":"Testing
+        repo for startling","fork":false,"url":"https://api.github.com/repos/substantial/startling-testing","forks_url":"https://api.github.com/repos/substantial/startling-testing/forks","keys_url":"https://api.github.com/repos/substantial/startling-testing/keys{/key_id}","collaborators_url":"https://api.github.com/repos/substantial/startling-testing/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/substantial/startling-testing/teams","hooks_url":"https://api.github.com/repos/substantial/startling-testing/hooks","issue_events_url":"https://api.github.com/repos/substantial/startling-testing/issues/events{/number}","events_url":"https://api.github.com/repos/substantial/startling-testing/events","assignees_url":"https://api.github.com/repos/substantial/startling-testing/assignees{/user}","branches_url":"https://api.github.com/repos/substantial/startling-testing/branches{/branch}","tags_url":"https://api.github.com/repos/substantial/startling-testing/tags","blobs_url":"https://api.github.com/repos/substantial/startling-testing/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/substantial/startling-testing/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/substantial/startling-testing/git/refs{/sha}","trees_url":"https://api.github.com/repos/substantial/startling-testing/git/trees{/sha}","statuses_url":"https://api.github.com/repos/substantial/startling-testing/statuses/{sha}","languages_url":"https://api.github.com/repos/substantial/startling-testing/languages","stargazers_url":"https://api.github.com/repos/substantial/startling-testing/stargazers","contributors_url":"https://api.github.com/repos/substantial/startling-testing/contributors","subscribers_url":"https://api.github.com/repos/substantial/startling-testing/subscribers","subscription_url":"https://api.github.com/repos/substantial/startling-testing/subscription","commits_url":"https://api.github.com/repos/substantial/startling-testing/commits{/sha}","git_commits_url":"https://api.github.com/repos/substantial/startling-testing/git/commits{/sha}","comments_url":"https://api.github.com/repos/substantial/startling-testing/comments{/number}","issue_comment_url":"https://api.github.com/repos/substantial/startling-testing/issues/comments{/number}","contents_url":"https://api.github.com/repos/substantial/startling-testing/contents/{+path}","compare_url":"https://api.github.com/repos/substantial/startling-testing/compare/{base}...{head}","merges_url":"https://api.github.com/repos/substantial/startling-testing/merges","archive_url":"https://api.github.com/repos/substantial/startling-testing/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/substantial/startling-testing/downloads","issues_url":"https://api.github.com/repos/substantial/startling-testing/issues{/number}","pulls_url":"https://api.github.com/repos/substantial/startling-testing/pulls{/number}","milestones_url":"https://api.github.com/repos/substantial/startling-testing/milestones{/number}","notifications_url":"https://api.github.com/repos/substantial/startling-testing/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/substantial/startling-testing/labels{/name}","releases_url":"https://api.github.com/repos/substantial/startling-testing/releases{/id}","created_at":"2016-01-06T23:54:40Z","updated_at":"2016-01-06T23:54:40Z","pushed_at":"2016-01-08T01:37:34Z","git_url":"git://github.com/substantial/startling-testing.git","ssh_url":"git@github.com:substantial/startling-testing.git","clone_url":"https://github.com/substantial/startling-testing.git","svn_url":"https://github.com/substantial/startling-testing","homepage":null,"size":2,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"open_issues_count":0,"forks":0,"open_issues":0,"watchers":0,"default_branch":"master","permissions":{"admin":true,"push":true,"pull":true},"organization":{"login":"substantial","id":79686,"avatar_url":"https://avatars.githubusercontent.com/u/79686?v=3","gravatar_id":"","url":"https://api.github.com/users/substantial","html_url":"https://github.com/substantial","followers_url":"https://api.github.com/users/substantial/followers","following_url":"https://api.github.com/users/substantial/following{/other_user}","gists_url":"https://api.github.com/users/substantial/gists{/gist_id}","starred_url":"https://api.github.com/users/substantial/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/substantial/subscriptions","organizations_url":"https://api.github.com/users/substantial/orgs","repos_url":"https://api.github.com/users/substantial/repos","events_url":"https://api.github.com/users/substantial/events{/privacy}","received_events_url":"https://api.github.com/users/substantial/received_events","type":"Organization","site_admin":false},"network_count":0,"subscribers_count":2}'
+    http_version: 
+  recorded_at: Fri, 08 Jan 2016 01:37:35 GMT
+- request:
+    method: post
+    uri: https://api.github.com/repos/substantial/startling-testing/pulls
+    body:
+      encoding: UTF-8
+      string: '{"base":"master","head":"feature/bin_start_starts_stories","title":"The
+        Title","body":"This is a test body"}'
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 3.8.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - token <GITHUB_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Fri, 08 Jan 2016 01:37:36 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '15227'
+      Status:
+      - 201 Created
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4890'
+      X-Ratelimit-Reset:
+      - '1452217337'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Etag:
+      - '"1b5afdc7a0e76578a7a53358bd2b7318"'
+      X-Oauth-Scopes:
+      - gist, repo, user
+      X-Accepted-Oauth-Scopes:
+      - ''
+      Location:
+      - https://api.github.com/repos/substantial/startling-testing/pulls/29
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Security-Policy:
+      - default-src 'none'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Served-By:
+      - a241e1a8264a6ace03db946c85b92db3
+      X-Github-Request-Id:
+      - C84A5D97:A399:1F61DBB3:568F12E0
+    body:
+      encoding: UTF-8
+      string: '{"url":"https://api.github.com/repos/substantial/startling-testing/pulls/29","id":55415114,"html_url":"https://github.com/substantial/startling-testing/pull/29","diff_url":"https://github.com/substantial/startling-testing/pull/29.diff","patch_url":"https://github.com/substantial/startling-testing/pull/29.patch","issue_url":"https://api.github.com/repos/substantial/startling-testing/issues/29","number":29,"state":"open","locked":false,"title":"The
+        Title","user":{"login":"gringocl","id":3166322,"avatar_url":"https://avatars.githubusercontent.com/u/3166322?v=3","gravatar_id":"","url":"https://api.github.com/users/gringocl","html_url":"https://github.com/gringocl","followers_url":"https://api.github.com/users/gringocl/followers","following_url":"https://api.github.com/users/gringocl/following{/other_user}","gists_url":"https://api.github.com/users/gringocl/gists{/gist_id}","starred_url":"https://api.github.com/users/gringocl/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/gringocl/subscriptions","organizations_url":"https://api.github.com/users/gringocl/orgs","repos_url":"https://api.github.com/users/gringocl/repos","events_url":"https://api.github.com/users/gringocl/events{/privacy}","received_events_url":"https://api.github.com/users/gringocl/received_events","type":"User","site_admin":false},"body":"This
+        is a test body","created_at":"2016-01-08T01:37:36Z","updated_at":"2016-01-08T01:37:36Z","closed_at":null,"merged_at":null,"merge_commit_sha":null,"assignee":null,"milestone":null,"commits_url":"https://api.github.com/repos/substantial/startling-testing/pulls/29/commits","review_comments_url":"https://api.github.com/repos/substantial/startling-testing/pulls/29/comments","review_comment_url":"https://api.github.com/repos/substantial/startling-testing/pulls/comments{/number}","comments_url":"https://api.github.com/repos/substantial/startling-testing/issues/29/comments","statuses_url":"https://api.github.com/repos/substantial/startling-testing/statuses/b8def18f64a8dd8b7f2d69a77a82f69aed22c594","head":{"label":"substantial:feature/bin_start_starts_stories","ref":"feature/bin_start_starts_stories","sha":"b8def18f64a8dd8b7f2d69a77a82f69aed22c594","user":{"login":"substantial","id":79686,"avatar_url":"https://avatars.githubusercontent.com/u/79686?v=3","gravatar_id":"","url":"https://api.github.com/users/substantial","html_url":"https://github.com/substantial","followers_url":"https://api.github.com/users/substantial/followers","following_url":"https://api.github.com/users/substantial/following{/other_user}","gists_url":"https://api.github.com/users/substantial/gists{/gist_id}","starred_url":"https://api.github.com/users/substantial/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/substantial/subscriptions","organizations_url":"https://api.github.com/users/substantial/orgs","repos_url":"https://api.github.com/users/substantial/repos","events_url":"https://api.github.com/users/substantial/events{/privacy}","received_events_url":"https://api.github.com/users/substantial/received_events","type":"Organization","site_admin":false},"repo":{"id":49169099,"name":"startling-testing","full_name":"substantial/startling-testing","owner":{"login":"substantial","id":79686,"avatar_url":"https://avatars.githubusercontent.com/u/79686?v=3","gravatar_id":"","url":"https://api.github.com/users/substantial","html_url":"https://github.com/substantial","followers_url":"https://api.github.com/users/substantial/followers","following_url":"https://api.github.com/users/substantial/following{/other_user}","gists_url":"https://api.github.com/users/substantial/gists{/gist_id}","starred_url":"https://api.github.com/users/substantial/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/substantial/subscriptions","organizations_url":"https://api.github.com/users/substantial/orgs","repos_url":"https://api.github.com/users/substantial/repos","events_url":"https://api.github.com/users/substantial/events{/privacy}","received_events_url":"https://api.github.com/users/substantial/received_events","type":"Organization","site_admin":false},"private":true,"html_url":"https://github.com/substantial/startling-testing","description":"Testing
+        repo for startling","fork":false,"url":"https://api.github.com/repos/substantial/startling-testing","forks_url":"https://api.github.com/repos/substantial/startling-testing/forks","keys_url":"https://api.github.com/repos/substantial/startling-testing/keys{/key_id}","collaborators_url":"https://api.github.com/repos/substantial/startling-testing/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/substantial/startling-testing/teams","hooks_url":"https://api.github.com/repos/substantial/startling-testing/hooks","issue_events_url":"https://api.github.com/repos/substantial/startling-testing/issues/events{/number}","events_url":"https://api.github.com/repos/substantial/startling-testing/events","assignees_url":"https://api.github.com/repos/substantial/startling-testing/assignees{/user}","branches_url":"https://api.github.com/repos/substantial/startling-testing/branches{/branch}","tags_url":"https://api.github.com/repos/substantial/startling-testing/tags","blobs_url":"https://api.github.com/repos/substantial/startling-testing/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/substantial/startling-testing/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/substantial/startling-testing/git/refs{/sha}","trees_url":"https://api.github.com/repos/substantial/startling-testing/git/trees{/sha}","statuses_url":"https://api.github.com/repos/substantial/startling-testing/statuses/{sha}","languages_url":"https://api.github.com/repos/substantial/startling-testing/languages","stargazers_url":"https://api.github.com/repos/substantial/startling-testing/stargazers","contributors_url":"https://api.github.com/repos/substantial/startling-testing/contributors","subscribers_url":"https://api.github.com/repos/substantial/startling-testing/subscribers","subscription_url":"https://api.github.com/repos/substantial/startling-testing/subscription","commits_url":"https://api.github.com/repos/substantial/startling-testing/commits{/sha}","git_commits_url":"https://api.github.com/repos/substantial/startling-testing/git/commits{/sha}","comments_url":"https://api.github.com/repos/substantial/startling-testing/comments{/number}","issue_comment_url":"https://api.github.com/repos/substantial/startling-testing/issues/comments{/number}","contents_url":"https://api.github.com/repos/substantial/startling-testing/contents/{+path}","compare_url":"https://api.github.com/repos/substantial/startling-testing/compare/{base}...{head}","merges_url":"https://api.github.com/repos/substantial/startling-testing/merges","archive_url":"https://api.github.com/repos/substantial/startling-testing/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/substantial/startling-testing/downloads","issues_url":"https://api.github.com/repos/substantial/startling-testing/issues{/number}","pulls_url":"https://api.github.com/repos/substantial/startling-testing/pulls{/number}","milestones_url":"https://api.github.com/repos/substantial/startling-testing/milestones{/number}","notifications_url":"https://api.github.com/repos/substantial/startling-testing/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/substantial/startling-testing/labels{/name}","releases_url":"https://api.github.com/repos/substantial/startling-testing/releases{/id}","created_at":"2016-01-06T23:54:40Z","updated_at":"2016-01-06T23:54:40Z","pushed_at":"2016-01-08T01:37:34Z","git_url":"git://github.com/substantial/startling-testing.git","ssh_url":"git@github.com:substantial/startling-testing.git","clone_url":"https://github.com/substantial/startling-testing.git","svn_url":"https://github.com/substantial/startling-testing","homepage":null,"size":2,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"open_issues_count":1,"forks":0,"open_issues":1,"watchers":0,"default_branch":"master"}},"base":{"label":"substantial:master","ref":"master","sha":"da708ed9c04236279c6263e340c51a1125e4affa","user":{"login":"substantial","id":79686,"avatar_url":"https://avatars.githubusercontent.com/u/79686?v=3","gravatar_id":"","url":"https://api.github.com/users/substantial","html_url":"https://github.com/substantial","followers_url":"https://api.github.com/users/substantial/followers","following_url":"https://api.github.com/users/substantial/following{/other_user}","gists_url":"https://api.github.com/users/substantial/gists{/gist_id}","starred_url":"https://api.github.com/users/substantial/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/substantial/subscriptions","organizations_url":"https://api.github.com/users/substantial/orgs","repos_url":"https://api.github.com/users/substantial/repos","events_url":"https://api.github.com/users/substantial/events{/privacy}","received_events_url":"https://api.github.com/users/substantial/received_events","type":"Organization","site_admin":false},"repo":{"id":49169099,"name":"startling-testing","full_name":"substantial/startling-testing","owner":{"login":"substantial","id":79686,"avatar_url":"https://avatars.githubusercontent.com/u/79686?v=3","gravatar_id":"","url":"https://api.github.com/users/substantial","html_url":"https://github.com/substantial","followers_url":"https://api.github.com/users/substantial/followers","following_url":"https://api.github.com/users/substantial/following{/other_user}","gists_url":"https://api.github.com/users/substantial/gists{/gist_id}","starred_url":"https://api.github.com/users/substantial/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/substantial/subscriptions","organizations_url":"https://api.github.com/users/substantial/orgs","repos_url":"https://api.github.com/users/substantial/repos","events_url":"https://api.github.com/users/substantial/events{/privacy}","received_events_url":"https://api.github.com/users/substantial/received_events","type":"Organization","site_admin":false},"private":true,"html_url":"https://github.com/substantial/startling-testing","description":"Testing
+        repo for startling","fork":false,"url":"https://api.github.com/repos/substantial/startling-testing","forks_url":"https://api.github.com/repos/substantial/startling-testing/forks","keys_url":"https://api.github.com/repos/substantial/startling-testing/keys{/key_id}","collaborators_url":"https://api.github.com/repos/substantial/startling-testing/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/substantial/startling-testing/teams","hooks_url":"https://api.github.com/repos/substantial/startling-testing/hooks","issue_events_url":"https://api.github.com/repos/substantial/startling-testing/issues/events{/number}","events_url":"https://api.github.com/repos/substantial/startling-testing/events","assignees_url":"https://api.github.com/repos/substantial/startling-testing/assignees{/user}","branches_url":"https://api.github.com/repos/substantial/startling-testing/branches{/branch}","tags_url":"https://api.github.com/repos/substantial/startling-testing/tags","blobs_url":"https://api.github.com/repos/substantial/startling-testing/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/substantial/startling-testing/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/substantial/startling-testing/git/refs{/sha}","trees_url":"https://api.github.com/repos/substantial/startling-testing/git/trees{/sha}","statuses_url":"https://api.github.com/repos/substantial/startling-testing/statuses/{sha}","languages_url":"https://api.github.com/repos/substantial/startling-testing/languages","stargazers_url":"https://api.github.com/repos/substantial/startling-testing/stargazers","contributors_url":"https://api.github.com/repos/substantial/startling-testing/contributors","subscribers_url":"https://api.github.com/repos/substantial/startling-testing/subscribers","subscription_url":"https://api.github.com/repos/substantial/startling-testing/subscription","commits_url":"https://api.github.com/repos/substantial/startling-testing/commits{/sha}","git_commits_url":"https://api.github.com/repos/substantial/startling-testing/git/commits{/sha}","comments_url":"https://api.github.com/repos/substantial/startling-testing/comments{/number}","issue_comment_url":"https://api.github.com/repos/substantial/startling-testing/issues/comments{/number}","contents_url":"https://api.github.com/repos/substantial/startling-testing/contents/{+path}","compare_url":"https://api.github.com/repos/substantial/startling-testing/compare/{base}...{head}","merges_url":"https://api.github.com/repos/substantial/startling-testing/merges","archive_url":"https://api.github.com/repos/substantial/startling-testing/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/substantial/startling-testing/downloads","issues_url":"https://api.github.com/repos/substantial/startling-testing/issues{/number}","pulls_url":"https://api.github.com/repos/substantial/startling-testing/pulls{/number}","milestones_url":"https://api.github.com/repos/substantial/startling-testing/milestones{/number}","notifications_url":"https://api.github.com/repos/substantial/startling-testing/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/substantial/startling-testing/labels{/name}","releases_url":"https://api.github.com/repos/substantial/startling-testing/releases{/id}","created_at":"2016-01-06T23:54:40Z","updated_at":"2016-01-06T23:54:40Z","pushed_at":"2016-01-08T01:37:34Z","git_url":"git://github.com/substantial/startling-testing.git","ssh_url":"git@github.com:substantial/startling-testing.git","clone_url":"https://github.com/substantial/startling-testing.git","svn_url":"https://github.com/substantial/startling-testing","homepage":null,"size":2,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"open_issues_count":1,"forks":0,"open_issues":1,"watchers":0,"default_branch":"master"}},"_links":{"self":{"href":"https://api.github.com/repos/substantial/startling-testing/pulls/29"},"html":{"href":"https://github.com/substantial/startling-testing/pull/29"},"issue":{"href":"https://api.github.com/repos/substantial/startling-testing/issues/29"},"comments":{"href":"https://api.github.com/repos/substantial/startling-testing/issues/29/comments"},"review_comments":{"href":"https://api.github.com/repos/substantial/startling-testing/pulls/29/comments"},"review_comment":{"href":"https://api.github.com/repos/substantial/startling-testing/pulls/comments{/number}"},"commits":{"href":"https://api.github.com/repos/substantial/startling-testing/pulls/29/commits"},"statuses":{"href":"https://api.github.com/repos/substantial/startling-testing/statuses/b8def18f64a8dd8b7f2d69a77a82f69aed22c594"}},"merged":false,"mergeable":null,"mergeable_state":"unknown","merged_by":null,"comments":0,"review_comments":0,"commits":1,"additions":0,"deletions":0,"changed_files":0}'
+    http_version: 
+  recorded_at: Fri, 08 Jan 2016 01:37:36 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/substantial/startling-testing/pulls?state=open
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 3.8.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - token <GITHUB_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Fri, 08 Jan 2016 01:37:37 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4889'
+      X-Ratelimit-Reset:
+      - '1452217337'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Etag:
+      - W/"22547aa2cf73923a795343d46e1f7570"
+      X-Oauth-Scopes:
+      - gist, repo, user
+      X-Accepted-Oauth-Scopes:
+      - ''
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Security-Policy:
+      - default-src 'none'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Served-By:
+      - dc1ce2bfb41810a06c705e83b388572d
+      X-Github-Request-Id:
+      - C84A5D97:A396:B88457E:568F12E1
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"url":"https://api.github.com/repos/substantial/startling-testing/pulls/29","id":55415114,"html_url":"https://github.com/substantial/startling-testing/pull/29","diff_url":"https://github.com/substantial/startling-testing/pull/29.diff","patch_url":"https://github.com/substantial/startling-testing/pull/29.patch","issue_url":"https://api.github.com/repos/substantial/startling-testing/issues/29","number":29,"state":"open","locked":false,"title":"The
+        Title","user":{"login":"gringocl","id":3166322,"avatar_url":"https://avatars.githubusercontent.com/u/3166322?v=3","gravatar_id":"","url":"https://api.github.com/users/gringocl","html_url":"https://github.com/gringocl","followers_url":"https://api.github.com/users/gringocl/followers","following_url":"https://api.github.com/users/gringocl/following{/other_user}","gists_url":"https://api.github.com/users/gringocl/gists{/gist_id}","starred_url":"https://api.github.com/users/gringocl/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/gringocl/subscriptions","organizations_url":"https://api.github.com/users/gringocl/orgs","repos_url":"https://api.github.com/users/gringocl/repos","events_url":"https://api.github.com/users/gringocl/events{/privacy}","received_events_url":"https://api.github.com/users/gringocl/received_events","type":"User","site_admin":false},"body":"This
+        is a test body","created_at":"2016-01-08T01:37:36Z","updated_at":"2016-01-08T01:37:36Z","closed_at":null,"merged_at":null,"merge_commit_sha":null,"assignee":null,"milestone":null,"commits_url":"https://api.github.com/repos/substantial/startling-testing/pulls/29/commits","review_comments_url":"https://api.github.com/repos/substantial/startling-testing/pulls/29/comments","review_comment_url":"https://api.github.com/repos/substantial/startling-testing/pulls/comments{/number}","comments_url":"https://api.github.com/repos/substantial/startling-testing/issues/29/comments","statuses_url":"https://api.github.com/repos/substantial/startling-testing/statuses/b8def18f64a8dd8b7f2d69a77a82f69aed22c594","head":{"label":"substantial:feature/bin_start_starts_stories","ref":"feature/bin_start_starts_stories","sha":"b8def18f64a8dd8b7f2d69a77a82f69aed22c594","user":{"login":"substantial","id":79686,"avatar_url":"https://avatars.githubusercontent.com/u/79686?v=3","gravatar_id":"","url":"https://api.github.com/users/substantial","html_url":"https://github.com/substantial","followers_url":"https://api.github.com/users/substantial/followers","following_url":"https://api.github.com/users/substantial/following{/other_user}","gists_url":"https://api.github.com/users/substantial/gists{/gist_id}","starred_url":"https://api.github.com/users/substantial/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/substantial/subscriptions","organizations_url":"https://api.github.com/users/substantial/orgs","repos_url":"https://api.github.com/users/substantial/repos","events_url":"https://api.github.com/users/substantial/events{/privacy}","received_events_url":"https://api.github.com/users/substantial/received_events","type":"Organization","site_admin":false},"repo":{"id":49169099,"name":"startling-testing","full_name":"substantial/startling-testing","owner":{"login":"substantial","id":79686,"avatar_url":"https://avatars.githubusercontent.com/u/79686?v=3","gravatar_id":"","url":"https://api.github.com/users/substantial","html_url":"https://github.com/substantial","followers_url":"https://api.github.com/users/substantial/followers","following_url":"https://api.github.com/users/substantial/following{/other_user}","gists_url":"https://api.github.com/users/substantial/gists{/gist_id}","starred_url":"https://api.github.com/users/substantial/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/substantial/subscriptions","organizations_url":"https://api.github.com/users/substantial/orgs","repos_url":"https://api.github.com/users/substantial/repos","events_url":"https://api.github.com/users/substantial/events{/privacy}","received_events_url":"https://api.github.com/users/substantial/received_events","type":"Organization","site_admin":false},"private":true,"html_url":"https://github.com/substantial/startling-testing","description":"Testing
+        repo for startling","fork":false,"url":"https://api.github.com/repos/substantial/startling-testing","forks_url":"https://api.github.com/repos/substantial/startling-testing/forks","keys_url":"https://api.github.com/repos/substantial/startling-testing/keys{/key_id}","collaborators_url":"https://api.github.com/repos/substantial/startling-testing/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/substantial/startling-testing/teams","hooks_url":"https://api.github.com/repos/substantial/startling-testing/hooks","issue_events_url":"https://api.github.com/repos/substantial/startling-testing/issues/events{/number}","events_url":"https://api.github.com/repos/substantial/startling-testing/events","assignees_url":"https://api.github.com/repos/substantial/startling-testing/assignees{/user}","branches_url":"https://api.github.com/repos/substantial/startling-testing/branches{/branch}","tags_url":"https://api.github.com/repos/substantial/startling-testing/tags","blobs_url":"https://api.github.com/repos/substantial/startling-testing/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/substantial/startling-testing/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/substantial/startling-testing/git/refs{/sha}","trees_url":"https://api.github.com/repos/substantial/startling-testing/git/trees{/sha}","statuses_url":"https://api.github.com/repos/substantial/startling-testing/statuses/{sha}","languages_url":"https://api.github.com/repos/substantial/startling-testing/languages","stargazers_url":"https://api.github.com/repos/substantial/startling-testing/stargazers","contributors_url":"https://api.github.com/repos/substantial/startling-testing/contributors","subscribers_url":"https://api.github.com/repos/substantial/startling-testing/subscribers","subscription_url":"https://api.github.com/repos/substantial/startling-testing/subscription","commits_url":"https://api.github.com/repos/substantial/startling-testing/commits{/sha}","git_commits_url":"https://api.github.com/repos/substantial/startling-testing/git/commits{/sha}","comments_url":"https://api.github.com/repos/substantial/startling-testing/comments{/number}","issue_comment_url":"https://api.github.com/repos/substantial/startling-testing/issues/comments{/number}","contents_url":"https://api.github.com/repos/substantial/startling-testing/contents/{+path}","compare_url":"https://api.github.com/repos/substantial/startling-testing/compare/{base}...{head}","merges_url":"https://api.github.com/repos/substantial/startling-testing/merges","archive_url":"https://api.github.com/repos/substantial/startling-testing/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/substantial/startling-testing/downloads","issues_url":"https://api.github.com/repos/substantial/startling-testing/issues{/number}","pulls_url":"https://api.github.com/repos/substantial/startling-testing/pulls{/number}","milestones_url":"https://api.github.com/repos/substantial/startling-testing/milestones{/number}","notifications_url":"https://api.github.com/repos/substantial/startling-testing/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/substantial/startling-testing/labels{/name}","releases_url":"https://api.github.com/repos/substantial/startling-testing/releases{/id}","created_at":"2016-01-06T23:54:40Z","updated_at":"2016-01-06T23:54:40Z","pushed_at":"2016-01-08T01:37:34Z","git_url":"git://github.com/substantial/startling-testing.git","ssh_url":"git@github.com:substantial/startling-testing.git","clone_url":"https://github.com/substantial/startling-testing.git","svn_url":"https://github.com/substantial/startling-testing","homepage":null,"size":2,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"open_issues_count":1,"forks":0,"open_issues":1,"watchers":0,"default_branch":"master"}},"base":{"label":"substantial:master","ref":"master","sha":"da708ed9c04236279c6263e340c51a1125e4affa","user":{"login":"substantial","id":79686,"avatar_url":"https://avatars.githubusercontent.com/u/79686?v=3","gravatar_id":"","url":"https://api.github.com/users/substantial","html_url":"https://github.com/substantial","followers_url":"https://api.github.com/users/substantial/followers","following_url":"https://api.github.com/users/substantial/following{/other_user}","gists_url":"https://api.github.com/users/substantial/gists{/gist_id}","starred_url":"https://api.github.com/users/substantial/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/substantial/subscriptions","organizations_url":"https://api.github.com/users/substantial/orgs","repos_url":"https://api.github.com/users/substantial/repos","events_url":"https://api.github.com/users/substantial/events{/privacy}","received_events_url":"https://api.github.com/users/substantial/received_events","type":"Organization","site_admin":false},"repo":{"id":49169099,"name":"startling-testing","full_name":"substantial/startling-testing","owner":{"login":"substantial","id":79686,"avatar_url":"https://avatars.githubusercontent.com/u/79686?v=3","gravatar_id":"","url":"https://api.github.com/users/substantial","html_url":"https://github.com/substantial","followers_url":"https://api.github.com/users/substantial/followers","following_url":"https://api.github.com/users/substantial/following{/other_user}","gists_url":"https://api.github.com/users/substantial/gists{/gist_id}","starred_url":"https://api.github.com/users/substantial/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/substantial/subscriptions","organizations_url":"https://api.github.com/users/substantial/orgs","repos_url":"https://api.github.com/users/substantial/repos","events_url":"https://api.github.com/users/substantial/events{/privacy}","received_events_url":"https://api.github.com/users/substantial/received_events","type":"Organization","site_admin":false},"private":true,"html_url":"https://github.com/substantial/startling-testing","description":"Testing
+        repo for startling","fork":false,"url":"https://api.github.com/repos/substantial/startling-testing","forks_url":"https://api.github.com/repos/substantial/startling-testing/forks","keys_url":"https://api.github.com/repos/substantial/startling-testing/keys{/key_id}","collaborators_url":"https://api.github.com/repos/substantial/startling-testing/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/substantial/startling-testing/teams","hooks_url":"https://api.github.com/repos/substantial/startling-testing/hooks","issue_events_url":"https://api.github.com/repos/substantial/startling-testing/issues/events{/number}","events_url":"https://api.github.com/repos/substantial/startling-testing/events","assignees_url":"https://api.github.com/repos/substantial/startling-testing/assignees{/user}","branches_url":"https://api.github.com/repos/substantial/startling-testing/branches{/branch}","tags_url":"https://api.github.com/repos/substantial/startling-testing/tags","blobs_url":"https://api.github.com/repos/substantial/startling-testing/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/substantial/startling-testing/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/substantial/startling-testing/git/refs{/sha}","trees_url":"https://api.github.com/repos/substantial/startling-testing/git/trees{/sha}","statuses_url":"https://api.github.com/repos/substantial/startling-testing/statuses/{sha}","languages_url":"https://api.github.com/repos/substantial/startling-testing/languages","stargazers_url":"https://api.github.com/repos/substantial/startling-testing/stargazers","contributors_url":"https://api.github.com/repos/substantial/startling-testing/contributors","subscribers_url":"https://api.github.com/repos/substantial/startling-testing/subscribers","subscription_url":"https://api.github.com/repos/substantial/startling-testing/subscription","commits_url":"https://api.github.com/repos/substantial/startling-testing/commits{/sha}","git_commits_url":"https://api.github.com/repos/substantial/startling-testing/git/commits{/sha}","comments_url":"https://api.github.com/repos/substantial/startling-testing/comments{/number}","issue_comment_url":"https://api.github.com/repos/substantial/startling-testing/issues/comments{/number}","contents_url":"https://api.github.com/repos/substantial/startling-testing/contents/{+path}","compare_url":"https://api.github.com/repos/substantial/startling-testing/compare/{base}...{head}","merges_url":"https://api.github.com/repos/substantial/startling-testing/merges","archive_url":"https://api.github.com/repos/substantial/startling-testing/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/substantial/startling-testing/downloads","issues_url":"https://api.github.com/repos/substantial/startling-testing/issues{/number}","pulls_url":"https://api.github.com/repos/substantial/startling-testing/pulls{/number}","milestones_url":"https://api.github.com/repos/substantial/startling-testing/milestones{/number}","notifications_url":"https://api.github.com/repos/substantial/startling-testing/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/substantial/startling-testing/labels{/name}","releases_url":"https://api.github.com/repos/substantial/startling-testing/releases{/id}","created_at":"2016-01-06T23:54:40Z","updated_at":"2016-01-06T23:54:40Z","pushed_at":"2016-01-08T01:37:34Z","git_url":"git://github.com/substantial/startling-testing.git","ssh_url":"git@github.com:substantial/startling-testing.git","clone_url":"https://github.com/substantial/startling-testing.git","svn_url":"https://github.com/substantial/startling-testing","homepage":null,"size":2,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"open_issues_count":1,"forks":0,"open_issues":1,"watchers":0,"default_branch":"master"}},"_links":{"self":{"href":"https://api.github.com/repos/substantial/startling-testing/pulls/29"},"html":{"href":"https://github.com/substantial/startling-testing/pull/29"},"issue":{"href":"https://api.github.com/repos/substantial/startling-testing/issues/29"},"comments":{"href":"https://api.github.com/repos/substantial/startling-testing/issues/29/comments"},"review_comments":{"href":"https://api.github.com/repos/substantial/startling-testing/pulls/29/comments"},"review_comment":{"href":"https://api.github.com/repos/substantial/startling-testing/pulls/comments{/number}"},"commits":{"href":"https://api.github.com/repos/substantial/startling-testing/pulls/29/commits"},"statuses":{"href":"https://api.github.com/repos/substantial/startling-testing/statuses/b8def18f64a8dd8b7f2d69a77a82f69aed22c594"}}}]'
+    http_version: 
+  recorded_at: Fri, 08 Jan 2016 01:37:37 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/substantial/startling-testing/issues/29/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 3.8.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - token <GITHUB_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Fri, 08 Jan 2016 01:37:38 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '2'
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4888'
+      X-Ratelimit-Reset:
+      - '1452217337'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Last-Modified:
+      - Fri, 08 Jan 2016 01:37:36 GMT
+      Etag:
+      - '"10f69e00b0b3b8099f60019fd4b2d261"'
+      X-Oauth-Scopes:
+      - gist, repo, user
+      X-Accepted-Oauth-Scopes:
+      - ''
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Security-Policy:
+      - default-src 'none'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Served-By:
+      - 318e55760cf7cdb40e61175a4d36cd32
+      X-Github-Request-Id:
+      - C84A5D97:A39C:20E7C8F1:568F12E2
+    body:
+      encoding: UTF-8
+      string: "[]"
+    http_version: 
+  recorded_at: Fri, 08 Jan 2016 01:37:38 GMT
+- request:
+    method: put
+    uri: https://api.github.com/repos/substantial/startling-testing/issues/29/labels
+    body:
+      encoding: UTF-8
+      string: "[]"
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 3.8.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - token <GITHUB_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Fri, 08 Jan 2016 01:37:39 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '2'
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4887'
+      X-Ratelimit-Reset:
+      - '1452217337'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Etag:
+      - '"10f69e00b0b3b8099f60019fd4b2d261"'
+      X-Oauth-Scopes:
+      - gist, repo, user
+      X-Accepted-Oauth-Scopes:
+      - ''
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Security-Policy:
+      - default-src 'none'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Served-By:
+      - 5aeb3f30c9e3ef6ef7bcbcddfd9a68f7
+      X-Github-Request-Id:
+      - C84A5D97:A398:171746E0:568F12E3
+    body:
+      encoding: UTF-8
+      string: "[]"
+    http_version: 
+  recorded_at: Fri, 08 Jan 2016 01:37:39 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/substantial/startling-testing/pulls?state=open
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 3.8.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - token <GITHUB_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Fri, 08 Jan 2016 01:37:40 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4886'
+      X-Ratelimit-Reset:
+      - '1452217337'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Etag:
+      - W/"a5cf04a2466b58e30e769a8d3627d020"
+      X-Oauth-Scopes:
+      - gist, repo, user
+      X-Accepted-Oauth-Scopes:
+      - ''
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Security-Policy:
+      - default-src 'none'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Served-By:
+      - dc1ce2bfb41810a06c705e83b388572d
+      X-Github-Request-Id:
+      - C84A5D97:A394:5E7ECCB:568F12E3
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"url":"https://api.github.com/repos/substantial/startling-testing/pulls/29","id":55415114,"html_url":"https://github.com/substantial/startling-testing/pull/29","diff_url":"https://github.com/substantial/startling-testing/pull/29.diff","patch_url":"https://github.com/substantial/startling-testing/pull/29.patch","issue_url":"https://api.github.com/repos/substantial/startling-testing/issues/29","number":29,"state":"open","locked":false,"title":"The
+        Title","user":{"login":"gringocl","id":3166322,"avatar_url":"https://avatars.githubusercontent.com/u/3166322?v=3","gravatar_id":"","url":"https://api.github.com/users/gringocl","html_url":"https://github.com/gringocl","followers_url":"https://api.github.com/users/gringocl/followers","following_url":"https://api.github.com/users/gringocl/following{/other_user}","gists_url":"https://api.github.com/users/gringocl/gists{/gist_id}","starred_url":"https://api.github.com/users/gringocl/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/gringocl/subscriptions","organizations_url":"https://api.github.com/users/gringocl/orgs","repos_url":"https://api.github.com/users/gringocl/repos","events_url":"https://api.github.com/users/gringocl/events{/privacy}","received_events_url":"https://api.github.com/users/gringocl/received_events","type":"User","site_admin":false},"body":"This
+        is a test body","created_at":"2016-01-08T01:37:36Z","updated_at":"2016-01-08T01:37:39Z","closed_at":null,"merged_at":null,"merge_commit_sha":"3a59304ea2c3935243efbe2a2fd0037f2bb68091","assignee":null,"milestone":null,"commits_url":"https://api.github.com/repos/substantial/startling-testing/pulls/29/commits","review_comments_url":"https://api.github.com/repos/substantial/startling-testing/pulls/29/comments","review_comment_url":"https://api.github.com/repos/substantial/startling-testing/pulls/comments{/number}","comments_url":"https://api.github.com/repos/substantial/startling-testing/issues/29/comments","statuses_url":"https://api.github.com/repos/substantial/startling-testing/statuses/b8def18f64a8dd8b7f2d69a77a82f69aed22c594","head":{"label":"substantial:feature/bin_start_starts_stories","ref":"feature/bin_start_starts_stories","sha":"b8def18f64a8dd8b7f2d69a77a82f69aed22c594","user":{"login":"substantial","id":79686,"avatar_url":"https://avatars.githubusercontent.com/u/79686?v=3","gravatar_id":"","url":"https://api.github.com/users/substantial","html_url":"https://github.com/substantial","followers_url":"https://api.github.com/users/substantial/followers","following_url":"https://api.github.com/users/substantial/following{/other_user}","gists_url":"https://api.github.com/users/substantial/gists{/gist_id}","starred_url":"https://api.github.com/users/substantial/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/substantial/subscriptions","organizations_url":"https://api.github.com/users/substantial/orgs","repos_url":"https://api.github.com/users/substantial/repos","events_url":"https://api.github.com/users/substantial/events{/privacy}","received_events_url":"https://api.github.com/users/substantial/received_events","type":"Organization","site_admin":false},"repo":{"id":49169099,"name":"startling-testing","full_name":"substantial/startling-testing","owner":{"login":"substantial","id":79686,"avatar_url":"https://avatars.githubusercontent.com/u/79686?v=3","gravatar_id":"","url":"https://api.github.com/users/substantial","html_url":"https://github.com/substantial","followers_url":"https://api.github.com/users/substantial/followers","following_url":"https://api.github.com/users/substantial/following{/other_user}","gists_url":"https://api.github.com/users/substantial/gists{/gist_id}","starred_url":"https://api.github.com/users/substantial/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/substantial/subscriptions","organizations_url":"https://api.github.com/users/substantial/orgs","repos_url":"https://api.github.com/users/substantial/repos","events_url":"https://api.github.com/users/substantial/events{/privacy}","received_events_url":"https://api.github.com/users/substantial/received_events","type":"Organization","site_admin":false},"private":true,"html_url":"https://github.com/substantial/startling-testing","description":"Testing
+        repo for startling","fork":false,"url":"https://api.github.com/repos/substantial/startling-testing","forks_url":"https://api.github.com/repos/substantial/startling-testing/forks","keys_url":"https://api.github.com/repos/substantial/startling-testing/keys{/key_id}","collaborators_url":"https://api.github.com/repos/substantial/startling-testing/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/substantial/startling-testing/teams","hooks_url":"https://api.github.com/repos/substantial/startling-testing/hooks","issue_events_url":"https://api.github.com/repos/substantial/startling-testing/issues/events{/number}","events_url":"https://api.github.com/repos/substantial/startling-testing/events","assignees_url":"https://api.github.com/repos/substantial/startling-testing/assignees{/user}","branches_url":"https://api.github.com/repos/substantial/startling-testing/branches{/branch}","tags_url":"https://api.github.com/repos/substantial/startling-testing/tags","blobs_url":"https://api.github.com/repos/substantial/startling-testing/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/substantial/startling-testing/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/substantial/startling-testing/git/refs{/sha}","trees_url":"https://api.github.com/repos/substantial/startling-testing/git/trees{/sha}","statuses_url":"https://api.github.com/repos/substantial/startling-testing/statuses/{sha}","languages_url":"https://api.github.com/repos/substantial/startling-testing/languages","stargazers_url":"https://api.github.com/repos/substantial/startling-testing/stargazers","contributors_url":"https://api.github.com/repos/substantial/startling-testing/contributors","subscribers_url":"https://api.github.com/repos/substantial/startling-testing/subscribers","subscription_url":"https://api.github.com/repos/substantial/startling-testing/subscription","commits_url":"https://api.github.com/repos/substantial/startling-testing/commits{/sha}","git_commits_url":"https://api.github.com/repos/substantial/startling-testing/git/commits{/sha}","comments_url":"https://api.github.com/repos/substantial/startling-testing/comments{/number}","issue_comment_url":"https://api.github.com/repos/substantial/startling-testing/issues/comments{/number}","contents_url":"https://api.github.com/repos/substantial/startling-testing/contents/{+path}","compare_url":"https://api.github.com/repos/substantial/startling-testing/compare/{base}...{head}","merges_url":"https://api.github.com/repos/substantial/startling-testing/merges","archive_url":"https://api.github.com/repos/substantial/startling-testing/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/substantial/startling-testing/downloads","issues_url":"https://api.github.com/repos/substantial/startling-testing/issues{/number}","pulls_url":"https://api.github.com/repos/substantial/startling-testing/pulls{/number}","milestones_url":"https://api.github.com/repos/substantial/startling-testing/milestones{/number}","notifications_url":"https://api.github.com/repos/substantial/startling-testing/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/substantial/startling-testing/labels{/name}","releases_url":"https://api.github.com/repos/substantial/startling-testing/releases{/id}","created_at":"2016-01-06T23:54:40Z","updated_at":"2016-01-06T23:54:40Z","pushed_at":"2016-01-08T01:37:37Z","git_url":"git://github.com/substantial/startling-testing.git","ssh_url":"git@github.com:substantial/startling-testing.git","clone_url":"https://github.com/substantial/startling-testing.git","svn_url":"https://github.com/substantial/startling-testing","homepage":null,"size":2,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"open_issues_count":1,"forks":0,"open_issues":1,"watchers":0,"default_branch":"master"}},"base":{"label":"substantial:master","ref":"master","sha":"da708ed9c04236279c6263e340c51a1125e4affa","user":{"login":"substantial","id":79686,"avatar_url":"https://avatars.githubusercontent.com/u/79686?v=3","gravatar_id":"","url":"https://api.github.com/users/substantial","html_url":"https://github.com/substantial","followers_url":"https://api.github.com/users/substantial/followers","following_url":"https://api.github.com/users/substantial/following{/other_user}","gists_url":"https://api.github.com/users/substantial/gists{/gist_id}","starred_url":"https://api.github.com/users/substantial/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/substantial/subscriptions","organizations_url":"https://api.github.com/users/substantial/orgs","repos_url":"https://api.github.com/users/substantial/repos","events_url":"https://api.github.com/users/substantial/events{/privacy}","received_events_url":"https://api.github.com/users/substantial/received_events","type":"Organization","site_admin":false},"repo":{"id":49169099,"name":"startling-testing","full_name":"substantial/startling-testing","owner":{"login":"substantial","id":79686,"avatar_url":"https://avatars.githubusercontent.com/u/79686?v=3","gravatar_id":"","url":"https://api.github.com/users/substantial","html_url":"https://github.com/substantial","followers_url":"https://api.github.com/users/substantial/followers","following_url":"https://api.github.com/users/substantial/following{/other_user}","gists_url":"https://api.github.com/users/substantial/gists{/gist_id}","starred_url":"https://api.github.com/users/substantial/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/substantial/subscriptions","organizations_url":"https://api.github.com/users/substantial/orgs","repos_url":"https://api.github.com/users/substantial/repos","events_url":"https://api.github.com/users/substantial/events{/privacy}","received_events_url":"https://api.github.com/users/substantial/received_events","type":"Organization","site_admin":false},"private":true,"html_url":"https://github.com/substantial/startling-testing","description":"Testing
+        repo for startling","fork":false,"url":"https://api.github.com/repos/substantial/startling-testing","forks_url":"https://api.github.com/repos/substantial/startling-testing/forks","keys_url":"https://api.github.com/repos/substantial/startling-testing/keys{/key_id}","collaborators_url":"https://api.github.com/repos/substantial/startling-testing/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/substantial/startling-testing/teams","hooks_url":"https://api.github.com/repos/substantial/startling-testing/hooks","issue_events_url":"https://api.github.com/repos/substantial/startling-testing/issues/events{/number}","events_url":"https://api.github.com/repos/substantial/startling-testing/events","assignees_url":"https://api.github.com/repos/substantial/startling-testing/assignees{/user}","branches_url":"https://api.github.com/repos/substantial/startling-testing/branches{/branch}","tags_url":"https://api.github.com/repos/substantial/startling-testing/tags","blobs_url":"https://api.github.com/repos/substantial/startling-testing/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/substantial/startling-testing/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/substantial/startling-testing/git/refs{/sha}","trees_url":"https://api.github.com/repos/substantial/startling-testing/git/trees{/sha}","statuses_url":"https://api.github.com/repos/substantial/startling-testing/statuses/{sha}","languages_url":"https://api.github.com/repos/substantial/startling-testing/languages","stargazers_url":"https://api.github.com/repos/substantial/startling-testing/stargazers","contributors_url":"https://api.github.com/repos/substantial/startling-testing/contributors","subscribers_url":"https://api.github.com/repos/substantial/startling-testing/subscribers","subscription_url":"https://api.github.com/repos/substantial/startling-testing/subscription","commits_url":"https://api.github.com/repos/substantial/startling-testing/commits{/sha}","git_commits_url":"https://api.github.com/repos/substantial/startling-testing/git/commits{/sha}","comments_url":"https://api.github.com/repos/substantial/startling-testing/comments{/number}","issue_comment_url":"https://api.github.com/repos/substantial/startling-testing/issues/comments{/number}","contents_url":"https://api.github.com/repos/substantial/startling-testing/contents/{+path}","compare_url":"https://api.github.com/repos/substantial/startling-testing/compare/{base}...{head}","merges_url":"https://api.github.com/repos/substantial/startling-testing/merges","archive_url":"https://api.github.com/repos/substantial/startling-testing/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/substantial/startling-testing/downloads","issues_url":"https://api.github.com/repos/substantial/startling-testing/issues{/number}","pulls_url":"https://api.github.com/repos/substantial/startling-testing/pulls{/number}","milestones_url":"https://api.github.com/repos/substantial/startling-testing/milestones{/number}","notifications_url":"https://api.github.com/repos/substantial/startling-testing/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/substantial/startling-testing/labels{/name}","releases_url":"https://api.github.com/repos/substantial/startling-testing/releases{/id}","created_at":"2016-01-06T23:54:40Z","updated_at":"2016-01-06T23:54:40Z","pushed_at":"2016-01-08T01:37:37Z","git_url":"git://github.com/substantial/startling-testing.git","ssh_url":"git@github.com:substantial/startling-testing.git","clone_url":"https://github.com/substantial/startling-testing.git","svn_url":"https://github.com/substantial/startling-testing","homepage":null,"size":2,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"open_issues_count":1,"forks":0,"open_issues":1,"watchers":0,"default_branch":"master"}},"_links":{"self":{"href":"https://api.github.com/repos/substantial/startling-testing/pulls/29"},"html":{"href":"https://github.com/substantial/startling-testing/pull/29"},"issue":{"href":"https://api.github.com/repos/substantial/startling-testing/issues/29"},"comments":{"href":"https://api.github.com/repos/substantial/startling-testing/issues/29/comments"},"review_comments":{"href":"https://api.github.com/repos/substantial/startling-testing/pulls/29/comments"},"review_comment":{"href":"https://api.github.com/repos/substantial/startling-testing/pulls/comments{/number}"},"commits":{"href":"https://api.github.com/repos/substantial/startling-testing/pulls/29/commits"},"statuses":{"href":"https://api.github.com/repos/substantial/startling-testing/statuses/b8def18f64a8dd8b7f2d69a77a82f69aed22c594"}}}]'
+    http_version: 
+  recorded_at: Fri, 08 Jan 2016 01:37:40 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/substantial/startling-testing/issues/29/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 3.8.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - token <GITHUB_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Fri, 08 Jan 2016 01:37:41 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '2'
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4885'
+      X-Ratelimit-Reset:
+      - '1452217337'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Last-Modified:
+      - Fri, 08 Jan 2016 01:37:39 GMT
+      Etag:
+      - '"10f69e00b0b3b8099f60019fd4b2d261"'
+      X-Oauth-Scopes:
+      - gist, repo, user
+      X-Accepted-Oauth-Scopes:
+      - ''
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Security-Policy:
+      - default-src 'none'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Served-By:
+      - a6882e5cd2513376cb9481dbcd83f3a2
+      X-Github-Request-Id:
+      - C84A5D97:A398:1717478F:568F12E4
+    body:
+      encoding: UTF-8
+      string: "[]"
+    http_version: 
+  recorded_at: Fri, 08 Jan 2016 01:37:41 GMT
+recorded_with: VCR 2.9.3
