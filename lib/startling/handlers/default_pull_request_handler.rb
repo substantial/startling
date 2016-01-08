@@ -10,9 +10,7 @@ module Startling
       end
 
       def body
-        body = ask("Please input a pull request body: (default is empty)")
-        body = "" if body.empty?
-        body
+        Startling.pull_request_body
       end
 
       def commit_message

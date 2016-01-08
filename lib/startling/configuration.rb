@@ -10,13 +10,14 @@ module Startling
     DEFAULT_HANDLER_PATH = "startling/handlers"
     DEFAULT_WIP_LIMIT = 4
     DEFAULT_COMMIT_MESSAGE = "Startling"
+    DEFAULT_BODY = "Startling"
 
     DEFAULT_STARTLINGFILES = [
       'startlingfile.rb',
       'Startlingfile.rb'
     ].freeze
 
-    attr_accessor :cache_dir, :root_dir, :wip_limit, :repos, :story_handler,
+    attr_accessor :cache_dir, :root_dir, :wip_limit, :repos, :story_handler, :pull_request_body,
       :pull_request_handler, :pull_request_labels, :pull_request_commit_message, :cli_options
 
     def initialize
@@ -26,6 +27,7 @@ module Startling
       @repos = []
       @story_handler = nil
       @pull_request_handler = nil
+      @pull_request_body = DEFAULT_BODY
       @pull_request_commit_message = DEFAULT_COMMIT_MESSAGE
       @pull_request_labels = []
       @cli_options = []
