@@ -5,13 +5,12 @@ require 'startling/git_local'
 require 'startling/github'
 
 describe "bin/start" do
-  let(:feature_name) { 'bin_start_starts_stories' }
-  let(:feature_branch) { "feature/#{feature_name}" }
+  let(:feature_name) { 'bin-start-starts-stories' }
   let(:repo_default_branch) { 'master' }
   let(:pull_request_body) { "This is a test body" }
   let(:git) { Startling::GitLocal.new }
   let(:repo) { Startling::Github.repo(git.repo_name) }
-  let(:pull_request) { repo.pull_request(feature_branch) }
+  let(:pull_request) { repo.pull_request(feature_name) }
 
   before do
     local_configuration = <<CONFIG
@@ -72,7 +71,7 @@ CONFIG
     Startling.root_dir = Startling.cache_dir = "."
 
     git.checkout_branch repo_default_branch
-    git.destroy_branch feature_branch
+    git.destroy_branch feature_name
   end
 
   after do
@@ -98,8 +97,8 @@ CONFIG
     command = Startling::Command.new(args: [])
     command.execute
 
-    expect(git.remote_branches).to include feature_branch
-    expect(git.current_branch).to eq feature_branch
+    expect(git.remote_branches).to include feature_name
+    expect(git.current_branch).to eq feature_name
     expect(repo.default_branch).to eq repo_default_branch
   end
 
