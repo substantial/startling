@@ -44,10 +44,6 @@ module Startling
       remote_url[%r{([^/:]+/[^/]+)\.git}, 1]
     end
 
-    def current_branch_is_a_feature_branch?
-       current_branch =~ %r{^feature/}
-    end
-
     def project_root
      `git rev-parse --show-toplevel`.strip
     end

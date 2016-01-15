@@ -22,20 +22,8 @@ module Startling
       end
 
       def branch_name
-        @branch_name ||= get_branch_name
-      end
-
-      def get_branch_name
-        if branch.empty?
-          if git.current_branch_is_a_feature_branch?
-            return git.current_branch
-          else
-            abort "Branch name must be specified when current branch is not feature/."
-          end
-        end
-
-        branch.gsub!(/feature\//, '')
-        "feature/#{branch}".gsub(/\s+/, '-')
+        abort "Branch name must be specified." if branch.empty?
+        @branch_name ||= "#{branch}".gsub(/\s+/, '-')
       end
 
       private
