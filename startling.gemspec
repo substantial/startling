@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Startling::VERSION
   spec.authors       = ["Aaron Jensen", "Shaun Dern", "Jeff Forde"]
   spec.email         = ["tchdevs@substantial.com"]
-  spec.description   = %q{script for startling a Tch Story}
-  spec.summary       = %q{script for startling a Tch Story}
+  spec.description   = %q{script for startling a story}
+  spec.summary       = %q{script for startling a story}
   spec.homepage      = ""
   spec.license       = "MIT"
 
