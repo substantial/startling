@@ -76,3 +76,9 @@ TODO: Write usage instructions here
 
 1. Create `.env` from the Secure Note `startling .env` in
    LastPass.
+1. `gem install bundler`
+1. `bundle install`
+
+### Running tests
+
+`rake`
