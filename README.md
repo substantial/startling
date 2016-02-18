@@ -50,7 +50,7 @@ Startling.configure do |config|
   # config.story_handler = :pivotal_start
 
   # Validate branch name with a Proc that returns a boolean
-  # config.validate_branch_name = -> (branch_name) { /feature\\/.*/ =~ branch_name }
+  # config.validate_branch_name = -> (branch_name) { /feature\/.*/ =~ branch_name }
 
   # Message for pull request commit
   # config.pull_request_commit_message = "Startling"
