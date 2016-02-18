@@ -1,9 +1,13 @@
+require 'highline/import'
+require 'octokit'
 require_relative "base"
 
 module Startling
   module Commands
     class CreateBranch < Base
       def execute
+        abort "Branch name, #{branch_name}, is not valid" unless valid_branch_name?
+
         create_branch if branch_name != git.current_branch
         branch_name
       end
@@ -22,11 +26,28 @@ module Startling
       end
 
       def branch_name
-        abort "Branch name must be specified." if branch.empty?
-        @branch_name ||= "#{branch}".gsub(/\s+/, '-')
+        @branch_name ||= get_branch_name
+      end
+
+      def valid_branch_name?
+        (branch_name != default_branch) && custom_validate_branch_name
       end
 
       private
+
+      def get_branch_name
+        if branch.empty?
+          git.current_branch
+        else
+          "#{branch}".gsub(/\s+/, '-')
+        end
+      end
+
+      def custom_validate_branch_name
+        return true if Startling.validate_branch_name.nil?
+
+        Startling.validate_branch_name.call(branch_name)
+      end
 
       def branch
         @branch ||=

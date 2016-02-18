@@ -46,6 +46,9 @@ Startling.configure do |config|
   # Handler used to start a provider specific story related to the pull request
   # config.story_handler = :pivotal_start
 
+  # Validate branch name with a Proc that returns a boolean
+  # config.validate_branch_name = -> (branch_name) { /feature\\/.*/ =~ branch_name }
+
   # Message for pull request commit
   # config.pull_request_commit_message = "Startling"
 

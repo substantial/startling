@@ -25,13 +25,13 @@ Startlingfile.rb or startlingfile.rb should be defined in the root of the projec
 
 ```ruby
 Startling.configure do |config|
-  # WIP Limit 
+  # WIP Limit
   # config.wip_limit = 4
 
   # Repos to check against for WIP limit
   # config.repos << 'substantial/startling-dev'
 
-  # Valid story estimations 
+  # Valid story estimations
   # config.valid_estimates = [1, 2, 4, 8, 16, 32, 64, 128]
 
   # Commands to be run before a story is stared
@@ -47,10 +47,16 @@ Startling.configure do |config|
   # config.hook_commands.after_pull_request = []
 
   # Handler used to start a provider specific story related to the pull request
-  config.story_handler = :pivotal_start
+  # config.story_handler = :pivotal_start
+
+  # Validate branch name with a Proc that returns a boolean
+  # config.validate_branch_name = -> (branch_name) { /feature\/.*/ =~ branch_name }
 
   # Message for pull request commit
   # config.pull_request_commit_message = "Startling"
+
+  # Message for pull request body
+  # config.pull_request_body = "Startling Body"
 
   # Labels for a pull request
   # config.pull_request_labels = [WIP, REVIEW, HOLD]
