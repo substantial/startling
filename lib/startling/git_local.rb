@@ -48,10 +48,18 @@ module Startling
      `git rev-parse --show-toplevel`.strip
     end
 
+    def current_branch_has_no_commits?(base_branch: 'origin/master')
+      revision_sha(base_branch) == revision_sha('HEAD')
+    end
+
     private
 
     def remote_url
       `git config --get remote.origin.url`.strip
+    end
+
+    def revision_sha(revision)
+      Shell.run "git rev-parse #{revision}"
     end
   end
 end
