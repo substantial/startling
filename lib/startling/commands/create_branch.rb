@@ -1,3 +1,5 @@
+require 'highline/import'
+require 'octokit'
 require_relative "base"
 
 module Startling
@@ -22,11 +24,26 @@ module Startling
       end
 
       def branch_name
-        abort "Branch name must be specified." if branch.empty?
-        @branch_name ||= "#{branch}".gsub(/\s+/, '-')
+        @branch_name ||= get_branch_name
       end
 
       private
+
+      def get_branch_name
+        return check_current_branch if branch.empty?
+
+        "#{branch}".gsub(/\s+/, '-')
+      end
+
+      def check_current_branch
+        current_branch = git.current_branch
+
+        if current_branch == default_branch
+          abort 'Branch name must be specified when current branch is default branch'
+        else
+          return current_branch
+        end
+      end
 
       def branch
         @branch ||=
