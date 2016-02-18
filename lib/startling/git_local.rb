@@ -23,7 +23,7 @@ module Startling
     end
 
     def create_empty_commit(message)
-      Shell.run "git commit --allow-empty -m #{message}"
+      Shell.run "git commit --allow-empty -m '#{message}'"
     end
 
     def create_remote_branch(branch_name, base_branch: 'origin/master')
