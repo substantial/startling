@@ -15,7 +15,11 @@ module Startling
 
       def open_pull_request
         puts "Opening pull request..."
-        git.create_empty_commit(pull_request_handler.commit_message)
+
+        if git.current_branch_has_no_commits?
+          git.create_empty_commit(pull_request_handler.commit_message)
+        end
+
         git.push_origin_head
 
         repo.open_pull_request title: pull_request_handler.title,
