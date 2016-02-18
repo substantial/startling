@@ -6,6 +6,8 @@ module Startling
   module Commands
     class CreateBranch < Base
       def execute
+        abort "Branch name, #{branch_name}, is not valid" unless valid_branch_name?
+
         create_branch if branch_name != git.current_branch
         branch_name
       end
@@ -27,22 +29,24 @@ module Startling
         @branch_name ||= get_branch_name
       end
 
+      def valid_branch_name?
+        (branch_name != default_branch) && custom_validate_branch_name
+      end
+
       private
 
       def get_branch_name
-        return check_current_branch if branch.empty?
-
-        "#{branch}".gsub(/\s+/, '-')
+        if branch.empty?
+          git.current_branch
+        else
+          "#{branch}".gsub(/\s+/, '-')
+        end
       end
 
-      def check_current_branch
-        current_branch = git.current_branch
+      def custom_validate_branch_name
+        return true if Startling.validate_branch_name.nil?
 
-        if current_branch == default_branch
-          abort 'Branch name must be specified when current branch is default branch'
-        else
-          return current_branch
-        end
+        Startling.validate_branch_name.call(branch_name)
       end
 
       def branch

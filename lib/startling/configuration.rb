@@ -17,8 +17,9 @@ module Startling
       'Startlingfile.rb'
     ].freeze
 
-    attr_accessor :cache_dir, :root_dir, :wip_limit, :repos, :story_handler, :pull_request_body,
-      :pull_request_handler, :pull_request_labels, :pull_request_commit_message, :cli_options
+    attr_accessor :cache_dir, :root_dir, :wip_limit, :repos, :story_handler,
+      :validate_branch_name, :pull_request_body, :pull_request_handler,
+      :pull_request_labels, :pull_request_commit_message, :cli_options
 
     def initialize
       @cache_dir = Dir.pwd
@@ -26,6 +27,7 @@ module Startling
       @wip_limit = DEFAULT_WIP_LIMIT
       @repos = []
       @story_handler = nil
+      @validate_branch_name = nil
       @pull_request_handler = nil
       @pull_request_body = DEFAULT_BODY
       @pull_request_commit_message = DEFAULT_COMMIT_MESSAGE
