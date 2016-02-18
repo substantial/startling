@@ -62,7 +62,7 @@ Startling.configure do |config|
   # config.pull_request_labels = [WIP, REVIEW, HOLD]
 
   # Handler used for setting the title and body of a pull request
-  #config.pull_request_handler = :#{pull_request_handler_file}
+  #config.pull_request_handler = :custom_pull_request_handler
 end
 ```
 
