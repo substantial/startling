@@ -25,6 +25,9 @@ Startling.configure do |config|
   # WIP Limit
   # config.wip_limit = 4
 
+  # Labels for WIP pull requests
+  # config.wip_labels = ["WIP", "REVIEW"]
+
   # Repos to check against for WIP limit
   # config.repos << 'substantial/startling-dev'
 

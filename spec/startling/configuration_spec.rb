@@ -19,6 +19,10 @@ module Startling
           .to eql(Configuration::DEFAULT_WIP_LIMIT)
       end
 
+      it "sets the WIP labels to empty" do
+        expect(configuration.wip_labels).to eql([])
+      end
+
       it "sets the default repos to empty" do
         expect(configuration.repos).to eql([])
       end
@@ -51,6 +55,13 @@ module Startling
       it "can set the value" do
         configuration.wip_limit = 6
         expect(configuration.wip_limit).to eql(6)
+      end
+    end
+
+    describe "#wip_labels" do
+      it "can set the value" do
+        configuration.wip_labels = ['WIP']
+        expect(configuration.wip_labels).to eql(['WIP'])
       end
     end
 
