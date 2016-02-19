@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "excon"
   spec.add_development_dependency "dotenv"
 
-  spec.add_dependency "octokit", "~> 3.7"
+  spec.add_dependency "octokit", "~> 4.2"
   spec.add_dependency "highline", "~> 1.6"
   spec.add_dependency "paint", "~> 0.9"
   spec.add_dependency "parallel", "~> 1.4"
