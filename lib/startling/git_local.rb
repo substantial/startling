@@ -1,3 +1,4 @@
+require 'shellwords'
 require_relative 'shell'
 
 module Startling
@@ -23,7 +24,7 @@ module Startling
     end
 
     def create_empty_commit(message)
-      Shell.run "git commit --allow-empty -m #{message}"
+      Shell.run "git commit --allow-empty -m #{Shellwords.escape(message)}"
     end
 
     def create_remote_branch(branch_name, base_branch: 'origin/master')
