@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/startling'
+
+Startling::Configuration.load_configuration
+wip = Startling::Work.in_progress
+Startling::WorkPrinter.new.print wip
