@@ -32,7 +32,7 @@ Startling.configure do |config|
   # config.wip_labels = ["WIP", "REVIEW"]
 
   # Repos to check against for WIP limit
-  # config.repos << 'substantial/startling-dev'
+  # config.repos = ["substantial/startling"]
 
   # Valid story estimations
   # config.valid_estimates = [1, 2, 4, 8, 16, 32, 64, 128]
