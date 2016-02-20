@@ -1,6 +1,7 @@
 require 'startling/git_local'
 require 'startling/github'
 require 'startling/colorize_string'
+require 'startling/commands/check_wip'
 require 'startling/commands/label_pull_request'
 require 'startling/handlers/default_pull_request_handler'
 
