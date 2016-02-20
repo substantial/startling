@@ -9,8 +9,5 @@ VCR.configure do |config|
   config.filter_sensitive_data '<GITHUB_ACCESS_TOKEN>' do
     ENV.fetch "TEST_GITHUB_ACCESS_TOKEN"
   end
-  config.filter_sensitive_data '<PIVOTAL_API_TOKEN>' do
-    ENV.fetch "TEST_PIVOTAL_TRACKER_API_TOKEN"
-  end
   config.configure_rspec_metadata!
 end
