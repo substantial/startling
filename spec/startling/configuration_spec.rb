@@ -4,6 +4,11 @@ require 'startling'
 module Startling
   describe Configuration do
     let(:configuration) { Configuration.new }
+    let(:current_repo) { 'current' }
+
+    before do
+      allow_any_instance_of(GitLocal).to receive(:repo_name) { current_repo }
+    end
 
     describe "Default settings" do
       it "sets the default cache_dir to pwd" do
@@ -23,8 +28,8 @@ module Startling
         expect(configuration.wip_labels).to eql([])
       end
 
-      it "sets the default repos to empty" do
-        expect(configuration.repos).to eql([])
+      it "sets the default repos to the current repo" do
+        expect(configuration.repos).to eql([current_repo])
       end
 
       it "sets the default pull request commit message" do
@@ -68,7 +73,7 @@ module Startling
     describe "#repos" do
       it "can set the value" do
         configuration.repos << "repo path"
-        expect(configuration.repos).to eql(["repo path"])
+        expect(configuration.repos).to eql([current_repo, "repo path"])
       end
     end
 

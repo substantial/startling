@@ -27,7 +27,7 @@ module Startling
       @root_dir = Dir.pwd
       @wip_limit = DEFAULT_WIP_LIMIT
       @wip_labels = []
-      @repos = []
+      @repos = [GitLocal.new.repo_name]
       @story_handler = nil
       @validate_branch_name = nil
       @pull_request_handler = nil
