@@ -33,10 +33,10 @@ module Startling
 
     def count(works)
       count = works.count
-      case count
-      when ->(c) { c > Startling.wip_limit }
+
+      if count > Startling.wip_limit
         count.to_s.red
-      when ->(c) { c == Startling.wip_limit }
+      elsif count == Startling.wip_limit
         count.to_s.yellow
       else
         count.to_s.blue
