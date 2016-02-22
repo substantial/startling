@@ -17,7 +17,8 @@ describe Startling::Commands::CreatePullRequest do
       )
     end
 
-    let(:repo) { double(:repo, open_pull_request: true) }
+    let(:pull_request) { double(:pull_request, url: 'pull request URL') }
+    let(:repo) { double(:repo, open_pull_request: pull_request) }
 
     before do
       allow(create_pull_request).to receive(:pull_request_handler) { pull_request_handler }
