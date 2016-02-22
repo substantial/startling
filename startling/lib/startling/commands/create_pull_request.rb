@@ -22,8 +22,12 @@ module Startling
 
         git.push_origin_head
 
-        repo.open_pull_request title: pull_request_handler.title,
+        pull_request = repo.open_pull_request title: pull_request_handler.title,
           body: pull_request_handler.body, branch: @branch_name
+
+        puts pull_request.url if pull_request
+
+        pull_request
       end
 
       def repo
