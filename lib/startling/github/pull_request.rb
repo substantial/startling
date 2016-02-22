@@ -22,7 +22,9 @@ module Startling
       end
 
       def in_progress?
-        label_names.any? { |label| label.match(/(WIP|REVIEW)/) }
+        return true if Startling.wip_labels.empty?
+
+        (label_names & Startling.wip_labels).size > 0
       end
 
       def label_names
@@ -46,6 +48,7 @@ module Startling
       end
 
       private
+
       def prefetch_data
         author
       end

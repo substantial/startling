@@ -1,6 +1,7 @@
 require 'startling/git_local'
 require 'startling/github'
 require 'startling/colorize_string'
+require 'startling/commands/check_wip'
 require 'startling/commands/label_pull_request'
 require 'startling/handlers/default_pull_request_handler'
 
@@ -17,7 +18,7 @@ module Startling
       'Startlingfile.rb'
     ].freeze
 
-    attr_accessor :cache_dir, :root_dir, :wip_limit, :repos, :story_handler,
+    attr_accessor :cache_dir, :root_dir, :wip_limit, :wip_labels, :repos, :story_handler,
       :validate_branch_name, :pull_request_body, :pull_request_handler,
       :pull_request_labels, :pull_request_commit_message, :cli_options
 
@@ -25,7 +26,8 @@ module Startling
       @cache_dir = Dir.pwd
       @root_dir = Dir.pwd
       @wip_limit = DEFAULT_WIP_LIMIT
-      @repos = []
+      @wip_labels = []
+      @repos = [GitLocal.new.repo_name]
       @story_handler = nil
       @validate_branch_name = nil
       @pull_request_handler = nil
