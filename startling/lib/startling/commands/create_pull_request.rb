@@ -14,7 +14,7 @@ module Startling
       end
 
       def open_pull_request
-        puts "Opening pull request..."
+        logger.info "Opening pull request..."
 
         if git.current_branch_has_no_commits?
           git.create_empty_commit(pull_request_handler.commit_message)
@@ -25,7 +25,7 @@ module Startling
         pull_request = repo.open_pull_request title: pull_request_handler.title,
           body: pull_request_handler.body, branch: @branch_name
 
-        puts pull_request.url if pull_request
+        logger.info pull_request.url if pull_request
 
         pull_request
       end
