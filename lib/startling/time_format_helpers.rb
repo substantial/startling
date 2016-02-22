@@ -24,7 +24,7 @@ module Startling
       if hours < 1
         pretty_time = "less than an hour"
       else
-        pretty_time = pluralize(hours, 'hour', 'hours')
+        pretty_time = pluralize(hours, 'hour')
       end
 
       "#{pretty_time} #{time_suffix}"
