@@ -1,6 +1,6 @@
 require 'highline/import'
-require 'octokit'
 require_relative "base"
+require_relative "../github"
 
 module Startling
   module Commands

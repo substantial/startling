@@ -32,6 +32,23 @@ module Startling
         expect(configuration.repos).to eql([current_repo])
       end
 
+      it "sets the default story handler to nil" do
+        expect(configuration.story_handler).to eql(nil)
+      end
+
+      it "sets the default branch name validator to nil" do
+        expect(configuration.validate_branch_name).to eql(nil)
+      end
+
+      it "sets the default pull request handler to nil" do
+        expect(configuration.pull_request_handler).to eql(nil)
+      end
+
+      it "sets the default pull request body" do
+        expect(configuration.pull_request_body)
+          .to eql(Configuration::DEFAULT_BODY)
+      end
+
       it "sets the default pull request commit message" do
         expect(configuration.pull_request_commit_message)
           .to eql(Configuration::DEFAULT_COMMIT_MESSAGE)
@@ -74,6 +91,35 @@ module Startling
       it "can set the value" do
         configuration.repos << "repo path"
         expect(configuration.repos).to eql([current_repo, "repo path"])
+      end
+    end
+
+    describe "#story_handler" do
+      it "can set the value" do
+        configuration.story_handler = :pivotal_start
+        expect(configuration.story_handler).to eql(:pivotal_start)
+      end
+    end
+
+    describe "#validate_branch_name" do
+      it "can set the value" do
+        validate_branch_name = -> (branch_name) { /feature\/.*/ =~ branch_name }
+        configuration.validate_branch_name = validate_branch_name
+        expect(configuration.validate_branch_name).to eql(validate_branch_name)
+      end
+    end
+
+    describe "#pull_request_handler" do
+      it "can set the value" do
+        configuration.pull_request_handler = :custom
+        expect(configuration.pull_request_handler).to eql(:custom)
+      end
+    end
+
+    describe "#pull_request_body" do
+      it "can set the value" do
+        configuration.pull_request_body = "Startling Body"
+        expect(configuration.pull_request_body).to eql("Startling Body")
       end
     end
 

@@ -23,45 +23,45 @@ module Startling
     end
 
     def execute
-      Commands::CheckForLocalMods.run(git: git)
       command_args = cli_options.merge(git: git)
 
-      # Before Start Story
-      Startling.hook_commands.before_story_start.map do |command|
-        command_class(command).send(RUN, command_args)
-      end
+      check_for_local_mods
 
-      # Start story
-      story = command_class(Startling.story_handler)
-        .send(RUN, command_args) if Startling.story_handler
-      command_args.merge!(story: story)
+      run_hook_commands(hook: :before_story_start, command_args: command_args)
+      start_story(command_args)
+      run_hook_commands(hook: :after_story_start, command_args: command_args)
 
-      # After Story Start
-      Startling.hook_commands.after_story_start.map do |command|
-        command_class(command)
-          .send(RUN, command_args)
-      end
-
-      #Before Pull Request Creation
-      Startling.hook_commands.before_pull_request.map do |command|
-        command_class(command)
-          .send(RUN, command_args)
-      end
-
-      # Create pull request
-      pull_request = command_class(:create_pull_request)
-        .send(RUN, command_args)
-      command_args.merge!(pull_request: pull_request)
-
-      # After Pull Request Creation
-      Startling.hook_commands.after_pull_request.map do |command|
-        command_class(command)
-          .send(RUN, command_args)
-      end
+      run_hook_commands(hook: :before_pull_request, command_args: command_args)
+      create_pull_request(command_args)
+      run_hook_commands(hook: :after_pull_request, command_args: command_args)
     end
 
     def git
       @git ||= GitLocal.new
+    end
+
+    private
+
+    def check_for_local_mods
+      Commands::CheckForLocalMods.run(git: git)
+    end
+
+    def run_hook_commands(hook:, command_args:)
+      Startling.hook_commands.send(hook).map do |command|
+        command_class(command).send(RUN, command_args)
+      end
+    end
+
+    def start_story(command_args)
+      story = command_class(Startling.story_handler)
+        .send(RUN, command_args) if Startling.story_handler
+      command_args.merge!(story: story)
+    end
+
+    def create_pull_request(command_args)
+      pull_request = command_class(:create_pull_request)
+        .send(RUN, command_args)
+      command_args.merge!(pull_request: pull_request)
     end
   end
 end

@@ -24,9 +24,6 @@ Startling.configure do |config|
   # Repos to check against for WIP limit
   # config.repos << "substantial/startling"
 
-  # Valid story estimations
-  # config.valid_estimates = [1, 2, 4, 8, 16, 32, 64, 128]
-
   # Commands to be run before a story is stared
   # config.hook_commands.before_story_start = [:check_wip]
 
