@@ -1,4 +1,5 @@
 require 'startling'
+require_relative 'api'
 
 module StartlingPivotal
   class Helper
@@ -6,7 +7,7 @@ module StartlingPivotal
       @api_token ||= Startling.cache.fetch('.pivotal_api_token') do
         username = ask("Enter your Pivotal Tracker username:  ")
         password = ask("Enter your Pivotal Tracker password:  ") { |q| q.echo = false }
-        PivotalTracker::Api.api_token_for_user(username, password)
+        Api.api_token_for_user(username, password)
       end
     end
   end
