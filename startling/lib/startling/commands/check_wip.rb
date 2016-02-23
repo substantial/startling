@@ -10,7 +10,7 @@ module Startling
       using ColorizeString
 
       def execute
-        puts "Checking WIP..."
+        logger.info "Checking WIP..."
         wip = Work.in_progress
         if wip.count >= Startling.wip_limit
           WorkPrinter.new.print wip

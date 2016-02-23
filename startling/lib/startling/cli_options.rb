@@ -10,7 +10,7 @@ Example:
 $ start 12345 my branch name
 USE
     def self.parse
-      options = {story_id: nil, branch_name: nil}
+      options = {story_id: nil, branch_name: nil, verbose: false}
       parser = OptionParser.new do |opts|
         opts.banner = USAGE
 
@@ -20,6 +20,10 @@ USE
 
         opts.on('-b', '--branch branch', 'Branch name (Can be separated by spaces or dashes.)') do |branch|
           options[:branch_name] = branch
+        end
+
+        opts.on('-v', '--verbose', 'Verbose logging') do
+          options[:verbose] = true
         end
 
         Startling.cli_options.each do |user_opt|

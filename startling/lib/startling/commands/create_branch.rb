@@ -17,7 +17,7 @@ module Startling
       end
 
       def create_branch
-        puts "Creating branch #{branch_name}..."
+        logger.info "Creating branch #{branch_name}..."
         git.create_remote_branch(branch_name, base_branch: "origin/#{default_branch}")
       end
 

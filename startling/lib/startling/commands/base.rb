@@ -1,7 +1,9 @@
+require 'logger'
+
 module Startling
   module Commands
     class Base
-      attr_reader :cli_options
+      attr_reader :cli_options, :logger
 
       def self.run(attrs={})
         new(attrs).execute
@@ -13,32 +15,36 @@ module Startling
           self.class.__send__(:attr_reader, attr)
           instance_variable_set("@#{attr}", value)
         end
+
+        @logger = Logger.new(STDOUT)
+        @logger.formatter = -> (severity, datetime, progname, msg) { "#{msg}\n" }
+        @logger.level = (attrs[:verbose]) ? Logger::DEBUG : Logger::INFO
       end
 
       def execute
         raise NotImplementedError
       end
 
-      def self.load_configuration
+      def load_configuration
         loaded_configuration_path = Startling::Configuration.load_configuration
         if loaded_configuration_path
-          puts "Loading configuration #{loaded_configuration_path}"
+          logger.debug "Loading configuration #{loaded_configuration_path}"
         else
-          puts "Using default configuration"
+          logger.debug "Using default configuration"
         end
       end
 
-      def self.load_commands
+      def load_commands
         loaded_commands_path = Startling::Configuration.load_commands
         if loaded_commands_path
-          puts "Loading commands #{loaded_commands_path}"
+          logger.debug "Loading commands #{loaded_commands_path}"
         end
       end
 
-      def self.load_handlers
+      def load_handlers
         loaded_handlers_path = Startling::Configuration.load_handlers
         if loaded_handlers_path
-          puts "Loading handlers #{loaded_handlers_path}"
+          logger.debug "Loading handlers #{loaded_handlers_path}"
         end
       end
 
@@ -61,13 +67,13 @@ module Startling
       end
 
       def print_name_error_message(name, path)
-        puts "Error loading #{to_camel_case(name.to_s)}. Is it defined in #{path}?"
+        logger.fatal "Error loading #{to_camel_case(name.to_s)}. Is it defined in #{path}?"
       end
 
       def print_args(context)
-        puts "== Instance vars from #{context} ==>"
+        logger.debug "== Instance vars from #{context} ==>"
         instance_variables.each do |var|
-          puts "#{var}: #{instance_variable_get(var)}"
+          logger.debug "#{var}: #{instance_variable_get(var)}"
         end
       end
 

@@ -11,18 +11,18 @@ module Startling
     RUN = "run"
 
     def self.run(attrs={})
-      load_configuration
-
       options = Startling::CliOptions.parse
       options.merge!(attrs)
       options.merge({argv: ARGV, args: ARGV})
 
-      load_commands
-      load_handlers
       super(options)
     end
 
     def execute
+      load_configuration
+      load_commands
+      load_handlers
+
       command_args = cli_options.merge(git: git)
 
       check_for_local_mods

@@ -58,7 +58,7 @@ CONFIG
 
     File.open('startlingfile.rb', 'w') { |file| file.write(local_configuration) }
 
-    Startling::Commands::Base.load_configuration
+    Startling::Configuration.load_configuration
 
     test_repo_path = "tmp/test_repo"
     FileUtils.mkdir_p "tmp"
