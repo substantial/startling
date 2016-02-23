@@ -6,9 +6,6 @@ VCR.configure do |config|
   config.default_cassette_options = {
     allow_unused_http_interactions: false
   }
-  config.filter_sensitive_data '<GITHUB_ACCESS_TOKEN>' do
-    ENV.fetch "TEST_GITHUB_ACCESS_TOKEN"
-  end
   config.filter_sensitive_data '<PIVOTAL_API_TOKEN>' do
     ENV.fetch "TEST_PIVOTAL_TRACKER_API_TOKEN"
   end
