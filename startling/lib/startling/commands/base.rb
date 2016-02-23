@@ -18,7 +18,7 @@ module Startling
 
         @logger = Logger.new(STDOUT)
         @logger.formatter = -> (severity, datetime, progname, msg) { "#{msg}\n" }
-        @logger.level = Logger::INFO
+        @logger.level = (attrs[:verbose]) ? Logger::DEBUG : Logger::INFO
       end
 
       def execute
