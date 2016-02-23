@@ -3,12 +3,6 @@ require 'startling/cli_options'
 require 'startling/cache'
 require 'startling/configuration'
 
-# Optionally load plugins
-begin
-  require 'startling_pivotal'
-rescue LoadError
-end
-
 module Startling
   class << self
     attr_writer :configuration
