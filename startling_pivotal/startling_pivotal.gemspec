@@ -6,7 +6,7 @@ require 'startling_pivotal/version'
 Gem::Specification.new do |spec|
   spec.name          = "startling_pivotal"
   spec.version       = StartlingPivotal::VERSION
-  spec.authors       = ["Jeff Forde"]
+  spec.authors       = ["Jeff Forde", "Cassie Koomjian"]
   spec.email         = ["tchdevs@substantial.com"]
   spec.description   = %q{Startling Pivotal Api}
   spec.summary       = %q{Startling Pivotal Api}

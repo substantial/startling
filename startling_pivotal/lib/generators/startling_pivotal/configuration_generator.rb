@@ -9,7 +9,7 @@ module StartlingPivotal
 <<CONFIG
 StartlingPivotal.configure do |config|
   # Valid story estimations
-  # config.valid_estimates = [1, 2, 4, 8, 16, 32, 64, 128]
+  # config.valid_estimates = [1, 2, 3]
 end
 CONFIG
         end
