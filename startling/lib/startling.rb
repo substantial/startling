@@ -7,7 +7,6 @@ require 'startling/configuration'
 begin
   require 'startling_pivotal'
 rescue LoadError
-  puts 'could not load startling_pivotal plugin'
 end
 
 module Startling
