@@ -37,7 +37,7 @@ module Startling
       end
 
       def prompt_for_story_id
-        result = ask("Enter story id to start: ")
+        result = ask("Enter story id to start: ").gsub(/[^0-9]/, '')
         abort "Pivotal id must be specified." if result.empty?
         result
       end
