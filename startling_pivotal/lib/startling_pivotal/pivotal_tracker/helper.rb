@@ -1,3 +1,5 @@
+require 'startling'
+
 module StartlingPivotal
   class PivotalTracker
     class Helper

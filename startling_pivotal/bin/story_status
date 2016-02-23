@@ -2,19 +2,21 @@
 
 exit 1 if ARGV.empty?
 
-require_relative '../lib/startling'
+require_relative '../lib/startling_pivotal/pivotal_tracker/api'
+require_relative '../lib/startling_pivotal/pivotal_tracker/helper'
+require_relative '../lib/startling_pivotal/pivotal_tracker/story'
 
 module StoryStatusHelper
   def self.token
-    @token ||= Startling::Command.new.pivotal_api_token
+    @token ||= StartlingPivotal::PivotalTracker::Helper.new.api_token
   end
 
   def self.api
-    @api ||= Startling::PivotalTracker::Api.new(api_token: token)
+    @api ||= StartlingPivotal::PivotalTracker::Api.new(api_token: token)
   end
 
   def self.story_details(id)
-    Startling::PivotalTracker::Story.new(id, api)
+    StartlingPivotal::PivotalTracker::Story.new(id, api)
   end
 end
 
