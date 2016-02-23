@@ -17,6 +17,10 @@ module StartlingPivotal
     @configuration ||= Configuration.new
   end
 
+  def self.configure
+    yield(configuration)
+  end
+
   def self.api
     @api ||= Api.new(api_token: Helper.new.api_token)
   end
