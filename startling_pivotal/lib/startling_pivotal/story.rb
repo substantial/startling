@@ -1,5 +1,7 @@
+require 'startling'
+
 module StartlingPivotal
-  class Story
+  class Story < Startling::Story
     attr_reader :story_id, :token, :api
 
     def initialize(story_id, api)
