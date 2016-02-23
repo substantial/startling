@@ -2,29 +2,11 @@
 
 exit 1 if ARGV.empty?
 
-require_relative '../lib/startling'
-
-module StoryStatusHelper
-  def self.token
-    @token ||= Startling::Command.new.pivotal_api_token
-  end
-
-  def self.api
-    @api ||= Startling::PivotalTracker::Api.new(api_token: token)
-  end
-
-  def self.story_details(id)
-    Startling::PivotalTracker::Story.new(id, api)
-  end
-end
-
-def story_details(id)
-  StoryStatusHelper.story_details(id)
-end
+require_relative '../lib/startling_pivotal'
 
 story_states = []
 ARGV.each do |story_id|
-  story_states << story_details(story_id).current_state
+  story_states << StartlingPivotal.story(story_id).current_state
 end
 
 puts ( story_states.all? { |s| s == "accepted" } ) ?

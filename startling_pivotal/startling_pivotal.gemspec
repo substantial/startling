@@ -4,9 +4,9 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'startling_pivotal/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "startling-pivotal"
+  spec.name          = "startling_pivotal"
   spec.version       = StartlingPivotal::VERSION
-  spec.authors       = ["Jeff Forde"]
+  spec.authors       = ["Jeff Forde", "Cassie Koomjian"]
   spec.email         = ["tchdevs@substantial.com"]
   spec.description   = %q{Startling Pivotal Api}
   spec.summary       = %q{Startling Pivotal Api}
@@ -26,5 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "excon"
   spec.add_development_dependency "dotenv"
   spec.add_development_dependency "vcr", "~> 2.9"
+  spec.add_dependency "startling"
   spec.add_dependency "faraday", "~> 0.9"
 end
