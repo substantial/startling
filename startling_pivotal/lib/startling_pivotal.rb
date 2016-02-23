@@ -1,6 +1,7 @@
 require_relative 'startling_pivotal/api'
 require_relative 'startling_pivotal/helper'
 require_relative 'startling_pivotal/story'
+require_relative 'startling_pivotal/commands/pivotal_start'
 
 module StartlingPivotal
   def self.api
