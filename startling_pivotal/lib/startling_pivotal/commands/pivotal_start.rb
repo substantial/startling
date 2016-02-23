@@ -5,6 +5,8 @@ module Startling
   module Commands
     class PivotalStart < Base
       def execute
+        StartlingPivotal::Configuration.load_configuration
+
         puts "Starting story..."
         estimate = ask_for_estimate unless story.estimated?
         story_owners = [StartlingPivotal.user_id]
