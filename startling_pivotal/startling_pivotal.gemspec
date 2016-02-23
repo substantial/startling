@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'startling_pivotal/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "startling-pivotal"
+  spec.name          = "startling_pivotal"
   spec.version       = StartlingPivotal::VERSION
   spec.authors       = ["Jeff Forde"]
   spec.email         = ["tchdevs@substantial.com"]
