@@ -4,8 +4,6 @@ require_relative '../../startling_pivotal'
 module Startling
   module Commands
     class PivotalStart < Base
-      VALID_ESTIMATES = [1, 2, 4, 8, 16, 32, 64, 128]
-
       def execute
         puts "Starting story..."
         estimate = ask_for_estimate unless story.estimated?
@@ -16,10 +14,11 @@ module Startling
 
       def ask_for_estimate
         puts "'#{story.name}' is not estimated."
+        valid_estimates = StartlingPivotal.valid_estimates
         begin
-          estimate = ask("Enter estimate (#{VALID_ESTIMATES.join(", ")}): ")
+          estimate = ask("Enter estimate (#{valid_estimates.join(", ")}): ")
           estimate = Integer(estimate)
-          raise 'Invalid estimate' unless VALID_ESTIMATES.include? estimate
+          raise 'Invalid estimate' unless valid_estimates.include? estimate
           return  estimate.to_i
         rescue => e
           puts e.message
