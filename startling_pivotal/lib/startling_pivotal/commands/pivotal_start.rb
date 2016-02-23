@@ -7,7 +7,7 @@ module Startling
       def execute
         StartlingPivotal::Configuration.load_configuration
 
-        puts "Starting story..."
+        logger.info "Starting story..."
         estimate = ask_for_estimate unless story.estimated?
         story_owners = [StartlingPivotal.user_id]
         story.start(starter_ids: story_owners, estimate: estimate)
@@ -15,7 +15,7 @@ module Startling
       end
 
       def ask_for_estimate
-        puts "'#{story.name}' is not estimated."
+        logger.info "'#{story.name}' is not estimated."
         valid_estimates = StartlingPivotal.valid_estimates
         begin
           estimate = ask("Enter estimate (#{valid_estimates.join(", ")}): ")
