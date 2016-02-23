@@ -1,6 +1,6 @@
 module StartlingPivotal
   class Configuration
-    DEFAULT_VALID_ESTIMATES = [1, 2, 4, 8, 16, 32, 64, 128]
+    DEFAULT_VALID_ESTIMATES = [1, 2, 3]
     DEFAULT_CONFIG_FILE = 'startling_pivotal_file.rb'
 
     attr_accessor :valid_estimates
