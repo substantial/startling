@@ -22,4 +22,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_dependency "startling", "~> 0.0.9"
+  spec.add_dependency "ruby-trello", "~> 1.4.1"
 end

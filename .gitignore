@@ -5,6 +5,7 @@
 .env
 .github_access_token
 .pivotal_api_token
+.trello_member_token
 .ruby-version
 .yardoc
 Gemfile.lock
