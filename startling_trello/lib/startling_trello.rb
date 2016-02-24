@@ -1,4 +1,5 @@
 require 'startling'
+require 'highline/import'
 require 'trello'
 require_relative 'startling_trello/api'
 require_relative 'startling_trello/configuration'
