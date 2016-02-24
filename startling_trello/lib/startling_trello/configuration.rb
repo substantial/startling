@@ -1,14 +1,13 @@
 require 'startling'
 
-module StartlingPivotal
+module StartlingTrello
   class Configuration
-    DEFAULT_VALID_ESTIMATES = [1, 2, 3]
-    DEFAULT_CONFIG_FILE = 'startling_pivotal_file.rb'
+    DEFAULT_CONFIG_FILE = 'startling_trello_file.rb'
 
-    attr_accessor :valid_estimates
+    attr_accessor :developer_public_key
 
     def initialize
-      @valid_estimates = DEFAULT_VALID_ESTIMATES
+      @developer_public_key = nil
     end
 
     def self.load_configuration

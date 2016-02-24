@@ -1,20 +1,20 @@
 require 'spec_helper'
-require 'startling_pivotal/configuration'
+require 'startling_trello/configuration'
 
-module StartlingPivotal
+module StartlingTrello
   describe Configuration do
     let(:configuration) { Configuration.new }
 
     describe 'Default settings' do
-      it 'sets the default valid estimates' do
-        expect(configuration.valid_estimates).to eql(Configuration::DEFAULT_VALID_ESTIMATES)
+      it 'sets the default developer public key' do
+        expect(configuration.developer_public_key).to eql(nil)
       end
     end
 
-    describe "#valid_estimates" do
-      it "can set the value" do
-        configuration.valid_estimates = [1, 2]
-        expect(configuration.valid_estimates).to eql([1, 2])
+    describe '#developer_public_key' do
+      it 'can set the value' do
+        configuration.developer_public_key = '123abc'
+        expect(configuration.developer_public_key).to eql('123abc')
       end
     end
 
@@ -38,7 +38,7 @@ module StartlingPivotal
       end
 
       context "when a configuration file exists" do
-        it "loads configuration from startling_pivotal_file.rb" do
+        it "loads configuration from startling_trello_file.rb" do
           create_config_file(config_file)
           expect(Configuration.load_configuration).to eql(config_file)
         end
