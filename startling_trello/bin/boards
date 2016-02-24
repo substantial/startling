@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/startling_trello'
+
+puts "Fetching boards..."
+
+api = StartlingTrello.api
+member = api.get_member_from_token
+
+puts "ID\tBoard Name"
+member.boards.each { |b| puts "#{b.id}\t#{b.name}" }
