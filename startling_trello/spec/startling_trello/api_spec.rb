@@ -14,7 +14,7 @@ module StartlingTrello
       allow(Trello::Client).to receive(:new) { client }
     end
 
-    context '#find_card' do
+    describe '#find_card' do
       let(:card_id) { 'my-card' }
 
       it 'returns the card' do
@@ -28,6 +28,23 @@ module StartlingTrello
         allow(client).to receive(:find).and_raise(Trello::Error)
 
         expect { api.find_card(card_id) }.to raise_exception(SystemExit)
+      end
+    end
+
+    describe '#find_list' do
+      let(:list_id) { 'my-list' }
+
+      it 'returns the list' do
+        list = double(:list)
+        expect(client).to receive(:find).with(:list, list_id) { list }
+
+        expect(api.find_list(list_id)).to eq(list)
+      end
+
+      it 'returns an error message if the list could not be found' do
+        allow(client).to receive(:find).and_raise(Trello::Error)
+
+        expect { api.find_list(list_id) }.to raise_exception(SystemExit)
       end
     end
   end

@@ -9,10 +9,13 @@ module Startling
       let(:trello_start) { TrelloStart.new(attrs) }
 
       describe '#execute' do
-        let(:card) { double(:card) }
-        let(:api) { double(:api, find_card: card) }
+        let(:doing_list_id) { 'doing-list-id' }
+        let(:card) { double(:card, move_to_list: true) }
+        let(:list) { double(:list) }
+        let(:api) { double(:api, find_card: card, find_list: list) }
 
         before do
+          allow(StartlingTrello).to receive(:doing_list_id) { doing_list_id }
           allow(StartlingTrello).to receive(:api) { api }
         end
 
@@ -22,7 +25,23 @@ module Startling
           trello_start.execute
         end
 
-        xit 'moves the card to doing list' do
+        it 'fails if no doing list id is configured', :focus do
+          allow(StartlingTrello).to receive(:doing_list_id) { nil }
+
+          expect { trello_start.execute }.to raise_exception(SystemExit)
+        end
+
+        it 'moves the card to doing list' do
+          expect(card).to receive(:move_to_list).with(list)
+
+          trello_start.execute
+        end
+
+        xit 'adds the member to the card' do
+
+        end
+
+        xit 'returns a story' do
 
         end
       end

@@ -4,10 +4,11 @@ module StartlingTrello
   class Configuration
     DEFAULT_CONFIG_FILE = 'startling_trello_file.rb'
 
-    attr_accessor :developer_public_key
+    attr_accessor :developer_public_key, :doing_list_id
 
     def initialize
       @developer_public_key = nil
+      @doing_list_id = nil
     end
 
     def self.load_configuration

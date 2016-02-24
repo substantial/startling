@@ -9,12 +9,23 @@ module StartlingTrello
       it 'sets the default developer public key' do
         expect(configuration.developer_public_key).to eql(nil)
       end
+
+      it 'sets the doing list id' do
+        expect(configuration.doing_list_id).to eql(nil)
+      end
     end
 
     describe '#developer_public_key' do
       it 'can set the value' do
         configuration.developer_public_key = '123abc'
         expect(configuration.developer_public_key).to eql('123abc')
+      end
+    end
+
+    describe '#doing_list_id' do
+      it 'can set the value' do
+        configuration.doing_list_id = 'doing-list-id'
+        expect(configuration.doing_list_id).to eql('doing-list-id')
       end
     end
 
