@@ -4,9 +4,10 @@ require 'startling_trello/api'
 module StartlingTrello
   describe Api do
     let(:client) { double(:client) }
+    let(:member_token) { '456def' }
     let(:api) do Api.new(
         developer_public_key: '123abc',
-        member_token: '456def'
+        member_token: member_token
       )
     end
 
@@ -46,6 +47,36 @@ module StartlingTrello
 
         expect { api.find_list(list_id) }.to raise_exception(SystemExit)
       end
+    end
+
+    it 'moves a card to a list' do
+      card = double(:card)
+      list = double(:list)
+
+      expect(card).to receive(:move_to_list).with(list)
+
+      api.move_card_to_list(card: card, list: list)
+    end
+
+    it 'gets the member from the member token' do
+      member_id = 'member-id'
+      token = double(:token, member_id: member_id)
+      member = double(:member)
+
+      allow(client).to receive(:find).with(:token, member_token) { token }
+      allow(client).to receive(:find).with(:member, member_id) { member }
+
+      expect(api.get_member_from_token).to eq(member)
+    end
+
+    it 'adds the member to the card' do
+      member = double(:member)
+      allow(api).to receive(:get_member_from_token) { member }
+
+      card = double(:card)
+      expect(card).to receive(:add_member).with(member)
+
+      api.add_member_to_card(card)
     end
   end
 end

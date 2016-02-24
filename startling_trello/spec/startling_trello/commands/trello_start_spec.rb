@@ -10,9 +10,16 @@ module Startling
 
       describe '#execute' do
         let(:doing_list_id) { 'doing-list-id' }
-        let(:card) { double(:card, move_to_list: true) }
+        let(:card) { double(:card) }
         let(:list) { double(:list) }
-        let(:api) { double(:api, find_card: card, find_list: list) }
+        let(:api) do
+          double(:api,
+            find_card: card,
+            find_list: list,
+            move_card_to_list: true,
+            add_member_to_card: true
+          )
+        end
 
         before do
           allow(StartlingTrello).to receive(:doing_list_id) { doing_list_id }
@@ -32,13 +39,15 @@ module Startling
         end
 
         it 'moves the card to doing list' do
-          expect(card).to receive(:move_to_list).with(list)
+          expect(api).to receive(:move_card_to_list).with(card: card, list: list)
 
           trello_start.execute
         end
 
-        xit 'adds the member to the card' do
+        it 'adds the member to the card' do
+          expect(api).to receive(:add_member_to_card).with(card)
 
+          trello_start.execute
         end
 
         xit 'returns a story' do

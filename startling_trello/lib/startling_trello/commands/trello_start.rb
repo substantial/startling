@@ -13,7 +13,8 @@ module Startling
 
         card = api.find_card(get_card_id)
         list = api.find_list(doing_list_id)
-        card.move_to_list(list)
+        api.move_card_to_list(card: card, list: list)
+        api.add_member_to_card(card)
       end
 
       def get_card_id

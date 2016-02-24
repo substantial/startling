@@ -3,6 +3,7 @@ require 'trello'
 module StartlingTrello
   class Api
     def initialize(developer_public_key:, member_token:)
+      @member_token = member_token
       @client = Trello::Client.new(
         developer_public_key: developer_public_key,
         member_token: member_token
@@ -23,6 +24,19 @@ module StartlingTrello
       rescue Trello::Error
         abort 'Invalid list id: List could not be found'
       end
+    end
+
+    def move_card_to_list(card:, list:)
+      card.move_to_list(list)
+    end
+
+    def add_member_to_card(card)
+      card.add_member(get_member_from_token)
+    end
+
+    def get_member_from_token
+      token = @client.find(:token, @member_token)
+      @client.find(:member, token.member_id)
     end
   end
 end
