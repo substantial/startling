@@ -1,4 +1,4 @@
-# StartlingTrello
+# Startling Trello
 
 Hooks into [Startling](https://rubygems.org/gems/startling) to start a Trello
 story. Moves the Trello card for the story to the Doing list. Uses the card
@@ -46,7 +46,7 @@ Startling.configure do |config|
 end
 ```
 
-### StartlingTrello Configuration
+### Startling Trello Configuration
 
 The following configuration values must be set:
 

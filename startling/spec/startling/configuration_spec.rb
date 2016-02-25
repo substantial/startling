@@ -58,6 +58,11 @@ module Startling
         expect(configuration.pull_request_labels).to eql([])
       end
 
+      # Pivotal
+      it 'sets the default valid estimates' do
+        expect(configuration.valid_estimates).to eql(Configuration::DEFAULT_VALID_ESTIMATES)
+      end
+
       # Trello
       it 'sets the default developer public key' do
         expect(configuration.developer_public_key).to eql(nil)
@@ -143,6 +148,14 @@ module Startling
       it "can set the value" do
         configuration.pull_request_labels = ["WIP", "REVIEW"]
         expect(configuration.pull_request_labels).to eql(["WIP", "REVIEW"])
+      end
+    end
+
+    # Pivotal
+    describe "#valid_estimates" do
+      it "can set the value" do
+        configuration.valid_estimates = [1, 2]
+        expect(configuration.valid_estimates).to eql([1, 2])
       end
     end
 

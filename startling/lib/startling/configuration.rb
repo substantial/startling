@@ -22,6 +22,11 @@ module Startling
       :validate_branch_name, :pull_request_body, :pull_request_handler,
       :pull_request_labels, :pull_request_commit_message, :cli_options
 
+    # Pivotal
+    DEFAULT_VALID_ESTIMATES = [1, 2, 3]
+
+    attr_accessor :valid_estimates
+
     # Trello
     attr_accessor :developer_public_key, :doing_list_id
 
@@ -38,6 +43,9 @@ module Startling
       @pull_request_commit_message = DEFAULT_COMMIT_MESSAGE
       @pull_request_labels = []
       @cli_options = []
+
+      # Pivotal
+      @valid_estimates = DEFAULT_VALID_ESTIMATES
 
       # Trello
       @developer_public_key = nil

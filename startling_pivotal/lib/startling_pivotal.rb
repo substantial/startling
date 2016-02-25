@@ -1,24 +1,14 @@
+require 'startling'
 require_relative 'startling_pivotal/api'
-require_relative 'startling_pivotal/configuration'
 require_relative 'startling_pivotal/helper'
 require_relative 'startling_pivotal/story'
 require_relative 'startling_pivotal/commands/pivotal_start'
 
 module StartlingPivotal
   class << self
-    attr_writer :configuration
-
     def method_missing(method, *args, &block)
-      configuration.send(method, *args, &block)
+      Startling.send(method, *args, &block)
     end
-  end
-
-  def self.configuration
-    @configuration ||= Configuration.new
-  end
-
-  def self.configure
-    yield(configuration)
   end
 
   def self.api
