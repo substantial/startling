@@ -30,17 +30,13 @@ module StartlingTrello
   def self.get_developer_public_key
     return developer_public_key unless developer_public_key.nil?
 
-    url = Trello.open_public_key_url
-    puts "Trello developer API key URL: #{url}"
-
+    Trello.open_public_key_url
     abort 'Trello developer API key is not configured. Get a developer public key and add it to the configuration file.'
   end
 
   def self.get_member_token(developer_public_key)
     Startling.cache.fetch('.trello_member_token') do
-      url = Trello.open_authorization_url(key: developer_public_key)
-      puts "Trello member token URL: #{url}"
-
+      Trello.open_authorization_url(key: developer_public_key)
       ask('Enter your member token: ')
     end
   end

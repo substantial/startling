@@ -4,7 +4,7 @@ require_relative '../lib/startling_trello'
 
 puts "Fetching boards..."
 
-StartlingTrello::Configuration.load_configuration
+Startling::Configuration.load_configuration
 
 api = StartlingTrello.api
 member = api.get_member_from_token
