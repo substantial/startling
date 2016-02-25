@@ -7,7 +7,7 @@ module Startling
   module Commands
     class TrelloStart < Base
       def execute
-        StartlingTrello::Configuration.load_configuration
+        Startling::Configuration.load_configuration
         doing_list_id = get_doing_list_id
 
         api = StartlingTrello.api

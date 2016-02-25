@@ -2,24 +2,13 @@ require 'startling'
 require 'highline/import'
 require 'trello'
 require_relative 'startling_trello/api'
-require_relative 'startling_trello/configuration'
 require_relative 'startling_trello/commands/trello_start'
 
 module StartlingTrello
   class << self
-    attr_writer :configuration
-
     def method_missing(method, *args, &block)
-      configuration.send(method, *args, &block)
+      Startling.send(method, *args, &block)
     end
-  end
-
-  def self.configuration
-    @configuration ||= Configuration.new
-  end
-
-  def self.configure
-    yield(configuration)
   end
 
   def self.api

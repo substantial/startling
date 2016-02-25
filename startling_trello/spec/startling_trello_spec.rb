@@ -3,15 +3,11 @@ require 'spec_helper'
 describe StartlingTrello do
   describe '#api' do
     let(:developer_public_key) { '123abc' }
-    let(:configuration) do
-      double(:configuration, developer_public_key: developer_public_key)
-    end
-
     let(:member_token) { '456def' }
     let(:api) { double(:api) }
 
     before do
-      allow(StartlingTrello).to receive(:configuration) { configuration }
+      allow(Startling).to receive(:developer_public_key) { developer_public_key }
       allow(Startling)
         .to receive_message_chain(:cache, :fetch)
         .with('.trello_member_token')
@@ -19,7 +15,7 @@ describe StartlingTrello do
     end
 
     it 'fails if no developer public key is configured' do
-      allow(configuration).to receive(:developer_public_key) { nil }
+      allow(Startling).to receive(:developer_public_key) { nil }
 
       expect(Trello).to receive(:open_public_key_url)
 

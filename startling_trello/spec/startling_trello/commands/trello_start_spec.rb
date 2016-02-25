@@ -30,7 +30,7 @@ module Startling
         end
 
         it 'loads the Trello configuration' do
-          expect(StartlingTrello::Configuration).to receive(:load_configuration)
+          expect(Startling::Configuration).to receive(:load_configuration)
 
           trello_start.execute
         end

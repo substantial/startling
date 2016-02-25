@@ -19,7 +19,7 @@ CONFIG
 
         gsub_file file_name,
           '# config.story_handler = :pivotal_start',
-           'config.story_handler = :trello_start'
+          'config.story_handler = :trello_start'
 
         inject_into_file file_name, after: 'config.story_handler = :trello_start' do
 <<CONFIG

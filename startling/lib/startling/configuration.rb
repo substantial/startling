@@ -22,6 +22,9 @@ module Startling
       :validate_branch_name, :pull_request_body, :pull_request_handler,
       :pull_request_labels, :pull_request_commit_message, :cli_options
 
+    # Trello
+    attr_accessor :developer_public_key, :doing_list_id
+
     def initialize
       @cache_dir = Dir.pwd
       @root_dir = Dir.pwd
@@ -35,6 +38,10 @@ module Startling
       @pull_request_commit_message = DEFAULT_COMMIT_MESSAGE
       @pull_request_labels = []
       @cli_options = []
+
+      # Trello
+      @developer_public_key = nil
+      @doing_list_id = nil
     end
 
     def self.load_configuration
