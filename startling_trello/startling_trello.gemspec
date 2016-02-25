@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "startling_trello"
   spec.version       = StartlingTrello::VERSION
   spec.authors       = ["Cassie Koomjian"]
-  spec.email         = ["cassie@substantial.com"]
+  spec.email         = ["startling@substantial.com"]
 
   spec.summary       = %q{Startling Trello integration}
   spec.homepage      = "https://github.com/substantial/startling"
