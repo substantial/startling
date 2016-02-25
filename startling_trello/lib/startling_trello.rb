@@ -18,6 +18,10 @@ module StartlingTrello
     @configuration ||= Configuration.new
   end
 
+  def self.configure
+    yield(configuration)
+  end
+
   def self.api
     @api ||= get_api
   end
