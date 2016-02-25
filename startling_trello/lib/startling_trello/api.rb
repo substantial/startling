@@ -39,7 +39,11 @@ module StartlingTrello
     end
 
     def add_member_to_card(card)
-      card.add_member(get_member_from_token)
+      begin
+        card.add_member(get_member_from_token)
+      rescue Trello::Error
+        # Member is already on card
+      end
     end
 
     def get_member_from_token
