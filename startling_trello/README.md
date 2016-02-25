@@ -23,49 +23,14 @@ Or install it yourself as:
 
 Generate configuration file in Rails:
 
-    $ rails g startling:configuration
     $ rails g startling_trello:configuration
 
 ## Configuration
 
-### Startling Trello Configuration
-
-startling_trello_file.rb should be defined at the root of the project. It can
-contain a block for configuration:
-
-```ruby
-StartlingTrello.configure do |config|
-  # Trello Developer API key
-  # config.developer_public_key = 'developer-public-key'
-
-  # Trello Doing List ID
-  # config.doing_list_id = 'doing-list-id'
-end
-```
-
-#### Trello Developer API key
-
-The Trello Developer API key is required for integration with Trello API. When
-running any of the scripts, a browser window will be launched to get a key if
-the key is not specified in the configuration. Copy the key into the
-configuration file.
-
-#### Trello Member Token
-
-Anyone using Startling Trello will have to authorize the Trello Developer API
-key. When running any of the scripts, a browser window will be launched to
-authorize the key. After authorizing the Trello key, a token will be displayed.
-Copy the token and enter it into the prompt. The token will be cached in the
-`.trello_member_token` file in the root of your project.
-
-#### Trello Doing List ID
-
-Startling Trello needs to know the ID of the Doing list in order to move cards
-to that list. To get the list ID, run `boards` to get the list of your Trello
-boards. Copy the board ID, and run `lists <board-id>`. Copy the list ID into
-the configuration file.
-
 ### Startling Configuration
+
+startlingfile.rb or Startlingfile.rb should be defined at the root of the
+project. It can contain a block for configuration.
 
 Add the following line to the beginning of the Startling configuration file:
 
@@ -76,8 +41,46 @@ require 'startling_trello'
 Add or update the following line of the Startling configuration file:
 
 ```ruby
-config.story_handler = :trello_start
+Startling.configure do |config|
+  config.story_handler = :trello_start
+end
 ```
+
+### StartlingTrello Configuration
+
+The following configuration values must be set:
+
+```ruby
+Startling.configure do |config|
+  # Trello Developer API key
+  # config.developer_public_key = 'developer-public-key'
+
+  # Trello Doing List ID
+  # config.doing_list_id = 'doing-list-id'
+end
+```
+
+1. Trello Developer API key
+
+The Trello Developer API key is required for integration with the Trello API.
+When running any of the scripts, a browser window will be launched to get a key
+if the key is not specified in the configuration. Copy the key into the
+configuration file.
+
+2. Trello Member Token
+
+Anyone using Startling Trello will have to authorize the Trello Developer API
+key. When running any of the scripts, a browser window will be launched to
+authorize the key. After authorizing the Trello key, a token will be displayed.
+Copy the token and enter it into the prompt. The token will be cached in the
+`.trello_member_token` file in the root of your project.
+
+3. Trello Doing List ID
+
+Startling Trello needs to know the ID of the Doing list in order to move cards
+to that list. To get the list ID, run `boards` to get the list of your Trello
+boards. Copy the board ID, and run `lists <board-id>`. Copy the list ID into
+the configuration file.
 
 ## Usage
 
