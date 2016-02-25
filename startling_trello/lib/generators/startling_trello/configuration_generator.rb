@@ -1,7 +1,6 @@
 require 'rails/generators'
 require 'rails/generators/base'
 require 'startling'
-require 'startling_trello'
 
 module StartlingTrello
   module Generators
@@ -9,7 +8,7 @@ module StartlingTrello
       def create_config_file
         generate 'startling:configuration'
 
-        file_name = 'startlingfile.rb'
+        file_name = Startling::DEFAULT_STARTLINGFILES[0]
 
         inject_into_file file_name, before: 'Startling.configure do |config|' do
 <<CONFIG
@@ -24,12 +23,12 @@ CONFIG
 
         inject_into_file file_name, after: 'config.story_handler = :trello_start' do
 <<CONFIG
-
   # Trello Developer API key
   # config.developer_public_key = 'developer-public-key'
 
   # Trello Doing List ID
   # config.doing_list_id = 'doing-list-id'
+
 CONFIG
         end
       end
