@@ -7,7 +7,7 @@ module StartlingTrello
   module Generators
     class ConfigurationGenerator < Rails::Generators::Base
       def create_config_file
-        create_file StartlingTrello::Configuration.DEFAULT_CONFIG_FILE do
+        create_file StartlingTrello::Configuration::DEFAULT_CONFIG_FILE do
 <<CONFIG
 StartlingTrello.configure do |config|
   # Trello Developer API key
