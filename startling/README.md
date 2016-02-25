@@ -78,7 +78,7 @@ Start a new story with a given story id and branch name
 
 TODO: Write usage instructions here
 
-## Contributing
+## Development
 
 1. Create `.env` from the Secure Note `startling .env` in
    LastPass.
@@ -88,3 +88,10 @@ TODO: Write usage instructions here
 ### Running tests
 
 `rake`
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at
+https://github.com/substantial/startling. This project is intended to be a safe,
+welcoming space for collaboration, and contributors are expected to adhere to
+the [Contributor Covenant](http://contributor-covenant.org) code of conduct.

@@ -65,7 +65,7 @@ Check story status:
 
     $ story_status 12345
 
-## Contributing
+## Development
 
 1. Create `.env` from the Secure Note `startling .env` in
    LastPass.
@@ -75,3 +75,10 @@ Check story status:
 ### Running tests
 
 `rake`
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at
+https://github.com/substantial/startling. This project is intended to be a safe,
+welcoming space for collaboration, and contributors are expected to adhere to
+the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
