@@ -81,13 +81,13 @@ config.story_handler = :trello_start
 
 ## Usage
 
-Start a new story with a given card ID:
+Start a new story with a given card URL:
 
-    $ start 12345
+    $ start https://trello.com/c/123abc
 
-Start a new story with a given card ID and branch name:
+Start a new story with a given card URL and branch name:
 
-    $ start 12345 foo
+    $ start https://trello.com/c/123abc foo
 
 Get list of your Trello boards:
 

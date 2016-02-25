@@ -21,20 +21,24 @@ module Startling
       end
 
       def get_card_id
+        get_card_url.split('/').last
+      end
+
+      def get_card_url
         if story_id
           story_id
         elsif args.length > 0
           args[0]
         else
-          prompt_for_card_id
+          prompt_for_card_url
         end
       end
 
       private
 
-      def prompt_for_card_id
-        result = ask('Enter card id to start: ')
-        abort 'Card id must be specified.' if result.empty?
+      def prompt_for_card_url
+        result = ask('Enter card URL to start: ')
+        abort 'Card URL must be specified.' if result.empty?
         result
       end
 

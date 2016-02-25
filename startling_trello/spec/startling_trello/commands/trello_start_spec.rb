@@ -5,7 +5,8 @@ module Startling
   module Commands
     describe TrelloStart do
       let(:card_id) { '123abc' }
-      let(:attrs) { { story_id: card_id } }
+      let(:card_url) { 'https://trello.com/c/123abc' }
+      let(:attrs) { { story_id: card_url } }
       let(:trello_start) { TrelloStart.new(attrs) }
 
       describe '#execute' do
@@ -40,6 +41,18 @@ module Startling
           expect { trello_start.execute }.to raise_exception(SystemExit)
         end
 
+        it 'finds card with id' do
+          expect(api).to receive(:find_card).with(card_id)
+
+          trello_start.execute
+        end
+
+        it 'finds list with doing list id' do
+          expect(api).to receive(:find_list).with(doing_list_id)
+
+          trello_start.execute
+        end
+
         it 'moves the card to doing list' do
           expect(api).to receive(:move_card_to_list).with(card: card, list: list)
 
@@ -59,36 +72,36 @@ module Startling
         end
       end
 
-      describe '#get_card_id' do
+      describe '#get_card_url' do
         context 'when story id is defined in command line options' do
-          let(:attrs) { { story_id: '123abc' } }
+          let(:attrs) { { story_id: card_url } }
 
-          it 'returns the card id' do
-            expect(trello_start.get_card_id).to eq(card_id)
+          it 'returns the card url' do
+            expect(trello_start.get_card_url).to eq(card_url)
           end
         end
 
         context 'when there is at least one command line option' do
-          let(:attrs) { { args: ['123abc'] } }
+          let(:attrs) { { args: [card_url] } }
 
-          it 'returns the card id' do
-            expect(trello_start.get_card_id).to eq(card_id)
+          it 'returns the card url' do
+            expect(trello_start.get_card_url).to eq(card_url)
           end
         end
 
-        context 'when card id is not specified' do
+        context 'when card url is not specified' do
           let(:attrs) { { args: [] } }
 
-          it 'prompts for card id' do
-            allow_any_instance_of(TrelloStart).to receive(:ask) { card_id }
+          it 'prompts for card url' do
+            allow_any_instance_of(TrelloStart).to receive(:ask) { card_url }
 
-            expect(trello_start.get_card_id).to eq(card_id)
+            expect(trello_start.get_card_url).to eq(card_url)
           end
 
           it 'returns error message if no card id is entered in prompt' do
             allow_any_instance_of(TrelloStart).to receive(:ask) { '' }
 
-            expect { trello_start.get_card_id }.to raise_exception(SystemExit)
+            expect { trello_start.get_card_url }.to raise_exception(SystemExit)
           end
         end
       end
