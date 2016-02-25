@@ -3,6 +3,7 @@ require 'highline/import'
 require 'trello'
 require_relative 'startling_trello/api'
 require_relative 'startling_trello/configuration'
+require_relative 'startling_trello/commands/trello_start'
 
 module StartlingTrello
   class << self
