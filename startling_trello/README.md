@@ -46,22 +46,22 @@ end
 #### Trello Developer API key
 
 The Trello Developer API key is required for integration with Trello API. When
-running any of the scripts, a browser window will be launched with the URL to
-get a key if the key is not specified in the
-configuration. Copy the key into the configuration file.
+running any of the scripts, a browser window will be launched to get a key if
+the key is not specified in the configuration. Copy the key into the
+configuration file.
 
 #### Trello Member Token
 
 Anyone using Startling Trello will have to authorize the Trello Developer API
-key. When running any of the scripts, a browser window will be launched with
-the URL to authorize the key. After authorizing the Trello key, a token will be
-displayed. Copy the token and enter it into the prompt. The token will be
-cached in `.trello_member_token` file in the root of your project.
+key. When running any of the scripts, a browser window will be launched to
+authorize the key. After authorizing the Trello key, a token will be displayed.
+Copy the token and enter it into the prompt. The token will be cached in the
+`.trello_member_token` file in the root of your project.
 
 #### Trello Doing List ID
 
-Startling Trello needs to know the ID of the list in order to move cards to
-that list. To get the list ID, run `boards` to get the list of your Trello
+Startling Trello needs to know the ID of the Doing list in order to move cards
+to that list. To get the list ID, run `boards` to get the list of your Trello
 boards. Copy the board ID, and run `lists <board-id>`. Copy the list ID into
 the configuration file.
 
@@ -81,11 +81,11 @@ config.story_handler = :trello_start
 
 ## Usage
 
-Start a new story with a given card id:
+Start a new story with a given card ID:
 
     $ start 12345
 
-Start a new story with a given card id and branch name:
+Start a new story with a given card ID and branch name:
 
     $ start 12345 foo
 
