@@ -8,7 +8,7 @@ module StartlingTrello
       def create_config_file
         generate 'startling:configuration'
 
-        file_name = Startling::DEFAULT_STARTLINGFILES[0]
+        file_name = Startling::Configuration::DEFAULT_STARTLINGFILES[0]
 
         inject_into_file file_name, before: 'Startling.configure do |config|' do
 <<CONFIG
