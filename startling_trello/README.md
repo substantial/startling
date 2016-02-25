@@ -28,7 +28,7 @@ Generate configuration file in Rails:
 
 ## Configuration
 
-### Startling Pivotal Configuration
+### Startling Trello Configuration
 
 startling_trello_file.rb should be defined at the root of the project. It can
 contain a block for configuration:
