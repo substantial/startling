@@ -1,6 +1,7 @@
 require 'startling'
 require 'highline/import'
 require_relative '../../startling_trello'
+require_relative '../../startling_trello/story'
 
 module Startling
   module Commands
@@ -15,6 +16,8 @@ module Startling
         list = api.find_list(doing_list_id)
         api.move_card_to_list(card: card, list: list)
         api.add_member_to_card(card)
+
+        StartlingTrello::Story.new(card)
       end
 
       def get_card_id

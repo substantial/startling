@@ -12,6 +12,7 @@ module Startling
         let(:doing_list_id) { 'doing-list-id' }
         let(:card) { double(:card) }
         let(:list) { double(:list) }
+        let(:story) { double(:story) }
         let(:api) do
           double(:api,
             find_card: card,
@@ -24,6 +25,7 @@ module Startling
         before do
           allow(StartlingTrello).to receive(:doing_list_id) { doing_list_id }
           allow(StartlingTrello).to receive(:api) { api }
+          allow(StartlingTrello::Story).to receive(:new) { story }
         end
 
         it 'loads the Trello configuration' do
@@ -50,8 +52,10 @@ module Startling
           trello_start.execute
         end
 
-        xit 'returns a story' do
+        it 'returns a story' do
+          expect(StartlingTrello::Story).to receive(:new).with(card) { story }
 
+          expect(trello_start.execute).to eq(story)
         end
       end
 
