@@ -94,11 +94,11 @@ Start a new story with a given card URL and branch name:
 
 Get list of your Trello boards:
 
-    $ boards
+    $ startling_trello_boards
 
 Get list of the lists in the Trello board:
 
-    $ lists <board-id>
+    $ startling_trello_lists <board-id>
 
 ## Development
 
