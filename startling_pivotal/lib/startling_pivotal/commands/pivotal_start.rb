@@ -1,4 +1,5 @@
 require 'startling'
+require 'highline/import'
 require_relative '../../startling_pivotal'
 
 module Startling

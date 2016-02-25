@@ -67,14 +67,16 @@ Check story status:
 
 ## Development
 
-1. Create `.env` from the Secure Note `startling .env` in
-   LastPass.
-1. `gem install bundler`
-1. `bundle install`
+After checking out the repo, run `cd startling/startling_pivotal && bin/setup`
+to install dependencies. Create `.env` from the Secure Note `startling_pivotal
+.env` in LastPass. Then, run `rake spec` to run the tests. You can also run
+`bin/console` for an interactive prompt that will allow you to experiment.
 
-### Running tests
-
-`rake`
+To install this gem onto your local machine, run `bundle exec rake install`.
+To release a new version, update the version number in `version.rb`, and then
+run `bundle exec rake release`, which will create a git tag for the version,
+push git commits and tags, and push the `.gem` file to
+[rubygems.org](https://rubygems.org).
 
 ## Contributing
 
