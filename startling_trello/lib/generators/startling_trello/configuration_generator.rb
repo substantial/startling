@@ -23,12 +23,13 @@ CONFIG
 
         inject_into_file file_name, after: 'config.story_handler = :trello_start' do
 <<CONFIG
+
+
   # Trello Developer API key
   # config.developer_public_key = 'developer-public-key'
 
   # Trello Doing List ID
   # config.doing_list_id = 'doing-list-id'
-
 CONFIG
         end
       end
