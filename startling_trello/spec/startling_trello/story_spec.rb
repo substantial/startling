@@ -6,7 +6,7 @@ module StartlingTrello
     let(:card) do
       double(:card,
         name: 'Card name',
-        url: 'Card url'
+        short_url: 'Card url'
       )
     end
 
@@ -17,7 +17,7 @@ module StartlingTrello
     end
 
     it 'returns the pull request body' do
-      expect(story.pull_request_body_text).to eq(card.url)
+      expect(story.pull_request_body_text).to eq(card.short_url)
     end
   end
 end

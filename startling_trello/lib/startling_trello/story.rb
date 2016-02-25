@@ -13,7 +13,7 @@ module StartlingTrello
     end
 
     def pull_request_body_text
-      card.url
+      card.short_url
     end
   end
 end
