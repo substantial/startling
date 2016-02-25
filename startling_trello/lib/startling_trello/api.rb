@@ -26,6 +26,14 @@ module StartlingTrello
       end
     end
 
+    def find_board(board_id)
+      begin
+        @client.find(:board, board_id)
+      rescue Trello::Error
+        abort 'Invalid board id: Board could not be found'
+      end
+    end
+
     def move_card_to_list(card:, list:)
       card.move_to_list(list)
     end

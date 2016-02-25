@@ -49,6 +49,23 @@ module StartlingTrello
       end
     end
 
+    describe '#find_board' do
+      let(:board_id) { 'my-board' }
+
+      it 'returns the board' do
+        board = double(:board)
+        expect(client).to receive(:find).with(:board, board_id) { board }
+
+        expect(api.find_board(board_id)).to eq(board)
+      end
+
+      it 'returns an error message if the board could not be found' do
+        allow(client).to receive(:find).and_raise(Trello::Error)
+
+        expect { api.find_list(board_id) }.to raise_exception(SystemExit)
+      end
+    end
+
     it 'moves a card to a list' do
       card = double(:card)
       list = double(:list)
