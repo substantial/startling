@@ -60,14 +60,14 @@ Startling.configure do |config|
 end
 ```
 
-1. Trello Developer API key
+#### 1. Trello Developer API key
 
 The Trello Developer API key is required for integration with the Trello API.
 When running any of the scripts, a browser window will be launched to get a key
 if the key is not specified in the configuration. Copy the key into the
 configuration file.
 
-2. Trello Member Token
+#### 2. Trello Member Token
 
 Anyone using Startling Trello will have to authorize the Trello Developer API
 key. When running any of the scripts, a browser window will be launched to
@@ -75,11 +75,11 @@ authorize the key. After authorizing the Trello key, a token will be displayed.
 Copy the token and enter it into the prompt. The token will be cached in the
 `.trello_member_token` file in the root of your project.
 
-3. Trello Doing List ID
+#### 3. Trello Doing List ID
 
 Startling Trello needs to know the ID of the Doing list in order to move cards
-to that list. To get the list ID, run `boards` to get the list of your Trello
-boards. Copy the board ID, and run `lists <board-id>`. Copy the list ID into
+to that list. To get the list ID, run `startling_trello_boards` to get the list of your Trello
+boards. Copy the board ID, and run `startling_trello_lists <board-id>`. Copy the list ID into
 the configuration file.
 
 ## Usage
