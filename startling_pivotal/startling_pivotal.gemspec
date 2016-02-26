@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "excon", "~> 0.45"
   spec.add_development_dependency "dotenv", "~> 2.1"
 
-  spec.add_dependency "startling", "~> 0.0.9"
+  spec.add_dependency "startling", "~> 0.0.10"
   spec.add_dependency "faraday", "~> 0.9"
   spec.add_dependency "highline", "~> 1.6"
 end
