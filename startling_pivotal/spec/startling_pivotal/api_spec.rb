@@ -23,7 +23,7 @@ module StartlingPivotal
     # Name should match tested name.
     specify "#story should return story details",
       vcr: { cassette_name: "pivotal_tracker_api_story" } do
-      story = api.story(65069954)
+      story = api.story('65069954')
       expect(story["name"]).to eq("TEST: pivotal_tracker_api_story")
     end
 
@@ -33,7 +33,7 @@ module StartlingPivotal
     # Story should not have an estimate
     specify "#update_story should update the story",
       vcr: { cassette_name: "pivotal_tracker_api_update_story" } do
-      story_id = 65072638
+      story_id = '65072638'
       story = api.story(story_id)
       expect(story["estimate"]).to be_nil
 
