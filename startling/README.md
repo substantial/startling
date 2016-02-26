@@ -131,11 +131,11 @@ config.hook_commands.after_pull_request = [:label_pull_request]
 
 Start a new story with a given story id
 
-    $ start 12345
+    $ start '#12345'
 
 Start a new story with a given story id and branch name
 
-    $ start 12345 foo
+    $ start '#12345' foo
 
 Check WIP
 
