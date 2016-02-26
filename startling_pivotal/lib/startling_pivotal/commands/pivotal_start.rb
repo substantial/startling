@@ -22,7 +22,7 @@ module Startling
           estimate = ask("Enter estimate (#{valid_estimates.join(", ")}): ")
           estimate = Integer(estimate)
           raise 'Invalid estimate' unless valid_estimates.include? estimate
-          return  estimate.to_i
+          return  estimate
         rescue => e
           puts e.message
           retry
@@ -34,8 +34,16 @@ module Startling
       end
 
       def get_story_id
-        @story_id ||= prompt_for_story_id
+        if story_id
+          story_id
+        elsif args.length > 0
+          args[0]
+        else
+          prompt_for_story_id
+        end
       end
+
+      private
 
       def prompt_for_story_id
         result = ask("Enter story id to start: ").gsub(/[^0-9]/, '')
