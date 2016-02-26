@@ -76,6 +76,10 @@ Start a new story with a given story id and branch name
 
     $ start 12345 foo
 
+Check WIP
+
+    $ wip
+
 ## Development
 
 After checking out the repo, run `cd startling/startling && bin/setup` to
