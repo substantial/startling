@@ -53,7 +53,7 @@ module StartlingPivotal
     end
 
     def strip_id(id)
-      id.gsub(/[^0-9]/
+      id.gsub(/[^0-9]/)
     end
 
     def self.parse_response(response)
