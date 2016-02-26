@@ -139,6 +139,42 @@ Check WIP
 
     $ wip
 
+## Commands
+
+Commands are custom Ruby scripts that can be run at various stages of Startling.
+
+1. Before the story is started
+1. After the story is started
+1. Before the pull request is opened
+1. After the pull request is opened
+
+### Creating a custom command
+
+Custom commands should be put in the startling/commands directory. Create a
+Ruby class that inherits from the Startling::Commands::Base class and
+implements an execute method. Add your command class to the corresponding
+config value for the stage in which your command should be executed.
+
+## Handlers
+
+Handlers allow for customization of Startling behavior.
+
+Existing handlers:
+
+1. PullRequestHandler
+
+Handles setting the title and description of the pull request and setting the
+commit message for the empty commit.
+
+### Creating a custom handler
+
+Custom handlers should be put in the startling/handlers directory.
+
+1. PullRequestHandler
+
+Create a Ruby class that inherits from the PullRequestHandler::Base class. Set
+`pull_request_handler` config value to your handler class.
+
 ## Development
 
 After checking out the repo, run `cd startling/startling && bin/setup` to
