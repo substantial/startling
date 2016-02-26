@@ -18,12 +18,12 @@ module StartlingPivotal
     end
 
     def story(id)
-      get("stories/#{id.gsub(/[^0-9]/, '')}")
+      get("stories/#{strip_id(id)}")
     end
 
     def update_story(id, attrs)
       response = connection.put do |request|
-        request.url "stories/#{id}"
+        request.url "stories/#{strip_id(id)}"
         request.headers["Content-Type"] = "application/json"
         request.headers["X-TrackerToken"] = api_token
         request.body = attrs.to_json
@@ -50,6 +50,10 @@ module StartlingPivotal
       end
 
       Api.parse_response response
+    end
+
+    def strip_id(id)
+      id.gsub(/[^0-9]/
     end
 
     def self.parse_response(response)
