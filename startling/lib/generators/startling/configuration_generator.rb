@@ -1,5 +1,6 @@
 require 'rails/generators'
 require 'rails/generators/base'
+require 'startling'
 
 module Startling
   module Generators
@@ -19,7 +20,7 @@ module Startling
 
       def create_startling_folders
         pull_request_handler_file = "#{destination_root.split('/').last.underscore}_pull_request_handler"
-        create_file "startlingfile.rb" do
+        create_file Startling::Configuration::DEFAULT_STARTLINGFILES[0] do
 <<CONFIG
 Startling.configure do |config|
   # WIP Limit

@@ -20,24 +20,14 @@ Or install it yourself as:
 
 Generate configuration file in Rails: 
 
-    $ rails g startling:configuration 
     $ rails g startling_pivotal:configuration 
 
 ## Configuration
 
-### Startling Pivotal Configuration
-
-startling_pivotal_file.rb should be defined at the root of the project. It can
-contain a block for configuration:
-
-```ruby
-StartlingPivotal.configure do |config|
-  # Valid story estimations
-  # config.valid_estimates = [1, 2, 3]
-end
-```
-
 ### Startling Configuration
+
+startlingfile.rb or Startlingfile.rb should be defined at the root of the
+project. It can contain a block for configuration.
 
 Add the following line to the beginning of the Startling configuration file:
 
@@ -48,7 +38,20 @@ require 'startling_pivotal'
 Add or update the following line of the Startling configuration file:
 
 ```ruby
-config.story_handler = :pivotal_start
+Startling.configure do |config|
+  config.story_handler = :pivotal_start
+end
+```
+
+### Startling Pivotal Configuration
+
+The following configuration values can be set:
+
+```ruby
+Startling.configure do |config|
+  # Valid story estimations
+  # config.valid_estimates = [1, 2, 3]
+end
 ```
 
 ## Usage

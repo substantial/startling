@@ -2,7 +2,7 @@ require 'rails/generators'
 require 'rails/generators/base'
 require 'startling'
 
-module StartlingPivotal
+module StartlingTrello
   module Generators
     class ConfigurationGenerator < Rails::Generators::Base
       def create_config_file
@@ -12,21 +12,24 @@ module StartlingPivotal
 
         inject_into_file file_name, before: 'Startling.configure do |config|' do
 <<CONFIG
-require 'startling_pivotal'
+require 'startling_trello'
 
 CONFIG
         end
 
         gsub_file file_name,
           '# config.story_handler = :pivotal_start',
-          'config.story_handler = :pivotal_start'
+          'config.story_handler = :trello_start'
 
-        inject_into_file file_name, after: 'config.story_handler = :pivotal_start' do
+        inject_into_file file_name, after: 'config.story_handler = :trello_start' do
 <<CONFIG
 
 
-  # Valid story estimations
-  # config.valid_estimates = [1, 2, 3]
+  # Trello Developer API key
+  # config.developer_public_key = 'developer-public-key'
+
+  # Trello Doing List ID
+  # config.doing_list_id = 'doing-list-id'
 CONFIG
         end
       end

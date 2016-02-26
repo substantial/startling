@@ -57,6 +57,20 @@ module Startling
       it "sets the default pull request labels" do
         expect(configuration.pull_request_labels).to eql([])
       end
+
+      # Pivotal
+      it 'sets the default valid estimates' do
+        expect(configuration.valid_estimates).to eql(Configuration::DEFAULT_VALID_ESTIMATES)
+      end
+
+      # Trello
+      it 'sets the default developer public key' do
+        expect(configuration.developer_public_key).to eql(nil)
+      end
+
+      it 'sets the doing list id' do
+        expect(configuration.doing_list_id).to eql(nil)
+      end
     end
 
     describe "#cache_dir" do
@@ -137,26 +151,35 @@ module Startling
       end
     end
 
+    # Pivotal
+    describe "#valid_estimates" do
+      it "can set the value" do
+        configuration.valid_estimates = [1, 2]
+        expect(configuration.valid_estimates).to eql([1, 2])
+      end
+    end
+
+    # Trello
+    describe '#developer_public_key' do
+      it 'can set the value' do
+        configuration.developer_public_key = '123abc'
+        expect(configuration.developer_public_key).to eql('123abc')
+      end
+    end
+
+    describe '#doing_list_id' do
+      it 'can set the value' do
+        configuration.doing_list_id = 'doing-list-id'
+        expect(configuration.doing_list_id).to eql('doing-list-id')
+      end
+    end
+
     describe ".load_configuration" do
       let(:git) { double(GitLocal) }
-      let(:config_files) {
-        {
-          caps:  "Startlingfile.rb",
-          lower: "startlingfile.rb"
-        }
-      }
-      let(:caps_config_file) { "Startlingfile.rb" }
-      let(:lower_config_file) { "startlingfile.rb" }
 
       before do
         allow(Startling::GitLocal).to receive(:new) { git }
         allow(git).to receive(:project_root) { Dir.pwd }
-      end
-
-      after do
-        config_files.each do |_, v|
-          delete_config_file(v)
-        end
       end
 
       context "when no configuration file exists" do
@@ -166,24 +189,14 @@ module Startling
       end
 
       context "when a configuration file exists" do
-        it "loads configuration from Startlingfile.rb" do
-          create_config_file(config_files[:caps])
-          expect(Configuration.load_configuration).to eql(config_files[:caps])
-        end
-
-        it "loads configuration from startlingfile.rb" do
-          create_config_file(config_files[:lower])
-          expect(Configuration.load_configuration).to eql(config_files[:lower])
+        it "loads configuration from configuration file" do
+          Startling::Configuration::DEFAULT_STARTLINGFILES.each do |config_file|
+            File.open(config_file, "w")
+            expect(Configuration.load_configuration).to eql(config_file)
+            File.delete(config_file)
+          end
         end
       end
-    end
-
-    def create_config_file(config_file)
-      File.open(config_file, "w")
-    end
-
-    def delete_config_file(config_file)
-      File.delete(config_file) if File.exists? config_file
     end
   end
 end
