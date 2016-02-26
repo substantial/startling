@@ -25,7 +25,7 @@ Or install it yourself as:
     $ gem install startling
 
 Generate configuration file in rails. 
-Use -H to generate a handler folder and -C to generate a commands folder
+Use -H to generate a handlers directory and -C to generate a commands directory
 
     $ rails g startling:configuration 
 
@@ -56,7 +56,7 @@ Startling.configure do |config|
 end
 ```
 
-1. WIP limit
+### 1. WIP limit
 
 WIP is calculated by the number of pull requests open in the repository. 
 
@@ -65,7 +65,8 @@ Set WIP limit:
 ```ruby
 config.wip_limit = 4
 ```
-2. WIP labels
+
+### 2. WIP labels
 
 You can limit the pull requests included in WIP by configuring the pull request
 labels for WIP.
@@ -74,7 +75,7 @@ labels for WIP.
 config.wip_labels = ["WIP", "REVIEW"]
 ```
 
-3. WIP repositories
+### 3. WIP repositories
 
 WIP limit can be checked across multiple Github repositories. Use the same
 branch name across repositories to count multiple pull requests as only one WIP.
@@ -83,13 +84,13 @@ branch name across repositories to count multiple pull requests as only one WIP.
 config.repos << "substantial/startling"
 ```
 
-4. Check WIP limit before starting story:
+### 4. Check the WIP limit before starting a story:
 
 ```ruby
 config.hook_commands.before_story_start = [:check_wip]
 ```
 
-5. Branch name
+### 5. Branch name
 
 You can check the branch name being used with a custom Proc. For example, this
 Proc only allows branches that are prefixed with `feature/`:
@@ -98,7 +99,7 @@ Proc only allows branches that are prefixed with `feature/`:
 config.validate_branch_name = -> (branch_name) { /feature\/.*/ =~ branch_name }
 ```
 
-6. Pull request commit message
+### 6. Pull request commit message
 
 If the branch is newly created, Startling must create an empty commit in order
 to open a pull request. The commit message for the empty commit can be set:
@@ -106,7 +107,8 @@ to open a pull request. The commit message for the empty commit can be set:
 ```ruby
 config.pull_request_commit_message = "Startling"
 ```
-7. Pull request description
+
+### 7. Pull request description
 
 You will be prompted to set a title for the pull request, but the pull request
 description is set to a default value that can be configured:
@@ -115,9 +117,9 @@ description is set to a default value that can be configured:
 config.pull_request_body = "Startling Body"
 ```
 
-8. Pull request labels
+### 8. Pull request labels
 
-You set one or more labels on the pull request:
+You can set one or more labels on the pull request:
 
 ```ruby
 config.pull_request_labels = [WIP, REVIEW, HOLD]
@@ -155,6 +157,10 @@ Ruby class that inherits from the Startling::Commands::Base class and
 implements an execute method. Add your command class to the corresponding
 config value for the stage in which your command should be executed.
 
+```ruby
+config.hook_commands.before_story_start = [:check_wip]
+```
+
 ## Handlers
 
 Handlers allow for customization of Startling behavior.
@@ -174,6 +180,10 @@ Custom handlers should be put in the startling/handlers directory.
 
 Create a Ruby class that inherits from the PullRequestHandler::Base class. Set
 `pull_request_handler` config value to your handler class.
+
+```ruby
+config.pull_request_handler = :default_pull_request_handler
+```
 
 ## Development
 
