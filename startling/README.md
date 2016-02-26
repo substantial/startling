@@ -1,5 +1,15 @@
 # Startling
 
+Utility script for starting a story from a Github repository.
+
+1. Checks WIP limit. (optional)
+1. Starts the story in your project management tool (optional).
+   [Pivotal Tracker](https://rubygems.org/gems/startling_pivotal) and
+   [Trello](https://rubygems.org/gems/startling_trello) are
+   supported.
+1. Creates a branch if the specified branch does not already exist.
+1. Opens a pull request on Github.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -21,23 +31,15 @@ Use -H to generate a handler folder and -C to generate a commands folder
 
 ## Configuration
 
-Startlingfile.rb or startlingfile.rb should be defined in the root of the project. It can contain a block for configuration:
+Startlingfile.rb or startlingfile.rb should be defined in the root of the
+project. It can contain a block for configuration:
 
 ```ruby
 Startling.configure do |config|
-  # WIP Limit
-  # config.wip_limit = 4
-
-  # Labels for WIP pull requests
-  # config.wip_labels = ["WIP", "REVIEW"]
-
-  # Repos to check against for WIP limit
-  # config.repos << "substantial/startling"
-
   # Commands to be run before a story is stared
   # config.hook_commands.before_story_start = [:check_wip]
 
-  # Command to be run after a story has started
+  # Commands to be run after a story has started
   # config.hook_commands.after_story_start = []
 
   # Commands to be run before a pull request is created
@@ -49,21 +51,78 @@ Startling.configure do |config|
   # Handler used to start a provider specific story related to the pull request
   # config.story_handler = :pivotal_start
 
-  # Validate branch name with a Proc that returns a boolean
-  # config.validate_branch_name = -> (branch_name) { /feature\/.*/ =~ branch_name }
-
-  # Message for pull request commit
-  # config.pull_request_commit_message = "Startling"
-
-  # Message for pull request body
-  # config.pull_request_body = "Startling Body"
-
-  # Labels for a pull request
-  # config.pull_request_labels = [WIP, REVIEW, HOLD]
-
   # Handler used for setting the title and body of a pull request
-  #config.pull_request_handler = :custom_pull_request_handler
+  # config.pull_request_handler = :default_pull_request_handler
 end
+```
+
+1. WIP limit
+
+WIP is calculated by the number of pull requests open in the repository. 
+
+Set WIP limit:
+
+```ruby
+config.wip_limit = 4
+```
+2. WIP labels
+
+You can limit the pull requests included in WIP by configuring the pull request
+labels for WIP.
+
+```ruby
+config.wip_labels = ["WIP", "REVIEW"]
+```
+
+3. WIP repositories
+
+WIP limit can be checked across multiple Github repositories. Use the same
+branch name across repositories to count multiple pull requests as only one WIP.
+
+```ruby
+config.repos << "substantial/startling"
+```
+
+4. Check WIP limit before starting story:
+
+```ruby
+config.hook_commands.before_story_start = [:check_wip]
+```
+
+5. Branch name
+
+You can check the branch name being used with a custom Proc. For example, this
+Proc only allows branches that are prefixed with `feature/`:
+
+```ruby
+config.validate_branch_name = -> (branch_name) { /feature\/.*/ =~ branch_name }
+```
+
+6. Pull request commit message
+
+If the branch is newly created, Startling must create an empty commit in order
+to open a pull request. The commit message for the empty commit can be set:
+
+```ruby
+config.pull_request_commit_message = "Startling"
+```
+7. Pull request description
+
+You will be prompted to set a title for the pull request, but the pull request
+description is set to a default value that can be configured:
+
+```ruby
+config.pull_request_body = "Startling Body"
+```
+
+8. Pull request labels
+
+You set one or more labels on the pull request:
+
+```ruby
+config.pull_request_labels = [WIP, REVIEW, HOLD]
+
+config.hook_commands.after_pull_request = [:label_pull_request]
 ```
 
 ## Usage
