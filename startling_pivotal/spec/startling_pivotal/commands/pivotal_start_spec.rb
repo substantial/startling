@@ -99,7 +99,7 @@ module Startling
           it 'prompts for story id' do
             allow_any_instance_of(PivotalStart).to receive(:ask) { '#123' }
 
-            expect(pivotal_start.get_story_id).to eq('123')
+            expect(pivotal_start.get_story_id).to eq('#123')
           end
 
           it 'returns error message if no story id is entered in prompt' do
