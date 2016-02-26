@@ -34,7 +34,7 @@ Startling.configure do |config|
   # Commands to be run before a story is stared
   # config.hook_commands.before_story_start = [:check_wip]
 
-  # Command to be run after a story has started
+  # Commands to be run after a story has started
   # config.hook_commands.after_story_start = []
 
   # Commands to be run before a pull request is created
@@ -59,7 +59,7 @@ Startling.configure do |config|
   # config.pull_request_labels = [WIP, REVIEW, HOLD]
 
   # Handler used for setting the title and body of a pull request
-  #config.pull_request_handler = :#{pull_request_handler_file}
+  # config.pull_request_handler = :#{pull_request_handler_file}
 end
 CONFIG
         end
