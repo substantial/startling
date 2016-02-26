@@ -8,6 +8,8 @@ module Startling
     class TrelloStart < Base
       def execute
         Startling::Configuration.load_configuration
+
+        logger.info "Starting story..."
         doing_list_id = get_doing_list_id
 
         api = StartlingTrello.api
