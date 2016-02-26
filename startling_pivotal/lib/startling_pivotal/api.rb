@@ -18,7 +18,7 @@ module StartlingPivotal
     end
 
     def story(id)
-      get("stories/#{id}")
+      get("stories/#{id.gsub(/[^0-9]/, '')}")
     end
 
     def update_story(id, attrs)
