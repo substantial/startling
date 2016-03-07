@@ -26,8 +26,14 @@ describe Startling::Handlers::DefaultPullRequestHandler do
       expect(subject.title).to eq(story.pull_request_title)
     end
 
-    it 'returns the story pull request body' do
-      expect(subject.body).to eq(story.pull_request_body_text)
+    it 'returns the story pull request body and the configured pull request body' do
+      body = 'Configured body'
+
+      allow(Startling).to receive(:pull_request_body) { body }
+
+      expected_body = "#{story.pull_request_body_text}\n\n#{body}"
+
+      expect(subject.body).to eq(expected_body)
     end
   end
 

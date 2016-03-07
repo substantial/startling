@@ -11,7 +11,7 @@ module Startling
       end
 
       def body
-        (story) ? story.pull_request_body_text : Startling.pull_request_body
+        (story) ? get_story_body : Startling.pull_request_body
       end
 
       def commit_message
@@ -19,6 +19,10 @@ module Startling
       end
 
       private
+
+      def get_story_body
+        "#{story.pull_request_body_text}\n\n#{Startling.pull_request_body}"
+      end
 
       def get_title
         if story
