@@ -6,8 +6,6 @@ module Startling
     describe TrelloStart do
       let(:card_id) { '123abc' }
       let(:card_url) { 'https://trello.com/c/123abc' }
-      let(:card_url_b) { 'https://trello.com/c/123abc/my-trello-card' }
-      let(:card_url_c) { 'https://trello.com/c/123abc/' }
       let(:attrs) { { story_id: card_url } }
       let(:trello_start) { TrelloStart.new(attrs) }
 
@@ -115,13 +113,13 @@ module Startling
           end
 
           it 'extracts the trello id from long trello urls' do
-            allow_any_instance_of(TrelloStart).to receive(:get_card_url) { card_url_b }
+            allow_any_instance_of(TrelloStart).to receive(:get_card_url) { 'https://trello.com/c/123abc/my-trello-card' }
 
             expect(trello_start.get_card_id).to eq(card_id)
           end
 
           it 'extracts the trello id from short trello urls with trailing forward slash' do
-            allow_any_instance_of(TrelloStart).to receive(:get_card_url) { card_url_c }
+            allow_any_instance_of(TrelloStart).to receive(:get_card_url) { 'https://trello.com/c/123abc/' }
 
             expect(trello_start.get_card_id).to eq(card_id)
           end

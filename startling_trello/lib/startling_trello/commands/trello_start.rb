@@ -23,7 +23,7 @@ module Startling
       end
 
       def get_card_id
-        /trello.com\/c\/\w*/.match(get_card_url)[0].split("/").last
+        %r{trello.com/c/(\w*)}.match(get_card_url)[1]
       end
 
       def get_card_url
