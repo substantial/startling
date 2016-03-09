@@ -104,6 +104,26 @@ module Startling
             expect { trello_start.get_card_url }.to raise_exception(SystemExit)
           end
         end
+
+        describe "#get_card_id" do
+          it 'extracts the trello id from short trello urls' do
+            allow_any_instance_of(TrelloStart).to receive(:get_card_url) { card_url }
+
+            expect(trello_start.get_card_id).to eq(card_id)
+          end
+
+          it 'extracts the trello id from long trello urls' do
+            allow_any_instance_of(TrelloStart).to receive(:get_card_url) { 'https://trello.com/c/123abc/my-trello-card' }
+
+            expect(trello_start.get_card_id).to eq(card_id)
+          end
+
+          it 'extracts the trello id from short trello urls with trailing forward slash' do
+            allow_any_instance_of(TrelloStart).to receive(:get_card_url) { 'https://trello.com/c/123abc/' }
+
+            expect(trello_start.get_card_id).to eq(card_id)
+          end
+        end
       end
     end
   end
