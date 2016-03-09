@@ -13,9 +13,13 @@ module Startling
     end
 
     def format_pull_request(pull_request)
-      "#{format_pull_request_labels(pull_request)}: #{pull_request.title}\n" +
+      "#{pull_request_labels(pull_request)}#{pull_request.title}\n" +
         "  Started #{ago pull_request.created_at}, last updated #{ago pull_request.updated_at}\n" +
         "  #{pull_request.url.cyan.underline}"
+    end
+
+    def pull_request_labels(pull_request)
+      pull_request.labels.count > 0 ? "#{format_pull_request_labels(pull_request)}: " : ""
     end
 
     def format_work(work)
