@@ -13,13 +13,9 @@ module Startling
     end
 
     def format_pull_request(pull_request)
-      "#{pull_request_labels(pull_request)}#{pull_request.title}\n" +
+      "#{format_pull_request_labels(pull_request)}#{pull_request.title}\n" +
         "  Started #{ago pull_request.created_at}, last updated #{ago pull_request.updated_at}\n" +
         "  #{pull_request.url.cyan.underline}"
-    end
-
-    def pull_request_labels(pull_request)
-      pull_request.labels.count > 0 ? "#{format_pull_request_labels(pull_request)}: " : ""
     end
 
     def format_work(work)
@@ -49,9 +45,11 @@ module Startling
 
     private
     def format_pull_request_labels(pull_request)
-      pull_request.labels.map do |label|
+      labels = pull_request.labels.map do |label|
         Paint[label[:name], :black, label[:color]]
-      end.join(", ")
+      end.join(" ")
+
+      labels.empty? ? labels : labels.concat(" ")
     end
   end
 end
