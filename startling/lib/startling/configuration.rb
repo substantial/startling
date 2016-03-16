@@ -31,8 +31,9 @@ module Startling
     attr_accessor :developer_public_key, :doing_list_id
 
     def initialize
-      @cache_dir = Dir.pwd
-      @root_dir = Dir.pwd
+      git_root = Startling::GitLocal.new.project_root
+      @cache_dir = git_root
+      @root_dir = git_root
       @wip_limit = DEFAULT_WIP_LIMIT
       @wip_labels = []
       @repos = [GitLocal.new.repo_name]
