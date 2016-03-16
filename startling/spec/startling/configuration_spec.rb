@@ -5,18 +5,19 @@ module Startling
   describe Configuration do
     let(:configuration) { Configuration.new }
     let(:current_repo) { 'current' }
+    let(:git_root) { `git rev-parse --show-toplevel`.strip }
 
     before do
       allow_any_instance_of(GitLocal).to receive(:repo_name) { current_repo }
     end
 
     describe "Default settings" do
-      it "sets the default cache_dir to pwd" do
-        expect(configuration.cache_dir).to eql(Dir.pwd)
+      it "sets the default cache_dir to git root dir" do
+        expect(configuration.cache_dir).to eql(git_root)
       end
 
-      it "sets the default root_dir to pwd" do
-        expect(configuration.root_dir).to eql(Dir.pwd)
+      it "sets the default root_dir to git root dir" do
+        expect(configuration.root_dir).to eql(git_root)
       end
 
       it "sets the default wip limit to WIP_LIMIT" do
