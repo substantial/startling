@@ -50,5 +50,15 @@ module StartlingTrello
       token = @client.find(:token, @member_token)
       @client.find(:member, token.member_id)
     end
+
+    def card_has_link?(card, url)
+      card.attachments().any? {|attachment| attachment.url == url}
+    end
+
+    def add_link_to_card(card, url)
+      unless card_has_link?(card, url)
+        card.add_attachment(url)
+      end
+    end
   end
 end

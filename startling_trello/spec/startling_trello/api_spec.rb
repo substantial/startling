@@ -95,5 +95,38 @@ module StartlingTrello
 
       api.add_member_to_card(card)
     end
+
+
+    describe '#add_link_to_card' do
+      let(:url) { 'https://github.com/substantial/startling/pull/3' }
+      let(:attachment) {
+        Trello::Attachment.new({
+          'id'           => 'abcdef123456789123456789',
+          'name'         => 'Pull Request',
+          'url'          => 'https://github.com/substantial/startling/pull/3',
+          'bytes'        => 0,
+          'idMember'     => 'abcdef123456789123456781',
+          'isUpload'     => false,
+          'date'         => '2013-02-28T17:12:28.497Z',
+          'previews'     => 'previews'
+        })
+      }
+
+      it 'adds a url attachment to the card' do
+        card = double(:card)
+        allow(card).to receive(:attachments) { [] }
+        expect(card).to receive(:add_attachment)
+
+        api.add_link_to_card(card, url)
+      end
+
+      it 'does not add a link to the card if there already is one' do
+        card = double(:card)
+        allow(card).to receive(:attachments) { [ attachment ] }
+        expect(card).not_to receive(:add_attachment)
+
+        api.add_link_to_card(card, url)
+      end
+    end
   end
 end
